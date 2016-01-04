@@ -32,9 +32,28 @@
 #define CONCAT( a, b ) CONCATEXT( a, b )
 #define PX( prefix ) CONCAT( PREFIX, prefix )
 
+#ifdef __INTEL_COMPILER
+
+#define __builtin_huge_val() HUGE_VAL
+#define __builtin_huge_valf() HUGE_VALF
+#define __builtin_nan nan
+#define __builtin_nanf nanf
+#define __builtin_nans nan
+#define __builtin_nansf nanf
+
+#endif
+
+#define ARMA_USE_CXX11
+#include <armadillo>
+
+#define PLOTLIB_ARMA
+#include "plot/plotting.h"
+
 #include <gtest/gtest.h>
 
 #include <unordered_set>
+
+using namespace arma;
 
 template<typename T, size_t size>
 ::testing::AssertionResult ArraysMatch( const T( &expected )[size],

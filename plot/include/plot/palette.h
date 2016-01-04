@@ -53,6 +53,12 @@ public:
         return *this;
     }
 
+    Palette &SetColourMap( bool map )
+    {
+        mArguments << ", as_cmap=" << ( map ? "True" : "False" );
+        return *this;
+    }
+
 protected:
 
     std::stringstream mStream;
@@ -64,28 +70,37 @@ protected:
         switch ( palette )
         {
         case Type::Deep:
-            return "deep";
+            return "'deep'";
 
         case Type::Muted:
-            return "muted";
+            return "'muted'";
 
         case Type::Bright:
-            return "bright";
+            return "'bright'";
 
         case Type::Pastel:
-            return "pastel";
+            return "'pastel'";
 
         case Type::Dark:
-            return "dark";
+            return "'dark'";
 
         case Type::ColourBlind:
-            return "colorblind";
+            return "'colorblind'";
 
         case Type::Reset:
-            return "None";
+            return "'None'";
 
         case Type::Other:
-            return mStream.str() + ")";
+            {
+                std::string arguments = mArguments.str();
+
+                if ( arguments.size() > 0 && *arguments.begin() == ',' )
+                {
+                    arguments = std::string( arguments.begin() + 1, arguments.end() );
+                }
+
+                return mStream.str() + arguments + ")";
+            }
         }
 
         return "";
@@ -105,25 +120,25 @@ public:
 
     HUSLPalette &SetColours( size_t nColours )
     {
-        mStream << ", n_colours=" << nColours;
+        mArguments << ", n_colours=" << nColours;
         return *this;
     }
 
     HUSLPalette &SetH( double h )
     {
-        mStream << ", h=" << h;
+        mArguments << ", h=" << h;
         return *this;
     }
 
     HUSLPalette &SetS( double s )
     {
-        mStream << ", s=" << s;
+        mArguments << ", s=" << s;
         return *this;
     }
 
     HUSLPalette &SetL( double l )
     {
-        mStream << ", l=" << l;
+        mArguments << ", l=" << l;
         return *this;
     }
 };
@@ -136,30 +151,30 @@ public:
     HLSPalette()
         : Palette( Type::Other )
     {
-        mStream << "sns.hls_palette(";
+        mArguments << "sns.hls_palette(";
     }
 
     HLSPalette &SetColours( size_t nColours )
     {
-        mStream << ", n_colours=" << nColours;
+        mArguments << ", n_colours=" << nColours;
         return *this;
     }
 
     HLSPalette &SetH( double h )
     {
-        mStream << ", h=" << h;
+        mArguments << ", h=" << h;
         return *this;
     }
 
     HLSPalette &SetS( double s )
     {
-        mStream << ", s=" << s;
+        mArguments << ", s=" << s;
         return *this;
     }
 
     HLSPalette &SetL( double l )
     {
-        mStream << ", l=" << l;
+        mArguments << ", l=" << l;
         return *this;
     }
 };
@@ -177,49 +192,49 @@ public:
 
     CubeHelixPalette &SetColours( size_t nColours )
     {
-        mStream << ", n_colours=" << nColours;
+        mArguments << ", n_colours=" << nColours;
         return *this;
     }
 
     CubeHelixPalette &SetStart( double start )
     {
-        mStream << ", start=" << start;
+        mArguments << ", start=" << start;
         return *this;
     }
 
     CubeHelixPalette &SetRot( double rot )
     {
-        mStream << ", rot=" << rot;
+        mArguments << ", rot=" << rot;
         return *this;
     }
 
     CubeHelixPalette &SetGamma( double gamma )
     {
-        mStream << ", gamma=" << gamma;
+        mArguments << ", gamma=" << gamma;
         return *this;
     }
 
     CubeHelixPalette &SetHue( double hue )
     {
-        mStream << ", hue=" << hue;
+        mArguments << ", hue=" << hue;
         return *this;
     }
 
     CubeHelixPalette &SetDark( double dark )
     {
-        mStream << ", dark=" << dark;
+        mArguments << ", dark=" << dark;
         return *this;
     }
 
     CubeHelixPalette &SetLight( double light )
     {
-        mStream << ", light=" << light;
+        mArguments << ", light=" << light;
         return *this;
     }
 
     CubeHelixPalette &SetReverse( bool reverse )
     {
-        mStream << ", reverse=" << ( reverse ? "True" : "False" );
+        mArguments << ", reverse=" << ( reverse ? "True" : "False" );
         return *this;
     }
 };

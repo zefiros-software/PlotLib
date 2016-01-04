@@ -7,12 +7,12 @@
 
 #include <string>
 
-class DistPlot
+class DistrPlot
     : public AbstractPlot
 {
 public:
 
-    DistPlot( const Vec &a )
+    DistrPlot( const Vec &a )
     {
         mStream << "sns.distplot(" << ToArray( a );
     }
@@ -22,62 +22,62 @@ public:
         return mStream.str() + " )";
     }
 
-    DistPlot &SetBins( bool log = false )
+    DistrPlot &SetBins( bool log = false )
     {
         mStream << ", bins=" << ( log ? "'log'" : "None" );
         return *this;
     }
 
-    DistPlot &SetBinsSize( const Vec &seq )
+    DistrPlot &SetBins( const Vec &seq )
     {
         const bool isSingular = seq.GetSize() == 1;
         mStream << ", bins=" << isSingular ? std::to_string( seq.GetData()[0] ) : ToArray( seq );
         return *this;
     }
 
-    DistPlot &SetHist( bool hist )
+    DistrPlot &SetHist( bool hist )
     {
         mStream << ", hist=" << GetBool( hist );
         return *this;
     }
 
-    DistPlot &SetKDE( bool kde )
+    DistrPlot &SetKDE( bool kde )
     {
         mStream << ", kde=" << GetBool( kde );
         return *this;
     }
 
-    DistPlot &SetRUG( bool rug )
+    DistrPlot &SetRUG( bool rug )
     {
         mStream << " , rug=" << GetBool( rug );
         return *this;
     }
 
-    DistPlot &SetVerical( bool vertical )
+    DistrPlot &SetVerical( bool vertical )
     {
         mStream << " , vertical=" << GetBool( vertical );
         return *this;
     }
 
-    DistPlot &SetNormHist( bool normHist )
+    DistrPlot &SetNormHist( bool normHist )
     {
         mStream << " , norm_hist=" << GetBool( normHist );
         return *this;
     }
 
-    DistPlot &SetAxLabel( const std::string &axlabel )
+    DistrPlot &SetAxLabel( const std::string &axlabel )
     {
         mStream << " , axlabel='" << axlabel  << "'";
         return *this;
     }
 
-    DistPlot &SetAxLabel()
+    DistrPlot &SetAxLabel()
     {
         mStream << " , axlabel=False";
         return *this;
     }
 
-    DistPlot &SetLabel( const std::string &label )
+    DistrPlot &SetLabel( const std::string &label )
     {
         mStream << " , label='" << label << "'";
         return *this;

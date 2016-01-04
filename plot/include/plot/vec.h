@@ -9,6 +9,7 @@
 #pragma warning(pop)
 #endif
 
+#include <initializer_list>
 #include <algorithm>
 #include <vector>
 

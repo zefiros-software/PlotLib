@@ -3,6 +3,7 @@
 #define __ABSTRACTPLOT_H__
 
 #include "plot/vec.h"
+#include "plot/mat.h"
 
 #include <sstream>
 #include <string>
@@ -28,9 +29,33 @@ public:
         return ToArray( vec.GetData() );
     }
 
+    static std::string ToArray( const Mat &vec )
+    {
+        return ToArray( vec.GetData() );
+    }
+
     static std::string ToArray( const std::vector< double > &vec )
     {
         return "[" + ToString( vec.begin(), vec.end() ) + "]";
+    }
+
+    static std::string ToArray( const std::vector< std::vector< double > > &mat )
+    {
+        std::stringstream stream;
+        stream << "[";
+        bool first = true;
+
+        for ( auto vec : mat )
+        {
+            if ( !first )
+            {
+                stream << ",";
+            }
+
+            stream << "[" + ToString( vec.begin(), vec.end() ) + "]";
+        }
+
+        return stream.str();
     }
 
     static std::string ToArray( const std::vector<std::string> &vec )

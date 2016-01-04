@@ -6,6 +6,7 @@
 #include "plot/linePlot.h"
 #include "plot/plot.h"
 #include "plot/vec.h"
+#include "plot/plot.h"
 
 namespace EasyPlot
 {

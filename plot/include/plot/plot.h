@@ -2,17 +2,8 @@
 #ifndef __PLOT_H__
 #define __PLOT_H__
 
-#include "plot/scatterPlot.h"
-#include "plot/logLogPlot.h"
-#include "plot/jointPlot.h"
-#include "plot/distPlot.h"
-#include "plot/semiLogX.h"
-#include "plot/semiLogY.h"
-#include "plot/linePlot.h"
-#include "plot/easyPlot.h"
+#include "plot/abstractPlot.h"
 #include "plot/palette.h"
-#include "plot/kdePlot.h"
-#include "plot/rugPlot.h"
 
 #include <sstream>
 #include <vector>
@@ -64,10 +55,10 @@ public:
 
     Plot()
     {
-        mStream << "import seaborn as sns\n"
-                "import numpy as np\n"
-                "import pandas as pd\n"
-                "import matplotlib.pyplot as plt\n";
+        mInitStream << "import seaborn as sns\n"
+                    "import numpy as np\n"
+                    "import pandas as pd\n"
+                    "import matplotlib.pyplot as plt\n";
 
         Set( Context::Poster, 1.2 );
 
@@ -182,7 +173,7 @@ public:
 
     Plot &SetXKCD()
     {
-        mStream << "plt.xkcd()\n";
+        mInitStream << "plt.xkcd()\n";
 
         return *this;
     }
@@ -210,7 +201,7 @@ public:
 
     Plot &SetPalette( const Palette &palette )
     {
-        mStream << "sns.set_palette(" << palette.ToString() << palette.GetArguments() << ")\n";
+        mStream << "sns.set_palette(" << palette.ToString() << ")\n";
 
         return *this;
     }
@@ -240,7 +231,7 @@ public:
     {
         std::ofstream ss( "plot.in" );
 
-        ss << mStream.str() <<  "\nplt.tight_layout()\nplt.show()";
+        ss << mInitStream.str() << mStream.str() <<  "\nplt.tight_layout()\nplt.show()";
 
         ss.close();
 
@@ -253,7 +244,7 @@ public:
     {
         std::ofstream ss( "plot.in" );
 
-        ss << mStream.str() << "\nplt.tight_layout()\nplt.savefig('" << fname << "')";
+        ss << mInitStream.str() << mStream.str() << "\nplt.tight_layout()\nplt.savefig('" << fname << "')";
 
         ss.close();
 
@@ -278,6 +269,7 @@ public:
 
 protected:
 
+    std::stringstream mInitStream;
     std::stringstream mStream;
 
     static std::string GetContext( Context context )
