@@ -37,7 +37,7 @@ public:
     {
         size_t i = 0;
 
-        data.each_row( [&]( const arma::vec & v )
+        data.each_row( [&]( const arma::rowvec & v )
         {
             mData[i++] = arma::conv_to< std::vector<double> >::from( v );
         } );

@@ -61,8 +61,6 @@ public:
                     "import matplotlib.pyplot as plt\n";
 
         Set( Context::Poster, 1.2 );
-
-        Despine();
     }
 
     Plot( const AbstractPlot &plot )
@@ -230,8 +228,9 @@ public:
     Plot &Show()
     {
         std::ofstream ss( "plot.in" );
+        SetTightLayout();
 
-        ss << mInitStream.str() << mStream.str() <<  "\nplt.tight_layout()\nplt.show()";
+        ss << mInitStream.str() << mStream.str() <<  "\nplt.show()";
 
         ss.close();
 
@@ -240,11 +239,16 @@ public:
         return *this;
     }
 
+    void SetTightLayout()
+    {
+        mStream << "\ntry:\n\tplt.tight_layout()\nexcept:\n\tpass";
+    }
+
     Plot &Save( const std::string &fname )
     {
         std::ofstream ss( "plot.in" );
 
-        ss << mInitStream.str() << mStream.str() << "\nplt.tight_layout()\nplt.savefig('" << fname << "')";
+        ss << mInitStream.str() << mStream.str() << "\nplt.savefig('" << fname << "')";
 
         ss.close();
 

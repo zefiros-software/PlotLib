@@ -53,14 +53,20 @@ public:
             }
 
             stream << "[" + ToString( vec.begin(), vec.end() ) + "]";
+            first = false;
         }
 
-        return stream.str();
+        return stream.str() + "]";
     }
 
     static std::string ToArray( const std::vector<std::string> &vec )
     {
         return "[" + ToString( vec.begin(), vec.end(), "'" ) + "]";
+    }
+
+    static std::string ToArray( const std::vector<bool> &vec )
+    {
+        return "[" + ToString( vec.begin(), vec.end() ) + "]";
     }
 
 protected:

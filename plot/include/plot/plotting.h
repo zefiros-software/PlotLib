@@ -2,10 +2,14 @@
 #ifndef __PLOTTING_H__
 #define __PLOTTING_H__
 
+#include "plot/clusterMapPlot.h"
 #include "plot/residualPlot.h"
 #include "plot/interactPlot.h"
+#include "plot/heatMapPlot.h"
 #include "plot/scatterPlot.h"
+#include "plot/palettePlot.h"
 #include "plot/logLogPlot.h"
+#include "plot/hexBinPlot.h"
 #include "plot/jointPlot.h"
 #include "plot/distrPlot.h"
 #include "plot/semiLogX.h"
