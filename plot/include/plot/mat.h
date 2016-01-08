@@ -30,6 +30,27 @@ public:
         CheckDimensions( mData );
     }
 
+    Mat( const std::vector< std::vector< std::string > > &data )
+        : mStrData( data )
+    {
+    }
+
+    Mat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map )
+    {
+        mStrData.resize( data.size() );
+        size_t i = 0;
+
+        for ( auto &vec : data )
+        {
+            for ( auto &val : vec )
+            {
+                mStrData[i].push_back( map.at( val ) );
+            }
+
+            ++i;
+        }
+    }
+
 #ifdef PLOTLIB_ARMA
 
     Mat( const arma::mat &data )
@@ -50,6 +71,13 @@ public:
         return mData;
     }
 
+
+
+    const std::vector< std::vector< std::string > > &GetStrings() const
+    {
+        return mStrData;
+    }
+
     size_t GetSize() const
     {
         return mData.size();
@@ -58,6 +86,7 @@ public:
 private:
 
     std::vector< std::vector< double > > mData;
+    std::vector< std::vector< std::string > > mStrData;
 
     static void CheckDimensions( const std::vector< std::vector< double > > &data )
     {

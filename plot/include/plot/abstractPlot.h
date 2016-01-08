@@ -26,17 +26,14 @@ public:
 
     static std::string ToArray( const Vec &vec )
     {
-        return ToArray( vec.GetData() );
+        const std::vector< std::string > vecStr = vec.GetStrings();
+        return vecStr.size() ? ToArray( vecStr ) : ToArray( vec.GetData() );
     }
 
-    static std::string ToArray( const Mat &vec )
+    static std::string ToArray( const Mat &mat )
     {
-        return ToArray( vec.GetData() );
-    }
-
-    static std::string ToArray( const std::vector< double > &vec )
-    {
-        return "[" + ToString( vec.begin(), vec.end() ) + "]";
+        const std::vector<std::vector< std::string > > matStr = mat.GetStrings();
+        return matStr.size() ? ToArray( matStr ) : ToArray( mat.GetData() );
     }
 
     static std::string ToArray( const std::vector< std::vector< double > > &mat )
@@ -57,6 +54,31 @@ public:
         }
 
         return stream.str() + "]";
+    }
+
+    static std::string ToArray( const std::vector< std::vector< std::string > > &mat )
+    {
+        std::stringstream stream;
+        stream << "[";
+        bool first = true;
+
+        for ( auto vec : mat )
+        {
+            if ( !first )
+            {
+                stream << ",";
+            }
+
+            stream << "[" + ToString( vec.begin(), vec.end() ) + "]";
+            first = false;
+        }
+
+        return stream.str() + "]";
+    }
+
+    static std::string ToArray( const std::vector< double > &vec )
+    {
+        return "[" + ToString( vec.begin(), vec.end() ) + "]";
     }
 
     static std::string ToArray( const std::vector<std::string> &vec )

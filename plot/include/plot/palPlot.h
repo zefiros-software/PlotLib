@@ -1,28 +1,27 @@
 #pragma once
-#ifndef __PALETTEPLOT_H__
-#define __PALETTEPLOT_H__
+#ifndef __PALPLOT_H__
+#define __PALPLOT_H__
 
 #include "plot/abstractPlot.h"
 #include "plot/palette.h"
 
 #include <string>
 
-class PalettePlot
+class PalPlot
     : public AbstractPlot
 {
 public:
 
-    PalettePlot( const Palette &palette )
+    PalPlot( Palette palette )
     {
-        mStream << "sns.palplot(" << palette.ToString();
+        mStream << "plt.palplot(" << palette.ToString();
     }
-
     virtual std::string ToString() const override
     {
         return mStream.str() + " )";
     }
 
-    PalettePlot &SetSize( double size )
+    PalPlot &SetSize( double size )
     {
         mStream << ", size=" << size;
         return *this;

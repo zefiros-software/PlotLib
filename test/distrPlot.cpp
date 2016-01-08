@@ -3,10 +3,10 @@
 TEST( PX( DirectOLS ), Simple )
 {
     vec ex = linspace( 0, 1, 1000 );
-    vec distr = randn( 8873 );
-    vec distr2 = randn( 8873 );
+    vec distr = randi<vec>( 1000, distr_param( 0, 20 ) );
+    vec distr2 = randn( 1000 );
     Plot()
-    .AddPlot( HexBinPlot( distr, distr2 ).SetColourMap( Palette( Palette::Colour::summer ) ) )
+    .AddPlot( BoxPlot( {{distr, distr2}, {distr, distr2}}, {"Male", "Female"} ) )
     .SetXLabel( "LOL" )
     .SetLegend( {"X", "Y"} )
     .Show();

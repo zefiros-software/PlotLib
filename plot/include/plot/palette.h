@@ -2,7 +2,9 @@
 #ifndef __PALETTE_H__
 #define __PALETTE_H__
 
+#include <stdint.h>
 #include <sstream>
+#include <tuple>
 
 static const char *const PlotLibColours[] =
 {
@@ -437,19 +439,19 @@ public:
         return *this;
     }
 
-    HUSLPalette &SetH( double h )
+    HUSLPalette &SetHue( double h )
     {
         mArguments << ", h=" << h;
         return *this;
     }
 
-    HUSLPalette &SetS( double s )
+    HUSLPalette &SetSaturation( double s )
     {
         mArguments << ", s=" << s;
         return *this;
     }
 
-    HUSLPalette &SetL( double l )
+    HUSLPalette &SetLightness( double l )
     {
         mArguments << ", l=" << l;
         return *this;
@@ -473,19 +475,19 @@ public:
         return *this;
     }
 
-    HLSPalette &SetH( double h )
+    HLSPalette &SetHue( double h )
     {
         mArguments << ", h=" << h;
         return *this;
     }
 
-    HLSPalette &SetS( double s )
+    HLSPalette &SetSaturation( double s )
     {
         mArguments << ", s=" << s;
         return *this;
     }
 
-    HLSPalette &SetL( double l )
+    HLSPalette &SetLightness( double l )
     {
         mArguments << ", l=" << l;
         return *this;
@@ -552,5 +554,151 @@ public:
     }
 };
 
+class DarkPalette
+    : public Palette
+{
+public:
+
+    enum class Input
+    {
+        RGB,
+        HLS,
+        HUSL,
+        XKCD
+    };
+
+    DarkPalette( Colour colour )
+        : Palette( Type::Other )
+    {
+        mArguments << "sns.dark_palette('" << PlotLibColours[static_cast<size_t>( colour )] << "'";
+    }
+
+    DarkPalette( std::tuple< uint8_t, uint8_t, uint8_t > colour, Input input )
+        : Palette( Type::Other )
+    {
+        assert( input != Input::XKCD );
+        mArguments << "sns.dark_palette((" << std::get<0>( colour ) << ","
+                   << std::get<1>( colour ) << ","
+                   << std::get<2>( colour ) << "), input=" << GetInput( input );
+    }
+
+    DarkPalette( const std::string &colour, Input input )
+        : Palette( Type::Other )
+    {
+        assert( input == Input::XKCD );
+        mArguments << "sns.dark_palette(" << colour << ", input=" << GetInput( input );
+    }
+
+    DarkPalette &SetColours( size_t nColours )
+    {
+        mArguments << ", n_colours=" << nColours;
+        return *this;
+    }
+
+    DarkPalette &SetReverse( bool reverse )
+    {
+        mArguments << ", reverse=" << ( reverse ? "True" : "False" );
+        return *this;
+    }
+
+protected:
+
+    DarkPalette( Type type )
+        : Palette( type )
+    {
+    }
+
+    std::string GetInput( Input input )
+    {
+        switch ( input )
+        {
+        case Input::RGB:
+            return "'rgb'";
+
+        case Input::HLS:
+            return "'hls'";
+
+        case Input::HUSL:
+            return "'huls'";
+
+        case Input::XKCD:
+            return "'xkcd'";
+        }
+
+        return "";
+    }
+};
+
+class LightPalette
+    : public DarkPalette
+{
+public:
+
+    LightPalette( Colour colour )
+        : DarkPalette( Type::Other )
+    {
+        mArguments << "sns.light_palette('" << PlotLibColours[static_cast<size_t>( colour )] << "'";
+    }
+
+    LightPalette( std::tuple< uint8_t, uint8_t, uint8_t > colour, Input input )
+        : DarkPalette( Type::Other )
+    {
+        assert( input != Input::XKCD );
+        mArguments << "sns.light_palette((" << std::get<0>( colour ) << ","
+                   << std::get<1>( colour ) << ","
+                   << std::get<2>( colour ) << "), input=" << GetInput( input );
+    }
+
+    LightPalette( const std::string &colour, Input input )
+        : DarkPalette( Type::Other )
+    {
+        assert( input == Input::XKCD );
+        mArguments << "sns.light_palette(" << colour << ", input=" << GetInput( input );
+    }
+};
+
+class DivergingPalette
+    : public Palette
+{
+public:
+
+    enum class Center
+    {
+        Light,
+        Dark
+    };
+
+    DivergingPalette( double hNeg, double hPos )
+        : Palette( Type::Other )
+    {
+        assert( hNeg >= 0 && hNeg <= 359 );
+        assert( hPos >= 0 && hPos <= 359 );
+        mArguments << "sns.diverging_palette(" << hNeg << "," << hPos;
+    }
+
+    DivergingPalette &SetSaturation( double sat )
+    {
+        mArguments << ", s=" << sat;
+        return *this;
+    }
+
+    DivergingPalette &SetLightness( double light )
+    {
+        mArguments << ", l=" << light;
+        return *this;
+    }
+
+    DivergingPalette &SetColours( size_t nColours )
+    {
+        mArguments << ", n_colours=" << nColours;
+        return *this;
+    }
+
+    DivergingPalette &SetCenter( Center center )
+    {
+        mArguments << ", center=" << ( center == Center::Dark ? "'dark'" : "light'" );
+        return *this;
+    }
+};
 
 #endif
