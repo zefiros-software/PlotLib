@@ -15,7 +15,6 @@ public:
 
     InteractPlot( const Vec &endogenous, const Vec &endogenous2, const Vec &exogenous )
     {
-        CubeHelixPalette m;
         mStream << "sns.interactplot(" << ToArray( endogenous ) << "," << ToArray( endogenous2 ) << "," << ToArray( exogenous );
     }
 

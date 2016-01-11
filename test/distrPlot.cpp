@@ -3,10 +3,12 @@
 TEST( PX( DirectOLS ), Simple )
 {
     vec ex = linspace( 0, 1, 1000 );
-    vec distr = randi<vec>( 1000, distr_param( 0, 20 ) );
+    vec distr = randn( 1000 );
     vec distr2 = randn( 1000 );
+    mat ran = randn( 3, 200 );
+    mat ran2 = randn( 3, 200 );
     Plot()
-    .AddPlot( BoxPlot( {{distr, distr2}, {distr, distr2}}, {"Male", "Female"} ) )
+    .AddPlot( AutoCorrelationPlot( distr ) )
     .SetXLabel( "LOL" )
     .SetLegend( {"X", "Y"} )
     .Show();

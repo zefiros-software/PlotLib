@@ -2,7 +2,10 @@
 #ifndef __PLOTTING_H__
 #define __PLOTTING_H__
 
+#include "plot/autoCorrelationPlot.h"
 #include "plot/clusterMapPlot.h"
+#include "plot/regressionPlot.h"
+#include "plot/histogramPlot.h"
 #include "plot/residualPlot.h"
 #include "plot/interactPlot.h"
 #include "plot/heatMapPlot.h"
@@ -20,7 +23,7 @@
 #include "plot/semiLogY.h"
 #include "plot/linePlot.h"
 #include "plot/easyPlot.h"
-#include "plot/palPlot.h"
+#include "plot/pairPlot.h"
 #include "plot/boxPlot.h"
 #include "plot/palette.h"
 #include "plot/palette.h"

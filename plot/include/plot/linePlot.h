@@ -11,9 +11,9 @@ class LinePlot
 {
 public:
 
-    LinePlot( const Vec &exogenous )
+    LinePlot( const Vec &endogenous )
     {
-        mStream << "plt.plot(" << ToArray( exogenous );
+        mStream << "plt.plot(" << ToArray( endogenous );
     }
 
     LinePlot( const Vec &exogenous, const Vec &endogenous )
@@ -26,9 +26,9 @@ public:
         mStream << "plt.plot(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << "," << character;
     }
 
-    LinePlot( const Vec &exogenous, const std::string &character )
+    LinePlot( const Vec &endogenous, const std::string &character )
     {
-        mStream << "plt.plot(" << ToArray( exogenous ) << "," << character;
+        mStream << "plt.plot(" << ToArray( endogenous ) << "," << character;
     }
 
     virtual std::string ToString() const override
@@ -39,6 +39,12 @@ public:
     LinePlot &SetAlpha( double alpha )
     {
         mStream << ", alpha=" << alpha;
+        return *this;
+    }
+
+    LinePlot &SetColour( const std::string &colour )
+    {
+        mStream << ", color = '" << colour << "'";
         return *this;
     }
 
