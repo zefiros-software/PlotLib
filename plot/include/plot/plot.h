@@ -218,6 +218,14 @@ public:
         return *this;
     }
 
+    Plot &SetSize( size_t width, size_t height )
+    {
+        mStream << "fig = gcf()\ndpi = fig.get_dpi()\nfig.set_size_inches("
+                << width << "/float(dpi)," << height << "/float(dpi))";
+
+        return *this;
+    }
+
     Plot &Despine()
     {
         mStream << "\nsns.despine()\n";
@@ -241,14 +249,16 @@ public:
 
     void SetTightLayout()
     {
-        mStream << "\ntry:\n\tplt.tight_layout()\nexcept:\n\tpass";
+        mStream << "\ntry:
+                \n\tplt.tight_layout()\nexcept:
+                \n\tpass";
     }
 
     Plot &Save( const std::string &fname )
     {
         std::ofstream ss( "plot.in" );
 
-        ss << mInitStream.str() << mStream.str() << "\nplt.savefig('" << fname << "')";
+        ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "' )";
 
         ss.close();
 
@@ -259,14 +269,14 @@ public:
 
     Plot &Figure( size_t n )
     {
-        mStream << "\nplt.figure(" << n << ")\n";
+        mStream << "\nplt.figure( " << n << " )\n";
 
         return *this;
     }
 
     Plot &SubPlot( size_t y, size_t x, size_t n )
     {
-        mStream << "\nplt.subplot(" << x << "," << y << "," << n << ")\n";
+        mStream << "\nplt.subplot( " << x << ", " << y << ", " << n << " )\n";
 
         return *this;
     }
@@ -384,7 +394,7 @@ protected:
     {
         std::stringstream ss;
         bool first = true;
-        ss << "{";
+        ss << " {";
 
         for ( auto it = params.begin(), end = params.end(); it != end; ++it )
         {
@@ -393,11 +403,12 @@ protected:
                 ss << ", ";
             }
 
-            ss << "'" << ( *it ).first << "':" << ( *it ).second;
+            ss << "'" << ( *it ).first << "': " << ( *it ).second;
             first = false;
         }
 
-        ss << "}";
+        ss << "
+       }";
 
         return ss.str();
     }
