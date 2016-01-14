@@ -220,7 +220,7 @@ public:
 
     Plot &SetSize( size_t width, size_t height )
     {
-        mStream << "fig = plt.gcf()\ndpi = fig.get_dpi()\nfig.set_size_inches("
+        mStream << "\nfig = plt.gcf()\ndpi = fig.get_dpi()\nfig.set_size_inches("
                 << width << "/float(dpi)," << height << "/float(dpi))";
 
         return *this;
