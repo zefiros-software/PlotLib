@@ -249,9 +249,7 @@ public:
 
     void SetTightLayout()
     {
-        mStream << "\ntry:
-                \n\tplt.tight_layout()\nexcept:
-                \n\tpass";
+        mStream << "\ntry:\n\tplt.tight_layout()\nexcept: \n\tpass";
     }
 
     Plot &Save( const std::string &fname )
