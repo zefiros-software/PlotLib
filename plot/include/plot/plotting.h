@@ -7,6 +7,7 @@
 #include "plot/clusterMapPlot.h"
 #include "plot/regressionPlot.h"
 #include "plot/histogramPlot.h"
+#include "plot/factorBarPlot.h"
 #include "plot/residualPlot.h"
 #include "plot/interactPlot.h"
 #include "plot/annotatePlot.h"

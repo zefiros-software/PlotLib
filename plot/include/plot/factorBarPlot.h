@@ -1,6 +1,6 @@
 #pragma once
-#ifndef __BARPLOT_H__
-#define __BARPLOT_H__
+#ifndef __FACTORBARPLOT_H__
+#define __FACTORBARPLOT_H__
 
 #include "plot/abstractPlot.h"
 #include "plot/palette.h"
@@ -8,7 +8,7 @@
 #include <string>
 #include <tuple>
 
-class BarPlot
+class FactorBarPlot
     : public AbstractPlot
 {
 public:
@@ -19,12 +19,13 @@ public:
         Horizontal
     };
 
-    BarPlot( const Vec &x, const Vec &y )
+    FactorBarPlot( const Vec &x, const Vec &y )
     {
-        mStream << "sns.barplot(" << ToArray( x ) << "," << ToArray( y );
+        mStream << "y = np.array(" << ToArray( y ) << ")\n";
+        mStream << "sns.barplot(" << ToArray( x ) << ", y / y.min()";
     }
 
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data )
+    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data )
     {
         mStream << "x = []\ny = []\n";
         mStream << "x = x ";
@@ -44,7 +45,7 @@ public:
         mStream << "\nsns.barplot( x, y";
     }
 
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
+    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
     {
         mStream << "x = []\ny = []\nh = []\n";
         mStream << "x = x ";
@@ -79,55 +80,55 @@ public:
         return mStream.str() + " )";
     }
 
-    BarPlot &SetOrder( const Vec &order )
+    FactorBarPlot &SetOrder( const Vec &order )
     {
         mStream << ", order = " << ToArray( order );
         return *this;
     }
 
-    BarPlot &SetHueOrder( const std::vector< std::string > &order )
+    FactorBarPlot &SetHueOrder( const std::vector< std::string > &order )
     {
         mStream << ", hue_order = " << ToArray( order );
         return *this;
     }
 
-    BarPlot &SetConfidenceInterval( double ci )
+    FactorBarPlot &SetConfidenceInterval( double ci )
     {
         mStream << ", ci = " << ci;
         return *this;
     }
 
-    BarPlot &SetNBoot( size_t bootstrap )
+    FactorBarPlot &SetNBoot( size_t bootstrap )
     {
         mStream << ", n_boot = " << bootstrap;
         return *this;
     }
 
-    BarPlot &SetOrientation( Orientation orientation )
+    FactorBarPlot &SetOrientation( Orientation orientation )
     {
         mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
         return *this;
     }
 
-    BarPlot &SetColour( const std::string &colour )
+    FactorBarPlot &SetColour( const std::string &colour )
     {
         mStream << ", color = '" << colour << "'";
         return *this;
     }
 
-    BarPlot &SetColourMap( Palette pallet )
+    FactorBarPlot &SetColourMap( Palette pallet )
     {
         mStream << ", palette = " << pallet.ToString();
         return *this;
     }
 
-    BarPlot &SetSaturation( double sat )
+    FactorBarPlot &SetSaturation( double sat )
     {
         mStream << ", saturation = " << sat;
         return *this;
     }
 
-    BarPlot &SetErrorColour( const std::string &colour )
+    FactorBarPlot &SetErrorColour( const std::string &colour )
     {
         mStream << ", errcolor = '" << colour << "'";
         return *this;
