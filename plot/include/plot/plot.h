@@ -431,8 +431,7 @@ protected:
             first = false;
         }
 
-        ss << "
-       }";
+        ss << "}";
 
         return ss.str();
     }

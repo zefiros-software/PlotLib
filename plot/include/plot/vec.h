@@ -47,13 +47,9 @@ class Vec
     friend class Matrix;
 public:
 
-    Vec( const std::vector< double > &data )
-        : mData( data )
-    {
-    }
-
-    Vec( const std::initializer_list< double > &data )
-        : mData( data )
+    template< typename tT >
+    Vec( const std::vector< tT > &data )
+        : mData( data.begin(), data.end() )
     {
     }
 
@@ -70,13 +66,26 @@ public:
         }
     }
 
-    Vec( std::function< Vec( Vec ) > function, double min, double max, size_t n )
-        : Vec( function, LinSpace( min, max, n ) )
+    Vec( double min, double max, size_t n )
+        : Vec( LinSpace( min, max, n ) )
     {
     }
 
-    Vec( std::function< Vec( Vec ) > function, const Vec &x )
-        : mData( function( x ).GetData() )
+    Vec( double min, double max, size_t n, std::function< double( double ) > function )
+        : Vec( LinSpace( min, max, n ), function )
+    {
+    }
+
+    Vec( const Vec &x, std::function< double( double ) > function )
+    {
+        for ( const auto &val : x.GetData() )
+        {
+            mData.push_back( function( val ) );
+        }
+    }
+
+    Vec( const std::initializer_list< double > &data )
+        : mData( data )
     {
     }
 
@@ -123,7 +132,7 @@ private:
     {
         double delta = ( end - start ) / ( num - 1 );
 
-        std::vector<double> linspaced( num - 1 );
+        std::vector<double> linspaced( num );
 
         for ( int i = 0; i < num; ++i )
         {
