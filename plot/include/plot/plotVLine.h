@@ -39,7 +39,7 @@ public:
 
     PlotVLine( double x = 0 )
     {
-        mStream << "ax = plt.gca()\ncolor = next(ax._get_lines.color_cycle)\nplt.axvline(" << y << ",color=color";
+        mStream << "ax = plt.gca()\ncolor = next(ax._get_lines.color_cycle)\nplt.axvline(" << x << ",color=color";
     }
 
     virtual std::string ToString() const override
