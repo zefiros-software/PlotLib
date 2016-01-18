@@ -287,7 +287,7 @@ public:
     {
         std::ofstream ss( "plot.in" );
 
-        ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "' )";
+        ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=90 )";
 
         ss.close();
 
