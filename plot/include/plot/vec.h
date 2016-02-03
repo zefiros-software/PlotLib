@@ -110,7 +110,7 @@ public:
 
     size_t GetSize() const
     {
-        return mData.size();
+        return mStrData.empty() ? mData.size() : mStrData.size();
     }
 
     double Min() const

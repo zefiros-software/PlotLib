@@ -58,7 +58,7 @@ public:
 
     virtual std::string ToString() const override
     {
-        return mStream.str() + " )";
+        return mStream.str() + " )\nplt.colorbar()";
     }
 
 

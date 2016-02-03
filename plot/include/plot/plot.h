@@ -80,13 +80,18 @@ public:
     };
 
     Plot()
+        : Plot( Context::Notebook )
+    {
+    }
+
+    Plot( Context context )
     {
         mInitStream << "import seaborn as sns\n"
                     "import numpy as np\n"
                     "import pandas as pd\n"
                     "import matplotlib.pyplot as plt\n";
 
-        Set( Context::Poster, 1.2 );
+        Set( context, 1.2 );
     }
 
     Plot( const AbstractPlot &plot )
@@ -282,7 +287,7 @@ public:
     {
         std::ofstream ss( "plot.in" );
 
-        ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "' )";
+        ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=90 )";
 
         ss.close();
 
