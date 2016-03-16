@@ -62,6 +62,7 @@
 #include "plot/kdePlot.h"
 #include "plot/rugPlot.h"
 #include "plot/barPlot.h"
+#include "plot/spyPlot.h"
 #include "plot/plot.h"
 
 

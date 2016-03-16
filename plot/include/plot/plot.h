@@ -252,7 +252,7 @@ public:
     Plot &SetSize( size_t width, size_t height )
     {
         mStream << "\nfig = plt.gcf()\ndpi = fig.get_dpi()\nfig.set_size_inches("
-                << width << "/float(dpi)," << height << "/float(dpi), forward=True)";
+                << width << "/float(dpi)," << height << "/float(dpi), forward=True)\n";
 
         return *this;
     }
@@ -278,9 +278,11 @@ public:
         return *this;
     }
 
-    void SetTightLayout()
+    Plot &SetTightLayout()
     {
         mStream << "\ntry:\n\tplt.tight_layout()\nexcept: \n\tpass";
+
+        return *this;
     }
 
     Plot &Save( const std::string &fname )

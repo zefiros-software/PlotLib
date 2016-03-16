@@ -25,22 +25,21 @@
  */
 
 #pragma once
-#ifndef __PLOTHLINE_H__
-#define __PLOTHLINE_H__
+#ifndef __SPYPLOT_H__
+#define __SPYPLOT_H__
 
 #include "plot/abstractPlot.h"
 
 #include <string>
 
-class PlotHLine
+class SpyPlot
     : public AbstractPlot
 {
 public:
 
-    PlotHLine( double x = 0 )
+    SpyPlot( const Mat &mat )
     {
-        //mStream << "ax = plt.gca()\ncolor = next(ax._get_lines.color_cycle)\nplt.axhline(" << x << ",color=color";
-        mStream << "\nplt.axhline(" << x;
+        mStream << "plt.spy(" << ToArray( mat );
     }
 
     virtual std::string ToString() const override
@@ -48,22 +47,22 @@ public:
         return mStream.str() + " )";
     }
 
-    PlotHLine &SetXMin( double xmin )
+    SpyPlot &SetPrecision( double precision )
     {
-        mStream << ", xmin=" << xmin;
+        mStream << ", precision=" << precision;
         return *this;
     }
 
-    PlotHLine &SetXMax( double xmax )
+    SpyPlot &SetMarkerSize( double size )
     {
-        mStream << ", xmax=" << xmax;
+        mStream << ", markersize=" << size;
         return *this;
     }
 
 private:
 
     std::stringstream mStream;
-
 };
+
 
 #endif
