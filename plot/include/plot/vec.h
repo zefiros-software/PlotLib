@@ -67,7 +67,7 @@ public:
 
     Vec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map )
     {
-        for ( auto & val : data )
+        for ( auto &val : data )
         {
             mStrData.push_back( map.at( val ) );
         }
@@ -85,7 +85,7 @@ public:
 
     Vec( const Vec &x, std::function< double( double ) > function )
     {
-        for ( const auto & val : x.GetData() )
+        for ( const auto &val : x.GetData() )
         {
             mData.push_back( function( val ) );
         }
@@ -122,12 +122,12 @@ public:
 
     double Min() const
     {
-        return *std::min( mData.begin(), mData.end() );
+        return *std::min_element( mData.begin(), mData.end() );
     }
 
     double Max() const
     {
-        return *std::max( mData.begin(), mData.end() );
+        return *std::max_element( mData.begin(), mData.end() );
     }
 
 private:

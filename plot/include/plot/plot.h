@@ -215,12 +215,12 @@ public:
     Plot &SetLegend( const std::vector<tT> &titleData, const tFunc &titleFunc )
     {
         std::vector<std::string> titles;
-        
-        for( const tT &title : titleData )
+
+        for ( const tT &title : titleData )
         {
             titles.push_back( titleFunc( title ) );
         }
-        
+
         SetLegend( titles, Location::Best );
 
         return *this;
@@ -295,7 +295,7 @@ public:
         mStream << "colour_cycler = itertools.cycle( " << palette.ToString() << " )\n";
         return *this;
     }
-    
+
     std::string GetColourCycler() const
     {
         assert( mHasColourCycler );
@@ -331,8 +331,11 @@ public:
 
         ss.close();
 
+#ifdef _WIN32
+        system( "python plot.in" );
+#else
         system( "python3.5 plot.in" );
-
+#endif
         return *this;
     }
 
@@ -351,7 +354,11 @@ public:
 
         ss.close();
 
+#ifdef _WIN32
         system( "python plot.in" );
+#else
+        system( "python3.5 plot.in" );
+#endif
 
         return *this;
     }
@@ -381,7 +388,7 @@ protected:
 
     std::stringstream mInitStream;
     std::stringstream mStream;
-    
+
     bool mHasColourCycler;
 
     static std::string GetContext( Context context )
