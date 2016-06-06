@@ -1,0 +1,13 @@
+[
+    {
+        "project": "PlotLib",
+        "do":
+        [
+            {"kind": "StaticLib"},
+            {"flags": [ "C++11" ] },
+            {"exportincludedirs": [
+                "plot/include/"                        
+            ]}
+        ]
+    }
+]    

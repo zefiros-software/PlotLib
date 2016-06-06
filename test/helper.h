@@ -43,7 +43,6 @@
 
 #endif
 
-#define ARMA_USE_CXX11
 #include <armadillo>
 
 #define PLOTLIB_ARMA

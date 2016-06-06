@@ -1,6 +1,4 @@
 @echo off
-cd ./bin
-doxygen ../reference.doxy 
-hhc.exe ../out/html/index.hhp 
-cd "../out/html/"
-move "PlotLib Reference.*" "../../"
+rmdir /s /q out
+%~dp0..\\assets\\Zefiros-Software\\SerLib\\Zefiros-Software\\Doxygen\\bin\\doxygen.exe reference.doxy 
+%~dp0..\\assets\\Zefiros-Software\\SerLib\\Zefiros-Software\\Doxygen\\hhc.exe out\\html\\index.hhp

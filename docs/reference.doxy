@@ -58,7 +58,7 @@ PROJECT_LOGO           =
 # entered, it will be relative to the location where doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = ../out/
+OUTPUT_DIRECTORY       = out/
 
 # If the CREATE_SUBDIRS tag is set to YES then doxygen will create 4096 sub-
 # directories (in 2 levels) under the output directory of each output format and
@@ -699,7 +699,7 @@ FILE_VERSION_FILTER    =
 # DoxygenLayout.xml, doxygen will parse it automatically even if the LAYOUT_FILE
 # tag is left empty.
 
-LAYOUT_FILE            = "../style/DoxygenLayout.xml"
+LAYOUT_FILE            = "style/DoxygenLayout.xml"
 
 # The CITE_BIB_FILES tag can be used to specify one or more bib files containing
 # the reference definitions. This must be a list of .bib files. The .bib
@@ -786,7 +786,7 @@ WARN_LOGFILE           = out.log
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = ../../README.md ../../plot/include/
+INPUT                  = ../README.md ../plot/include/
 
 # This tag can be used to specify the character encoding of the source files
 # that doxygen parses. Internally doxygen uses the UTF-8 encoding. Doxygen uses
@@ -892,7 +892,7 @@ EXCLUDE_SYMBOLS        = Expose*
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           = ../../test/
+EXAMPLE_PATH           = ../test/
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
 # EXAMPLE_PATTERNS tag to specify one or more wildcard pattern (like *.cpp and
@@ -1143,7 +1143,7 @@ HTML_FILE_EXTENSION    = .html
 # of the possible markers and block names see the documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_HEADER            = "header.html"
+HTML_HEADER            = "style/header.html"
 
 # The HTML_FOOTER tag can be used to specify a user-defined HTML footer for each
 # generated HTML page. If the tag is left blank doxygen will generate a standard
@@ -1153,7 +1153,7 @@ HTML_HEADER            = "header.html"
 # that doxygen normally uses.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_FOOTER            = "footer.html"
+HTML_FOOTER            = "style/footer.html"
 
 # The HTML_STYLESHEET tag can be used to specify a user-defined cascading style
 # sheet that is used by each HTML page. It can be used to fine-tune the look of
@@ -1165,7 +1165,7 @@ HTML_FOOTER            = "footer.html"
 # obsolete.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_STYLESHEET        = "../style/customdoxygen.css"
+HTML_STYLESHEET        = "style/customdoxygen.css"
 
 # The HTML_EXTRA_STYLESHEET tag can be used to specify additional user-defined
 # cascading style sheets that are included after the standard style sheets
@@ -1317,7 +1317,7 @@ GENERATE_HTMLHELP      = YES
 # written to the html output directory.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-CHM_FILE               = "PlotLib Reference.chm"
+CHM_FILE               = "../../PlotLib Reference.chm"
 
 # The HHC_LOCATION tag can be used to specify the location (absolute path
 # including file name) of the HTML help compiler (hhc.exe). If non-empty,
@@ -1325,14 +1325,14 @@ CHM_FILE               = "PlotLib Reference.chm"
 # The file has to be specified with full path.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-HHC_LOCATION           = ./hhc.exe
+HHC_LOCATION           = 
 
 # The GENERATE_CHI flag controls if a separate .chi index file is generated
 # (YES) or that it should be included in the master .chm file (NO).
 # The default value is: NO.
 # This tag requires that the tag GENERATE_HTMLHELP is set to YES.
 
-GENERATE_CHI           = YES
+GENERATE_CHI           = NO
 
 # The CHM_INDEX_ENCODING is used to encode HtmlHelp index (hhk), content (hhc)
 # and project file content.
@@ -1578,7 +1578,7 @@ MATHJAX_CODEFILE       =
 # The default value is: YES.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-SEARCHENGINE           = YES
+SEARCHENGINE           = NO
 
 # When the SERVER_BASED_SEARCH tag is enabled the search engine will be
 # implemented using a web server instead of a web client using Javascript. There
@@ -2378,7 +2378,7 @@ INTERACTIVE_SVG        = NO
 # found. If left blank, it is assumed the dot tool can be found in the path.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-DOT_PATH               = ./graphviz/
+DOT_PATH               = "../assets/Zefiros-Software/SerLib/Zefiros-Software/Doxygen/graphviz/release/bin/"
 
 # The DOTFILE_DIRS tag can be used to specify one or more directories that
 # contain dot files that are included in the documentation (see the \dotfile

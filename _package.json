@@ -1,0 +1,46 @@
+{
+    "name": "Zefiros-Software/SerLib",
+    "description": "",
+    "keywords": [],
+    "website": "http://plotlib.eu/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mick van Duijn",
+            "email": "mick.v.duijn@zefiros.eu",
+            "website": "https://zefiros.eu/"
+        },
+        {
+            "name": "Paul Visscher",
+            "email": "p.e.visscher@zefiros.eu",
+            "website": "https://zefiros.eu/"
+        },
+        {
+            "name": "Koen Visscher",
+            "email": "koen.visscher@zefiros.eu",
+            "website": "https://zefiros.eu/"
+        }
+    ],
+    "dev": {
+        "assets": [
+            {
+                "name": "Zefiros-Software/gcov2clover",
+                "version": ">=1.0.0"            
+            },
+            {
+                "name": "Zefiros-Software/Doxygen",
+                "version": ">=1.8.0"            
+            }
+        ],
+        "requires": [
+                {
+                    "name": "Zefiros-Software/GoogleTest",
+                    "version": "@head"
+                },
+                {
+                    "name": "Zefiros-Software/ArmadilloExt",
+                    "version": "@head"
+                }
+            ]
+    }
+}

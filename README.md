@@ -426,7 +426,7 @@ When a bug is found please insert it in the issue tracker, so we can resolve it 
 
 ## Authors
 * Mick van Duijn <mick.v.duijn@zefiros.eu>
-* Paul Visscher <paul.pev@zefiros.eu>
+* Paul Visscher <p.e.visscher@zefiros.eu>
 * Koen Visscher <koen.visscher@zefiros.eu>
 
 ## Used By
@@ -438,6 +438,7 @@ just shoot us a mail. :)
 ## License
 This project is licensed under the MIT license.
 
+```
 Copyright (c) 2015 Mick van Duijn, Koen Visscher and Paul Visscher
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -457,3 +458,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
+```

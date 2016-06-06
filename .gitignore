@@ -1,16 +1,22 @@
+-- artifacts
 bin/*
-build/
-*.opensdf
-*.vcxproj
-*.filters
-*.user
-test/lib/
+
+-- zpm
+._config.json
+
+-- git
 *.orig
-documentation/out/
-*.sln
-My Amplifier XE Results*
+
+-- make
+Makefile
+
+-- visual studio code
+*/.vs/*
+
+-- visual studio
 *.sdf
-*.VC.opendb
-docs/out/*
-*.chi
-*.chm
+*.sln
+*.suo
+*.VC.*
+*.opensdf
+*.vcxproj*
