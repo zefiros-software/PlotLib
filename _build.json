@@ -5,6 +5,7 @@
         [
             {"kind": "StaticLib"},
             {"flags": [ "C++11" ] },
+            {"headeronly": true},
             {"exportincludedirs": [
                 "plot/include/"                        
             ]}
