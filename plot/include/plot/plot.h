@@ -282,6 +282,14 @@ public:
         return *this;
     }
 
+    Plot &SetYScaleSymLog( double linthreshy, double linscaley )
+    {
+        mStream << "plt.yscale('" << GetScale( Scale::Symlog ) << "', linthreshy=" << linthreshy << ", linscaley=" << linscaley
+                << ")\n";
+
+        return *this;
+    }
+
     Plot &AddPlot( const AbstractPlot &plot )
     {
         mStream << "\n" << plot.ToString() << "\n";
