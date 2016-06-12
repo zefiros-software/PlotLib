@@ -22,6 +22,9 @@
         }
     ],
     "dev": {
+        "modules": [
+            "Zefiros-Software/Zefiros-Defaults"
+        ],
         "assets": [
             {
                 "name": "Zefiros-Software/gcov2clover",
@@ -42,5 +45,6 @@
                     "version": "@head"
                 }
             ]
-    }
+    },
+    "install": "install-plotlib.lua"
 }
