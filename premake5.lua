@@ -26,6 +26,6 @@ local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
 
 workspace "PlotLib"
 
-	floatingpoint "Fast"
-
 	zefiros.setDefaults( "plot" )
+
+	floatingpoint "Fast"
