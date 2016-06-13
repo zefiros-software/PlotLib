@@ -34,10 +34,6 @@
             {
                 "name": "Zefiros-Software/Doxygen",
                 "version": ">=1.8.0"
-            },
-            {
-                "name": "Zefiros-Software/Anaconda",
-                "version": ">=4.0.0"
             }
         ],
         "requires": [
@@ -51,5 +47,11 @@
                 }
             ]
     },
+    "assets": [
+        {
+            "name": "Zefiros-Software/Anaconda",
+            "version": ">=4.0.0"
+        }
+    ],
     "install": "install/plotlib.lua"
 }
