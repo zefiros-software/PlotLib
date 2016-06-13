@@ -21,3 +21,6 @@ Makefile
 *.VC.*
 *.opensdf
 *.vcxproj*
+
+-- Intel Tools
+*Amplifier*
