@@ -22,6 +22,6 @@
 -- @endcond
 --]]
 
-dofile( "anaconda.lua" )
+dofile( "assets/Zefiros-Software/PlotLib/Zefiros-Software/Anaconda/anaconda.lua" )
 
 os.execute( "pip install mkdocs -U" )
