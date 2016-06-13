@@ -9,6 +9,7 @@ bin/*
 
 -- make
 Makefile
+*.make
 
 -- visual studio code
 */.vs/*
