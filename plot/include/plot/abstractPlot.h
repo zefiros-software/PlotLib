@@ -82,26 +82,6 @@ public:
         return stream.str() + "]";
     }
 
-    static std::string ToArray( const std::vector< std::vector< std::string > > &mat )
-    {
-        std::stringstream stream;
-        stream << "[";
-        bool first = true;
-
-        for ( auto vec : mat )
-        {
-            if ( !first )
-            {
-                stream << ",";
-            }
-
-            stream << "[" + ToString( vec.begin(), vec.end() ) + "]";
-            first = false;
-        }
-
-        return stream.str() + "]";
-    }
-
     static std::string ToArray( const std::vector< double > &vec )
     {
         return "[" + ToString( vec.begin(), vec.end() ) + "]";
@@ -115,6 +95,27 @@ public:
     static std::string ToArray( const std::vector<bool> &vec )
     {
         return "[" + ToString( vec.begin(), vec.end() ) + "]";
+    }
+
+
+    static std::string ToArray( const std::vector< std::vector< std::string > > &mat )
+    {
+        std::stringstream stream;
+        stream << "[";
+        bool first = true;
+
+        for ( auto vec : mat )
+        {
+            if ( !first )
+            {
+                stream << ",";
+            }
+
+            stream << "[" + ToString( vec.begin(), vec.end(), "'" ) + "]";
+            first = false;
+        }
+
+        return stream.str() + "]";
     }
 
 protected:

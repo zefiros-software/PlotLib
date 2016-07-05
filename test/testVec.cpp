@@ -43,6 +43,18 @@ TEST( PX( Vec ), IntConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
+TEST( PX( Vec ), IntStrConstr )
+{
+    Vec v( {"1", "2", "8" } );
+
+    EXPECT_EQ( "1", v.GetStrings()[0] );
+    EXPECT_EQ( "2", v.GetStrings()[1] );
+    EXPECT_EQ( "8", v.GetStrings()[2] );
+    EXPECT_EQ( 3, v.GetStrings().size() );
+
+    EXPECT_EQ( 0, v.GetData().size() );
+}
+
 TEST( PX( Vec ), Valarr )
 {
     Vec v( std::valarray< int16_t > { 1, 2, 8 } );

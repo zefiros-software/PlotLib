@@ -96,6 +96,11 @@ public:
     {
     }
 
+    Vec( const std::initializer_list< std::string > &data )
+        : mStrData( data )
+    {
+    }
+
 #ifdef PLOTLIB_ARMA
 
     Vec( const arma::vec &data )

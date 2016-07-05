@@ -47,18 +47,43 @@ public:
     Mat( const std::vector< std::vector< double > > &data )
         : mData( data )
     {
-        CheckDimensions( data );
+        mDimension = CheckDimensions( mData );
     }
 
     Mat( const std::initializer_list< std::initializer_list< double > > &data )
         : mData( data.begin(), data.end() )
     {
-        CheckDimensions( mData );
+        mDimension = CheckDimensions( mData );
     }
+
+#ifdef PLOTLIB_ARMA
+
+    Mat( const arma::mat &data )
+        : mData( data.n_rows )
+    {
+        size_t i = 0;
+
+        data.each_row( [&]( const arma::rowvec & v )
+        {
+            mData[i++] = arma::conv_to< std::vector<double> >::from( v );
+        } );
+
+        mDimension = CheckDimensions( mData );
+    }
+
+#endif
 
     Mat( const std::vector< std::vector< std::string > > &data )
         : mStrData( data )
     {
+        mDimension = CheckDimensions( mStrData );
+    }
+
+
+    Mat( const std::initializer_list< std::initializer_list< std::string > > &data )
+        : mStrData( data.begin(), data.end() )
+    {
+        mDimension = CheckDimensions( mStrData );
     }
 
     Mat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map )
@@ -75,29 +100,14 @@ public:
 
             ++i;
         }
+
+        mDimension = CheckDimensions( mStrData );
     }
-
-#ifdef PLOTLIB_ARMA
-
-    Mat( const arma::mat &data )
-        : mData( data.n_rows )
-    {
-        size_t i = 0;
-
-        data.each_row( [&]( const arma::rowvec & v )
-        {
-            mData[i++] = arma::conv_to< std::vector<double> >::from( v );
-        } );
-    }
-
-#endif
 
     const std::vector< std::vector< double > > &GetData() const
     {
         return mData;
     }
-
-
 
     const std::vector< std::vector< std::string > > &GetStrings() const
     {
@@ -106,19 +116,26 @@ public:
 
     size_t GetSize() const
     {
-        return mData.size();
+        return mStrData.empty() ? mData.size() : mStrData.size();
+    }
+
+    std::pair< size_t, size_t > GetDimension() const
+    {
+        return mDimension;
     }
 
 private:
 
     std::vector< std::vector< double > > mData;
     std::vector< std::vector< std::string > > mStrData;
+    std::pair< size_t, size_t > mDimension;
 
-    static void CheckDimensions( const std::vector< std::vector< double > > &data )
+    template< typename tT >
+    static std::pair< size_t, size_t > CheckDimensions( const std::vector< std::vector< tT > > &data )
     {
         if ( !data.size() )
         {
-            return;
+            return { 0, 0 };
         }
 
         const size_t size = ( *data.begin() ).size();
@@ -127,6 +144,8 @@ private:
         {
             assert( vec.size() == size );
         }
+
+        return { data.size(), size };
     }
 
 };
