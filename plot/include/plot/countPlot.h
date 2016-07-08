@@ -29,9 +29,9 @@
 #define __COUNTPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
+class Palette;
 
 class CountPlot
     : public AbstractPlot
@@ -44,90 +44,33 @@ public:
         Horizontal
     };
 
-    CountPlot( const Vec &x )
-    {
-        mStream << "sns.countplot(x=" << ToArray( x );
-    }
+    CountPlot( const Vec &x );
 
-    CountPlot( const std::vector< Vec > &data )
-    {
-        mStream << "x = []\n";
-        mStream << "x = x ";
+    CountPlot( const std::vector< Vec > &data );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup );
-        }
+    CountPlot( const std::vector< Vec > &data, const std::vector< std::string > &hue );
 
-        mStream << "\nsns.countplot( x=x";
-    }
+    virtual std::string ToString() const override;
 
-    CountPlot( const std::vector< Vec > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\nh = []\n";
-        mStream << "x = x ";
+    CountPlot &SetOrder( const Vec &order );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup );
-        }
+    CountPlot &SetHueOrder( const std::vector< std::string > &order );
 
-        size_t i = 0;
+    CountPlot &SetOrientation( Orientation orientation );
 
-        mStream << "\nh = h ";
+    CountPlot &SetColour( const std::string &colour );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.GetSize(), hue[i++] ) );
-        }
+    CountPlot &SetColourMap( const Palette &pallet );
 
-        mStream << "\nsns.countplot( x=x, hue=h";
-    }
-
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
-
-    CountPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order=" << ToArray( order );
-        return *this;
-    }
-
-    CountPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order=" << ToArray( order );
-        return *this;
-    }
-
-    CountPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient=" << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
-
-    CountPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color='" << colour << "'";
-        return *this;
-    }
-
-    CountPlot &SetColourMap( Palette pallet )
-    {
-        mStream << ", palette =" << pallet.ToString();
-        return *this;
-    }
-
-    CountPlot &SetSaturation( double sat )
-    {
-        mStream << ", saturation=" << sat;
-        return *this;
-    }
+    CountPlot &SetSaturation( double sat );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/countPlot.cpp"
+#endif
 
 #endif

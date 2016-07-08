@@ -29,10 +29,9 @@
 #define __POINTPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
-#include <tuple>
+class Palette;
 
 class PointPlot
     : public AbstractPlot
@@ -45,147 +44,47 @@ public:
         Horizontal
     };
 
-    PointPlot( const Vec &x, const Vec &y )
-    {
-        mStream << "sns.pointplot(" << ToArray( x ) << "," << ToArray( y );
-    }
+    PointPlot( const Vec &x, const Vec &y );
 
-    PointPlot( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    PointPlot( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.first );
-        }
+    PointPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-        mStream << "\ny = y ";
+    virtual std::string ToString() const override;
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    PointPlot &SetOrder( const Vec &order );
 
-        mStream << "\nsns.pointplot( x, y";
-    }
+    PointPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    PointPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\ny = []\nh = []\n";
-        mStream << "x = x ";
+    PointPlot &SetConfidenceInterval( double ci );
 
-        for ( auto &tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
+    PointPlot &SetNBoot( size_t bootstrap );
 
-        mStream << "\ny = y ";
+    PointPlot &SetMarkers( const std::vector< std::string > &markers );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    PointPlot &SetLineStyles( const std::vector< std::string > &styles );
 
-        size_t i = 0;
+    PointPlot &SetDodge( double dodge );
 
-        mStream << "\nh = h ";
+    PointPlot &SetDodge( bool dodge );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
+    PointPlot &SetJoin( bool join );
 
-        mStream << "\nsns.pointplot( x, y, h";
-    }
+    PointPlot &SetScale( double scale );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    PointPlot &SetOrientation( Orientation orientation );
 
-    PointPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order=" << ToArray( order );
-        return *this;
-    }
+    PointPlot &SetColour( const std::string &colour );
 
-    PointPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order=" << ToArray( order );
-        return *this;
-    }
-
-    PointPlot &SetConfidenceInterval( double ci )
-    {
-        mStream << ", ci=" << ci;
-        return *this;
-    }
-
-    PointPlot &SetNBoot( size_t bootstrap )
-    {
-        mStream << ", n_boot=" << bootstrap;
-        return *this;
-    }
-
-    PointPlot &SetMarkers( const std::vector< std::string > &markers )
-    {
-        mStream << ", markers=" << ToArray( markers );
-        return *this;
-    }
-
-    PointPlot &SetLineStyles( const std::vector< std::string > &styles )
-    {
-        mStream << ", linestyles=" << ToArray( styles );
-        return *this;
-    }
-
-    PointPlot &SetDodge( double dodge )
-    {
-        mStream << ", dodge=" << dodge;
-        return *this;
-    }
-
-    PointPlot &SetDodge( bool dodge )
-    {
-        mStream << ", dodge=" << GetBool( dodge );
-        return *this;
-    }
-
-    PointPlot &SetJoin( bool join )
-    {
-        mStream << ", dodge=" << GetBool( join );
-        return *this;
-    }
-
-    PointPlot &SetScale( double scale )
-    {
-        mStream << ", scale=" << scale;
-        return *this;
-    }
-
-    PointPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient=" << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
-
-    PointPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color='" << colour << "'";
-        return *this;
-    }
-
-    PointPlot &SetColourMap( Palette pallet )
-    {
-        mStream << ", palette =" << pallet.ToString();
-        return *this;
-    }
+    PointPlot &SetColourMap( const Palette &pallet );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/pointPlot.cpp"
+#endif
 
 #endif

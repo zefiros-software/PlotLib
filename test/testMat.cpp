@@ -30,7 +30,7 @@
 #ifndef __TESTMAT_H__
 #define __TESTMAT_H__
 
-TEST( PX( Mat ), ConstructVec )
+TEST( Mat, ConstructVec )
 {
     ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
@@ -59,7 +59,7 @@ TEST( PX( Mat ), ConstructVec )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( PX( Mat ), ConstructInit )
+TEST( Mat, ConstructInit )
 {
     ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
@@ -88,7 +88,7 @@ TEST( PX( Mat ), ConstructInit )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( PX( Mat ), ConstructArma )
+TEST( Mat, ConstructArma )
 {
     ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
@@ -117,9 +117,9 @@ TEST( PX( Mat ), ConstructArma )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( PX( Mat ), ConstructStr )
+TEST( Mat, ConstructStr )
 {
-    ::Mat m( { { "1" , "2" , "3" }, { "4", "5", "6" }, { "7", "8", "9" } } );
+    ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8", "9" } } );
     EXPECT_EQ( 3, m.GetStrings().size() );
 
     EXPECT_EQ( 3, m.GetStrings()[0].size() );
@@ -146,7 +146,7 @@ TEST( PX( Mat ), ConstructStr )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( PX( Mat ), ConstructMap )
+TEST( Mat, ConstructMap )
 {
     ::Mat m( { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } },
     { { 1, "1" }, { 2, "2" }, { 3, "3" } } );
@@ -175,25 +175,25 @@ TEST( PX( Mat ), ConstructMap )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( PX( Mat ), ConstructVecCheckDim )
+TEST( Mat, ConstructVecCheckDim )
 {
     EXPECT_DEATH( ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } ),
     "Assertion failed: vec.size\\(\\) == size" );
 }
 
-TEST( PX( Mat ), ConstructInitCheckDim )
+TEST( Mat, ConstructInitCheckDim )
 {
     EXPECT_DEATH( ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } ),
     "Assertion failed: vec.size\\(\\) == size" );
 }
 
-TEST( PX( Mat ), ConstructStrCheckDim )
+TEST( Mat, ConstructStrCheckDim )
 {
     EXPECT_DEATH( ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8" } } ),
     "Assertion failed: vec.size\\(\\) == size" );
 }
 
-TEST( PX( Mat ), ConstructMapCheckDim )
+TEST( Mat, ConstructMapCheckDim )
 {
     EXPECT_DEATH( ::Mat m( { {1, 2, 3}, {1, 2, 3}, {1, 2} },
     { {1, "1"}, {2, "2"}, {3, "3"} } ),

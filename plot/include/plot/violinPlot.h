@@ -29,10 +29,9 @@
 #define __VIOLINPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
-#include <tuple>
+class Palette;
 
 class ViolinPlot
     : public AbstractPlot
@@ -67,205 +66,57 @@ public:
         None
     };
 
-    ViolinPlot( const Vec &x, const Vec &y )
-    {
-        mStream << "sns.violinplot(" << ToArray( x ) << "," << ToArray( y );
-    }
+    ViolinPlot( const Vec &x, const Vec &y );
 
-    ViolinPlot( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    ViolinPlot( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.first );
-        }
+    ViolinPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-        mStream << "\ny = y ";
+    virtual std::string ToString() const override;
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    ViolinPlot &SetOrder( const Vec &order );
 
-        mStream << "\nsns.violinplot( x, y";
-    }
+    ViolinPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    ViolinPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\ny = []\nh = []\n";
-        mStream << "x = x ";
+    ViolinPlot &SetBandwidth( KernelBandwidth bw );
 
-        for ( auto &tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
+    ViolinPlot &SetBandwidth( double bw );
 
-        mStream << "\ny = y ";
+    ViolinPlot &SetCut( double cut );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    ViolinPlot &SetScale( Scale scale );
 
-        size_t i = 0;
+    ViolinPlot &SetScaleHue( bool scale );
 
-        mStream << "\nh = h ";
+    ViolinPlot &SetGridSize( size_t size );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
+    ViolinPlot &SetWidth( double width );
 
-        mStream << "\nsns.violinplot( x, y, h";
-    }
+    ViolinPlot &SetInterior( Interior inner );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    ViolinPlot &SetSplit( bool split );
 
-    ViolinPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order=" << ToArray( order );
-        return *this;
-    }
+    ViolinPlot &SetOrientation( Orientation orientation );
 
-    ViolinPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order=" << ToArray( order );
-        return *this;
-    }
+    ViolinPlot &SetLineWidth( double width );
 
-    ViolinPlot &SetBandwidth( KernelBandwidth bw )
-    {
-        mStream << ", bw= " << ( bw == KernelBandwidth::Scott ? "'scott'" : "'silverman'" );
-        return *this;
-    }
+    ViolinPlot &SetColour( const std::string &colour );
 
-    ViolinPlot &SetBandwidth( double bw )
-    {
-        mStream << ", bw=" << bw;
-        return *this;
-    }
+    ViolinPlot &SetColourMap( const Palette &pallet );
 
-    ViolinPlot &SetCut( double cut )
-    {
-        mStream << ", cut=" << cut;
-        return *this;
-    }
-
-    ViolinPlot &SetScale( Scale scale )
-    {
-        mStream << ", scale=" << GetScale( scale );
-        return *this;
-    }
-
-    ViolinPlot &SetScaleHue( bool scale )
-    {
-        mStream << ", scale_hue=" << GetBool( scale );
-        return *this;
-    }
-
-    ViolinPlot &SetGridSize( size_t size )
-    {
-        mStream << ", gridsize= " << size;
-        return *this;
-    }
-
-    ViolinPlot &SetWidth( double width )
-    {
-        mStream << ", width= " << width;
-        return *this;
-    }
-
-    ViolinPlot &SetInterior( Interior inner )
-    {
-        mStream << ", inner= " << GetInterior( inner );
-        return *this;
-    }
-
-    ViolinPlot &SetSplit( bool split )
-    {
-        mStream << ", split=" << GetBool( split );
-        return *this;
-    }
-
-    ViolinPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
-
-    ViolinPlot &SetLineWidth( double width )
-    {
-        mStream << ", linewidth=" << width;
-        return *this;
-    }
-
-    ViolinPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color = '" << colour << "'";
-        return *this;
-    }
-
-    ViolinPlot &SetColourMap( Palette pallet )
-    {
-        mStream << ", palette = " << pallet.ToString();
-        return *this;
-    }
-
-    ViolinPlot &SetSaturation( double sat )
-    {
-        mStream << ", saturation = " << sat;
-        return *this;
-    }
+    ViolinPlot &SetSaturation( double sat );
 
 private:
 
     std::stringstream mStream;
 
-    std::string GetScale( Scale scale ) const
-    {
-        switch ( scale )
-        {
-        case Scale::Area:
-            return "'area'";
+    std::string GetScale( Scale scale ) const;
 
-        case Scale::Count:
-            return "'count'";
-
-        case Scale::Width:
-            return "'width'";
-        }
-
-        return "";
-    }
-
-    std::string GetInterior( Interior inner ) const
-    {
-        switch ( inner )
-        {
-        case Interior::Box:
-            return "'box'";
-
-        case Interior::Quartile:
-            return "'quartile'";
-
-        case Interior::Point:
-            return "'point'";
-
-        case Interior::Stick:
-            return "'stick'";
-
-        case Interior::None:
-            return "None";
-        }
-
-        return "";
-    }
+    std::string GetInterior( Interior inner ) const;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/violinPlot.cpp"
+#endif
 
 #endif

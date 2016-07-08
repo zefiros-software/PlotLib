@@ -29,34 +29,27 @@
 #define __PALETTEPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
 
-#include <string>
+class Palette;
 
 class PalettePlot
     : public AbstractPlot
 {
 public:
 
-    PalettePlot( const Palette &palette )
-    {
-        mStream << "sns.palplot(" << palette.ToString();
-    }
+    PalettePlot( const Palette &palette );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    PalettePlot &SetSize( double size )
-    {
-        mStream << ", size=" << size;
-        return *this;
-    }
+    PalettePlot &SetSize( double size );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/palettePlot.cpp"
+#endif
 
 #endif

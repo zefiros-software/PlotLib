@@ -29,10 +29,9 @@
 #define __FACTORBARPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
-#include <tuple>
+class Palette;
 
 class FactorBarPlot
     : public AbstractPlot
@@ -45,124 +44,39 @@ public:
         Horizontal
     };
 
-    FactorBarPlot( const Vec &x, const Vec &y )
-    {
-        mStream << "y = np.array(" << ToArray( y ) << ")\n";
-        mStream << "sns.barplot(" << ToArray( x ) << ", y / y.min()";
-    }
+    FactorBarPlot( const Vec &x, const Vec &y );
 
-    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.first );
-        }
+    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-        mStream << "\ny = y ";
+    virtual std::string ToString() const override;
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    FactorBarPlot &SetOrder( const Vec &order );
 
-        mStream << "\nsns.barplot( x, y";
-    }
+    FactorBarPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\ny = []\nh = []\n";
-        mStream << "x = x ";
+    FactorBarPlot &SetConfidenceInterval( double ci );
 
-        for ( auto &tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
+    FactorBarPlot &SetNBoot( size_t bootstrap );
 
-        mStream << "\ny = y ";
+    FactorBarPlot &SetOrientation( Orientation orientation );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    FactorBarPlot &SetColour( const std::string &colour );
 
-        size_t i = 0;
+    FactorBarPlot &SetColourMap( const Palette &pallet );
 
-        mStream << "\nh = h ";
+    FactorBarPlot &SetSaturation( double sat );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
-
-        mStream << "\nsns.barplot( x, y, h";
-    }
-
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
-
-    FactorBarPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order = " << ToArray( order );
-        return *this;
-    }
-
-    FactorBarPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order = " << ToArray( order );
-        return *this;
-    }
-
-    FactorBarPlot &SetConfidenceInterval( double ci )
-    {
-        mStream << ", ci = " << ci;
-        return *this;
-    }
-
-    FactorBarPlot &SetNBoot( size_t bootstrap )
-    {
-        mStream << ", n_boot = " << bootstrap;
-        return *this;
-    }
-
-    FactorBarPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
-
-    FactorBarPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color = '" << colour << "'";
-        return *this;
-    }
-
-    FactorBarPlot &SetColourMap( Palette pallet )
-    {
-        mStream << ", palette = " << pallet.ToString();
-        return *this;
-    }
-
-    FactorBarPlot &SetSaturation( double sat )
-    {
-        mStream << ", saturation = " << sat;
-        return *this;
-    }
-
-    FactorBarPlot &SetErrorColour( const std::string &colour )
-    {
-        mStream << ", errcolor = '" << colour << "'";
-        return *this;
-    }
+    FactorBarPlot &SetErrorColour( const std::string &colour );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/factorBarPlot.cpp"
+#endif
 
 #endif

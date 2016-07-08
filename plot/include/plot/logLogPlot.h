@@ -30,43 +30,28 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class LogLogPlot
     : public AbstractPlot
 {
 public:
 
-    LogLogPlot( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "plt.loglog(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-    }
+    LogLogPlot( const Vec &exogenous, const Vec &endogenous );
 
-    LogLogPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
-    {
-        mStream << "plt.loglog(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
-    }
+    LogLogPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    LogLogPlot &SetAlpha( double alpha )
-    {
-        mStream << ", alpha=" << alpha;
-        return *this;
-    }
+    LogLogPlot &SetAlpha( double alpha );
 
-    LogLogPlot &SetScalar( double scalar )
-    {
-        mStream << ", s=" << scalar;
-        return *this;
-    }
+    LogLogPlot &SetScalar( double scalar );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/logLogPlot.cpp"
+#endif
 
 #endif

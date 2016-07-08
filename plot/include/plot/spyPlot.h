@@ -30,39 +30,26 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class SpyPlot
     : public AbstractPlot
 {
 public:
 
-    SpyPlot( const Mat &mat )
-    {
-        mStream << "plt.spy(" << ToArray( mat );
-    }
+    SpyPlot( const Mat &mat );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    SpyPlot &SetPrecision( double precision )
-    {
-        mStream << ", precision=" << precision;
-        return *this;
-    }
+    SpyPlot &SetPrecision( double precision );
 
-    SpyPlot &SetMarkerSize( double size )
-    {
-        mStream << ", markersize=" << size;
-        return *this;
-    }
+    SpyPlot &SetMarkerSize( double size );
 
 private:
 
     std::stringstream mStream;
 };
 
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/spyPlot.cpp"
+#endif
 
 #endif

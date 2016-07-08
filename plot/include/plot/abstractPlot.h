@@ -28,97 +28,126 @@
 #ifndef __ABSTRACTPLOT_H__
 #define __ABSTRACTPLOT_H__
 
-#include "plot/vec.h"
-#include "plot/mat.h"
+#include "plot/define.h"
 
 #include <sstream>
 #include <string>
 #include <vector>
 
+class Vec;
+class Mat;
+
+/**
+ * An abstract plot from which every plot type should inherrit.
+ * It provides utility classes to make easy python conversions.
+ */
+
 class AbstractPlot
 {
 public:
 
-    virtual ~AbstractPlot()
-    {
-    }
+    virtual ~AbstractPlot();
+
+    /**
+     * Convert this object into a string representation capable of python execution.
+     *
+     * @return A std::string that represents this object.
+     */
 
     virtual std::string ToString() const = 0;
 
-    static std::string GetBool( bool boolean )
-    {
-        return boolean ? "True" : "False";
-    }
+    /**
+     * Gets a boolean python representation.
+     *
+     * @param   boolean The boolean to convert.
+     *
+     * @return The bool.
+     */
 
-    static std::string ToArray( const Vec &vec )
-    {
-        const std::vector< std::string > vecStr = vec.GetStrings();
-        return vecStr.size() ? ToArray( vecStr ) : ToArray( vec.GetData() );
-    }
+    static std::string GetBool( bool boolean );
 
-    static std::string ToArray( const Mat &mat )
-    {
-        const std::vector<std::vector< std::string > > matStr = mat.GetStrings();
-        return matStr.size() ? ToArray( matStr ) : ToArray( mat.GetData() );
-    }
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   vec The vector to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
 
-    static std::string ToArray( const std::vector< std::vector< double > > &mat )
-    {
-        std::stringstream stream;
-        stream << "[";
-        bool first = true;
+    static std::string ToArray( const Vec &vec );
 
-        for ( auto vec : mat )
-        {
-            if ( !first )
-            {
-                stream << ",";
-            }
+    /**
+     * Convert this matrix into python representation.
+     *
+     * @param   mat The matrix to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
 
-            stream << "[" + ToString( vec.begin(), vec.end() ) + "]";
-            first = false;
-        }
+    static std::string ToArray( const ::Mat &mat );
 
-        return stream.str() + "]";
-    }
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   mat The matrix to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
 
-    static std::string ToArray( const std::vector< double > &vec )
-    {
-        return "[" + ToString( vec.begin(), vec.end() ) + "]";
-    }
+    static std::string ToArray( const std::vector< std::vector< double > > &mat );
 
-    static std::string ToArray( const std::vector<std::string> &vec )
-    {
-        return "[" + ToString( vec.begin(), vec.end(), "'" ) + "]";
-    }
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   vec The vector to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
 
-    static std::string ToArray( const std::vector<bool> &vec )
-    {
-        return "[" + ToString( vec.begin(), vec.end() ) + "]";
-    }
+    static std::string ToArray( const std::vector< double > &vec );
 
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   vec The vector to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
 
-    static std::string ToArray( const std::vector< std::vector< std::string > > &mat )
-    {
-        std::stringstream stream;
-        stream << "[";
-        bool first = true;
+    static std::string ToArray( const std::vector<std::string> &vec );
 
-        for ( auto vec : mat )
-        {
-            if ( !first )
-            {
-                stream << ",";
-            }
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   vec The vector to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
 
-            stream << "[" + ToString( vec.begin(), vec.end(), "'" ) + "]";
-            first = false;
-        }
+    static std::string ToArray( const std::vector<bool> &vec );
 
-        return stream.str() + "]";
-    }
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   mat The matrix to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
+
+    static std::string ToArray( const std::vector< std::vector< std::string > > &mat );
 
 protected:
+
+    /**
+     * Convert the object into a python array representation.
+     *
+     * @tparam  tT Type of the t.
+     * @param   begin     The begin.
+     * @param   end       The end.
+     * @param   delimiter The delimiter.
+     *
+     * @return The given data converted to a std::string.
+     */
 
     template<typename tT>
     static std::string ToString( tT begin, tT end, const std::string &delimiter = "" )
@@ -140,5 +169,9 @@ protected:
         return ss.str();
     }
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/abstractPlot.cpp"
+#endif
 
 #endif

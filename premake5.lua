@@ -26,6 +26,37 @@ local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
 
 workspace "PlotLib"
 
-	zefiros.setDefaults( "plot" )
+	zefiros.setDefaults( "plot", {
+        configurations = { "HeaderOnlyDebug", "HeaderOnlyRelease" },
+		headerOnly = true
+    }  )
 
 	floatingpoint "Fast"
+    defines "PLOTLIB_ARMA"
+
+    filter "not HeaderOnly*"
+        defines "PLOTLIB_NO_HEADER_ONLY"
+
+    filter {}
+
+	project "plot-test"
+
+		zpm.uses "Zefiros-Software/ArmadilloExt"
+    
+	    debugdir "docs/images/"
+            
+        filter "not HeaderOnly*"
+            links "plot"
+
+        filter {}
+            
+    project "plot"
+
+		zpm.uses "Zefiros-Software/ArmadilloExt"
+            
+        filter "not HeaderOnly*"                
+            files { 
+                "plot/src/**.cpp",
+                }
+
+        filter {}

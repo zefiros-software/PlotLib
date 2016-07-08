@@ -30,43 +30,28 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class SemiLogY
     : public AbstractPlot
 {
 public:
 
-    SemiLogY( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "plt.semilogy(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-    }
+    SemiLogY( const Vec &exogenous, const Vec &endogenous );
 
-    SemiLogY( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
-    {
-        mStream << "plt.semilogy(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
-    }
+    SemiLogY( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    SemiLogY &SetAlpha( double alpha )
-    {
-        mStream << ", alpha=" << alpha;
-        return *this;
-    }
+    SemiLogY &SetAlpha( double alpha );
 
-    SemiLogY &SetScalar( double scalar )
-    {
-        mStream << ", s=" << scalar;
-        return *this;
-    }
+    SemiLogY &SetScalar( double scalar );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/semiLogY.cpp"
+#endif
 
 #endif

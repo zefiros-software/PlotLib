@@ -275,22 +275,15 @@ public:
         Prism = ( size_t )Colour::Prism
     };
 
-    Palette( Type type )
-        : mType( type )
-    {
-    }
+    Palette( Type type );
 
-    Palette( const std::string &type, Type typeEnum = Type::Custom )
-        : mCustomType( type ),
-          mType( typeEnum )
-    {
-    }
+    Palette( const std::string &type, Type typeEnum = Type::Custom );
 
     template< typename tT >
     Palette( tT colour, int32_t amount, ColourType type = ColourType::None )
         : mCustomType( "sns.color_palette( '" + GetColour( colour, type ) +
                        "', " + std::to_string( amount ) + " )" ),
-        mType( Type::ColorPallette )
+          mType( Type::ColorPallette )
     {
     }
 
@@ -300,39 +293,17 @@ public:
     {
     }
 
-    std::string ToString() const
-    {
-        return GetPalette( mType );
-    }
+    std::string ToString() const;
 
-    std::string GetArguments() const
-    {
-        return mArguments.str();
-    }
+    std::string GetArguments() const;
 
-    Palette &SetColours( size_t nColours )
-    {
-        mArguments << ", n_colors = " << nColours;
-        return *this;
-    }
+    Palette &SetColours( size_t nColours );
 
-    Palette &SetDesaturation( double desat )
-    {
-        mArguments << ", desat = " << desat;
-        return *this;
-    }
+    Palette &SetDesaturation( double desat );
 
-    Palette &UseColourCodes( bool colourCodes )
-    {
-        mArguments << ", color_codes = " << ( colourCodes ? "True" : "False" );
-        return *this;
-    }
+    Palette &UseColourCodes( bool colourCodes );
 
-    Palette &SetColourMap( bool map )
-    {
-        mArguments << ", as_cmap = " << ( map ? "True" : "False" );
-        return *this;
-    }
+    Palette &SetColourMap( bool map );
 
 protected:
 
@@ -361,34 +332,7 @@ protected:
         return col;
     }
 
-    std::string GetPalette( Type palette ) const
-    {
-        switch ( palette )
-        {
-        case Type::Reset:
-            return "'None'";
-
-        case Type::Custom:
-            return "'" + mCustomType + "'";
-
-        case Type::ColorPallette:
-            return mCustomType;
-
-        case Type::Other:
-            {
-                std::string arguments = mArguments.str();
-
-                if ( arguments.size() > 0 && *arguments.begin() == ',' )
-                {
-                    arguments = std::string( arguments.begin() + 1, arguments.end() );
-                }
-
-                return mStream.str() + arguments + " )";
-            }
-        }
-
-        return "";
-    }
+    std::string GetPalette( Type palette ) const;
 };
 
 class HUSLPalette
@@ -396,35 +340,15 @@ class HUSLPalette
 {
 public:
 
-    HUSLPalette()
-        : Palette( Type::Other )
-    {
-        mStream << "sns.husl_palette( ";
-    }
+    HUSLPalette();
 
-    HUSLPalette &SetColours( size_t nColours )
-    {
-        mArguments << ", n_colors = " << nColours;
-        return *this;
-    }
+    HUSLPalette &SetColours( size_t nColours );
 
-    HUSLPalette &SetHue( double h )
-    {
-        mArguments << ", h = " << h;
-        return *this;
-    }
+    HUSLPalette &SetHue( double h );
 
-    HUSLPalette &SetSaturation( double s )
-    {
-        mArguments << ", s = " << s;
-        return *this;
-    }
+    HUSLPalette &SetSaturation( double s );
 
-    HUSLPalette &SetLightness( double l )
-    {
-        mArguments << ", l = " << l;
-        return *this;
-    }
+    HUSLPalette &SetLightness( double l );
 };
 
 class HLSPalette
@@ -432,35 +356,15 @@ class HLSPalette
 {
 public:
 
-    HLSPalette()
-        : Palette( Type::Other )
-    {
-        mArguments << "sns.hls_palette( ";
-    }
+    HLSPalette();
 
-    HLSPalette &SetColours( size_t nColours )
-    {
-        mArguments << ", n_colors = " << nColours;
-        return *this;
-    }
+    HLSPalette &SetColours( size_t nColours );
 
-    HLSPalette &SetHue( double h )
-    {
-        mArguments << ", h = " << h;
-        return *this;
-    }
+    HLSPalette &SetHue( double h );
 
-    HLSPalette &SetSaturation( double s )
-    {
-        mArguments << ", s = " << s;
-        return *this;
-    }
+    HLSPalette &SetSaturation( double s );
 
-    HLSPalette &SetLightness( double l )
-    {
-        mArguments << ", l = " << l;
-        return *this;
-    }
+    HLSPalette &SetLightness( double l );
 };
 
 class CubeHelixPalette
@@ -468,59 +372,23 @@ class CubeHelixPalette
 {
 public:
 
-    CubeHelixPalette()
-        : Palette( Type::Other )
-    {
-        mStream << "sns.cubehelix_palette( ";
-    }
+    CubeHelixPalette();
 
-    CubeHelixPalette &SetColours( size_t nColours )
-    {
-        mArguments << ", n_colors = " << nColours;
-        return *this;
-    }
+    CubeHelixPalette &SetColours( size_t nColours );
 
-    CubeHelixPalette &SetStart( double start )
-    {
-        mArguments << ", start = " << start;
-        return *this;
-    }
+    CubeHelixPalette &SetStart( double start );
 
-    CubeHelixPalette &SetRot( double rot )
-    {
-        mArguments << ", rot = " << rot;
-        return *this;
-    }
+    CubeHelixPalette &SetRot( double rot );
 
-    CubeHelixPalette &SetGamma( double gamma )
-    {
-        mArguments << ", gamma = " << gamma;
-        return *this;
-    }
+    CubeHelixPalette &SetGamma( double gamma );
 
-    CubeHelixPalette &SetHue( double hue )
-    {
-        mArguments << ", hue = " << hue;
-        return *this;
-    }
+    CubeHelixPalette &SetHue( double hue );
 
-    CubeHelixPalette &SetDark( double dark )
-    {
-        mArguments << ", dark = " << dark;
-        return *this;
-    }
+    CubeHelixPalette &SetDark( double dark );
 
-    CubeHelixPalette &SetLight( double light )
-    {
-        mArguments << ", light = " << light;
-        return *this;
-    }
+    CubeHelixPalette &SetLight( double light );
 
-    CubeHelixPalette &SetReverse( bool reverse )
-    {
-        mArguments << ", reverse = " << ( reverse ? "True" : "False" );
-        return *this;
-    }
+    CubeHelixPalette &SetReverse( bool reverse );
 };
 
 class DarkPalette
@@ -543,60 +411,19 @@ public:
         mArguments << "sns.dark_palette( '" << GetColour( colour, type ) << "'";
     }
 
-    DarkPalette( std::tuple< uint8_t, uint8_t, uint8_t > colour, Input input )
-        : Palette( Type::Other )
-    {
-        assert( input != Input::XKCD );
-        mArguments << "sns.dark_palette( ( " << std::get<0>( colour ) << ", "
-                   << std::get<1>( colour ) << ", "
-                   << std::get<2>( colour ) << " ), input = " << GetInput( input );
-    }
+    DarkPalette( std::tuple< uint8_t, uint8_t, uint8_t > colour, Input input );
 
-    DarkPalette( const std::string &colour, Input input )
-        : Palette( Type::Other )
-    {
-        assert( input == Input::XKCD );
-        mArguments << "sns.dark_palette( " << colour << ", input = " << GetInput( input );
-    }
+    DarkPalette( const std::string &colour, Input input );
 
-    DarkPalette &SetColours( size_t nColours )
-    {
-        mArguments << ", n_colors = " << nColours;
-        return *this;
-    }
+    DarkPalette &SetColours( size_t nColours );
 
-    DarkPalette &SetReverse( bool reverse )
-    {
-        mArguments << ", reverse = " << ( reverse ? "True" : "False" );
-        return *this;
-    }
+    DarkPalette &SetReverse( bool reverse );
 
 protected:
 
-    DarkPalette( Type type )
-        : Palette( type )
-    {
-    }
+    DarkPalette( Type type );
 
-    std::string GetInput( Input input )
-    {
-        switch ( input )
-        {
-        case Input::RGB:
-            return "'rgb'";
-
-        case Input::HLS:
-            return "'hls'";
-
-        case Input::HUSL:
-            return "'huls'";
-
-        case Input::XKCD:
-            return "'xkcd'";
-        }
-
-        return "";
-    }
+    std::string GetInput( Input input );
 };
 
 class LightPalette
@@ -611,21 +438,9 @@ public:
         mArguments << "sns.light_palette( '" << GetColour( colour, type ) << "'";
     }
 
-    LightPalette( std::tuple< uint8_t, uint8_t, uint8_t > colour, Input input )
-        : DarkPalette( Type::Other )
-    {
-        assert( input != Input::XKCD );
-        mArguments << "sns.light_palette( ( " << std::get<0>( colour ) << ", "
-                   << std::get<1>( colour ) << ", "
-                   << std::get<2>( colour ) << " ), input = " << GetInput( input );
-    }
+    LightPalette( std::tuple< uint8_t, uint8_t, uint8_t > colour, Input input );
 
-    LightPalette( const std::string &colour, Input input )
-        : DarkPalette( Type::Other )
-    {
-        assert( input == Input::XKCD );
-        mArguments << "sns.light_palette( " << colour << ", input = " << GetInput( input );
-    }
+    LightPalette( const std::string &colour, Input input );
 };
 
 class DivergingPalette
@@ -639,37 +454,19 @@ public:
         Dark
     };
 
-    DivergingPalette( double hNeg, double hPos )
-        : Palette( Type::Other )
-    {
-        assert( hNeg >= 0 && hNeg <= 359 );
-        assert( hPos >= 0 && hPos <= 359 );
-        mArguments << "sns.diverging_palette( " << hNeg << ", " << hPos;
-    }
+    DivergingPalette( double hNeg, double hPos );
 
-    DivergingPalette &SetSaturation( double sat )
-    {
-        mArguments << ", s = " << sat;
-        return *this;
-    }
+    DivergingPalette &SetSaturation( double sat );
 
-    DivergingPalette &SetLightness( double light )
-    {
-        mArguments << ", l = " << light;
-        return *this;
-    }
+    DivergingPalette &SetLightness( double light );
 
-    DivergingPalette &SetColours( size_t nColours )
-    {
-        mArguments << ", n_colors = " << nColours;
-        return *this;
-    }
+    DivergingPalette &SetColours( size_t nColours );
 
-    DivergingPalette &SetCenter( Center center )
-    {
-        mArguments << ", center = " << ( center == Center::Dark ? "'dark'" : "light'" );
-        return *this;
-    }
+    DivergingPalette &SetCenter( Center center );
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/palette.cpp"
+#endif
 
 #endif

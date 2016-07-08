@@ -30,51 +30,31 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class AutoCorrelationPlot
     : public AbstractPlot
 {
 public:
 
-    AutoCorrelationPlot( const Vec &vec )
-    {
-        mStream << "plt.acorr(" << ToArray( vec );
-    }
+    AutoCorrelationPlot( const Vec &vec );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    AutoCorrelationPlot &SetHold( bool hold )
-    {
-        mStream << ", hold=" << GetBool( hold );
-        return *this;
-    }
+    AutoCorrelationPlot &SetHold( bool hold );
 
-    AutoCorrelationPlot &SetNormed( bool normed )
-    {
-        mStream << ", normed=" << GetBool( normed );
-        return *this;
-    }
+    AutoCorrelationPlot &SetNormed( bool normed );
 
-    AutoCorrelationPlot &SetVLines( bool vlines )
-    {
-        mStream << ", usevlines=" << GetBool( vlines );
-        return *this;
-    }
+    AutoCorrelationPlot &SetVLines( bool vlines );
 
-    AutoCorrelationPlot &SetMaxLags( size_t maxlags )
-    {
-        mStream << ", maxlags=" << maxlags;
-        return *this;
-    }
+    AutoCorrelationPlot &SetMaxLags( size_t maxlags );
 
 private:
 
     std::stringstream mStream;
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/autoCorrelationPlot.cpp"
+#endif
 
 #endif

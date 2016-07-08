@@ -30,8 +30,6 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class RUGPlot
     : public AbstractPlot
 {
@@ -43,32 +41,21 @@ public:
         Y
     };
 
-    RUGPlot( const Vec &a )
-    {
-        mStream << "sns.rugplot(" << ToArray( a );
-    }
+    RUGPlot( const Vec &a );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    RUGPlot &SetHeight( double height )
-    {
-        mStream << ", height=" << height;
-        return *this;
-    }
+    RUGPlot &SetHeight( double height );
 
-    RUGPlot &SetAxis( Axis axis )
-    {
-        mStream << ", kind='" << ( axis == Axis::X ? 'X' : 'Y' ) << "'";
-        return *this;
-    }
+    RUGPlot &SetAxis( Axis axis );
 
 private:
 
     std::stringstream mStream;
 };
 
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/rugPlot.cpp"
+#endif
 
 #endif

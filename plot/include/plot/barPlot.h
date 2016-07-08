@@ -29,10 +29,11 @@
 #define __BARPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
 #include <tuple>
+
+class Palette;
 
 class BarPlot
     : public AbstractPlot
@@ -45,67 +46,18 @@ public:
         Horizontal
     };
 
-    BarPlot( const Vec &x, const Vec &y )
-    {
-        mStream << "sns.barplot(" << ToArray( x ) << "," << ToArray( y );
-    }
+    BarPlot( const Vec &x, const Vec &y );
 
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    BarPlot( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto & tup : data )
-        {
-            mStream << "+ " << ToArray( tup.first );
-        }
-
-        mStream << "\ny = y ";
-
-        for ( auto & tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
-
-        mStream << "\nsns.barplot( x, y";
-    }
-
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\ny = []\nh = []\n";
-        mStream << "x = x ";
-
-        for ( auto & tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
-
-        mStream << "\ny = y ";
-
-        for ( auto & tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
-
-        size_t i = 0;
-
-        mStream << "\nh = h ";
-
-        for ( auto & tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
-
-        mStream << "\nsns.barplot( x, y, h";
-    }
+    BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
     template< typename tT, typename tFunc >
     BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< tT > &hueData, const tFunc &hueFunc )
     {
         std::vector< std::string > hue;
 
-        for ( const auto & hueValue : hueData )
+        for ( const auto &hueValue : hueData )
         {
             hue.emplace_back( hueFunc( hueValue ) );
         }
@@ -115,124 +67,45 @@ public:
         PlotDataHue();
     }
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    BarPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order = " << ToArray( order );
-        return *this;
-    }
+    BarPlot &SetOrder( const Vec &order );
 
-    BarPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order = " << ToArray( order );
-        return *this;
-    }
+    BarPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    BarPlot &SetConfidenceInterval( double ci )
-    {
-        mStream << ", ci = " << ci;
-        return *this;
-    }
+    BarPlot &SetConfidenceInterval( double ci );
 
-    BarPlot &SetNBoot( size_t bootstrap )
-    {
-        mStream << ", n_boot = " << bootstrap;
-        return *this;
-    }
+    BarPlot &SetNBoot( size_t bootstrap );
 
-    BarPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
+    BarPlot &SetOrientation( Orientation orientation );
 
-    BarPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color = '" << colour << "'";
-        return *this;
-    }
-    
-    BarPlot &UseColourCycler( const std::string &colourCycler )
-    {
-        mStream << ", color = next(" << colourCycler << ")";
-        return *this;
-    }
+    BarPlot &SetColour( const std::string &colour );
 
-    BarPlot &SetColourMap( const Palette &pallet )
-    {
-        mStream << ", palette = " << pallet.ToString();
-        return *this;
-    }
+    BarPlot &UseColourCycler( const std::string &colourCycler );
 
-    BarPlot &SetSaturation( double sat )
-    {
-        mStream << ", saturation = " << sat;
-        return *this;
-    }
+    BarPlot &SetColourMap( const Palette &pallet );
 
-    BarPlot &SetErrorColour( const std::string &colour )
-    {
-        mStream << ", errcolor = '" << colour << "'";
-        return *this;
-    }
-    
-    BarPlot &SetHatch( const std::string &hatch )
-    {
-        mStream << ", hatch = '" << hatch << "'";
-        return *this;
-    }
+    BarPlot &SetSaturation( double sat );
+
+    BarPlot &SetErrorColour( const std::string &colour );
+
+    BarPlot &SetHatch( const std::string &hatch );
 
 private:
 
     std::stringstream mStream;
 
-    void InitData( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    void InitData( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto & tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
+    void InitHue( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-        mStream << "\ny = y ";
+    void PlotData();
 
-        for ( auto & tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
-    }
-
-    void InitHue( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        size_t i = 0;
-
-        mStream << "\nh = []\n";
-        mStream << "\nh = h ";
-
-        for ( auto & tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
-    }
-
-    void PlotData()
-    {
-        mStream << "\nsns.barplot( x, y";
-    }
-
-    void PlotDataHue()
-    {
-        PlotData();
-
-        mStream << ", h";
-    }
+    void PlotDataHue();
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/barPlot.cpp"
+#endif
 
 #endif

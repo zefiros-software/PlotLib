@@ -30,7 +30,20 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
+/**
+ * A plot annotation that implements the
+ * [`annotate`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.annotate)
+ * functionality.
+ *
+ * @details
+ * @examples
+ *
+ * @snippet testAnnotatePlot.cpp AnnotatePlot
+ *
+ * ![Plot Example](AnnotatePlot.png)
+ *
+ * @sa AbstractPlot
+ */
 
 class AnnotatePlot
     : public AbstractPlot
@@ -50,85 +63,28 @@ public:
         Polar
     };
 
-    AnnotatePlot()
-    {
-        mStream << "plt.annotate(";
-    }
+    AnnotatePlot( const std::string &label );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    AnnotatePlot &SetLabel( const std::string &label )
-    {
-        mStream << ", s=" << label;
-        return *this;
-    }
+    AnnotatePlot &SetXY( double x, double y );
 
-    AnnotatePlot &SetXY( double x, double y )
-    {
-        mStream << ", xy=(" << x << "," << y << ")";
-        return *this;
-    }
+    AnnotatePlot &SetXYText( double x, double y );
 
-    AnnotatePlot &SetXYText( double x, double y )
-    {
-        mStream << ", xytext=(" << x << "," << y << ")";
-        return *this;
-    }
+    AnnotatePlot &SetXYCoordinates( Type type );
 
-    AnnotatePlot &SetXYCoordinates( Type type )
-    {
-        mStream << ", xycoords=" << GetType( type );
-        return *this;
-    }
-
-    AnnotatePlot &SetTextCoordinates( Type type )
-    {
-        mStream << ", textcoords=" << GetType( type );
-        return *this;
-    }
+    AnnotatePlot &SetTextCoordinates( Type type );
 
 private:
 
     std::stringstream mStream;
 
-    std::string GetType( Type type )
-    {
-        switch ( type )
-        {
-        case Type::FigurePoints:
-            return "'figure points'";
-
-        case Type::FigurePixels:
-            return "'figure pixels'";
-
-        case Type::FigureFraction:
-            return "'figure fraction'";
-
-        case Type::AxesPoints:
-            return "'axes points'";
-
-        case Type::AxesPixels:
-            return "'axes pixels'";
-
-        case Type::AxesFraction:
-            return "'axes fraction'";
-
-        case Type::Data:
-            return "'data'";
-
-        case Type::OffsetPoints:
-            return "'offset points'";
-
-        case Type::Polar:
-            return "'polar'";
-        }
-
-        return "''";
-    }
+    std::string GetType( Type type );
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/annotatePlot.cpp"
+#endif
 
 #endif

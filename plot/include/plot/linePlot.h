@@ -30,84 +30,42 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class LinePlot
     : public AbstractPlot
 {
 public:
 
-    LinePlot( const Vec &endogenous )
-    {
-        mStream << "plt.plot(" << ToArray( endogenous );
-    }
+    LinePlot( const Vec &endogenous );
 
-    LinePlot( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "plt.plot(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-    }
+    LinePlot( const Vec &exogenous, const Vec &endogenous );
 
-    LinePlot( const Vec &exogenous, const Vec &endogenous, const std::string &character )
-    {
-        mStream << "plt.plot(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << "," << character;
-    }
+    LinePlot( const Vec &exogenous, const Vec &endogenous, const std::string &character );
 
-    LinePlot( const Vec &endogenous, const std::string &character )
-    {
-        mStream << "plt.plot(" << ToArray( endogenous ) << "," << character;
-    }
+    LinePlot( const Vec &endogenous, const std::string &character );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    LinePlot &SetAlpha( double alpha )
-    {
-        mStream << ", alpha=" << alpha;
-        return *this;
-    }
+    LinePlot &SetAlpha( double alpha );
 
-    LinePlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color = '" << colour << "'";
-        return *this;
-    }
-    
-    LinePlot &UseColourCycler( const std::string &colourCycler )
-    {
-        mStream << ", color = next(" << colourCycler << ")";
-        return *this;
-    }
+    LinePlot &SetColour( const std::string &colour );
 
-    LinePlot &SetLabel( const std::string &label )
-    {
-        mStream << ", label='" << label << "'";
-        return *this;
-    }
-    
-    LinePlot &SetMarker( const std::string &marker )
-    {
-        mStream << ", marker='" << marker << "'";
-        return *this;
-    }
-    
-    LinePlot &SetWidth( double width )
-    {
-        mStream << ", linewidth=" << width;
-        return *this;
-    }
-    
-    LinePlot &SetLineStyle( const std::string &style )
-    {
-        mStream << ", linestyle='" << style << "'";
-        return *this;
-    }
+    LinePlot &UseColourCycler( const std::string &colourCycler );
+
+    LinePlot &SetLabel( const std::string &label );
+
+    LinePlot &SetMarker( const std::string &marker );
+
+    LinePlot &SetWidth( double width );
+
+    LinePlot &SetLineStyle( const std::string &style );
 
 private:
 
     std::stringstream mStream;
 };
 
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/linePlot.cpp"
+#endif
 
 #endif

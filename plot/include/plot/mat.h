@@ -28,6 +28,12 @@
 #ifndef __MAT_H__
 #define __MAT_H__
 
+#include <initializer_list>
+#include <assert.h>
+#include <vector>
+#include <map>
+
+
 #ifdef PLOTLIB_ARMA
 #pragma warning(push)
 #pragma warning(disable : 4702)
@@ -35,94 +41,34 @@
 #pragma warning(pop)
 #endif
 
-#include <initializer_list>
-#include <algorithm>
-#include <assert.h>
-#include <vector>
-
 class Mat
 {
 public:
 
-    Mat( const std::vector< std::vector< double > > &data )
-        : mData( data )
-    {
-        mDimension = CheckDimensions( mData );
-    }
+    Mat( const std::vector< std::vector< double > > &data );
 
-    Mat( const std::initializer_list< std::initializer_list< double > > &data )
-        : mData( data.begin(), data.end() )
-    {
-        mDimension = CheckDimensions( mData );
-    }
+    Mat( const std::initializer_list< std::initializer_list< double > > &data );
 
 #ifdef PLOTLIB_ARMA
 
-    Mat( const arma::mat &data )
-        : mData( data.n_rows )
-    {
-        size_t i = 0;
-
-        data.each_row( [&]( const arma::rowvec & v )
-        {
-            mData[i++] = arma::conv_to< std::vector<double> >::from( v );
-        } );
-
-        mDimension = CheckDimensions( mData );
-    }
+    Mat( const arma::mat &data );
 
 #endif
 
-    Mat( const std::vector< std::vector< std::string > > &data )
-        : mStrData( data )
-    {
-        mDimension = CheckDimensions( mStrData );
-    }
+    Mat( const std::vector< std::vector< std::string > > &data );
 
 
-    Mat( const std::initializer_list< std::initializer_list< std::string > > &data )
-        : mStrData( data.begin(), data.end() )
-    {
-        mDimension = CheckDimensions( mStrData );
-    }
+    Mat( const std::initializer_list< std::initializer_list< std::string > > &data );
 
-    Mat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map )
-    {
-        mStrData.resize( data.size() );
-        size_t i = 0;
+    Mat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map );
 
-        for ( auto &vec : data )
-        {
-            for ( auto &val : vec )
-            {
-                mStrData[i].push_back( map.at( val ) );
-            }
+    const std::vector< std::vector< double > > &GetData() const;
 
-            ++i;
-        }
+    const std::vector< std::vector< std::string > > &GetStrings() const;
 
-        mDimension = CheckDimensions( mStrData );
-    }
+    size_t GetSize() const;
 
-    const std::vector< std::vector< double > > &GetData() const
-    {
-        return mData;
-    }
-
-    const std::vector< std::vector< std::string > > &GetStrings() const
-    {
-        return mStrData;
-    }
-
-    size_t GetSize() const
-    {
-        return mStrData.empty() ? mData.size() : mStrData.size();
-    }
-
-    std::pair< size_t, size_t > GetDimension() const
-    {
-        return mDimension;
-    }
+    std::pair< size_t, size_t > GetDimension() const;
 
 private:
 
@@ -149,5 +95,9 @@ private:
     }
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/mat.cpp"
+#endif
 
 #endif

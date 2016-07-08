@@ -30,43 +30,28 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class SemiLogX
     : public AbstractPlot
 {
 public:
 
-    SemiLogX( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "plt.semilogx(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-    }
+    SemiLogX( const Vec &exogenous, const Vec &endogenous );
 
-    SemiLogX( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
-    {
-        mStream << "plt.semilogx(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
-    }
+    SemiLogX( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    SemiLogX &SetAlpha( double alpha )
-    {
-        mStream << ", alpha=" << alpha;
-        return *this;
-    }
+    SemiLogX &SetAlpha( double alpha );
 
-    SemiLogX &SetScalar( double scalar )
-    {
-        mStream << ", s=" << scalar;
-        return *this;
-    }
+    SemiLogX &SetScalar( double scalar );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/semiLogX.cpp"
+#endif
 
 #endif

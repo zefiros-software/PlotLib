@@ -28,6 +28,8 @@
 #ifndef __PLOTTING_H__
 #define __PLOTTING_H__
 
+#include "plot/define.h"
+
 #include "plot/autoCorrelationPlot.h"
 #include "plot/angleSpectrumPlot.h"
 #include "plot/distancedBarPlot.h"

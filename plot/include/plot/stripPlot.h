@@ -29,10 +29,9 @@
 #define __STRIPPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
-#include <tuple>
+class Palette;
 
 class StripPlot
     : public AbstractPlot
@@ -45,135 +44,43 @@ public:
         Horizontal
     };
 
-    StripPlot( const Vec &x, const Vec &y )
-    {
-        mStream << "sns.stripplot(" << ToArray( x ) << "," << ToArray( y );
-    }
+    StripPlot( const Vec &x, const Vec &y );
 
-    StripPlot( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    StripPlot( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.first );
-        }
+    StripPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-        mStream << "\ny = y ";
+    virtual std::string ToString() const override;
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    StripPlot &SetOrder( const Vec &order );
 
-        mStream << "\nsns.stripplot( x, y";
-    }
+    StripPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    StripPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\ny = []\nh = []\n";
-        mStream << "x = x ";
+    StripPlot &SetJitter( double jitter );
 
-        for ( auto &tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
+    StripPlot &SetJitter( bool jitter );
 
-        mStream << "\ny = y ";
+    StripPlot &SetSplit( bool split );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    StripPlot &SetOrientation( Orientation orientation );
 
-        size_t i = 0;
+    StripPlot &SetColour( const std::string &colour );
 
-        mStream << "\nh = h ";
+    StripPlot &SetColourMap( const Palette &pallet );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
+    StripPlot &SetScale( double scale );
 
-        mStream << "\nsns.stripplot( x, y, h";
-    }
+    StripPlot &SetEdgdeColour( const std::string &colour );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
-
-    StripPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order=" << ToArray( order );
-        return *this;
-    }
-
-    StripPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order=" << ToArray( order );
-        return *this;
-    }
-
-    StripPlot &SetJitter( double jitter )
-    {
-        mStream << ", jitter= " << jitter;
-        return *this;
-    }
-
-    StripPlot &SetJitter( bool jitter )
-    {
-        mStream << ", jitter= " << GetBool( jitter );
-        return *this;
-    }
-
-    StripPlot &SetSplit( bool split )
-    {
-        mStream << ", jitter= " << GetBool( split );
-        return *this;
-    }
-
-    StripPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
-
-    StripPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color = '" << colour << "'";
-        return *this;
-    }
-
-    StripPlot &SetColourMap( Palette pallet )
-    {
-        mStream << ", palette = " << pallet.ToString();
-        return *this;
-    }
-
-    StripPlot &SetScale( double scale )
-    {
-        mStream << ", scale=" << scale;
-        return *this;
-    }
-
-    StripPlot &SetEdgdeColour( const std::string &colour )
-    {
-        mStream << ", edgecolor = '" << colour << "'";
-        return *this;
-    }
-
-    StripPlot &SetLineWidth( double width )
-    {
-        mStream << ", linewidth=" << width;
-        return *this;
-    }
+    StripPlot &SetLineWidth( double width );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/stripPlot.cpp"
+#endif
 
 #endif

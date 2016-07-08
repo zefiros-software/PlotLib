@@ -30,34 +30,14 @@
 
 #include "plot/palette.h"
 
-#include <stdint.h>
-#include <sstream>
-#include <tuple>
+#include <vector>
 
 class CustomLegend
 {
 public:
 
-    CustomLegend( const Palette &palette, const std::vector<std::string> &labels )
-    {
-        mStream << "cl_cycler = itertools.cycle( " << palette.ToString() << " )\n";
-        mStream << "cl_patches = [";
+    CustomLegend( const Palette &palette, const std::vector<std::string> &labels );
 
-        uint32_t i = 1;
-
-        for ( const std::string &label : labels )
-        {
-            mStream << "mpatches.Patch(facecolor=next(cl_cycler), label='" << label << "')";
-
-            if ( i++ < labels.size() )
-            {
-                mStream << ",";
-            }
-        }
-
-        mStream << "]\nplt.legend(handles=cl_patches)\n";
-    }
-    
     template< typename tT, typename tFunc >
     CustomLegend( const Palette &palette, const std::vector< tT > &hueData, const tFunc &hueFunc )
     {
@@ -79,14 +59,15 @@ public:
         mStream << "]\nplt.legend(handles=cl_patches)\n";
     }
 
-    std::string ToString() const
-    {
-        return mStream.str();
-    }
+    std::string ToString() const;
 
 protected:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/customLegend.cpp"
+#endif
 
 #endif

@@ -28,12 +28,10 @@
 #ifndef __SWARMPLOT_H__
 #define __SWARMPLOT_H__
 
-
 #include "plot/abstractPlot.h"
-#include "plot/palette.h"
+#include "plot/vec.h"
 
-#include <string>
-#include <tuple>
+class Palette;
 
 class SwarmPlot
     : public AbstractPlot
@@ -46,129 +44,41 @@ public:
         Horizontal
     };
 
-    SwarmPlot( const Vec &x, const Vec &y )
-    {
-        mStream << "sns.swarmplot(" << ToArray( x ) << "," << ToArray( y );
-    }
+    SwarmPlot( const Vec &x, const Vec &y );
 
-    SwarmPlot( const std::vector< std::pair< Vec, Vec > > &data )
-    {
-        mStream << "x = []\ny = []\n";
-        mStream << "x = x ";
+    SwarmPlot( const std::vector< std::pair< Vec, Vec > > &data );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.first );
-        }
+    SwarmPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-        mStream << "\ny = y ";
+    virtual std::string ToString() const override;
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    SwarmPlot &SetOrder( const Vec &order );
 
-        mStream << "\nsns.swarmplot( x, y";
-    }
+    SwarmPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    SwarmPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    {
-        mStream << "x = []\ny = []\nh = []\n";
-        mStream << "x = x ";
+    SwarmPlot &SetSplit( bool split );
 
-        for ( auto &tup : data )
-        {
-            assert( tup.first.GetSize() == tup.second.GetSize() );
-            mStream << "+ " << ToArray( tup.first );
-        }
+    SwarmPlot &SetOrientation( Orientation orientation );
 
-        mStream << "\ny = y ";
+    SwarmPlot &SetColour( const std::string &colour );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( tup.second );
-        }
+    SwarmPlot &SetColourMap( const Palette &pallet );
 
-        size_t i = 0;
+    SwarmPlot &SetSize( double size );
 
-        mStream << "\nh = h ";
+    SwarmPlot &SetEdgdeColour( const std::string &colour );
 
-        for ( auto &tup : data )
-        {
-            mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-        }
+    SwarmPlot &SetEdgeColour( const std::string &colour );
 
-        mStream << "\nsns.swarmplot( x, y, h";
-    }
-
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
-
-    SwarmPlot &SetOrder( const Vec &order )
-    {
-        mStream << ", order=" << ToArray( order );
-        return *this;
-    }
-
-    SwarmPlot &SetHueOrder( const std::vector< std::string > &order )
-    {
-        mStream << ", hue_order=" << ToArray( order );
-        return *this;
-    }
-
-    SwarmPlot &SetSplit( bool split )
-    {
-        mStream << ", jitter= " << GetBool( split );
-        return *this;
-    }
-
-    SwarmPlot &SetOrientation( Orientation orientation )
-    {
-        mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
-        return *this;
-    }
-
-    SwarmPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color = '" << colour << "'";
-        return *this;
-    }
-
-    SwarmPlot &SetColourMap( Palette pallet )
-    {
-        mStream << ", palette = " << pallet.ToString();
-        return *this;
-    }
-
-    SwarmPlot &SetSize( double size )
-    {
-        mStream << ", size =" << size;
-        return *this;
-    }
-
-    SwarmPlot &SetEdgdeColour( const std::string &colour )
-    {
-        mStream << ", edgecolor = '" << colour << "'";
-        return *this;
-    }
-
-    SwarmPlot &SetEdgeColour( const std::string &colour )
-    {
-        mStream << ", edgecolor  = '" << colour << "'";
-        return *this;
-    }
-
-    SwarmPlot &SetLineWidth( double width )
-    {
-        mStream << ", linewidth=" << width;
-        return *this;
-    }
+    SwarmPlot &SetLineWidth( double width );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/swarmPlot.cpp"
+#endif
 
 #endif

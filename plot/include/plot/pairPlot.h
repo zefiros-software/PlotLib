@@ -31,9 +31,6 @@
 #include "plot/abstractPlot.h"
 #include "plot/mat.h"
 
-#include <string>
-#include "palette.h"
-
 class PairPlot
     : public AbstractPlot
 {
@@ -51,117 +48,36 @@ public:
         KernelDensity
     };
 
-    PairPlot( const Mat &mat, const std::vector< std::string > &names )
-    {
-        assert( names.size() == mat.GetData().size() );
-        mStream << "data = pd.DataFrame()\n";
-        size_t i = 0;
-
-        for ( const auto & column : mat.GetData() )
-        {
-            mStream << "data['" << names[i++] << "'] = " << ToArray( column ) << "\n";
-        }
-
-        mStream << "sns.pairplot( data";
-    }
+    PairPlot( const Mat &mat, const std::vector< std::string > &names );
 
     PairPlot( const std::vector< Mat > &mats, const std::vector< std::string > &names,
-              const std::vector< std::string > &hue )
-    {
-        assert( hue.size() == mats.size() );
-        mStream << "data = pd.DataFrame()\nhue = []\n";
+              const std::vector< std::string > &hue );
 
-        for ( size_t k = 0, kEnd = names.size(); k < kEnd; )
-        {
-            mStream << "x" << k << " = []\n";
-        }
+    virtual std::string ToString() const override;
 
-        size_t j = 0;
+    PairPlot &SetXVars( const std::vector< std::string > &xvars );
 
-        for ( const auto & mat : mats )
-        {
-            assert( names.size() == mat.GetData().size() );
+    PairPlot &SetYVars( const std::vector< std::string > &yvars );
 
-            size_t i = 0;
+    PairPlot &SetType( Type type );
 
-            for ( const auto & column : mat.GetData() )
-            {
-                mStream << "x" << i << " = x" << i << " + " << ToArray( column ) << "\n";
-                ++i;
-            }
+    PairPlot &SetDiagonalType( DiagonalType type );
 
-            mStream << "hue = hue + "
-                    << ToArray( std::vector< std::string >( mat.GetData()[0].size(), hue[j++] ) ) << "\n";
-        }
+    PairPlot &SetMarker( const std::string &marker );
 
-        size_t l = 0;
+    PairPlot &SetMarkers( const std::vector<std::string> &marker );
 
-        for ( const auto & name : names )
-        {
-            mStream << "data['" << name << "']" << " = x" << l << "\n";
-            ++l;
-        }
+    PairPlot &SetSize( double size );
 
-        mStream << "data['hue'] = hue\n";
-        mStream << "sns.pairplot( data, hue = 'hue'";
-    }
-
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
-
-    PairPlot &SetXVars( const std::vector< std::string > &xvars )
-    {
-        mStream << ", x_vars = " << ToArray( xvars );
-        return *this;
-    }
-
-    PairPlot &SetYVars( const std::vector< std::string > &yvars )
-    {
-        mStream << ", y_vars = " << ToArray( yvars );
-        return *this;
-    }
-
-    PairPlot &SetType( Type type )
-    {
-        mStream << ", kind = " << ( type == Type::Scatter ? "'scatter'" : "'reg'" );
-        return *this;
-    }
-
-    PairPlot &SetDiagonalType( DiagonalType type )
-    {
-        mStream << ", diag_kind = " << ( type == DiagonalType::Histogram ? "'hist'" : "'kde'" );
-        return *this;
-    }
-
-    PairPlot &SetMarker( const std::string &marker )
-    {
-        mStream << ", markers = '" << marker << "'";
-        return *this;
-    }
-
-    PairPlot &SetMarkers( const std::vector<std::string> &marker )
-    {
-        mStream << ", markers = " << ToArray( marker );
-        return *this;
-    }
-
-    PairPlot &SetSize( double size )
-    {
-        mStream << ", size = " << size;
-        return *this;
-    }
-
-    PairPlot &SetAspect( double aspect )
-    {
-        mStream << ", aspect = " << aspect;
-        return *this;
-    }
+    PairPlot &SetAspect( double aspect );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/pairPlot.cpp"
+#endif
 
 #endif

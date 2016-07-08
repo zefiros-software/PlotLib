@@ -2,12 +2,12 @@
 
 #include "helper.h"
 
-TEST( PX( Vec ), Construct )
+TEST( Vec, Construct )
 {
     EXPECT_FALSE( std::is_constructible<Vec>::value );
 }
 
-TEST( PX( Vec ), FloatConstr )
+TEST( Vec, FloatConstr )
 {
     Vec v( { 0.1f, 2.0f, 8.0f } );
 
@@ -19,7 +19,7 @@ TEST( PX( Vec ), FloatConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), DoubleConstr )
+TEST( Vec, DoubleConstr )
 {
     Vec v( { 0.1, 2.0, 8.0 } );
 
@@ -31,7 +31,7 @@ TEST( PX( Vec ), DoubleConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), IntConstr )
+TEST( Vec, IntConstr )
 {
     Vec v( { 1, 2, 8 } );
 
@@ -43,7 +43,7 @@ TEST( PX( Vec ), IntConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), IntStrConstr )
+TEST( Vec, IntStrConstr )
 {
     Vec v( {"1", "2", "8" } );
 
@@ -55,7 +55,7 @@ TEST( PX( Vec ), IntStrConstr )
     EXPECT_EQ( 0, v.GetData().size() );
 }
 
-TEST( PX( Vec ), Valarr )
+TEST( Vec, Valarr )
 {
     Vec v( std::valarray< int16_t > { 1, 2, 8 } );
 
@@ -67,7 +67,7 @@ TEST( PX( Vec ), Valarr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), Str )
+TEST( Vec, Str )
 {
     Vec v( { "1", "2", "8" } );
 
@@ -79,7 +79,7 @@ TEST( PX( Vec ), Str )
     EXPECT_EQ( 0, v.GetData().size() );
 }
 
-TEST( PX( Vec ), Map )
+TEST( Vec, Map )
 {
     Vec v( { 1, 2, 8 }, { { 1, "1" }, { 2, "2" }, { 8, "8" } } );
 
@@ -91,7 +91,7 @@ TEST( PX( Vec ), Map )
     EXPECT_EQ( 0, v.GetData().size() );
 }
 
-TEST( PX( Vec ), Linspace )
+TEST( Vec, Linspace )
 {
     Vec v( 0, 2, 3 );
 
@@ -103,7 +103,7 @@ TEST( PX( Vec ), Linspace )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), LinspaceFunc )
+TEST( Vec, LinspaceFunc )
 {
     Vec v( 0, 2, 3, []( double x )
     {
@@ -118,7 +118,7 @@ TEST( PX( Vec ), LinspaceFunc )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), Func )
+TEST( Vec, Func )
 {
     Vec v( { 0, 2, 3 }, []( double x )
     {
@@ -133,7 +133,7 @@ TEST( PX( Vec ), Func )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), Arma )
+TEST( Vec, Arma )
 {
     Vec v( arma::vec{ 0, 2, 3 } );
 
@@ -145,25 +145,25 @@ TEST( PX( Vec ), Arma )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( PX( Vec ), GetSizeDouble )
+TEST( Vec, GetSizeDouble )
 {
     Vec v( { 0, 2, 3, 4 } );
     EXPECT_EQ( 4, v.GetSize() );
 }
 
-TEST( PX( Vec ), GetSizeStr )
+TEST( Vec, GetSizeStr )
 {
     Vec v( { "0", "2", "3", "4" } );
     EXPECT_EQ( 4, v.GetSize() );
 }
 
-TEST( PX( Vec ), Min )
+TEST( Vec, Min )
 {
     Vec v( { 0, 2, 3, 4, -2 } );
     EXPECT_DOUBLE_EQ( -2.0, v.Min() );
 }
 
-TEST( PX( Vec ), Max )
+TEST( Vec, Max )
 {
     Vec v( { 0, 2, 3, 4, -2 } );
     EXPECT_DOUBLE_EQ( 4.0, v.Max() );

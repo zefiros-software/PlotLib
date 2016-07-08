@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2015 Koen Visscher, Paul Visscher and individual contributors.
+ * Copyright (c) 2016 Koen Visscher, Paul Visscher and individual contributors.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,7 @@
  * @endcond
  */
 
-#include "gtest/gtest.h"
+#include "helper.h"
 
 #include <iostream>
 #include <cstdio>
@@ -39,6 +39,8 @@ int main( int argc, char **argv )
     _CrtSetReportFile( _CRT_ASSERT, _CRTDBG_FILE_STDERR );
     //_crtBreakAlloc =  0;
 #endif
+
+    arma::arma_rng::set_seed( 0 );
 
     testing::InitGoogleTest( &argc, argv );
 

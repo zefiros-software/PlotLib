@@ -30,39 +30,27 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class PlotVLine
     : public AbstractPlot
 {
 public:
 
-    PlotVLine( double x = 0 )
-    {
-        mStream << "ax = plt.gca()\ncolor = next(ax._get_lines.color_cycle)\nplt.axvline(" << x << ",color=color";
-    }
+    PlotVLine( double x = 0 );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    PlotVLine &SetYMin( double ymin )
-    {
-        mStream << ", ymin=" << ymin;
-        return *this;
-    }
+    PlotVLine &SetYMin( double ymin );
 
-    PlotVLine &SetYMax( double ymax )
-    {
-        mStream << ", ymax=" << ymax;
-        return *this;
-    }
+    PlotVLine &SetYMax( double ymax );
 
 private:
 
     std::stringstream mStream;
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/plotVLine.cpp"
+#endif
 
 #endif

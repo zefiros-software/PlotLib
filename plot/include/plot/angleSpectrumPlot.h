@@ -30,73 +30,145 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
+/**
+ * An angle spectrum plot, this is a wrapper for the
+ * [`angle_spectrum`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.angle_spectrum)
+ * functionality.
+ *
+ * @details
+ * @examples
+ *
+ * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot
+ *
+ * ![Plot Example](AngleSpectrumPlot.png)
+ *
+ * @sa AbstractPlot
+ */
 
 class AngleSpectrumPlot
     : public AbstractPlot
 {
 public:
 
+    /**
+     * Specifies which side of the spectrum is returned.
+     */
+
     enum class Sides
     {
+        ///  Default is one-sided real and complex data.
         Default,
+        /// One-sided spectrum.
         OneSided,
+        /// Two-sided spectrum.
         TwoSided
     };
 
-    AngleSpectrumPlot( const Vec &vec )
-    {
-        mStream << "plt.angle_spectrum(" << ToArray( vec );
-    }
+    /**
+     * Constructor that plots the angle spectrum of @c vec.
+     *
+     * @param   vec The vector to analyse.
+     *
+     * @details
+     * @examples
+     *
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot
+     */
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    AngleSpectrumPlot( const Vec &vec );
 
-    AngleSpectrumPlot &SetSamplingFrequency( double fs )
-    {
-        mStream << ", Fs=" << fs;
-        return *this;
-    }
+    virtual std::string ToString() const override;
 
-    AngleSpectrumPlot &SetSides( Sides sides )
-    {
-        mStream << ", sides=" << GetSides( sides );
-        return *this;
-    }
+    /**
+     * Sets the sampling frequency, which is used to calculate the Fourier coefficients.
+     * The default value is 2.
+     *
+     * @param   fs The frequency.
+     *
+     * @return This object (Fluent API).
+     *
+     * @details
+     * @examples
+     *
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot_SamplingFrequency
+     *
+     * ![SetSamplingFrequency Example](AngleSpectrumPlot_SamplingFrequency.png)
+     */
 
-    AngleSpectrumPlot &SetCenterFrequence( int32_t fc )
-    {
-        mStream << ", Fc=" << fc;
-        return *this;
-    }
+    AngleSpectrumPlot &SetSamplingFrequency( double fs );
 
-    AngleSpectrumPlot &SetPadTo( int32_t pad )
-    {
-        mStream << ", pad_to=" << pad;
-        return *this;
-    }
+    /**
+     * Sets which side the spectrum should return.
+     *
+     * @param   sides The sides to return.
+     *
+     * @return This object (Fluent API).
+     *
+     * @details
+     * @examples
+     *
+     * @title{Default Sided}
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot_SetSides
+     *
+     * ![SetSamplingFrequency TwoSided Example](AngleSpectrumPlot_SetSides.png)
+     *
+     * @title{One Sided}
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot_SetSides_OneSided
+     *
+     * ![SetSamplingFrequency OneSided Example](AngleSpectrumPlot_SetSides_OneSided.png)
+     *
+     * @title{Two Sided}
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot_SetSides_TwoSided
+     *
+     * ![SetSamplingFrequency TwoSided Example](AngleSpectrumPlot_SetSides_TwoSided.png)
+     */
+
+    AngleSpectrumPlot &SetSides( Sides sides );
+
+    /**
+     * Sets the centre frequency (default 0). It offsets the
+     *
+     * @param   fc The frequency.
+     *
+     * @return This object (Fluent API).
+     *
+     * @details
+     * @examples
+     *
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot_SetCentreFrequency
+     *
+     * ![SetCentreFrequence Example](AngleSpectrumPlot_SetCentreFrequency.png)
+     */
+
+    AngleSpectrumPlot &SetCentreFrequency( int32_t fc );
+
+    /**
+     * Sets the padding for the Fourier Transform.
+     *
+     * @param   pad The padding.
+     *
+     * @return This object (Fluent API).
+     *
+     * @details
+     * @examples
+     *
+     * @snippet testAngleSpectrumPlot.cpp AngleSpectrumPlot_SetPadTo
+     *
+     * ![SetPadTo Example](AngleSpectrumPlot_SetPadTo.png)
+     */
+
+    AngleSpectrumPlot &SetPadTo( int32_t pad );
 
 private:
 
     std::stringstream mStream;
 
-    std::string GetSides( Sides sides )
-    {
-        switch ( sides )
-        {
-        case Sides::Default:
-            return "'default'";
-
-        case Sides::OneSided:
-            return "'onesided'";
-
-        case Sides::TwoSided:
-            return "'twosided'";
-        }
-    }
+    std::string GetSides( Sides sides );
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/angleSpectrumPlot.cpp"
+#endif
 
 #endif

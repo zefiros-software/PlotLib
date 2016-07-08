@@ -30,8 +30,6 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class JointPlot
     : public AbstractPlot
 {
@@ -46,80 +44,31 @@ public:
         Hexbin
     };
 
-    JointPlot( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "xl=" << ToArray( exogenous ) << "\n"
-                << "yl=" << ToArray( endogenous ) << "\n";
-        mStream << "sns.jointplot(x='x',y='y',data=pd.DataFrame.from_dict({'x': xl,'y': yl})";
-    }
+    JointPlot( const Vec &exogenous, const Vec &endogenous );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    JointPlot &SetKind( Kind kind )
-    {
-        mStream << ", kind=\"" << GetKind( kind ) << "\"";
-        return *this;
-    }
+    JointPlot &SetKind( Kind kind );
 
-    JointPlot &SetSize( size_t size )
-    {
-        mStream << ", size=" << size;
-        return *this;
-    }
+    JointPlot &SetSize( size_t size );
 
-    JointPlot &SetRatio( double ratio )
-    {
-        mStream << ", ratio=" << ratio;
-        return *this;
-    }
+    JointPlot &SetRatio( double ratio );
 
-    JointPlot &SetSpace( double space )
-    {
-        mStream << ", space=" << space;
-        return *this;
-    }
+    JointPlot &SetSpace( double space );
 
-    JointPlot &SetXLimit( const std::pair<double, double> &x )
-    {
-        mStream << ", xlim=(" << x.first << "," << x.second << ")";
-        return *this;
-    }
+    JointPlot &SetXLimit( const std::pair<double, double> &x );
 
-    JointPlot &SetYLimit( const std::pair<double, double> &y )
-    {
-        mStream << ", ylim=(" << y.first << "," << y.second << ")";
-        return *this;
-    }
+    JointPlot &SetYLimit( const std::pair<double, double> &y );
 
 private:
 
     std::stringstream mStream;
 
-    static std::string GetKind( Kind kind )
-    {
-        switch ( kind )
-        {
-        case Kind::Scatter:
-            return "scatter";
-
-        case Kind::Regression:
-            return "reg";
-
-        case Kind::Residual:
-            return "res";
-
-        case Kind::KernelDensity:
-            return "kde";
-
-        case Kind::Hexbin:
-            return "hex";
-        }
-
-        return "";
-    }
+    static std::string GetKind( Kind kind );
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/jointPlot.cpp"
+#endif
 
 #endif

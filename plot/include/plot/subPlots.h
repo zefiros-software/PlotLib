@@ -28,53 +28,31 @@
 #ifndef __SUBPLOTS_H__
 #define __SUBPLOTS_H__
 
-
 #include "plot/abstractPlot.h"
-#include "plot/heatMapPlot.h"
 
-#include <string>
+class HeatMapPlot;
 
 class SubPlots
     : public AbstractPlot
 {
 public:
 
-    SubPlots( uint32_t rows, uint32_t columns )
-        : mPlotCount( 0 )
-    {
-        mStream << "fig, axn = plt.subplots(" << rows <<"," << columns << ", sharex=True, sharey=True, squeeze=True, subplot_kw={'axisbg': 'w'})\n"
-                << "fig.subplots_adjust(hspace=0.5,wspace=0.5)\n";
-    }
+    SubPlots( uint32_t rows, uint32_t columns );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + "\n" + mPlots.str() + "\nfig.tight_layout(rect=[0, 0, .85, .9],pad=0.1)\n";
-    }
-    
-    void AddHeatMapPlot( HeatMapPlot &plot )
-    {
-        if(mPlotCount == 0)
-        {
-            mStream << "cbar_ax = fig.add_axes([.86, .05, .03, .9])\n"
-                    << "ax_cycler = itertools.cycle(axn.flat)\n";
-            plot.mStream << ", cbar_ax= cbar_ax";
-        }
-        else
-        {
-            plot.SetColourBar( false );
-        }
-        
-        plot.mStream << ", ax=next(ax_cycler)";
-        mPlots << "\n" << plot.ToString() << "\n";
-        ++mPlotCount;
-    }
+    virtual std::string ToString() const override;
+
+    void AddHeatMapPlot( HeatMapPlot &plot );
 
 private:
 
     std::stringstream mStream;
     std::stringstream mPlots;
-    
+
     uint32_t mPlotCount;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/subPlots.cpp"
+#endif
 
 #endif

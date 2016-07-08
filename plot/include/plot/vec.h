@@ -28,20 +28,19 @@
 #ifndef __VEC_H__
 #define __VEC_H__
 
+#include <initializer_list>
+#include <functional>
+#include <valarray>
+#include <vector>
+#include <map>
+
+
 #ifdef PLOTLIB_ARMA
 #pragma warning(push)
 #pragma warning(disable : 4702)
 #include <armadillo>
 #pragma warning(pop)
 #endif
-
-#include <initializer_list>
-#include <functional>
-#include <algorithm>
-#include <stdint.h>
-#include <valarray>
-#include <vector>
-#include <map>
 
 class Vec
 {
@@ -60,100 +59,50 @@ public:
     {
     }
 
-    Vec( const std::vector< std::string > &data )
-        : mStrData( data )
-    {
-    }
-
-    Vec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map )
-    {
-        for ( auto &val : data )
-        {
-            mStrData.push_back( map.at( val ) );
-        }
-    }
-
-    Vec( double min, double max, size_t n )
-        : Vec( LinSpace( min, max, n ) )
-    {
-    }
-
-    Vec( double min, double max, size_t n, std::function< double( double ) > function )
-        : Vec( LinSpace( min, max, n ), function )
-    {
-    }
-
-    Vec( const Vec &x, std::function< double( double ) > function )
-    {
-        for ( const auto &val : x.GetData() )
-        {
-            mData.push_back( function( val ) );
-        }
-    }
-
-    Vec( const std::initializer_list< double > &data )
-        : mData( data )
-    {
-    }
-
-    Vec( const std::initializer_list< std::string > &data )
-        : mStrData( data )
-    {
-    }
 
 #ifdef PLOTLIB_ARMA
-
-    Vec( const arma::vec &data )
-        : mData( data.begin(), data.end() )
+    template<>
+    Vec( const ::arma::vec &data )
+        : mData( data.cbegin(), data.cend() )
     {
     }
 
 #endif
 
-    const std::vector< double > &GetData() const
-    {
-        return mData;
-    }
+    Vec( const std::vector< std::string > &data );
 
-    const std::vector< std::string > &GetStrings() const
-    {
-        return mStrData;
-    }
+    Vec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map );
 
-    size_t GetSize() const
-    {
-        return mStrData.empty() ? mData.size() : mStrData.size();
-    }
+    Vec( double min, double max, size_t n );
 
-    double Min() const
-    {
-        return *std::min_element( mData.begin(), mData.end() );
-    }
+    Vec( double min, double max, size_t n, std::function< double( double ) > function );
 
-    double Max() const
-    {
-        return *std::max_element( mData.begin(), mData.end() );
-    }
+    Vec( const Vec &x, std::function< double( double ) > function );
+
+    Vec( const std::initializer_list< double > &data );
+
+    Vec( const std::initializer_list< std::string > &data );
+
+    const std::vector< double > &GetData() const;
+
+    const std::vector< std::string > &GetStrings() const;
+
+    size_t GetSize() const;
+
+    double Min() const;
+
+    double Max() const;
 
 private:
 
     std::vector< double > mData;
     std::vector< std::string > mStrData;
 
-    std::vector<double> LinSpace( double start, double end, size_t num )
-    {
-        double delta = ( end - start ) / ( num - 1 );
-
-        std::vector<double> linspaced( num );
-        linspaced[0] = start;
-
-        for ( size_t i = 1; i < num; ++i )
-        {
-            linspaced[i] = start + delta * static_cast<int>( i );
-        }
-
-        return linspaced;
-    }
+    std::vector<double> LinSpace( double start, double end, size_t num );
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/vec.cpp"
+#endif
 
 #endif

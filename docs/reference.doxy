@@ -44,7 +44,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer a
 # quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          =
+PROJECT_BRIEF          = A C++ plotting library.
 
 # With the PROJECT_LOGO tag one can specify a logo or an icon that is included
 # in the documentation. The maximum height of the logo should not exceed 55
@@ -239,6 +239,7 @@ TAB_SIZE               = 4
 # newlines.
 
 ALIASES                = "examples=### Examples ###" \
+                         "title{1}=#### \1 ####" \
                          "threadsafe=\remark This interface is marked as threadsafe" \
                          "partthreadsafe=\remark This interface is marked as partialy threadsafe." \
                          "partthreadsafe{1}=\remark This interface is marked as threadsafe under the condition that, \1."
@@ -912,7 +913,7 @@ EXAMPLE_RECURSIVE      = YES
 # that contain images that are to be included in the documentation (see the
 # \image command).
 
-IMAGE_PATH             =
+IMAGE_PATH             = ./images/
 
 # The INPUT_FILTER tag can be used to specify a program that doxygen should
 # invoke to filter for each input file. Doxygen will invoke the filter program

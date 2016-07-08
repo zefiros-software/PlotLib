@@ -24,4 +24,7 @@ Makefile
 
 -- Intel Tools
 *Amplifier*
+
+-- Docs
 *.chi
+*.chm

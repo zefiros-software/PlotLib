@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2015 Koen Visscher, Paul Visscher and individual contributors.
+ * Copyright (c) 2016 Koen Visscher, Paul Visscher and individual contributors.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,44 +31,26 @@
 #define CONCATEXT( a, b ) a##b
 #define CONCAT( a, b ) CONCATEXT( a, b )
 #define PX( prefix ) CONCAT( PREFIX, prefix )
+#define GTEST_DONT_DEFINE_TEST 1
 
-#ifdef __INTEL_COMPILER
-
-#define __builtin_huge_val() HUGE_VAL
-#define __builtin_huge_valf() HUGE_VALF
-#define __builtin_nan nan
-#define __builtin_nanf nanf
-#define __builtin_nans nan
-#define __builtin_nansf nanf
-
-#endif
+# define TEST(test_case_name, test_name) GTEST_TEST( PX( test_case_name ), test_name)
 
 #include <armadillo>
 
-#define PLOTLIB_ARMA
 #include "plot/plotting.h"
 
 #include <gtest/gtest.h>
 
-#include <unordered_set>
-
 using namespace arma;
 
-template<typename T, size_t size>
-::testing::AssertionResult ArraysMatch( const T( &expected )[size],
-                                        const T( &actual )[size] )
+template< typename tPlot >
+void TestPlot( const std::string &str, std::function< tPlot( void ) > fn )
 {
-    for ( size_t i = 0; i < size; ++i )
-    {
-        if ( expected[i] != actual[i] )
-        {
-            return ::testing::AssertionFailure() << "array[" << i
-                   << "] (" << actual[i] << ") != expected[" << i
-                   << "] (" << expected[i] << ")";
-        }
-    }
+    Plot p;
 
-    return ::testing::AssertionSuccess();
+    p.AddPlot( fn() )
+    .SetSize( 400, 200 )
+    .Save( str + ".png" );
 }
 
 #endif

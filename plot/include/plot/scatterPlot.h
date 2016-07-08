@@ -30,43 +30,28 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class ScatterPlot
     : public AbstractPlot
 {
 public:
 
-    ScatterPlot( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "plt.scatter(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-    }
+    ScatterPlot( const Vec &exogenous, const Vec &endogenous );
 
-    ScatterPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
-    {
-        mStream << "plt.scatter(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
-    }
+    ScatterPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    ScatterPlot &SetAlpha( double alpha )
-    {
-        mStream << ", alpha=" << alpha;
-        return *this;
-    }
+    ScatterPlot &SetAlpha( double alpha );
 
-    ScatterPlot &SetScalar( double scalar )
-    {
-        mStream << ", s=" << scalar;
-        return *this;
-    }
+    ScatterPlot &SetScalar( double scalar );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/scatterPlot.cpp"
+#endif
 
 #endif

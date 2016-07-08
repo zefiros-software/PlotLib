@@ -29,89 +29,45 @@
 #define __DISTPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
 
-#include <string>
+class Vec;
 
 class DistrPlot
     : public AbstractPlot
 {
 public:
 
-    DistrPlot( const Vec &a )
-    {
-        mStream << "sns.distplot(" << ToArray( a );
-    }
+    DistrPlot( const Vec &a );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    DistrPlot &SetBins( bool log = false )
-    {
-        mStream << ", bins=" << ( log ? "'log'" : "None" );
-        return *this;
-    }
+    DistrPlot &SetBins( bool log = false );
 
-    DistrPlot &SetBins( const Vec &seq )
-    {
-        const bool isSingular = seq.GetSize() == 1;
-        mStream << ", bins=" << isSingular ? std::to_string( seq.GetData()[0] ) : ToArray( seq );
-        return *this;
-    }
+    DistrPlot &SetBins( const Vec &seq );
 
-    DistrPlot &SetHist( bool hist )
-    {
-        mStream << ", hist=" << GetBool( hist );
-        return *this;
-    }
+    DistrPlot &SetHist( bool hist );
 
-    DistrPlot &SetKDE( bool kde )
-    {
-        mStream << ", kde=" << GetBool( kde );
-        return *this;
-    }
+    DistrPlot &SetKDE( bool kde );
 
-    DistrPlot &SetRUG( bool rug )
-    {
-        mStream << " , rug=" << GetBool( rug );
-        return *this;
-    }
+    DistrPlot &SetRUG( bool rug );
 
-    DistrPlot &SetVerical( bool vertical )
-    {
-        mStream << " , vertical=" << GetBool( vertical );
-        return *this;
-    }
+    DistrPlot &SetVerical( bool vertical );
 
-    DistrPlot &SetNormHist( bool normHist )
-    {
-        mStream << " , norm_hist=" << GetBool( normHist );
-        return *this;
-    }
+    DistrPlot &SetNormHist( bool normHist );
 
-    DistrPlot &SetAxLabel( const std::string &axlabel )
-    {
-        mStream << " , axlabel='" << axlabel  << "'";
-        return *this;
-    }
+    DistrPlot &SetAxLabel( const std::string &axlabel );
 
-    DistrPlot &SetAxLabel()
-    {
-        mStream << " , axlabel=False";
-        return *this;
-    }
+    DistrPlot &SetAxLabel();
 
-    DistrPlot &SetLabel( const std::string &label )
-    {
-        mStream << " , label='" << label << "'";
-        return *this;
-    }
+    DistrPlot &SetLabel( const std::string &label );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/distrPlot.cpp"
+#endif
 
 #endif

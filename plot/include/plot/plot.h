@@ -29,12 +29,11 @@
 #define __PLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/customLegend.h"
-#include "plot/palette.h"
 
 #include <sstream>
-#include <vector>
 #include <fstream>
+
+class CustomLegend;
 
 class Plot
 {
@@ -80,136 +79,41 @@ public:
         Center
     };
 
-    Plot()
-        : Plot( Context::Notebook )
-    {
-    }
+    Plot();
 
-    Plot( Context context )
-        : mHasColourCycler( false )
-    {
-        mInitStream << "import seaborn as sns\n"
-                    "import numpy as np\n"
-                    "import pandas as pd\n"
-                    "import matplotlib.pyplot as plt\n"
-                    "import itertools\n"
-                    "import matplotlib.patches as mpatches\n";
+    Plot( Context context );
 
-        Set( context, 1.2 );
-    }
+    Plot( const AbstractPlot &plot );
 
-    Plot( const AbstractPlot &plot )
-        : Plot()
-    {
-        AddPlot( plot );
-    }
+    Plot &AxisStyle( Style style, const std::vector< std::pair< std::string, std::string >> &params = {} );
 
-    Plot &AxisStyle( Style style, const std::vector< std::pair< std::string, std::string >> &params = {} )
-    {
-        mStream << "sns.set_style('" << GetStyle( style ) << "'," << GetDictionary( params ) << ")\n";
+    Plot &Set( Context context, const std::vector< std::pair< std::string, std::string >> &params = {} );
 
-        return *this;
-    }
+    Plot &Set( Context context, double fontScale, const std::vector< std::pair< std::string, std::string >> &params = {} );
 
-    Plot &Set( Context context, const std::vector< std::pair< std::string, std::string >> &params = {} )
-    {
-        mStream << "sns.set('" << GetContext( context ) << "', rc=" << GetDictionary( params ) << ")\n";
+    Plot &SetXLabel( const std::string &xlabel, size_t fontSize );
 
-        return *this;
-    }
+    Plot &SetYLabel( const std::string &ylabel, size_t fontSize );
 
-    Plot &Set( Context context, double fontScale, const std::vector< std::pair< std::string, std::string >> &params = {} )
-    {
-        mStream << "sns.set('" << GetContext( context )
-                << "', font_scale=" << fontScale
-                << ", rc=" << GetDictionary( params ) << ")\n";
+    Plot &SetXLimit( double xmin, double xmax );
 
-        return *this;
-    }
+    Plot &SetYLimit( double ymin, double ymax );
 
-    Plot &SetXLabel( const std::string &xlabel, size_t fontSize )
-    {
-        mStream << "plt.xlabel('" << xlabel << "',fontsize=" << fontSize << ")\n";
+    Plot &SetTitle( const std::string &title, size_t fontSize );
 
-        return *this;
-    }
+    Plot &SetSupTitle( const std::string &title, size_t fontSize );
 
-    Plot &SetYLabel( const std::string &ylabel, size_t fontSize )
-    {
-        mStream << "plt.ylabel('" << ylabel << "',fontsize=" << fontSize << ")\n";
+    Plot &SetLegend( const std::vector<std::string> &titles, size_t fontSize );
 
-        return *this;
-    }
+    Plot &SetXLabel( const std::string &xlabel );
 
-    Plot &SetXLimit( double xmin, double xmax )
-    {
-        mStream << "plt.xlim(" << xmin << "," << xmax << ")\n";
+    Plot &SetYLabel( const std::string &ylabel );
 
-        return *this;
-    }
+    Plot &SetTitle( const std::string &title );
 
-    Plot &SetYLimit( double ymin, double ymax )
-    {
-        mStream << "plt.ylim(" << ymin << "," << ymax << ")\n";
+    Plot &SetSupTitle( const std::string &title );
 
-        return *this;
-    }
-
-    Plot &SetTitle( const std::string &title, size_t fontSize )
-    {
-        mStream << "plt.title('" << title << "',fontsize=" << fontSize << ")\n";
-
-        return *this;
-    }
-
-    Plot &SetSupTitle( const std::string &title, size_t fontSize )
-    {
-        mStream << "plt.suptitle('" << title << "',fontsize=" << fontSize << ")\n";
-
-        return *this;
-    }
-
-    Plot &SetLegend( const std::vector<std::string> &titles, size_t fontSize )
-    {
-        mStream << "plt.legend(" << AbstractPlot::ToArray( titles ) << ", fontsize=" << fontSize << ")\n";
-
-        return *this;
-    }
-
-    Plot &SetXLabel( const std::string &xlabel )
-    {
-        mStream << "plt.xlabel('" << xlabel << "')\n";
-
-        return *this;
-    }
-
-    Plot &SetYLabel( const std::string &ylabel )
-    {
-        mStream << "plt.ylabel('" << ylabel << "')\n";
-
-        return *this;
-    }
-
-    Plot &SetTitle( const std::string &title )
-    {
-        mStream << "plt.title('" << title << "')\n";
-
-        return *this;
-    }
-
-    Plot &SetSupTitle( const std::string &title )
-    {
-        mStream << "plt.suptitle('" << title << "')\n";
-
-        return *this;
-    }
-
-    Plot &SetLegend( const std::vector<std::string> &titles )
-    {
-        SetLegend( titles, Location::Best );
-
-        return *this;
-    }
+    Plot &SetLegend( const std::vector<std::string> &titles );
 
     template< typename tT, typename tFunc >
     Plot &SetLegend( const std::vector<tT> &titleData, const tFunc &titleFunc )
@@ -226,171 +130,47 @@ public:
         return *this;
     }
 
-    Plot &SetLegend( const std::vector<std::string> &titles, Location location )
-    {
-        mStream << "plt.legend(" << AbstractPlot::ToArray( titles ) << ", loc='" << GetLocation( location ) << "')\n";
+    Plot &SetLegend( const std::vector<std::string> &titles, Location location );
 
-        return *this;
-    }
+    Plot &SetLegend( Location location );
 
-    Plot &SetLegend( Location location )
-    {
-        mStream << "plt.legend( loc='" << GetLocation( location ) << "')\n";
+    Plot &SetXKCD();
 
-        return *this;
-    }
+    Plot &ResetDefaults();
 
-    Plot &SetXKCD()
-    {
-        mInitStream << "plt.xkcd()\n";
+    Plot &ResetOrig();
 
-        return *this;
-    }
+    Plot &AxisLabels( const std::string &xlabel, const std::string &ylabel );
 
-    Plot &ResetDefaults()
-    {
-        mStream << "sns.reset_defaults()\n";
+    Plot &SetPalette( const Palette &palette );
 
-        return *this;
-    }
+    Plot &SetYScale( Scale scale );
 
-    Plot &ResetOrig()
-    {
-        mStream << "sns.reset_orig()\n";
+    Plot &SetYScaleSymLog( double linthreshy, double linscaley );
 
-        return *this;
-    }
+    Plot &AddPlot( const AbstractPlot &plot );
 
-    Plot &AxisLabels( const std::string &xlabel, const std::string &ylabel )
-    {
-        mStream << "sns.axlabel(" << xlabel << "," << ylabel << ")\n";
+    Plot &AddColourCycler( const Palette &palette );
 
-        return *this;
-    }
+    std::string GetColourCycler() const;
 
-    Plot &SetPalette( const Palette &palette )
-    {
-        mStream << "sns.set_palette(" << palette.ToString() << ")\n";
+    Plot &AddCustomLegend( const CustomLegend &legend );
 
-        return *this;
-    }
+    Plot &SetSize( size_t width, size_t height );
 
-    Plot &SetYScale( Scale scale )
-    {
-        mStream << "plt.yscale('" << GetScale( scale ) << "')\n";
+    Plot &Despine();
 
-        return *this;
-    }
+    Plot &Show();
 
-    Plot &SetYScaleSymLog( double linthreshy, double linscaley )
-    {
-        mStream << "plt.yscale('" << GetScale( Scale::Symlog ) << "', linthreshy=" << linthreshy << ", linscaley=" << linscaley
-                << ")\n";
+    Plot &SetTightLayout();
 
-        return *this;
-    }
+    Plot &Save( const std::string &fname );
 
-    Plot &AddPlot( const AbstractPlot &plot )
-    {
-        mStream << "\n" << plot.ToString() << "\n";
+    Plot &Figure( size_t n );
 
-        return *this;
-    }
+    Plot &Figure();
 
-    Plot &AddColourCycler( const Palette &palette )
-    {
-        mHasColourCycler = true;
-        mStream << "colour_cycler = itertools.cycle( " << palette.ToString() << " )\n";
-        return *this;
-    }
-
-    std::string GetColourCycler() const
-    {
-        assert( mHasColourCycler );
-        return "colour_cycler";
-    }
-
-    Plot &AddCustomLegend( const CustomLegend &legend )
-    {
-        mStream << "\n" << legend.ToString() << "\n";
-        return *this;
-    }
-
-    Plot &SetSize( size_t width, size_t height )
-    {
-        mStream << "\nfig = plt.gcf()\ndpi = fig.get_dpi()\nfig.set_size_inches("
-                << width << "/float(dpi)," << height << "/float(dpi), forward=True)\n";
-
-        return *this;
-    }
-
-    Plot &Despine()
-    {
-        mStream << "\nsns.despine()\n";
-
-        return *this;
-    }
-
-    Plot &Show()
-    {
-        std::ofstream ss( "plot.in" );
-
-        ss << mInitStream.str() << mStream.str() <<  "\nplt.show()";
-
-        ss.close();
-
-#ifdef _WIN32
-        system( "python plot.in" );
-#else
-        system( "python3.5 plot.in" );
-#endif
-        return *this;
-    }
-
-    Plot &SetTightLayout()
-    {
-        mStream << "\ntry:\n\tplt.tight_layout(pad=1)\nexcept: \n\tpass";
-
-        return *this;
-    }
-
-    Plot &Save( const std::string &fname )
-    {
-        std::ofstream ss( "plot.in" );
-
-        ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=90 )";
-
-        ss.close();
-
-#ifdef _WIN32
-        system( "python plot.in" );
-#else
-        system( "python3.5 plot.in" );
-#endif
-
-        return *this;
-    }
-
-    Plot &Figure( size_t n )
-    {
-        mStream << "\nplt.figure( " << n << " )\n";
-
-        return *this;
-    }
-
-    Plot &Figure()
-    {
-        mStream << "\nplt.figure()\n";
-
-        return *this;
-    }
-
-    Plot &SubPlot( size_t y, size_t x, size_t n )
-    {
-        mStream << "\nplt.subplot( " << y << ", " << x << ", " << n << " )\n";
-
-        return *this;
-    }
+    Plot &SubPlot( size_t y, size_t x, size_t n );
 
 protected:
 
@@ -399,132 +179,20 @@ protected:
 
     bool mHasColourCycler;
 
-    static std::string GetContext( Context context )
-    {
-        switch ( context )
-        {
-        case Context::Paper:
-            return "paper";
+    static std::string GetContext( Context context );
 
-        case Context::Notebook:
-            return "notebook";
+    static std::string GetScale( Scale scale );
 
-        case Context::Talk:
-            return "talk";
+    static std::string GetLocation( Location location );
 
-        case Context::Poster:
-            return "poster";
-        }
+    static std::string GetStyle( Style style );
 
-        return "";
-    }
-
-    static std::string GetScale( Scale scale )
-    {
-        switch ( scale )
-        {
-        case Scale::Linear:
-            return "linear";
-
-        case Scale::Log:
-            return "log";
-
-        case Scale::Logit:
-            return "logit";
-
-        case Scale::Symlog:
-            return "symlog";
-        }
-
-        return "";
-    }
-
-    static std::string GetLocation( Location location )
-    {
-        switch ( location )
-        {
-        case Location::Best:
-            return "best";
-
-        case Location::UpperRight:
-            return "upper right";
-
-        case Location::UpperLeft:
-            return "upper left";
-
-        case Location::LowerLeft:
-            return "lower left";
-
-        case Location::LowerRight:
-            return "lower right";
-
-        case Location::Right:
-            return "right";
-
-        case Location::CenterLeft:
-            return "center left";
-
-        case Location::CenterRight:
-            return "center right";
-
-        case Location::LowerCenter:
-            return "lower center";
-
-        case Location::UpperCenter:
-            return "upper center";
-
-        case Location::Center:
-            return "center";
-        }
-
-        return "";
-    }
-
-    static std::string GetStyle( Style style )
-    {
-        switch ( style )
-        {
-        case Style::DarkGrid:
-            return "darkgrid";
-
-        case Style::WhiteGrid:
-            return "whitegrid";
-
-        case Style::Dark:
-            return "dark";
-
-        case Style::White:
-            return "white";
-
-        case Style::Ticks:
-            return "ticks";
-        }
-
-        return "";
-    }
-
-    static std::string GetDictionary( const std::vector< std::pair< std::string, std::string >> &params )
-    {
-        std::stringstream ss;
-        bool first = true;
-        ss << " {";
-
-        for ( auto it = params.begin(), end = params.end(); it != end; ++it )
-        {
-            if ( !first )
-            {
-                ss << ", ";
-            }
-
-            ss << "'" << ( *it ).first << "': " << ( *it ).second;
-            first = false;
-        }
-
-        ss << "}";
-
-        return ss.str();
-    }
+    static std::string GetDictionary( const std::vector< std::pair< std::string, std::string >> &params );
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/plot.cpp"
+#endif
 
 #endif

@@ -30,68 +30,36 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class ResidualPlot
     : public AbstractPlot
 {
 public:
 
-    ResidualPlot( const Vec &exogenous, const Vec &endogenous )
-    {
-        mStream << "sns.residplot(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-    }
+    ResidualPlot( const Vec &exogenous, const Vec &endogenous );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    ResidualPlot &SetLowess( bool lowess )
-    {
-        mStream << ", lowess=" << GetBool( lowess );
-        return *this;
-    }
+    ResidualPlot &SetLowess( bool lowess );
 
-    ResidualPlot &SetXPartial( const Mat &mat )
-    {
-        mStream << ", x_partial=" << ToArray( mat );
-        return *this;
-    }
+    ResidualPlot &SetXPartial( const Mat &mat );
 
-    ResidualPlot &SetYPartial( const Mat &mat )
-    {
-        mStream << ", y_partial=" << ToArray( mat );
-        return *this;
-    }
+    ResidualPlot &SetYPartial( const Mat &mat );
 
-    ResidualPlot &SetOrder( size_t order )
-    {
-        mStream << ", order=" << order;
-        return *this;
-    }
+    ResidualPlot &SetOrder( size_t order );
 
-    ResidualPlot &SetRobust( bool robust )
-    {
-        mStream << ", robust=" << GetBool( robust );
-        return *this;
-    }
+    ResidualPlot &SetRobust( bool robust );
 
-    ResidualPlot &SetLabel( const std::string &label )
-    {
-        mStream << ", label=" << label;
-        return *this;
-    }
+    ResidualPlot &SetLabel( const std::string &label );
 
-    ResidualPlot &SetColour( const std::string &colour )
-    {
-        mStream << ", color='" << colour << "'";
-        return *this;
-    }
+    ResidualPlot &SetColour( const std::string &colour );
 
 private:
 
     std::stringstream mStream;
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/residualPlot.cpp"
+#endif
 
 #endif

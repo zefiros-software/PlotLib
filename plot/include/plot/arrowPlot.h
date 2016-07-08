@@ -30,8 +30,6 @@
 
 #include "plot/abstractPlot.h"
 
-#include <string>
-
 class ArrowPlot
     : public AbstractPlot
 {
@@ -44,79 +42,34 @@ public:
         Right
     };
 
-    ArrowPlot( double x, double y, double dx, double dy )
-    {
-        mStream << "plt.arrow(" << x << "," << y << "," << dx << "," << dy;
-    }
+    ArrowPlot( double x, double y, double dx, double dy );
 
-    virtual std::string ToString() const override
-    {
-        return mStream.str() + " )";
-    }
+    virtual std::string ToString() const override;
 
-    ArrowPlot &SetWidth( double width )
-    {
-        mStream << ", width=" << width;
-        return *this;
-    }
+    ArrowPlot &SetWidth( double width );
 
-    ArrowPlot &SetLengthIncludesHead( bool includes )
-    {
-        mStream << ", length_includes_head=" << GetBool( includes );
-        return *this;
-    }
+    ArrowPlot &SetLengthIncludesHead( bool includes );
 
-    ArrowPlot &SetHeadWidth( double width )
-    {
-        mStream << ", head_width=" << width;
-        return *this;
-    }
+    ArrowPlot &SetHeadWidth( double width );
 
-    ArrowPlot &SetHeadLength( double length )
-    {
-        mStream << ", head_length=" << length;
-        return *this;
-    }
+    ArrowPlot &SetHeadLength( double length );
 
-    ArrowPlot &SetShape( Shape shape )
-    {
-        mStream << ", shape=" << GetShape( shape );
-        return *this;
-    }
+    ArrowPlot &SetShape( Shape shape );
 
-    ArrowPlot &SetOverhang( double overhang )
-    {
-        mStream << ", overhang=" << overhang;
-        return *this;
-    }
+    ArrowPlot &SetOverhang( double overhang );
 
-    ArrowPlot &SetHeadStartsAtZero( bool starts )
-    {
-        mStream << ", head_starts_at_zero=" << GetBool( starts );
-        return *this;
-    }
+    ArrowPlot &SetHeadStartsAtZero( bool starts );
 
 private:
 
     std::stringstream mStream;
 
-    std::string GetShape( Shape shape )
-    {
-        switch ( shape )
-        {
-        case Shape::Full:
-            return "'full'";
-
-        case Shape::Left:
-            return "'left'";
-
-        case Shape::Right:
-            return "'right'";
-        }
-
-        return "''";
-    }
+    std::string GetShape( Shape shape );
 
 };
+
+#ifndef PLOTLIB_NO_HEADER_ONLY
+#   include "../../src/arrowPlot.cpp"
+#endif
 
 #endif
