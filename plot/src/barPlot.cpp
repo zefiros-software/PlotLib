@@ -54,7 +54,8 @@ PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &dat
     mStream << "\nsns.barplot( x, y";
 }
 
-PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &data,
+                                 const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
@@ -84,7 +85,7 @@ PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &dat
     mStream << "\nsns.barplot( x, y, h";
 }
 
-PLOTLIB_INLINE std::string BarPlot::ToString() const
+PLOTLIB_INLINE std::string BarPlot::ToString()
 {
     return mStream.str() + " )";
 }
@@ -149,9 +150,15 @@ PLOTLIB_INLINE BarPlot &BarPlot::SetErrorColour( const std::string &colour )
     return *this;
 }
 
-PLOTLIB_INLINE BarPlot &BarPlot::SetHatch( const std::string &hatch )
+PLOTLIB_INLINE BarPlot &BarPlot::SetErrorWidth( double width )
 {
-    mStream << ", hatch = '" << hatch << "'";
+    mStream << ", errwidth = " << width;
+    return *this;
+}
+
+PLOTLIB_INLINE BarPlot &BarPlot::SetCapSize( double size )
+{
+    mStream << ", capsize = " << size;
     return *this;
 }
 
@@ -174,7 +181,8 @@ PLOTLIB_INLINE void BarPlot::InitData( const std::vector< std::pair< Vec, Vec > 
     }
 }
 
-PLOTLIB_INLINE void BarPlot::InitHue( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE void BarPlot::InitHue( const std::vector< std::pair< Vec, Vec > > &data,
+                                      const std::vector< std::string > &hue )
 {
     size_t i = 0;
 

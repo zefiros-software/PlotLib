@@ -30,7 +30,7 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE Plot::Plot( const AbstractPlot &plot )
+PLOTLIB_INLINE Plot::Plot( AbstractPlot &plot )
     : Plot()
 {
     AddPlot( plot );
@@ -44,9 +44,13 @@ PLOTLIB_INLINE Plot::Plot( Context context )
                 "import pandas as pd\n"
                 "import matplotlib.pyplot as plt\n"
                 "import itertools\n"
-                "import matplotlib.patches as mpatches\n";
+                "import matplotlib.patches as mpatches\n"
+                "from pandas.tools.plotting import *\n"
+                "from statsmodels.graphics.tsaplots import *\n"
+                "from matplotlib.mlab import *\n";
 
     Set( context, 1.2 );
+    SetColourCodes();
 }
 
 PLOTLIB_INLINE Plot::Plot()
@@ -165,6 +169,20 @@ PLOTLIB_INLINE Plot &Plot::Set( Context context,
     return *this;
 }
 
+PLOTLIB_INLINE Plot &Plot::SetColourCodes()
+{
+    mStream << "sns.set_color_codes()\n";
+
+    return *this;
+}
+
+PLOTLIB_INLINE Plot &Plot::SetColourCodes( Palette::Seaborn seaborn )
+{
+    mStream << "sns.set_color_codes(" << AbstractPlot::GetString( Palette::GetColour( seaborn ) ) << ")\n";
+
+    return *this;
+}
+
 PLOTLIB_INLINE Plot &Plot::SetXLabel( const std::string &xlabel )
 {
     mStream << "plt.xlabel('" << xlabel << "')\n";
@@ -229,9 +247,16 @@ PLOTLIB_INLINE Plot &Plot::SetYScaleSymLog( double linthreshy, double linscaley 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AddPlot( const AbstractPlot &plot )
+PLOTLIB_INLINE Plot &Plot::AddPlot( AbstractPlot &plot )
 {
     mStream << "\n" << plot.ToString() << "\n";
+
+    return *this;
+}
+
+PLOTLIB_INLINE Plot &Plot::AddPlot( const AbstractPlot &plot )
+{
+    mStream << "\n" << const_cast< AbstractPlot & >( plot ).ToString() << "\n";
 
     return *this;
 }
@@ -249,9 +274,15 @@ PLOTLIB_INLINE std::string Plot::GetColourCycler() const
     return "colour_cycler";
 }
 
-PLOTLIB_INLINE Plot &Plot::AddCustomLegend( const CustomLegend &legend )
+PLOTLIB_INLINE Plot &Plot::AddCustomLegend( CustomLegend &legend )
 {
     mStream << "\n" << legend.ToString() << "\n";
+    return *this;
+}
+
+PLOTLIB_INLINE Plot &Plot::AddCustomLegend( const CustomLegend &legend )
+{
+    mStream << "\n" << const_cast< CustomLegend & >( legend ).ToString() << "\n";
     return *this;
 }
 
@@ -297,7 +328,7 @@ PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
 {
     std::ofstream ss( "plot.in" );
 
-    ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=90 )";
+    ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=120 )";
 
     ss.close();
 
@@ -393,19 +424,19 @@ PLOTLIB_INLINE std::string Plot::GetLocation( Location location )
     case Location::Right:
         return "right";
 
-    case Location::CenterLeft:
+    case Location::CentreLeft:
         return "center left";
 
-    case Location::CenterRight:
+    case Location::CentreRight:
         return "center right";
 
-    case Location::LowerCenter:
+    case Location::LowerCentre:
         return "lower center";
 
-    case Location::UpperCenter:
+    case Location::UpperCentre:
         return "upper center";
 
-    case Location::Center:
+    case Location::Centre:
         return "center";
     }
 

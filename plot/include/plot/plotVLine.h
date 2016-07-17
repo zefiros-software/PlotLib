@@ -28,24 +28,16 @@
 #ifndef __PLOTVLINE_H__
 #define __PLOTVLINE_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/vLineProperties.h"
 
 class PlotVLine
-    : public AbstractPlot
+    : public VLineProperties< PlotVLine >
 {
 public:
 
     PlotVLine( double x = 0 );
 
-    virtual std::string ToString() const override;
-
-    PlotVLine &SetYMin( double ymin );
-
-    PlotVLine &SetYMax( double ymax );
-
-private:
-
-    std::stringstream mStream;
+    std::string ToString();
 
 };
 

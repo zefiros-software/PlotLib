@@ -28,10 +28,10 @@
 #ifndef __LINEPLOT_H__
 #define __LINEPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/plotProperties.h"
 
 class LinePlot
-    : public AbstractPlot
+    : public PlotProperties< LinePlot >
 {
 public:
 
@@ -39,29 +39,7 @@ public:
 
     LinePlot( const Vec &exogenous, const Vec &endogenous );
 
-    LinePlot( const Vec &exogenous, const Vec &endogenous, const std::string &character );
-
-    LinePlot( const Vec &endogenous, const std::string &character );
-
-    virtual std::string ToString() const override;
-
-    LinePlot &SetAlpha( double alpha );
-
-    LinePlot &SetColour( const std::string &colour );
-
-    LinePlot &UseColourCycler( const std::string &colourCycler );
-
-    LinePlot &SetLabel( const std::string &label );
-
-    LinePlot &SetMarker( const std::string &marker );
-
-    LinePlot &SetWidth( double width );
-
-    LinePlot &SetLineStyle( const std::string &style );
-
-private:
-
-    std::stringstream mStream;
+    virtual std::string ToString() override;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

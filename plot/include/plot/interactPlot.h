@@ -28,7 +28,8 @@
 #ifndef __INTERACTPLOT_H__
 #define __INTERACTPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/contourProperties.h"
+#include "plot/properties/plotProperties.h"
 #include "plot/palette.h"
 
 class InteractPlot
@@ -38,23 +39,24 @@ public:
 
     InteractPlot( const Vec &endogenous, const Vec &endogenous2, const Vec &exogenous );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
-    InteractPlot &SetFilled( bool filled );
+    InteractPlot &Filled( bool filled );
 
-    InteractPlot &SetColourMap( Palette pallet );
+    InteractPlot &SetColourMap( ColourMap pallet );
 
-    InteractPlot &SetColourBar( bool bar );
+    InteractPlot &ColourBar( bool bar );
 
     InteractPlot &SetLevels( size_t levelCount );
 
     InteractPlot &SetLevels( const Vec &levels );
 
-    InteractPlot &SetLogistic( bool logistic );
+    InteractPlot &Logistic( bool logistic );
 
-private:
+    InteractPlot &SetScatter( Line &scatter );
 
-    std::stringstream mStream;
+    InteractPlot &SetContour( Contour &contour );
+
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

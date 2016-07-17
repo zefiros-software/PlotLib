@@ -33,7 +33,7 @@ PLOTLIB_INLINE ClusterMapPlot::ClusterMapPlot( const Mat &map )
     mStream << "sns.clustermap(" << ToArray( map );
 }
 
-PLOTLIB_INLINE std::string ClusterMapPlot::ToString() const
+PLOTLIB_INLINE std::string ClusterMapPlot::ToString()
 {
     return mStream.str() + " )";
 }
@@ -50,13 +50,13 @@ PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMetric( Metric metric )
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetZScore( bool rows )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ZScoreColumns( bool rows )
 {
     mStream << ", z_score=" << ( rows ? 0 : 1 );
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetStandardScale( bool rows )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::StandardScale( bool rows )
 {
     mStream << ", standard_scale=" << ( rows ? 0 : 1 );
     return *this;
@@ -68,13 +68,13 @@ PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetFigSize( const std::pair< size
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetRowCluster( bool cluster )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::RowCluster( bool cluster )
 {
     mStream << ", row_cluster=" << GetBool( cluster );
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetColumnCluster( bool cluster )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ColumnCluster( bool cluster )
 {
     mStream << ", col_cluster=" << GetBool( cluster );
     return *this;

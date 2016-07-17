@@ -315,8 +315,13 @@ PLOTLIB_INLINE DivergingPalette &DivergingPalette::SetColours( size_t nColours )
     return *this;
 }
 
-PLOTLIB_INLINE DivergingPalette &DivergingPalette::SetCenter( Center center )
+PLOTLIB_INLINE DivergingPalette &DivergingPalette::SetCentre( Centre centre )
 {
-    mArguments << ", center = " << ( center == Center::Dark ? "'dark'" : "light'" );
+    mArguments << ", center = " << ( centre == Centre::Dark ? "'dark'" : "light'" );
     return *this;
+}
+
+PLOTLIB_INLINE std::string ColourMap::ToString() const
+{
+    return "'" + mStream.str() + "'";
 }

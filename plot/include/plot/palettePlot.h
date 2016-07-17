@@ -39,13 +39,9 @@ public:
 
     PalettePlot( const Palette &palette );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     PalettePlot &SetSize( double size );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

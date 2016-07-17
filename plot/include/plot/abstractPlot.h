@@ -38,13 +38,17 @@ class Vec;
 class Mat;
 
 /**
- * An abstract plot from which every plot type should inherrit.
+ * An abstract plot from which every plot type should inherit.
  * It provides utility classes to make easy python conversions.
  */
 
 class AbstractPlot
 {
 public:
+
+    AbstractPlot();
+
+    AbstractPlot( const AbstractPlot &other );
 
     virtual ~AbstractPlot();
 
@@ -54,7 +58,11 @@ public:
      * @return A std::string that represents this object.
      */
 
-    virtual std::string ToString() const = 0;
+    virtual std::string ToString() = 0;
+
+    std::string ToString( const std::string &body ) const;
+
+    static std::string GetString( const std::string &str );
 
     /**
      * Gets a boolean python representation.
@@ -65,6 +73,22 @@ public:
      */
 
     static std::string GetBool( bool boolean );
+
+    template< typename tT, typename tU >
+    static std::string ToTuple( const tT &x, const tU &y )
+    {
+        std::stringstream ss;
+        ss << "(" << x << "," << y << ")";
+        return ss.str();
+    }
+
+    template< typename tT, typename tU, typename tV, typename tZ >
+    static std::string ToTuple( const tT &x, const tU &y, const tV &z, const tZ &w )
+    {
+        std::stringstream ss;
+        ss << "(" << x << "," << y << "," << z << "," << w << ")";
+        return ss.str();
+    }
 
     /**
      * Convert this vector into python representation.
@@ -114,6 +138,16 @@ public:
      * @return An array that represents the data in this object.
      */
 
+    static std::string ToArray( const std::vector< uint32_t > &vec );
+
+    /**
+     * Convert this vector into python representation.
+     *
+     * @param   vec The vector to convert.
+     *
+     * @return An array that represents the data in this object.
+     */
+
     static std::string ToArray( const std::vector<std::string> &vec );
 
     /**
@@ -137,6 +171,33 @@ public:
     static std::string ToArray( const std::vector< std::vector< std::string > > &mat );
 
 protected:
+
+    std::stringstream mStream;
+
+    uint32_t mCount;
+    bool mIsDictionary;
+
+    template< typename tT >
+    void AddArgument( const std::string &name, const tT &value )
+    {
+        std::stringstream ss;
+
+        if ( mIsDictionary )
+        {
+            if ( mCount++ != 0 )
+            {
+                ss << ", ";
+            }
+
+            ss << "'" << name << "' : " << value;
+        }
+        else
+        {
+            ss << "," << name << "=" << value;
+        }
+
+        mStream << ss.str();
+    }
 
     /**
      * Convert the object into a python array representation.

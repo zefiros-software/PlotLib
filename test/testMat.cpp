@@ -90,7 +90,7 @@ TEST( Mat, ConstructInit )
 
 TEST( Mat, ConstructArma )
 {
-    ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
+    ::Mat m( mat{ { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
 
     EXPECT_EQ( 3, m.GetData()[0].size() );
@@ -115,6 +115,21 @@ TEST( Mat, ConstructArma )
 
     std::pair< size_t, size_t > dim = { 3, 3 };
     EXPECT_EQ( dim, m.GetDimension() );
+}
+
+TEST( Mat, ConstructArma2 )
+{
+    ::Mat m( mat{ { 1, 2, 3 }, { 4, 5, 6 } } );
+    EXPECT_EQ( 2, m.GetData().size() );
+
+    EXPECT_EQ( 3, m.GetData()[0].size() );
+    EXPECT_DOUBLE_EQ( 1, m.GetData()[0][0] );
+    EXPECT_DOUBLE_EQ( 2, m.GetData()[0][1] );
+    EXPECT_DOUBLE_EQ( 3, m.GetData()[0][2] );
+
+    EXPECT_EQ( 3, m.GetData()[1].size() );
+    EXPECT_DOUBLE_EQ( 4, m.GetData()[1][0] );
+    EXPECT_DOUBLE_EQ( 5, m.GetData()[1][1] );
 }
 
 TEST( Mat, ConstructStr )
@@ -199,7 +214,5 @@ TEST( Mat, ConstructMapCheckDim )
     { {1, "1"}, {2, "2"}, {3, "3"} } ),
     "Assertion failed: vec.size\\(\\) == size" );
 }
-
-
 
 #endif

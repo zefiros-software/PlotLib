@@ -73,6 +73,19 @@ PLOTLIB_INLINE Mat::Mat( const arma::mat &data )
     mDimension = CheckDimensions( mData );
 }
 
+PLOTLIB_INLINE Mat::Mat( const arma::umat &data )
+    : mData( data.n_rows )
+{
+    size_t i = 0;
+
+    data.each_row( [&]( const arma::urowvec & v )
+    {
+        mData[i++] = arma::conv_to< std::vector<double> >::from( v );
+    } );
+
+    mDimension = CheckDimensions( mData );
+}
+
 #endif
 
 PLOTLIB_INLINE Mat::Mat( const std::initializer_list< std::initializer_list< double > > &data )
@@ -81,7 +94,8 @@ PLOTLIB_INLINE Mat::Mat( const std::initializer_list< std::initializer_list< dou
     mDimension = CheckDimensions( mData );
 }
 
-PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< double > > &data ) : mData( data )
+PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< double > > &data )
+    : mData( data )
 {
     mDimension = CheckDimensions( mData );
 }

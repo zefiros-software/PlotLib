@@ -26,29 +26,72 @@
 
 #include "plot/scatterPlot.h"
 
-PLOTLIB_INLINE ScatterPlot::ScatterPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
-{
-    mStream << "plt.scatter(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
-}
-
 PLOTLIB_INLINE ScatterPlot::ScatterPlot( const Vec &exogenous, const Vec &endogenous )
 {
     mStream << "plt.scatter(" << ToArray( exogenous ) << "," << ToArray( endogenous );
 }
 
-PLOTLIB_INLINE std::string ScatterPlot::ToString() const
+PLOTLIB_INLINE std::string ScatterPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetAlpha( double alpha )
 {
-    mStream << ", alpha=" << alpha;
+    AddArgument( "alpha", alpha );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( double scalar )
 {
-    mStream << ", s=" << scalar;
+    AddArgument( "s", scalar );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const Vec &scalar )
+{
+    AddArgument( "s", ToArray( scalar ) );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetColour( const std::string &colour )
+{
+    AddArgument( "cmap", GetString( colour ) );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetEdgeColour( const std::string &colour )
+{
+    AddArgument( "edgecolors", GetString( colour ) );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetMarker( const std::string &marker )
+{
+    AddArgument( "marker", GetString( marker ) );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMin( double vmin )
+{
+    AddArgument( "vmin", vmin );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMax( double vmax )
+{
+    AddArgument( "vmax", vmax );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( const Vec &widths )
+{
+    AddArgument( "linewidths", ToArray( widths ) );
+    return *this;
+}
+
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( double lineWidth )
+{
+    AddArgument( "linewidths", lineWidth );
     return *this;
 }

@@ -50,7 +50,7 @@ public:
 
     HexBinPlot( const Vec &x, const Vec &y );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
 
     HexBinPlot &SetGridSize( const std::pair< size_t, size_t > &size );

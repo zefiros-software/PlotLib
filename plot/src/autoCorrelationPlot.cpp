@@ -26,37 +26,51 @@
 
 #include "plot/autoCorrelationPlot.h"
 
+static const char *const __PlotLibAutoCorrelationPlotDetrend[] =
+{
+    "detrend_none",
+    "detrend_mean",
+    "detrend_linear"
+};
 
 PLOTLIB_INLINE AutoCorrelationPlot::AutoCorrelationPlot( const Vec &vec )
+    : mDefaultDetrend( Detrend::Mean ) // statistics default
 {
     mStream << "plt.acorr(" << ToArray( vec );
 }
 
-PLOTLIB_INLINE std::string AutoCorrelationPlot::ToString() const
+PLOTLIB_INLINE std::string AutoCorrelationPlot::ToString()
 {
-    return mStream.str() + " )";
+    AddArgument( "detrend", __PlotLibAutoCorrelationPlotDetrend[static_cast<size_t>( mDefaultDetrend )] );
+    return mStream.str() + ")";
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetHold( bool hold )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::Hold( bool hold )
 {
-    mStream << ", hold=" << GetBool( hold );
+    AddArgument( "hold", GetBool( hold ) );
     return *this;
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetNormed( bool normed )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::Normed( bool normed )
 {
-    mStream << ", normed=" << GetBool( normed );
+    AddArgument( "normed", GetBool( normed ) );
     return *this;
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetVLines( bool vlines )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::VLines( bool vlines )
 {
-    mStream << ", usevlines=" << GetBool( vlines );
+    AddArgument( "usevlines", GetBool( vlines ) );
     return *this;
 }
 
 PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetMaxLags( size_t maxlags )
 {
-    mStream << ", maxlags=" << maxlags;
+    AddArgument( "maxlags", maxlags );
+    return *this;
+}
+
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetDetrend( Detrend detrend )
+{
+    mDefaultDetrend = detrend;
     return *this;
 }

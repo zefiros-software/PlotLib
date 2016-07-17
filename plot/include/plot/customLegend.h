@@ -59,7 +59,7 @@ public:
         mStream << "]\nplt.legend(handles=cl_patches)\n";
     }
 
-    std::string ToString() const;
+    virtual std::string ToString();
 
 protected:
 

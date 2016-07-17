@@ -53,7 +53,7 @@ public:
     PairPlot( const std::vector< Mat > &mats, const std::vector< std::string > &names,
               const std::vector< std::string > &hue );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     PairPlot &SetXVars( const std::vector< std::string > &xvars );
 
@@ -70,10 +70,6 @@ public:
     PairPlot &SetSize( double size );
 
     PairPlot &SetAspect( double aspect );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

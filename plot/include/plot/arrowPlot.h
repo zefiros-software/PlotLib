@@ -28,10 +28,10 @@
 #ifndef __ARROWPLOT_H__
 #define __ARROWPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/patchProperties.h"
 
 class ArrowPlot
-    : public AbstractPlot
+    : public PatchProperties< ArrowPlot >
 {
 public:
 
@@ -44,11 +44,11 @@ public:
 
     ArrowPlot( double x, double y, double dx, double dy );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     ArrowPlot &SetWidth( double width );
 
-    ArrowPlot &SetLengthIncludesHead( bool includes );
+    ArrowPlot &LengthIncludesHead( bool includes );
 
     ArrowPlot &SetHeadWidth( double width );
 
@@ -58,13 +58,11 @@ public:
 
     ArrowPlot &SetOverhang( double overhang );
 
-    ArrowPlot &SetHeadStartsAtZero( bool starts );
+    ArrowPlot &HeadStartsAtZero( bool starts );
 
 private:
 
-    std::stringstream mStream;
-
-    std::string GetShape( Shape shape );
+    static std::string GetShape( Shape shape );
 
 };
 

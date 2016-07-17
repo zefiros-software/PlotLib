@@ -32,68 +32,67 @@ PLOTLIB_INLINE DistrPlot::DistrPlot( const Vec &a )
     mStream << "sns.distplot(" << ToArray( a );
 }
 
-PLOTLIB_INLINE std::string DistrPlot::ToString() const
+PLOTLIB_INLINE std::string DistrPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const Vec &seq )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const Vec &bins )
 {
-    const bool isSingular = seq.GetSize() == 1;
-    mStream << ", bins=" << isSingular ? std::to_string( seq.GetData()[0] ) : ToArray( seq );
+    AddArgument( "bins", ToArray( bins ) );
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( bool log /*= false */ )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( size_t value )
 {
-    mStream << ", bins=" << ( log ? "'log'" : "None" );
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetHist( bool hist )
+PLOTLIB_INLINE DistrPlot &DistrPlot::Hist( bool hist )
 {
-    mStream << ", hist=" << GetBool( hist );
+    AddArgument( "hist", GetBool( hist ) );
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetKDE( bool kde )
+PLOTLIB_INLINE DistrPlot &DistrPlot::KDE( bool kde )
 {
-    mStream << ", kde=" << GetBool( kde );
+    AddArgument( "kde", GetBool( kde ) );
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetRUG( bool rug )
+PLOTLIB_INLINE DistrPlot &DistrPlot::RUG( bool rug )
 {
-    mStream << " , rug=" << GetBool( rug );
+    AddArgument( "rug", GetBool( rug ) );
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetVerical( bool vertical )
+PLOTLIB_INLINE DistrPlot &DistrPlot::Vertical( bool vertical )
 {
-    mStream << " , vertical=" << GetBool( vertical );
+    AddArgument( "vertical", GetBool( vertical ) );
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetNormHist( bool normHist )
+PLOTLIB_INLINE DistrPlot &DistrPlot::NormHist( bool normHist )
 {
-    mStream << " , norm_hist=" << GetBool( normHist );
-    return *this;
-}
-
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxLabel()
-{
-    mStream << " , axlabel=False";
-    return *this;
-}
-
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxLabel( const std::string &axlabel )
-{
-    mStream << " , axlabel='" << axlabel << "'";
+    AddArgument( "norm_hist", GetBool( normHist ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetLabel( const std::string &label )
 {
-    mStream << " , label='" << label << "'";
+    AddArgument( "label", GetString( label ) );
+    return *this;
+}
+
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxisLabel( const std::string &label )
+{
+    AddArgument( "axlabel", GetString( label ) );
+    return *this;
+}
+
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetColour( const std::string &colour )
+{
+    AddArgument( "color", GetString( colour ) );
+
     return *this;
 }

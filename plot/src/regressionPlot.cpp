@@ -33,129 +33,129 @@ PLOTLIB_INLINE RegressionPlot::RegressionPlot( const Vec &exogenous, const Vec &
     mStream << "sns.regplot(np.array(" << ToArray( exogenous ) << "),np.array(" << ToArray( endogenous ) << ")";
 }
 
-PLOTLIB_INLINE std::string RegressionPlot::ToString() const
+PLOTLIB_INLINE std::string RegressionPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( const Vec &bins )
 {
-    mStream << ", x_bins=" << ToArray( bins );
+    AddArgument( "x_bins", ToArray( bins ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( size_t bins )
 {
-    mStream << ", x_bins=" << bins;
+    AddArgument( "x_bins", bins );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXConfidenceInterval( size_t ci )
 {
     assert( ci <= 100 );
-    mStream << ", x_ci=" << ci;
+    AddArgument( "x_ci", ci );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetConfidenceInterval( size_t ci )
 {
     assert( ci <= 100 );
-    mStream << ", ci=" << ci;
+    AddArgument( "ci", ci );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetScatter( bool scatter )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Scatter( bool scatter )
 {
-    mStream << ", scatter=" << GetBool( scatter );
+    AddArgument( "scatter",  GetBool( scatter ) );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetFitRegression( bool fit )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::FitRegression( bool fit )
 {
-    mStream << ", fit_reg=" << GetBool( fit );
+    AddArgument( "fit_reg", GetBool( fit ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetNBoots( size_t nboots )
 {
-    mStream << ", n_boots=" << nboots;
+    AddArgument( "n_boots", nboots );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetOrder( size_t order )
 {
-    mStream << ", order=" << order;
+    AddArgument( "order", order );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLogistic( bool logistic )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Logistic( bool logistic )
 {
-    mStream << ", logistic=" << GetBool( logistic );
+    AddArgument( "logistic", GetBool( logistic ) );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLowess( bool lowess )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Lowess( bool lowess )
 {
-    mStream << ", lowess=" << GetBool( lowess );
+    AddArgument( "lowess", GetBool( lowess ) );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetRobust( bool robust )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Robust( bool robust )
 {
-    mStream << ", robust=" << GetBool( robust );
+    AddArgument( "robust", GetBool( robust ) );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLogX( bool logx )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::LogX( bool logx )
 {
-    mStream << ", logx=" << GetBool( logx );
+    AddArgument( "logx", GetBool( logx ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXPartial( const Mat &mat )
 {
-    mStream << ", x_partial=" << ToArray( mat );
+    AddArgument( "x_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYPartial( const Mat &mat )
 {
-    mStream << ", y_partial=" << ToArray( mat );
+    AddArgument( "y_partial", ToArray( mat ) );
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetTruncate( bool trunc )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Truncate( bool trunc )
 {
-    mStream << ", truncate=" << GetBool( trunc );
+    AddArgument( "truncate", GetBool( trunc ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXJitter( double jitter )
 {
-    mStream << ", x_jitter=" << jitter;
+    AddArgument( "x_jitter", jitter );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYJitter( double jitter )
 {
-    mStream << ", y_jitter=" << jitter;
+    AddArgument( "y_jitter", jitter );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLabel( const std::string &label )
 {
-    mStream << ", label=" << label;
+    AddArgument( "label", GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetColour( const std::string &colour )
 {
-    mStream << ", color='" << colour << "'";
+    AddArgument( "color", GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetMarker( const std::string &marker )
 {
-    mStream << ", markers = '" << marker << "'";
+    AddArgument( "marker", GetString( marker ) );
     return *this;
 }

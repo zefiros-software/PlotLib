@@ -29,7 +29,8 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< Vec, Vec > > &data,
+                                 const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
@@ -84,7 +85,7 @@ PLOTLIB_INLINE BoxPlot::BoxPlot( const Vec &x, const Vec &y )
     mStream << "sns.boxplot( " << ToArray( x ) << ", " << ToArray( y );
 }
 
-PLOTLIB_INLINE std::string BoxPlot::ToString() const
+PLOTLIB_INLINE std::string BoxPlot::ToString()
 {
     return mStream.str() + " )";
 }
@@ -149,7 +150,7 @@ PLOTLIB_INLINE BoxPlot &BoxPlot::SetWhis( double whis )
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetNotch( bool notch )
+PLOTLIB_INLINE BoxPlot &BoxPlot::Notch( bool notch )
 {
     mStream << ", notch = " << GetBool( notch );
     return *this;

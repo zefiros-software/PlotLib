@@ -29,14 +29,44 @@
 #include "plot/vec.h"
 #include "plot/mat.h"
 
+PLOTLIB_INLINE AbstractPlot::AbstractPlot()
+    : mCount( 0 ),
+      mIsDictionary( false )
+{
+
+}
+
+PLOTLIB_INLINE AbstractPlot::AbstractPlot( const AbstractPlot &other )
+    : mCount( other.mCount ),
+      mIsDictionary( other.mIsDictionary )
+{
+    mStream << other.mStream.str();
+}
+
 PLOTLIB_INLINE AbstractPlot::~AbstractPlot()
 {
+}
+
+PLOTLIB_INLINE std::string AbstractPlot::ToString( const std::string &body ) const
+{
+    if ( mIsDictionary )
+    {
+        return "{" + body + "}";
+    }
+
+    return body;
+}
+
+PLOTLIB_INLINE std::string AbstractPlot::GetString( const std::string &str )
+{
+    return "'" + str + "'";
 }
 
 PLOTLIB_INLINE std::string AbstractPlot::GetBool( bool boolean )
 {
     return boolean ? "True" : "False";
 }
+
 
 PLOTLIB_INLINE std::string AbstractPlot::ToArray( const Vec &vec )
 {
@@ -71,6 +101,11 @@ PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< std::vector
 }
 
 PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< double > &vec )
+{
+    return "[" + ToString( vec.begin(), vec.end() ) + "]";
+}
+
+PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< uint32_t > &vec )
 {
     return "[" + ToString( vec.begin(), vec.end() ) + "]";
 }

@@ -50,7 +50,7 @@ public:
 
     StripPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     StripPlot &SetOrder( const Vec &order );
 

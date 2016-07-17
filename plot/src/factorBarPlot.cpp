@@ -86,7 +86,7 @@ PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, 
     mStream << "\nsns.barplot( x, y";
 }
 
-PLOTLIB_INLINE std::string FactorBarPlot::ToString() const
+PLOTLIB_INLINE std::string FactorBarPlot::ToString()
 {
     return mStream.str() + " )";
 }

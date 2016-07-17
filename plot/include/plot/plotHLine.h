@@ -28,29 +28,22 @@
 #ifndef __PLOTHLINE_H__
 #define __PLOTHLINE_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/hLineProperties.h"
 
 class PlotHLine
-    : public AbstractPlot
+    : public HLineProperties< PlotHLine >
 {
 public:
 
     PlotHLine( double x = 0 );
 
-    virtual std::string ToString() const override;
 
-    PlotHLine &SetXMin( double xmin );
-
-    PlotHLine &SetXMax( double xmax );
-
-private:
-
-    std::stringstream mStream;
+    std::string ToString();
 
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
-#   include "../../src/plotHLine.cpp"
+#   include ".. / .. / src / plotHLine.cpp"
 #endif
 
 #endif

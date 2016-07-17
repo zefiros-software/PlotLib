@@ -26,29 +26,20 @@
 
 #include "plot/logLogPlot.h"
 
-PLOTLIB_INLINE LogLogPlot::LogLogPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
-{
-    mStream << "plt.loglog(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
-}
+#include <cassert>
 
 PLOTLIB_INLINE LogLogPlot::LogLogPlot( const Vec &exogenous, const Vec &endogenous )
 {
     mStream << "plt.loglog(" << ToArray( exogenous ) << "," << ToArray( endogenous );
 }
 
-PLOTLIB_INLINE std::string LogLogPlot::ToString() const
+PLOTLIB_INLINE std::string LogLogPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE LogLogPlot &LogLogPlot::SetAlpha( double alpha )
+PLOTLIB_INLINE LogLogPlot &LogLogPlot::SetScale( LogScale &scale )
 {
-    mStream << ", alpha=" << alpha;
-    return *this;
-}
-
-PLOTLIB_INLINE LogLogPlot &LogLogPlot::SetScalar( double scalar )
-{
-    mStream << ", s=" << scalar;
+    mStream << scale.ToString();
     return *this;
 }

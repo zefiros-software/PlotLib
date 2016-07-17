@@ -28,28 +28,37 @@
 #ifndef __AUTOCORRELATIONPLOT_H__
 #define __AUTOCORRELATIONPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/line2dProperties.h"
 
 class AutoCorrelationPlot
-    : public AbstractPlot
+    : public Line2DProperties< AutoCorrelationPlot >
 {
 public:
 
+    enum class Detrend
+    {
+        None,
+        Mean,
+        Linear
+    };
+
     AutoCorrelationPlot( const Vec &vec );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
-    AutoCorrelationPlot &SetHold( bool hold );
+    AutoCorrelationPlot &Hold( bool hold );
 
-    AutoCorrelationPlot &SetNormed( bool normed );
+    AutoCorrelationPlot &Normed( bool normed );
 
-    AutoCorrelationPlot &SetVLines( bool vlines );
+    AutoCorrelationPlot &VLines( bool vlines );
 
     AutoCorrelationPlot &SetMaxLags( size_t maxlags );
 
+    AutoCorrelationPlot &SetDetrend( Detrend detrend );
+
 private:
 
-    std::stringstream mStream;
+    Detrend mDefaultDetrend;
 
 };
 

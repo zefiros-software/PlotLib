@@ -68,7 +68,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const Vec &x )
     mStream << "sns.countplot(x=" << ToArray( x );
 }
 
-PLOTLIB_INLINE std::string CountPlot::ToString() const
+PLOTLIB_INLINE std::string CountPlot::ToString()
 {
     return mStream.str() + " )";
 }

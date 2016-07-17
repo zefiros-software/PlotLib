@@ -28,15 +28,13 @@
 #ifndef __BARPLOT_H__
 #define __BARPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/barProperties.h"
 #include "plot/vec.h"
-
-#include <tuple>
 
 class Palette;
 
 class BarPlot
-    : public AbstractPlot
+    : public BarPlotProperties< BarPlot >
 {
 public:
 
@@ -67,7 +65,7 @@ public:
         PlotDataHue();
     }
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     BarPlot &SetOrder( const Vec &order );
 
@@ -89,11 +87,11 @@ public:
 
     BarPlot &SetErrorColour( const std::string &colour );
 
-    BarPlot &SetHatch( const std::string &hatch );
+    BarPlot &SetErrorWidth( double width );
+
+    BarPlot &SetCapSize( double size );
 
 private:
-
-    std::stringstream mStream;
 
     void InitData( const std::vector< std::pair< Vec, Vec > > &data );
 

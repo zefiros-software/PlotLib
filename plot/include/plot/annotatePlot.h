@@ -28,25 +28,12 @@
 #ifndef __ANNOTATEPLOT_H__
 #define __ANNOTATEPLOT_H__
 
-#include "plot/abstractPlot.h"
-
-/**
- * A plot annotation that implements the
- * [`annotate`](http://matplotlib.org/api/pyplot_api.html#matplotlib.pyplot.annotate)
- * functionality.
- *
- * @details
- * @examples
- *
- * @snippet testAnnotatePlot.cpp AnnotatePlot
- *
- * ![Plot Example](AnnotatePlot.png)
- *
- * @sa AbstractPlot
- */
+#include "plot/properties/fancyArrowProperties.h"
+#include "plot/properties/yArrowProperties.h"
+#include "plot/properties/textProperties.h"
 
 class AnnotatePlot
-    : public AbstractPlot
+    : public TextProperties< AnnotatePlot >
 {
 public:
 
@@ -63,11 +50,9 @@ public:
         Polar
     };
 
-    AnnotatePlot( const std::string &label );
+    AnnotatePlot( const std::string &label, double x, double y );
 
-    virtual std::string ToString() const override;
-
-    AnnotatePlot &SetXY( double x, double y );
+    virtual std::string ToString() override;
 
     AnnotatePlot &SetXYText( double x, double y );
 
@@ -75,11 +60,13 @@ public:
 
     AnnotatePlot &SetTextCoordinates( Type type );
 
+    AnnotatePlot &SetArrowProps( FancyArrow &props );
+
+    AnnotatePlot &SetArrowProps( YArrow &props );
+
 private:
 
-    std::stringstream mStream;
-
-    std::string GetType( Type type );
+    static std::string GetType( Type type );
 
 };
 

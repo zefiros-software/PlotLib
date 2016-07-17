@@ -33,10 +33,7 @@ TEST( AnnotatePlot, AnnotatePlot )
 {
     TestPlot< AnnotatePlot >( "AnnotatePlot", []()
     {
-        //! [AnnotatePlot]
-        AnnotatePlot f( "Hello World!" );
-        f.SetXY( 0.5, 0.5 );
-        //! [AnnotatePlot]
+        AnnotatePlot f( "Hello World!", 0.5, 0.5 );
         return f;
     } );
 }
@@ -44,21 +41,36 @@ TEST( AnnotatePlot, AnnotatePlot )
 
 TEST( AnnotatePlot, Construct )
 {
-    AnnotatePlot( "" );
+    AnnotatePlot( "", 0, 0 );
 }
 
 TEST( AnnotatePlot, ToString )
 {
-    EXPECT_EQ( "plt.annotate( s='Hello World' )", AnnotatePlot( "Hello World" ).ToString() );
+    EXPECT_EQ( "plt.annotate( s='Hello World', xy=(0.5,0.5) )", AnnotatePlot( "Hello World", 0.5, 0.5 ).ToString() );
 }
 
-/*
-TEST(  AnnotatePlot, SetXY )
+
+TEST( AnnotatePlot, SetXYText )
 {
-    Plot p;
-    AnnotatePlot f( "Hello World!" );
-    f.SetXY( 0.5, 0.5 );
-    p.AddPlot( f );
-    p.Save( "AnnotatePlot_SetXY.pdf" );
+    TestPlot< AnnotatePlot >( "AnnotatePlot_SetXYText", []()
+    {
+        AnnotatePlot f( "Hello World!", 0.0, 0.0 );
+        f.SetXYText( 0.4, 0.4 )
+        .SetArrowProps( FancyArrow().SetArrowStyle( "<|-|>" ).SetLineWidth( 2 ) );
+        return f;
+    } );
 }
-*/
+
+
+TEST( AnnotatePlot, SetType )
+{
+    TestPlot< AnnotatePlot >( "AnnotatePlot_SetType", []()
+    {
+        AnnotatePlot f( "Hello World!", 0.0, 0.0 );
+        f.SetXYText( 200, 50 )
+        .SetArrowProps( YArrow().SetWidth( 10 ) )
+        .SetXYCoordinates( AnnotatePlot::Type::AxesPixels )
+        .SetTextCoordinates( AnnotatePlot::Type::AxesPixels );
+        return f;
+    } );
+}

@@ -30,6 +30,7 @@
 
 #include "plot/abstractPlot.h"
 #include "plot/vec.h"
+#include "barPlot.h"
 
 class Palette;
 
@@ -50,7 +51,7 @@ public:
 
     PointPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     PointPlot &SetOrder( const Vec &order );
 
@@ -77,6 +78,10 @@ public:
     PointPlot &SetColour( const std::string &colour );
 
     PointPlot &SetColourMap( const Palette &pallet );
+
+    PointPlot &SetErrorWidth( double width );
+
+    PointPlot &SetCapSize( double size );
 
 private:
 

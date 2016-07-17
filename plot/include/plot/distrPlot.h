@@ -39,31 +39,27 @@ public:
 
     DistrPlot( const Vec &a );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
-    DistrPlot &SetBins( bool log = false );
+    DistrPlot &SetBins( const Vec &bins );
 
-    DistrPlot &SetBins( const Vec &seq );
+    DistrPlot &SetBins( size_t value );
 
-    DistrPlot &SetHist( bool hist );
+    DistrPlot &Hist( bool hist );
 
-    DistrPlot &SetKDE( bool kde );
+    DistrPlot &KDE( bool kde );
 
-    DistrPlot &SetRUG( bool rug );
+    DistrPlot &RUG( bool rug );
 
-    DistrPlot &SetVerical( bool vertical );
+    DistrPlot &Vertical( bool vertical );
 
-    DistrPlot &SetNormHist( bool normHist );
-
-    DistrPlot &SetAxLabel( const std::string &axlabel );
-
-    DistrPlot &SetAxLabel();
+    DistrPlot &NormHist( bool normHist );
 
     DistrPlot &SetLabel( const std::string &label );
 
-private:
+    DistrPlot &SetAxisLabel( const std::string &label );
 
-    std::stringstream mStream;
+    DistrPlot &SetColour( const std::string &colour );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

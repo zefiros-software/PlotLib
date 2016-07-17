@@ -28,7 +28,8 @@
 #ifndef __RESIDUALPLOT_H__
 #define __RESIDUALPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/scatterProperties.h"
+#include "plot/properties/plotProperties.h"
 
 class ResidualPlot
     : public AbstractPlot
@@ -37,9 +38,9 @@ public:
 
     ResidualPlot( const Vec &exogenous, const Vec &endogenous );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
-    ResidualPlot &SetLowess( bool lowess );
+    ResidualPlot &Lowess( bool lowess );
 
     ResidualPlot &SetXPartial( const Mat &mat );
 
@@ -47,15 +48,15 @@ public:
 
     ResidualPlot &SetOrder( size_t order );
 
-    ResidualPlot &SetRobust( bool robust );
+    ResidualPlot &Robust( bool robust );
 
     ResidualPlot &SetLabel( const std::string &label );
 
     ResidualPlot &SetColour( const std::string &colour );
 
-private:
+    ResidualPlot &SetScatter( Scatter &scatter );
 
-    std::stringstream mStream;
+    ResidualPlot &SetLine( Line &scatter );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

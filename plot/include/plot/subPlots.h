@@ -39,7 +39,7 @@ public:
 
     SubPlots( uint32_t rows, uint32_t columns );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     void AddHeatMapPlot( HeatMapPlot &plot );
 

@@ -55,9 +55,9 @@ public:
 
     KDEPlot( const Vec &data, const Vec &data2 );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
-    KDEPlot &SetVertical( bool vertical );
+    KDEPlot &Vertical( bool vertical );
 
     KDEPlot &SetKernel( Kernel kernel );
 
@@ -75,15 +75,13 @@ public:
 
     KDEPlot &SetClip( const std::pair<double, double> &clipx, const std::pair<double, double> &clipy );
 
-    KDEPlot &SetLegend( bool legend );
+    KDEPlot &Legend( bool legend );
 
-    KDEPlot &SetCumulative( bool cumulative );
+    KDEPlot &Cumulative( bool cumulative );
 
-    KDEPlot &SetShadeLowest( bool shadwLowest );
+    KDEPlot &ShadeLowest( bool shadwLowest );
 
 private:
-
-    std::stringstream mStream;
 
     static std::string GetBW( BW bw );
 

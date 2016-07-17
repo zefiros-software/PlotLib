@@ -31,32 +31,32 @@ PLOTLIB_INLINE AngleSpectrumPlot::AngleSpectrumPlot( const Vec &vec )
     mStream << "plt.angle_spectrum( " << ToArray( vec );
 }
 
-PLOTLIB_INLINE std::string AngleSpectrumPlot::ToString() const
+PLOTLIB_INLINE std::string AngleSpectrumPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSamplingFrequency( double fs )
 {
-    mStream << ", Fs=" << fs;
+    AddArgument( "Fs", fs );
     return *this;
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSides( Sides sides )
 {
-    mStream << ", sides=" << GetSides( sides );
+    AddArgument( "sides", GetSides( sides ) );
     return *this;
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetCentreFrequency( int32_t fc )
 {
-    mStream << ", Fc=" << fc;
+    AddArgument( "Fc", fc );
     return *this;
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetPadTo( int32_t pad )
 {
-    mStream << ", pad_to=" << pad;
+    AddArgument( "pad_to", pad );
     return *this;
 }
 

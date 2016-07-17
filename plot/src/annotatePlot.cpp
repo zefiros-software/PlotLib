@@ -24,39 +24,46 @@
  * @endcond
  */
 
+#include "plot/properties/line2dProperties.h"
 #include "plot/annotatePlot.h"
 
-PLOTLIB_INLINE AnnotatePlot::AnnotatePlot( const std::string &label )
+PLOTLIB_INLINE AnnotatePlot::AnnotatePlot( const std::string &label, double x, double y )
 {
-    mStream << "plt.annotate( s='" << label << "'";
+    mStream << "plt.annotate( s='" << label << "', xy=(" << x << "," << y << ")";
 }
 
-PLOTLIB_INLINE std::string AnnotatePlot::ToString() const
+PLOTLIB_INLINE std::string AnnotatePlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXY( double x, double y )
-{
-    mStream << ", xy=(" << x << "," << y << ")";
-    return *this;
-}
-
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYText( double x, double y )
 {
-    mStream << ", xytext=(" << x << "," << y << ")";
+    AddArgument( "xytext", ToTuple( x, y ) );
     return *this;
 }
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYCoordinates( Type type )
 {
-    mStream << ", xycoords=" << GetType( type );
+    AddArgument( "xycoords", GetType( type ) );
     return *this;
 }
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetTextCoordinates( Type type )
 {
-    mStream << ", textcoords=" << GetType( type );
+    AddArgument( "textcoords", GetType( type ) );
+    return *this;
+}
+
+AnnotatePlot &AnnotatePlot::SetArrowProps( FancyArrow &props )
+{
+    AddArgument( "arrowprops", props.ToString() );
+    return *this;
+}
+
+AnnotatePlot &AnnotatePlot::SetArrowProps( YArrow &props )
+{
+    AddArgument( "arrowprops", props.ToString() );
     return *this;
 }
 

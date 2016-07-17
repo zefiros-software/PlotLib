@@ -47,7 +47,7 @@ PLOTLIB_INLINE CustomLegend::CustomLegend( const Palette &palette, const std::ve
     mStream << "]\nplt.legend(handles=cl_patches)\n";
 }
 
-PLOTLIB_INLINE std::string CustomLegend::ToString() const
+PLOTLIB_INLINE std::string CustomLegend::ToString()
 {
     return mStream.str();
 }

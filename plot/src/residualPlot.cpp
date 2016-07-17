@@ -28,52 +28,64 @@
 
 PLOTLIB_INLINE ResidualPlot::ResidualPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "sns.residplot(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    mStream << "sns.residplot( np.array(" << ToArray( exogenous ) << "), np.array(" << ToArray( endogenous ) << ")";
 }
 
-PLOTLIB_INLINE std::string ResidualPlot::ToString() const
+PLOTLIB_INLINE std::string ResidualPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetLowess( bool lowess )
+PLOTLIB_INLINE ResidualPlot &ResidualPlot::Lowess( bool lowess )
 {
-    mStream << ", lowess=" << GetBool( lowess );
+    AddArgument( "lowess", GetBool( lowess ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetXPartial( const Mat &mat )
 {
-    mStream << ", x_partial=" << ToArray( mat );
+    AddArgument( "x_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetYPartial( const Mat &mat )
 {
-    mStream << ", y_partial=" << ToArray( mat );
+    AddArgument( "y_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetOrder( size_t order )
 {
-    mStream << ", order=" << order;
+    AddArgument( "order", order );
     return *this;
 }
 
-PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetRobust( bool robust )
+PLOTLIB_INLINE ResidualPlot &ResidualPlot::Robust( bool robust )
 {
-    mStream << ", robust=" << GetBool( robust );
+    AddArgument( "robust", GetBool( robust ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetLabel( const std::string &label )
 {
-    mStream << ", label=" << label;
+    AddArgument( "label", GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetColour( const std::string &colour )
 {
-    mStream << ", color='" << colour << "'";
+    AddArgument( "color", GetString( colour ) );
+    return *this;
+}
+
+ResidualPlot &ResidualPlot::SetScatter( Scatter &scatter )
+{
+    AddArgument( "scatter_kws", scatter.ToString() );
+    return *this;
+}
+
+ResidualPlot &ResidualPlot::SetLine( Line &scatter )
+{
+    AddArgument( "line_kws", scatter.ToString() );
     return *this;
 }

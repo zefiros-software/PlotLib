@@ -28,24 +28,36 @@
 #ifndef __SPYPLOT_H__
 #define __SPYPLOT_H__
 
-#include "plot/abstractPlot.h"
-
+#include "plot/properties/line2dProperties.h"
 class SpyPlot
-    : public AbstractPlot
+    : public Line2DProperties< SpyPlot >
 {
 public:
 
+    enum class Origin
+    {
+        Lower,
+        Upper
+    };
+
+    enum class Aspect
+    {
+        Auto,
+        Equal,
+        None
+    };
+
     SpyPlot( const Mat &mat );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     SpyPlot &SetPrecision( double precision );
 
-    SpyPlot &SetMarkerSize( double size );
+    SpyPlot &SetOrigin( Origin origin );
 
-private:
+    SpyPlot &SetAspect( Aspect aspect );
 
-    std::stringstream mStream;
+    SpyPlot &SetAspect( double aspect );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

@@ -32,44 +32,55 @@ PLOTLIB_INLINE InteractPlot::InteractPlot( const Vec &endogenous, const Vec &end
     mStream << "sns.interactplot(" << ToArray( endogenous ) << "," << ToArray( endogenous2 ) << "," << ToArray( exogenous );
 }
 
-PLOTLIB_INLINE std::string InteractPlot::ToString() const
+PLOTLIB_INLINE std::string InteractPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE InteractPlot &InteractPlot::SetFilled( bool filled )
+PLOTLIB_INLINE InteractPlot &InteractPlot::Filled( bool filled )
 {
-    mStream << ", filled =" << GetBool( filled );
+    AddArgument( "filled", GetBool( filled ) );
     return *this;
 }
 
-PLOTLIB_INLINE InteractPlot &InteractPlot::SetColourMap( Palette pallet )
+PLOTLIB_INLINE InteractPlot &InteractPlot::SetColourMap( ColourMap pallet )
 {
-    pallet.SetColourMap( true );
-    mStream << ", cmap =" << pallet.ToString();
+    AddArgument( "cmap", pallet.ToString() );
     return *this;
 }
 
-PLOTLIB_INLINE InteractPlot &InteractPlot::SetColourBar( bool bar )
+PLOTLIB_INLINE InteractPlot &InteractPlot::ColourBar( bool bar )
 {
-    mStream << ", colorbar =" << GetBool( bar );
+    AddArgument( "colorbar", GetBool( bar ) );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( const Vec &levels )
 {
-    mStream << ", levels =" << ToArray( levels );
+    AddArgument( "levels", ToArray( levels ) );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( size_t levelCount )
 {
-    mStream << ", levels =" << levelCount;
+    AddArgument( "levels", levelCount );
     return *this;
 }
 
-PLOTLIB_INLINE InteractPlot &InteractPlot::SetLogistic( bool logistic )
+PLOTLIB_INLINE InteractPlot &InteractPlot::Logistic( bool logistic )
 {
-    mStream << ", logistic =" << GetBool( logistic );
+    AddArgument( "logistic", GetBool( logistic ) );
+    return *this;
+}
+
+PLOTLIB_INLINE InteractPlot &InteractPlot::SetScatter( Line &scatter )
+{
+    AddArgument( "scatter_kws", scatter.ToString() );
+    return *this;
+}
+
+PLOTLIB_INLINE InteractPlot &InteractPlot::SetContour( Contour &contour )
+{
+    AddArgument( "contour_kws", contour.ToString() );
     return *this;
 }

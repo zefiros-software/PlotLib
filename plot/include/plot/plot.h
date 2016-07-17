@@ -29,6 +29,7 @@
 #define __PLOT_H__
 
 #include "plot/abstractPlot.h"
+#include "plot/palette.h"
 
 #include <sstream>
 #include <fstream>
@@ -72,24 +73,28 @@ public:
         LowerLeft,
         LowerRight,
         Right,
-        CenterLeft,
-        CenterRight,
-        LowerCenter,
-        UpperCenter,
-        Center
+        CentreLeft,
+        CentreRight,
+        LowerCentre,
+        UpperCentre,
+        Centre
     };
 
     Plot();
 
     Plot( Context context );
 
-    Plot( const AbstractPlot &plot );
+    Plot( AbstractPlot &plot );
 
     Plot &AxisStyle( Style style, const std::vector< std::pair< std::string, std::string >> &params = {} );
 
     Plot &Set( Context context, const std::vector< std::pair< std::string, std::string >> &params = {} );
 
     Plot &Set( Context context, double fontScale, const std::vector< std::pair< std::string, std::string >> &params = {} );
+
+    Plot &SetColourCodes();
+
+    Plot &SetColourCodes( Palette::Seaborn seaborn );
 
     Plot &SetXLabel( const std::string &xlabel, size_t fontSize );
 
@@ -148,11 +153,15 @@ public:
 
     Plot &SetYScaleSymLog( double linthreshy, double linscaley );
 
+    Plot &AddPlot( AbstractPlot &plot );
+
     Plot &AddPlot( const AbstractPlot &plot );
 
     Plot &AddColourCycler( const Palette &palette );
 
     std::string GetColourCycler() const;
+
+    Plot &AddCustomLegend( CustomLegend &legend );
 
     Plot &AddCustomLegend( const CustomLegend &legend );
 

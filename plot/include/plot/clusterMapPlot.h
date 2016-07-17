@@ -71,23 +71,23 @@ public:
         WMinkowski
     };
 
-    ClusterMapPlot( const Mat &map );
+    ClusterMapPlot( const ::Mat &map );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     ClusterMapPlot &SetMethod( Linkage linkage );
 
     ClusterMapPlot &SetMetric( Metric metric );
 
-    ClusterMapPlot &SetZScore( bool rows );
+    ClusterMapPlot &ZScoreColumns( bool rows );
 
-    ClusterMapPlot &SetStandardScale( bool rows );
+    ClusterMapPlot &StandardScale( bool rows );
 
     ClusterMapPlot &SetFigSize( const std::pair< size_t, size_t > &size );
 
-    ClusterMapPlot &SetRowCluster( bool cluster );
+    ClusterMapPlot &RowCluster( bool cluster );
 
-    ClusterMapPlot &SetColumnCluster( bool cluster );
+    ClusterMapPlot &ColumnCluster( bool cluster );
 
     ClusterMapPlot &SetRowLinkage( const Vec &linkage );
 
@@ -96,8 +96,6 @@ public:
     ClusterMapPlot &SetMask( const std::vector< bool > &mask );
 
 private:
-
-    std::stringstream mStream;
 
     static std::string GetLinkage( Linkage linkage );
 

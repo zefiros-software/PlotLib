@@ -31,7 +31,7 @@ PLOTLIB_INLINE HistogramPlot::HistogramPlot( const Vec &vec )
     mStream << "plt.hist(" << ToArray( vec );
 }
 
-PLOTLIB_INLINE std::string HistogramPlot::ToString() const
+PLOTLIB_INLINE std::string HistogramPlot::ToString()
 {
     return mStream.str() + " )";
 }

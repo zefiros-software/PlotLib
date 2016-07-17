@@ -38,81 +38,81 @@ PLOTLIB_INLINE KDEPlot::KDEPlot( const Vec &data )
     mStream << "sns.kdeplot(np.array(" << ToArray( data ) << ")";
 }
 
-PLOTLIB_INLINE std::string KDEPlot::ToString() const
+PLOTLIB_INLINE std::string KDEPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetVertical( bool vertical )
+PLOTLIB_INLINE KDEPlot &KDEPlot::Vertical( bool vertical )
 {
-    mStream << ", kind = " << GetBool( vertical );
+    AddArgument( "vertical", GetBool( vertical ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetKernel( Kernel kernel )
 {
-    mStream << ", kernel = '" << GetKernel( kernel ) << "'";
+    AddArgument( "kernel", GetString( GetKernel( kernel ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( const std::pair<double, double> &scalars )
 {
-    mStream << ", bw = ( " << scalars.first << ", " << scalars.second << " )";
+    AddArgument( "bw", ToTuple( scalars.first, scalars.second ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( double scalar )
 {
-    mStream << ", bw = " << scalar;
+    AddArgument( "bw", scalar );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( BW bw )
 {
-    mStream << ", bw = '" << GetBW( bw ) << "'";
+    AddArgument( "bw", GetString( GetBW( bw ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetGridSize( size_t size )
 {
-    mStream << ", gridsize = " << size;
+    AddArgument( "gridsize", size );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetCut( double cut )
 {
-    mStream << ", cut = " << cut;
+    AddArgument( "cut", cut );
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clipx, const std::pair<double, double> &clipy )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clipx,
+                                          const std::pair<double, double> &clipy )
 {
-    mStream << ", ylim = ( ( " << clipx.first << ", " << clipx.second << " ), ( "
-            << clipy.first << ", " << clipy.second << " ) )";
+    AddArgument( "clip", ToTuple( ToTuple( clipx.first, clipx.second ), ToTuple( clipy.first, clipy.second ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clip )
 {
-    mStream << ", ylim = ( " << clip.first << ", " << clip.second << " )";
+    AddArgument( "clip", ToTuple( clip.first, clip.second ) );
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetLegend( bool legend )
+PLOTLIB_INLINE KDEPlot &KDEPlot::Legend( bool legend )
 {
-    mStream << ", legend = " << GetBool( legend );
+    AddArgument( "legend", GetBool( legend ) );
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetCumulative( bool cumulative )
+PLOTLIB_INLINE KDEPlot &KDEPlot::Cumulative( bool cumulative )
 {
-    mStream << ", cumulative = " << GetBool( cumulative );
+    AddArgument( "cumulative", GetBool( cumulative ) );
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetShadeLowest( bool shadwLowest )
+PLOTLIB_INLINE KDEPlot &KDEPlot::ShadeLowest( bool shadeLowest )
 {
-    mStream << ", shade_lowest = " << GetBool( shadwLowest );
+    AddArgument( "shade_lowest", GetBool( shadeLowest ) );
     return *this;
 }
 

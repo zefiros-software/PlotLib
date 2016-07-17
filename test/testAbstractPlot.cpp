@@ -49,6 +49,12 @@ TEST( AbstractPlot, ToArray_Vec2 )
     EXPECT_EQ( "[1, 2, 3, 4]", AbstractPlot::ToArray( Vec{ 1, 2, 3, 4 } ) );
 }
 
+
+TEST( AbstractPlot, ToArray_IntVec )
+{
+    EXPECT_EQ( "[1, 2, 3, 4]", AbstractPlot::ToArray( std::vector<uint32_t> { 1, 2, 3, 4 } ) );
+}
+
 TEST( AbstractPlot, ToArray_VecStr )
 {
     EXPECT_EQ( "['1', '2', '3']", AbstractPlot::ToArray( Vec{ "1", "2", "3" } ) );

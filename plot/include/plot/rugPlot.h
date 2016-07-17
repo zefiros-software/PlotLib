@@ -28,7 +28,8 @@
 #ifndef __RUGPLOT_H__
 #define __RUGPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/vLineProperties.h"
+#include "plot/properties/hLineProperties.h"
 
 class RUGPlot
     : public AbstractPlot
@@ -41,21 +42,21 @@ public:
         Y
     };
 
-    RUGPlot( const Vec &a );
+    virtual std::string ToString() override;
 
-    virtual std::string ToString() const override;
+    RUGPlot( const Vec &a );
 
     RUGPlot &SetHeight( double height );
 
     RUGPlot &SetAxis( Axis axis );
 
-private:
+    RUGPlot &SetLine( VLine &vline );
 
-    std::stringstream mStream;
+    RUGPlot &SetLine( HLine &hline );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
-#   include "../../src/rugPlot.cpp"
+#   include ".. / .. / src / rugPlot.cpp"
 #endif
 
 #endif

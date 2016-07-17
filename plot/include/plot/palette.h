@@ -66,7 +66,8 @@ static const char *const __PlotLibColours[] =
     "gist_rainbow", "hsv", "flag", "prism"
 };
 
-class Palette
+
+class ColourMap
 {
 public:
 
@@ -84,6 +85,16 @@ public:
         None,
         Reverse,
         Dark
+    };
+
+    enum class Seaborn : size_t
+    {
+        Deep,
+        Muted,
+        Bright,
+        Pastel,
+        Dark,
+        ColourBlind
     };
 
     enum class Colour : size_t
@@ -275,42 +286,19 @@ public:
         Prism = ( size_t )Colour::Prism
     };
 
-    Palette( Type type );
-
-    Palette( const std::string &type, Type typeEnum = Type::Custom );
-
-    template< typename tT >
-    Palette( tT colour, int32_t amount, ColourType type = ColourType::None )
-        : mCustomType( "sns.color_palette( '" + GetColour( colour, type ) +
-                       "', " + std::to_string( amount ) + " )" ),
-          mType( Type::ColorPallette )
+    ColourMap()
     {
+        mStream << GetColour( Seaborn::Deep, ColourType::None );
     }
 
+
     template< typename tT >
-    Palette( tT colour, ColourType type = ColourType::None )
-        : Palette( "sns.color_palette( '" + GetColour( colour, type ) + "' )", Type::ColorPallette )
+    ColourMap( tT colour, ColourType type = ColourType::None )
     {
+        mStream << GetColour( colour, type );
     }
 
-    std::string ToString() const;
-
-    std::string GetArguments() const;
-
-    Palette &SetColours( size_t nColours );
-
-    Palette &SetDesaturation( double desat );
-
-    Palette &UseColourCodes( bool colourCodes );
-
-    Palette &SetColourMap( bool map );
-
-protected:
-
-    std::stringstream mStream;
-    std::stringstream mArguments;
-    std::string mCustomType;
-    Type mType;
+    virtual std::string ToString() const;
 
     template< typename tT >
     static std::string GetColour( tT colour, ColourType type )
@@ -331,6 +319,66 @@ protected:
 
         return col;
     }
+
+    static std::string GetColour( Seaborn colour )
+    {
+        return __PlotLibColours[static_cast<size_t>( colour )];
+    }
+
+protected:
+
+    std::stringstream mStream;
+
+};
+
+class Palette
+    : public ColourMap
+{
+public:
+
+    Palette( Type type );
+
+    Palette( const std::string &type, Type typeEnum = Type::Custom );
+
+    template< typename tT >
+    Palette( tT colour, int32_t amount, ColourType type = ColourType::None )
+        : mCustomType( "sns.color_palette( '" + GetColour( colour, type ) +
+                       "', " + std::to_string( amount ) + " )" ),
+          mType( Type::ColorPallette )
+    {
+    }
+
+    template< typename tT >
+    Palette( tT colour, ColourType type = ColourType::None )
+        : Palette( "sns.color_palette( '" + GetColour( colour, type ) + "' )", Type::ColorPallette )
+    {
+    }
+
+    Palette( const Palette &palette )
+        :  mArguments( palette.mArguments.str() ),
+           mCustomType( palette.mCustomType ),
+           mType( palette.mType )
+    {
+        mStream << palette.mStream.str();
+    }
+
+    std::string ToString() const;
+
+    std::string GetArguments() const;
+
+    Palette &SetColours( size_t nColours );
+
+    Palette &SetDesaturation( double desat );
+
+    Palette &UseColourCodes( bool colourCodes );
+
+    Palette &SetColourMap( bool map );
+
+protected:
+
+    std::stringstream mArguments;
+    std::string mCustomType;
+    Type mType;
 
     std::string GetPalette( Type palette ) const;
 };
@@ -448,7 +496,7 @@ class DivergingPalette
 {
 public:
 
-    enum class Center
+    enum class Centre
     {
         Light,
         Dark
@@ -462,7 +510,7 @@ public:
 
     DivergingPalette &SetColours( size_t nColours );
 
-    DivergingPalette &SetCenter( Center center );
+    DivergingPalette &SetCentre( Centre centre );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

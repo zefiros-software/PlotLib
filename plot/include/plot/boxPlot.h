@@ -28,13 +28,13 @@
 #ifndef __BOXPLOT_H__
 #define __BOXPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/boxPlotProperties.h"
 #include "plot/vec.h"
 
 class Palette;
 
 class BoxPlot
-    : public AbstractPlot
+    : public BoxPlotProperties< BoxPlot >
 {
 public:
 
@@ -50,7 +50,7 @@ public:
 
     BoxPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     BoxPlot &SetOrder( const Vec &order );
 
@@ -72,11 +72,7 @@ public:
 
     BoxPlot &SetWhis( double whis );
 
-    BoxPlot &SetNotch( bool notch );
-
-private:
-
-    std::stringstream mStream;
+    BoxPlot &Notch( bool notch );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

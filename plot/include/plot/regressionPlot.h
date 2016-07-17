@@ -37,7 +37,7 @@ public:
 
     RegressionPlot( const Vec &exogenous, const Vec &endogenous );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     RegressionPlot &SetXBins( size_t bins );
 
@@ -47,27 +47,27 @@ public:
 
     RegressionPlot &SetConfidenceInterval( size_t ci );
 
-    RegressionPlot &SetScatter( bool scatter );
+    RegressionPlot &Scatter( bool scatter );
 
-    RegressionPlot &SetFitRegression( bool fit );
+    RegressionPlot &FitRegression( bool fit );
 
     RegressionPlot &SetNBoots( size_t nboots );
 
     RegressionPlot &SetOrder( size_t order );
 
-    RegressionPlot &SetLogistic( bool logistic );
+    RegressionPlot &Logistic( bool logistic );
 
-    RegressionPlot &SetLowess( bool lowess );
+    RegressionPlot &Lowess( bool lowess );
 
-    RegressionPlot &SetRobust( bool robust );
+    RegressionPlot &Robust( bool robust );
 
-    RegressionPlot &SetLogX( bool logx );
+    RegressionPlot &LogX( bool logx );
 
     RegressionPlot &SetXPartial( const Mat &mat );
 
     RegressionPlot &SetYPartial( const Mat &mat );
 
-    RegressionPlot &SetTruncate( bool trunc );
+    RegressionPlot &Truncate( bool trunc );
 
     RegressionPlot &SetXJitter( double jitter );
 
@@ -78,10 +78,6 @@ public:
     RegressionPlot &SetColour( const std::string &colour );
 
     RegressionPlot &SetMarker( const std::string &marker );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

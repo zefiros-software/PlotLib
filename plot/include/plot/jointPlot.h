@@ -46,13 +46,13 @@ public:
 
     JointPlot( const Vec &exogenous, const Vec &endogenous );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     JointPlot &SetKind( Kind kind );
 
     JointPlot &SetSize( size_t size );
 
-    JointPlot &SetRatio( double ratio );
+    JointPlot &SetRatio( size_t ratio );
 
     JointPlot &SetSpace( double space );
 
@@ -60,9 +60,9 @@ public:
 
     JointPlot &SetYLimit( const std::pair<double, double> &y );
 
-private:
+    JointPlot &SetColour( const std::string &colour );
 
-    std::stringstream mStream;
+private:
 
     static std::string GetKind( Kind kind );
 };

@@ -58,7 +58,7 @@ public:
 
     HistogramPlot( const Vec &vec );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     HistogramPlot &SetBins( size_t value );
 

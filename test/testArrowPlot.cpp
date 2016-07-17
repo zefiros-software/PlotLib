@@ -24,31 +24,61 @@
  * @endcond
  */
 
-#include "plot/semiLogY.h"
+#include "plot/plotting.h"
 
-PLOTLIB_INLINE SemiLogY::SemiLogY( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
+#include "helper.h"
+
+
+TEST( ArrowPlot, ArrowPlot )
 {
-    mStream << "plt.semilogy(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
+    TestPlot< ArrowPlot >( "ArrowPlot", []()
+    {
+        ArrowPlot f( 0, 0.1, 1, 0.5 );
+        return f;
+    } );
 }
 
-PLOTLIB_INLINE SemiLogY::SemiLogY( const Vec &exogenous, const Vec &endogenous )
+
+TEST( ArrowPlot, SetWidth )
 {
-    mStream << "plt.semilogy(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    TestPlot< ArrowPlot >( "ArrowPlot_SetWidth", []()
+    {
+        ArrowPlot f( 0, 0.1, 0.7, 0.5 );
+        f.SetWidth( 0.009 );
+        return f;
+    } );
 }
 
-PLOTLIB_INLINE std::string SemiLogY::ToString() const
+TEST( ArrowPlot, LengthIncludesHead )
 {
-    return mStream.str() + " )";
+    TestPlot< ArrowPlot >( "ArrowPlot_LengthIncludesHead", []()
+    {
+        ArrowPlot f( 0, 0.1, 1, 0.5 );
+        f.LengthIncludesHead( true );
+        return f;
+    } );
 }
 
-PLOTLIB_INLINE SemiLogY &SemiLogY::SetAlpha( double alpha )
+TEST( ArrowPlot, SetHead )
 {
-    mStream << ", alpha=" << alpha;
-    return *this;
+    TestPlot< ArrowPlot >( "ArrowPlot_SetHead", []()
+    {
+        ArrowPlot f( 0, 0.1, 0.8, 0.5 );
+        f.LengthIncludesHead( true )
+        .SetHeadWidth( 0.05 )
+        .SetHeadLength( 0.05 )
+        .SetOverhang( -1 );
+        return f;
+    } );
 }
-
-PLOTLIB_INLINE SemiLogY &SemiLogY::SetScalar( double scalar )
+TEST( ArrowPlot, HeadStartsAtZero )
 {
-    mStream << ", s=" << scalar;
-    return *this;
+    TestPlot< ArrowPlot >( "ArrowPlot_HeadStartsAtZero", []()
+    {
+        ArrowPlot f( 0, 0.1, 0.8, 0.5 );
+        f.SetShape( ArrowPlot::Shape::Left )
+        .SetHeadWidth( 0.08 )
+        .HeadStartsAtZero( true );
+        return f;
+    } );
 }

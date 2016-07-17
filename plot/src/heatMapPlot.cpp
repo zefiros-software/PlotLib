@@ -26,30 +26,48 @@
 
 #include "plot/heatMapPlot.h"
 
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetYTickLabel( bool enable )
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins /*= 50 */ )
 {
-    mStream << ", yticklabels = " << GetBool( enable );
-    return *this;
-}
+    mStream << "heatmap, yedges, xedges = np.histogram2d( "
+            << ToArray( x ) << ", " << ToArray( y ) << ", bins=" << bins << ")\n";
+    mStream << "sns.heatmap(heatmap";
 
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetYTickLabel( const std::vector< std::string > &names )
-{
-    mStream << ", yticklabels = '" << ToArray( names ) << "'";
-    return *this;
+    mXTickLabels = "xedges";
+    mYTickLabels = "yedges";
 }
 
 PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins )
 {
-    mStream << "heatmap, xedges, yedges = np.histogram2d( "
+    mStream << "heatmap, yedges, xedges = np.histogram2d( "
             << ToArray( x ) << ", " << ToArray( y ) << ", bins=(" << bins.first << "," << bins.second << "))\n";
     mStream << "sns.heatmap(heatmap";
+
+    mXTickLabels = "xedges";
+    mYTickLabels = "yedges";
 }
 
-PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins /*= 50 */ )
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins, std::pair< double, double > xextent,
+                                         std::pair<double, double> yextent )
 {
-    mStream << "heatmap, xedges, yedges = np.histogram2d( "
-            << ToArray( x ) << ", " << ToArray( y ) << ", bins=" << bins << ")\n";
+    mStream << "heatmap, yedges, xedges = np.histogram2d( "
+            << ToArray( x ) << ", " << ToArray( y ) << ", bins=" << bins << ","
+            << "range=[[" << xextent.first << "," << yextent.second << "],[" << yextent.first << "," << yextent.second << "]])\n";
     mStream << "sns.heatmap(heatmap";
+
+    mXTickLabels = "xedges";
+    mYTickLabels = "yedges";
+}
+
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins,
+                                         std::pair< double, double > xextent, std::pair<double, double> yextent )
+{
+    mStream << "heatmap, yedges, xedges = np.histogram2d( "
+            << ToArray( x ) << ", " << ToArray( y ) << ", bins=(" << bins.first << "," << bins.second << "), "
+            << "range=[[" << xextent.first << "," << xextent.second << "],[" << yextent.first << "," << yextent.second <<  "]])\n";
+    mStream << "sns.heatmap(heatmap";
+
+    mXTickLabels = "xedges";
+    mYTickLabels = "yedges";
 }
 
 PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Mat &map )
@@ -57,92 +75,18 @@ PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Mat &map )
     mStream << "sns.heatmap(" << ToArray( map );
 }
 
-PLOTLIB_INLINE std::string HeatMapPlot::ToString() const
+PLOTLIB_INLINE std::string HeatMapPlot::ToString()
 {
+    if ( !mXTickLabels.empty() )
+    {
+        AddArgument( "xticklabels", mXTickLabels );
+    }
+
+    if ( !mYTickLabels.empty() )
+    {
+        AddArgument( "yticklabels", mYTickLabels );
+    }
+
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetMinValue( double value )
-{
-    mStream << ", vmin = " << value;
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetMaxValue( double value )
-{
-    mStream << ", vmax = " << value;
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetCenter( double value )
-{
-    mStream << ", center = " << value;
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetRobust( bool robust )
-{
-    mStream << ", robust = " << GetBool( robust );
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetAnnotate( bool annotate )
-{
-    mStream << ", annot = " << GetBool( annotate );
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetFormat( const std::string &fmt )
-{
-    mStream << ", fmt = " << fmt;
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetLineWidths( double value )
-{
-    mStream << ", linewidths = " << value;
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetColour( const std::string &colour )
-{
-    mStream << ", color = '" << colour << "'";
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetColourMap( Palette pallet )
-{
-    pallet.SetColourMap( true );
-    mStream << ", cmap = " << pallet.ToString();
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetSquare( bool square )
-{
-    mStream << ", square = " << GetBool( square );
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetXTickLabel( bool enable )
-{
-    mStream << ", xticklabels = " << GetBool( enable );
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetXTickLabel( const std::vector< std::string > &names )
-{
-    mStream << ", xticklabels = '" << ToArray( names ) << "'";
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetMask( const std::vector< bool > &mask )
-{
-    mStream << ", mask = " << ToArray( mask );
-    return *this;
-}
-
-PLOTLIB_INLINE HeatMapPlot &HeatMapPlot::SetColourBar( bool enable )
-{
-    mStream << ", cbar = " << GetBool( enable );
-    return *this;
-}

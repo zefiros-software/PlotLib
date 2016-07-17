@@ -24,34 +24,45 @@
  * @endcond
  */
 
-#pragma once
-#ifndef __SEMILOGX_H__
-#define __SEMILOGX_H__
+#include "plot/plotting.h"
 
-#include "plot/abstractPlot.h"
+#include "helper.h"
 
-class SemiLogX
-    : public AbstractPlot
+TEST( PairPlot, PairPlot )
 {
-public:
+    TestPlot< PairPlot >( "PairPlot", []()
+    {
+        PairPlot f( ( mat )randn( 3, 300 ), { "first", "second", "third" } );
+        f.SetDiagonalType( PairPlot::DiagonalType::KernelDensity )
+        .SetMarker( "*" );
+        return f;
+    } );
+}
 
-    SemiLogX( const Vec &exogenous, const Vec &endogenous );
+TEST( PairPlot, PairPlot2 )
+{
+    TestPlot< PairPlot >( "PairPlot2", []()
+    {
+        PairPlot f( { ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ) },
+        { "x", "y", "z" },
+        { "First", "Second", "Third" } );
+        f.SetMarkers( { "*", "o", "D" } )
+        .SetSize( 3 );
+        return f;
+    } );
+}
 
-    SemiLogX( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
-
-    virtual std::string ToString() const override;
-
-    SemiLogX &SetAlpha( double alpha );
-
-    SemiLogX &SetScalar( double scalar );
-
-private:
-
-    std::stringstream mStream;
-};
-
-#ifndef PLOTLIB_NO_HEADER_ONLY
-#   include "../../src/semiLogX.cpp"
-#endif
-
-#endif
+TEST( PairPlot, PairPlot3 )
+{
+    TestPlot< PairPlot >( "PairPlot3", []()
+    {
+        PairPlot f( { ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ) },
+        { "x", "y", "z" },
+        { "First", "Second", "Third" } );
+        f.SetYVars( { "x", "y" } )
+        .SetXVars( { "x", "z" } )
+        .SetType( PairPlot::Type::Regression )
+        .SetAspect( 2 );
+        return f;
+    } );
+}

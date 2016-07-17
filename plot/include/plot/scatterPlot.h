@@ -37,17 +37,27 @@ public:
 
     ScatterPlot( const Vec &exogenous, const Vec &endogenous );
 
-    ScatterPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
-
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     ScatterPlot &SetAlpha( double alpha );
 
     ScatterPlot &SetScalar( double scalar );
 
-private:
+    ScatterPlot &SetScalar( const Vec &scalar );
 
-    std::stringstream mStream;
+    ScatterPlot &SetColour( const std::string &colour );
+
+    ScatterPlot &SetEdgeColour( const std::string &colour );
+
+    ScatterPlot &SetMarker( const std::string &marker );
+
+    ScatterPlot &SetVMin( double vmin );
+
+    ScatterPlot &SetVMax( double vmax );
+
+    ScatterPlot &SetLineWidth( double lineWidth );
+
+    ScatterPlot &SetLineWidth( const Vec &widths );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

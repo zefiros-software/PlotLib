@@ -30,23 +30,11 @@
 
 PLOTLIB_INLINE PlotHLine::PlotHLine( double x /*= 0 */ )
 {
-    //mStream << "ax = plt.gca()\ncolor = next(ax._get_lines.color_cycle)\nplt.axhline(" << x << ",color=color";
-    mStream << "\nplt.axhline(" << x;
+    mColour = "color";
+    mStream << "ax = plt.gca()\ncolor = next(itertools.cycle(sns.color_palette()))\nplt.axhline(" << x;
 }
 
-PLOTLIB_INLINE std::string PlotHLine::ToString() const
+PLOTLIB_INLINE std::string PlotHLine::ToString()
 {
-    return mStream.str() + " )";
-}
-
-PLOTLIB_INLINE PlotHLine &PlotHLine::SetXMin( double xmin )
-{
-    mStream << ", xmin=" << xmin;
-    return *this;
-}
-
-PLOTLIB_INLINE PlotHLine &PlotHLine::SetXMax( double xmax )
-{
-    mStream << ", xmax=" << xmax;
-    return *this;
+    return mStream.str() + ")";
 }

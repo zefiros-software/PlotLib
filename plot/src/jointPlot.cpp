@@ -33,44 +33,50 @@ PLOTLIB_INLINE JointPlot::JointPlot( const Vec &exogenous, const Vec &endogenous
     mStream << "sns.jointplot(x='x',y='y',data=pd.DataFrame.from_dict({'x': xl,'y': yl})";
 }
 
-PLOTLIB_INLINE std::string JointPlot::ToString() const
+PLOTLIB_INLINE std::string JointPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
 {
-    mStream << ", kind=\"" << GetKind( kind ) << "\"";
+    AddArgument( "kind", GetString( GetKind( kind ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t size )
 {
-    mStream << ", size=" << size;
+    AddArgument( "size", size );
     return *this;
 }
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetRatio( double ratio )
+PLOTLIB_INLINE JointPlot &JointPlot::SetRatio( size_t ratio )
 {
-    mStream << ", ratio=" << ratio;
+    AddArgument( "ratio", ratio );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetSpace( double space )
 {
-    mStream << ", space=" << space;
+    AddArgument( "space", space );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetXLimit( const std::pair<double, double> &x )
 {
-    mStream << ", xlim=(" << x.first << "," << x.second << ")";
+    AddArgument( "xlim", ToTuple( x.first, x.second ) );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetYLimit( const std::pair<double, double> &y )
 {
-    mStream << ", ylim=(" << y.first << "," << y.second << ")";
+    AddArgument( "ylim", ToTuple( y.first, y.second ) );
+    return *this;
+}
+
+PLOTLIB_INLINE JointPlot &JointPlot::SetColour( const std::string &colour )
+{
+    AddArgument( "color", GetString( colour ) );
     return *this;
 }
 

@@ -53,37 +53,25 @@ PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const Vec &x, const Vec &y, c
     mStream << "plt.bar(" << ToArray( x ) << "," << ToArray( y ) << ",width=" << ToArray( widths );
 }
 
-PLOTLIB_INLINE std::string DistancedBarPlot::ToString() const
+PLOTLIB_INLINE std::string DistancedBarPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetConfidenceInterval( double ci )
+PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetZOrder( double order )
 {
-    mStream << ", yerr = " << ci;
-    return *this;
-}
-
-PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetOrientation( Orientation orientation )
-{
-    mStream << ", orientation = " << ( orientation == Orientation::Horizontal ? "'horizontal'" : "'vertical'" );
-    return *this;
-}
-
-PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetColour( const std::string &colour )
-{
-    mStream << ", color = '" << colour << "'";
+    AddArgument( "zorder", order );
     return *this;
 }
 
 PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::UseColourCycler( const std::string &colourCycler )
 {
-    mStream << ", color = next(" << colourCycler << ")";
+    AddArgument( "color", "next( " + colourCycler + " )" );
     return *this;
 }
 
 PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::CycleColour()
 {
-    mStream << ", color = next(colour_cycler)";
+    AddArgument( "color", "next( colour_cycler )" );
     return *this;
 }

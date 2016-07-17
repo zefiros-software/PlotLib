@@ -27,12 +27,12 @@
 #include "plot/pairPlot.h"
 
 PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< Mat > &mats, const std::vector< std::string > &names,
-                           const std::vector< std::string > &hue )
+                                   const std::vector< std::string > &hue )
 {
     assert( hue.size() == mats.size() );
     mStream << "data = pd.DataFrame()\nhue = []\n";
 
-    for ( size_t k = 0, kEnd = names.size(); k < kEnd; )
+    for ( size_t k = 0, kEnd = names.size(); k < kEnd; ++k )
     {
         mStream << "x" << k << " = []\n";
     }
@@ -81,55 +81,55 @@ PLOTLIB_INLINE PairPlot::PairPlot( const Mat &mat, const std::vector< std::strin
     mStream << "sns.pairplot( data";
 }
 
-PLOTLIB_INLINE std::string PairPlot::ToString() const
+PLOTLIB_INLINE std::string PairPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetXVars( const std::vector< std::string > &xvars )
 {
-    mStream << ", x_vars = " << ToArray( xvars );
+    AddArgument( "x_vars", ToArray( xvars ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetYVars( const std::vector< std::string > &yvars )
 {
-    mStream << ", y_vars = " << ToArray( yvars );
+    AddArgument( "y_vars", ToArray( yvars ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetType( Type type )
 {
-    mStream << ", kind = " << ( type == Type::Scatter ? "'scatter'" : "'reg'" );
+    AddArgument( "kind", GetString( type == Type::Scatter ? "scatter" : "reg" ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetDiagonalType( DiagonalType type )
 {
-    mStream << ", diag_kind = " << ( type == DiagonalType::Histogram ? "'hist'" : "'kde'" );
+    AddArgument( "diag_kind", GetString( type == DiagonalType::Histogram ? "hist" : "kde" ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetMarker( const std::string &marker )
 {
-    mStream << ", markers = '" << marker << "'";
+    AddArgument( "markers", GetString( marker ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetMarkers( const std::vector<std::string> &marker )
 {
-    mStream << ", markers = " << ToArray( marker );
+    AddArgument( "markers", ToArray( marker ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetSize( double size )
 {
-    mStream << ", size = " << size;
+    AddArgument( "size", size );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetAspect( double aspect )
 {
-    mStream << ", aspect = " << aspect;
+    AddArgument( "aspect", aspect );
     return *this;
 }

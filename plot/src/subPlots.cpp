@@ -34,7 +34,7 @@ PLOTLIB_INLINE SubPlots::SubPlots( uint32_t rows, uint32_t columns ) : mPlotCoun
             << "fig.subplots_adjust(hspace=0.5,wspace=0.5)\n";
 }
 
-PLOTLIB_INLINE std::string SubPlots::ToString() const
+PLOTLIB_INLINE std::string SubPlots::ToString()
 {
     return mStream.str() + "\n" + mPlots.str() + "\nfig.tight_layout(rect=[0, 0, .85, .9],pad=0.1)\n";
 }
@@ -49,7 +49,7 @@ PLOTLIB_INLINE void SubPlots::AddHeatMapPlot( HeatMapPlot &plot )
     }
     else
     {
-        plot.SetColourBar( false );
+        plot.ColourBar( false );
     }
 
     plot.mStream << ", ax=next(ax_cycler)";

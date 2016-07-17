@@ -28,13 +28,13 @@
 #ifndef __HEATMAPPLOT_H__
 #define __HEATMAPPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/heatMapProperties.h"
 #include "plot/palette.h"
 
 class SubPlots;
 
 class HeatMapPlot
-    : public AbstractPlot
+    : public HeatMapPlotProperties< HeatMapPlot >
 {
 public:
 
@@ -42,47 +42,18 @@ public:
 
     HeatMapPlot( const Mat &map );
 
-    HeatMapPlot( const Vec &x, const Vec &y, size_t bins = 50 );
+    HeatMapPlot( const Vec &x, const Vec &y, size_t bins = 10 );
 
     HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins );
 
-    virtual std::string ToString() const override;
+    HeatMapPlot( const Vec &x, const Vec &y, size_t bins, std::pair< double, double > xextent,
+                 std::pair<double, double> yextent );
 
-    HeatMapPlot &SetMinValue( double value );
+    HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins, std::pair< double, double > xextent,
+                 std::pair<double, double> yextent );
 
-    HeatMapPlot &SetMaxValue( double value );
+    std::string ToString() override;
 
-    HeatMapPlot &SetCenter( double value );
-
-    HeatMapPlot &SetRobust( bool robust );
-
-    HeatMapPlot &SetAnnotate( bool annotate );
-
-    HeatMapPlot &SetFormat( const std::string &fmt );
-
-    HeatMapPlot &SetLineWidths( double value );
-
-    HeatMapPlot &SetColour( const std::string &colour );
-
-    HeatMapPlot &SetColourMap( Palette pallet );
-
-    HeatMapPlot &SetSquare( bool square );
-
-    HeatMapPlot &SetXTickLabel( const std::vector< std::string > &names );
-
-    HeatMapPlot &SetYTickLabel( const std::vector< std::string > &names );
-
-    HeatMapPlot &SetXTickLabel( bool enable );
-
-    HeatMapPlot &SetYTickLabel( bool enable );
-
-    HeatMapPlot &SetMask( const std::vector< bool > &mask );
-
-    HeatMapPlot &SetColourBar( bool enable );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

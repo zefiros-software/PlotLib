@@ -50,7 +50,7 @@ public:
 
     CountPlot( const std::vector< Vec > &data, const std::vector< std::string > &hue );
 
-    virtual std::string ToString() const override;
+    virtual std::string ToString() override;
 
     CountPlot &SetOrder( const Vec &order );
 
@@ -63,10 +63,6 @@ public:
     CountPlot &SetColourMap( const Palette &pallet );
 
     CountPlot &SetSaturation( double sat );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

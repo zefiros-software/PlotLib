@@ -42,9 +42,9 @@ namespace EasyPlot
     void ResidualPlot( ::Plot &plot, const Vec &exogenous, const Vec &endogenous, const Vec &fit );
 
     template< typename tBackHueFunc, typename tForeHueFunc >
-    PLOTLIB_INLINE void BackgroundForegroundBarPlot( ::Plot &plot, const std::vector< std::vector< double > > &background,
-                                             const std::vector< std::vector< double > > &foreground, const std::vector< std::vector< double > > &x,
-                                             const Palette &backPalette, const Palette &forePalette, const tBackHueFunc &backHue, const tForeHueFunc &foreHue )
+    PLOTLIB_INLINE void BackgroundForegroundBarPlot( ::Plot &plot, const std::vector< Vec > &background,
+                                                     const std::vector< Vec > &foreground, const std::vector< Vec > &x,
+                                                     const Palette &backPalette, const Palette &forePalette, const tBackHueFunc &backHue, const tForeHueFunc &foreHue )
     {
         std::vector< std::pair< Vec, Vec > > backData;
         std::vector< std::pair< Vec, Vec > > foreData;
@@ -52,8 +52,8 @@ namespace EasyPlot
 
         for ( size_t i = 0, end = background.size(); i < end; ++i )
         {
-            std::valarray< double > backVal( background[i].data(), background[i].size() );
-            backVal += std::valarray< double >( foreground[i].data(), foreground[i].size() );
+            std::valarray< double > backVal( background[i].GetData().data(), background[i].GetSize() );
+            backVal += std::valarray< double >( foreground[i].GetData().data(), foreground[i].GetSize() );
 
             backData.emplace_back( Vec( x[i] ), Vec( backVal ) );
             foreData.emplace_back( Vec( x[i] ), Vec( foreground[i] ) );
@@ -65,38 +65,24 @@ namespace EasyPlot
         plot.SetLegend( Plot::Location::Best );
     }
 
+    std::vector< int32_t > StackedBarPlot( ::Plot &plot, const std::vector< Vec > &xValues,
+                                           const std::vector< Vec > &yValues );
+
     template< typename tFunc >
-    PLOTLIB_INLINE void StackedBarPlot( ::Plot &plot, const std::vector< std::vector< double > > &xValues,
-                                const std::vector< std::vector< double > > &yValues, const Palette &palette, const tFunc &hueFunc )
+    PLOTLIB_INLINE void StackedBarPlot( ::Plot &plot, const std::vector< Vec > &xValues,
+                                        const std::vector< Vec > &yValues, const Palette &palette, const tFunc &hueFunc )
     {
-        std::vector< Vec > yData;
 
-        std::valarray< double > yValData( yValues[0].data(), yValues[0].size() );
-        yData.emplace_back( Vec( yValues[0] ) );
+        plot.AddColourCycler( palette );        ;
 
-        for ( size_t i = 1, end = yValues.size(); i < end; ++i )
-        {
-            yValData += std::valarray< double >( yValues[i].data(), yValues[i].size() );
-            yData.emplace_back( Vec( yValData ) );
-        }
-
-        std::vector< int32_t > hueData;
-
-        plot.AddColourCycler( palette );
-
-        for ( int32_t i = ( int32_t )yValues.size() - 1; i >= 0; --i )
-        {
-            plot.AddPlot( BarPlot( Vec( xValues[i] ), yData[i] ).UseColourCycler( plot.GetColourCycler() ) );
-            hueData.push_back( i );
-        }
-
-        plot.AddCustomLegend( CustomLegend( palette, hueData, hueFunc ) );
+        plot.AddCustomLegend( CustomLegend( palette, StackedBarPlot( plot, xValues, yValues ), hueFunc ) );
     }
 
     template< typename tFunc >
-    PLOTLIB_INLINE void StackedDistancedBarPlot( ::Plot &plot, const std::vector< std::vector< double > > &gapWidths,
-                                         const std::vector< std::vector< double > > &barWidths, const std::vector< std::vector< double > > &yValues,
-                                         const Palette &palette, const tFunc &hueFunc )
+    PLOTLIB_INLINE void StackedDistancedBarPlot( ::Plot &plot, const std::vector< Vec > &gapWidths,
+                                                 const std::vector< Vec > &barWidths,
+                                                 const std::vector< Vec > &yValues,
+                                                 const Palette &palette, const tFunc &hueFunc )
     {
         std::vector< Vec > yData;
         std::vector<double> lineX;
@@ -109,7 +95,7 @@ namespace EasyPlot
             yVec.push_back( 0 );
         }
 
-        std::valarray< double > yValData( yValues[0].data(), yValues[0].size() );
+        std::valarray< double > yValData( yValues[0].GetData().data(), yValues[0].GetSize() );
         yData.emplace_back( Vec( yValues[0] ) );
 
         for ( auto height : yValData )
@@ -120,7 +106,7 @@ namespace EasyPlot
 
         for ( size_t i = 1, end = yValues.size(); i < end; ++i )
         {
-            yValData += std::valarray< double >( yValues[i].data(), yValues[i].size() );
+            yValData += std::valarray< double >( yValues[i].GetData().data(), yValues[i].GetSize() );
 
             for ( auto height : yValData )
             {
@@ -138,21 +124,21 @@ namespace EasyPlot
         {
             double left = 0;
 
-            for ( uint32_t j = 0; j < barWidths[0].size(); ++j )
+            for ( uint32_t j = 0; j < barWidths[0].GetSize(); ++j )
             {
-                double maxGap = gapWidths[0][j];
-                double maxBar = barWidths[0][j];
+                double maxGap = gapWidths[0].GetData()[j];
+                double maxBar = barWidths[0].GetData()[j];
 
                 for ( uint32_t i = 1; i < barWidths.size(); ++i )
                 {
-                    if ( gapWidths[i][j] > maxGap )
+                    if ( gapWidths[i].GetData()[j] > maxGap )
                     {
-                        maxGap = gapWidths[i][j];
+                        maxGap = gapWidths[i].GetData()[j];
                     }
 
-                    if ( barWidths[i][j] > maxBar )
+                    if ( barWidths[i].GetData()[j] > maxBar )
                     {
-                        maxBar = barWidths[i][j];
+                        maxBar = barWidths[i].GetData()[j];
                     }
                 }
 
@@ -181,7 +167,7 @@ namespace EasyPlot
 
         for ( int32_t i = ( int32_t )yValues.size() - 1; i >= 0; --i )
         {
-            plot.AddPlot( DistancedBarPlot( x, yData[i], widths ).UseColourCycler( plot.GetColourCycler() ) );
+            plot.AddPlot( DistancedBarPlot( x, yData[i], widths ).UseColourCycler( plot.GetColourCycler() ).SetZOrder( 1000 ) );
             hueData.push_back( i );
         }
 

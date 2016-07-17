@@ -28,22 +28,11 @@
 
 PLOTLIB_INLINE PlotVLine::PlotVLine( double x /*= 0 */ )
 {
-    mStream << "ax = plt.gca()\ncolor = next(ax._get_lines.color_cycle)\nplt.axvline(" << x << ",color=color";
+    mColour = "color";
+    mStream << "ax = plt.gca()\ncolor = next(itertools.cycle(sns.color_palette()))\nplt.axvline(" << x;
 }
 
-PLOTLIB_INLINE std::string PlotVLine::ToString() const
+PLOTLIB_INLINE std::string PlotVLine::ToString()
 {
-    return mStream.str() + " )";
-}
-
-PLOTLIB_INLINE PlotVLine &PlotVLine::SetYMin( double ymin )
-{
-    mStream << ", ymin=" << ymin;
-    return *this;
-}
-
-PLOTLIB_INLINE PlotVLine &PlotVLine::SetYMax( double ymax )
-{
-    mStream << ", ymax=" << ymax;
-    return *this;
+    return mStream.str() + ")";
 }

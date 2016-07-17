@@ -28,105 +28,25 @@
 #ifndef __DISTANCEDBARPLOT_H__
 #define __DISTANCEDBARPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/barProperties.h"
 #include "plot/vec.h"
 
 class DistancedBarPlot
-    : public AbstractPlot
+    : public BarPlotProperties< DistancedBarPlot >
 {
 public:
-
-    enum class Orientation
-    {
-        Vertical,
-        Horizontal
-    };
 
     DistancedBarPlot( const Vec &x, const Vec &y, const Vec &widths );
 
     DistancedBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const Vec &widths );
 
-    // DistancedBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
-    // {
-    //     mStream << "x = []\ny = []\nh = []\n";
-    //     mStream << "x = x ";
+    virtual std::string ToString() override;
 
-    //     for ( auto &tup : data )
-    //     {
-    //         assert( tup.first.GetSize() == tup.second.GetSize() );
-    //         mStream << "+ " << ToArray( tup.first );
-    //     }
-
-    //     mStream << "\ny = y ";
-
-    //     for ( auto &tup : data )
-    //     {
-    //         mStream << "+ " << ToArray( tup.second );
-    //     }
-
-    //     size_t i = 0;
-
-    //     mStream << "\nh = h ";
-
-    //     for ( auto &tup : data )
-    //     {
-    //         mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
-    //     }
-
-    //     mStream << "\nplt.bar( x, y, h";
-    // }
-
-    virtual std::string ToString() const override;
-
-    // DistancedBarPlot &SetOrder( const Vec &order )
-    // {
-    //     mStream << ", order = " << ToArray( order );
-    //     return *this;
-    // }
-
-    // DistancedBarPlot &SetHueOrder( const std::vector< std::string > &order )
-    // {
-    //     mStream << ", hue_order = " << ToArray( order );
-    //     return *this;
-    // }
-
-    DistancedBarPlot &SetConfidenceInterval( double ci );
-
-    // DistancedBarPlot &SetNBoot( size_t bootstrap )
-    // {
-    //     mStream << ", n_boot = " << bootstrap;
-    //     return *this;
-    // }
-
-    DistancedBarPlot &SetOrientation( Orientation orientation );
-
-    DistancedBarPlot &SetColour( const std::string &colour );
+    DistancedBarPlot &SetZOrder( double order );
 
     DistancedBarPlot &UseColourCycler( const std::string &colourCycler );
 
-    // DistancedBarPlot &SetColourMap( const Palette &pallet )
-    // {
-    //     mStream << ", palette = " << pallet.ToString();
-    //     return *this;
-    // }
-
-    // DistancedBarPlot &SetSaturation( double sat )
-    // {
-    //     mStream << ", saturation = " << sat;
-    //     return *this;
-    // }
-
-    // DistancedBarPlot &SetErrorColour( const std::string &colour )
-    // {
-    //     mStream << ", errcolor = '" << colour << "'";
-    //     return *this;
-    // }
-
     DistancedBarPlot &CycleColour();
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

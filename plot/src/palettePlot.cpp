@@ -32,13 +32,13 @@ PLOTLIB_INLINE PalettePlot::PalettePlot( const Palette &palette )
     mStream << "sns.palplot(" << palette.ToString();
 }
 
-PLOTLIB_INLINE std::string PalettePlot::ToString() const
+PLOTLIB_INLINE std::string PalettePlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE PalettePlot &PalettePlot::SetSize( double size )
 {
-    mStream << ", size=" << size;
+    AddArgument( "size", size );
     return *this;
 }

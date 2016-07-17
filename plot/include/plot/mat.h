@@ -53,6 +53,8 @@ public:
 
     Mat( const arma::mat &data );
 
+    Mat( const arma::umat &data );
+
 #endif
 
     Mat( const std::vector< std::vector< std::string > > &data );

@@ -24,31 +24,34 @@
  * @endcond
  */
 
-#include "plot/semiLogX.h"
+#include "plot/plotting.h"
 
-PLOTLIB_INLINE SemiLogX::SemiLogX( const Vec &exogenous, const Vec &endogenous, const std::string &marker )
+#include "helper.h"
+
+TEST( DistrPlot, DistrPlot )
 {
-    mStream << "plt.semilogx(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << ",marker=" << marker;
+    TestPlot< DistrPlot >( "DistrPlot", []()
+    {
+        DistrPlot f( ( vec )randn( 100 ) );
+        f.NormHist( true )
+        .Hist( true )
+        .SetBins( 30 )
+        .SetLabel( "label" )
+        .SetAxisLabel( "axis-label" )
+        .SetColour( "y" );
+        return f;
+    } );
 }
 
-PLOTLIB_INLINE SemiLogX::SemiLogX( const Vec &exogenous, const Vec &endogenous )
+TEST( DistrPlot, DistrPlot2 )
 {
-    mStream << "plt.semilogx(" << ToArray( exogenous ) << "," << ToArray( endogenous );
-}
-
-PLOTLIB_INLINE std::string SemiLogX::ToString() const
-{
-    return mStream.str() + " )";
-}
-
-PLOTLIB_INLINE SemiLogX &SemiLogX::SetAlpha( double alpha )
-{
-    mStream << ", alpha=" << alpha;
-    return *this;
-}
-
-PLOTLIB_INLINE SemiLogX &SemiLogX::SetScalar( double scalar )
-{
-    mStream << ", s=" << scalar;
-    return *this;
+    TestPlot< DistrPlot >( "DistrPlot2", []()
+    {
+        DistrPlot f( ( vec )randn( 100 ) );
+        f.Vertical( true )
+        .RUG( true )
+        .KDE( true )
+        .SetBins( { -5, -3, -2, -1, 0, 1, 2, 3, 4, 5} );
+        return f;
+    } );
 }

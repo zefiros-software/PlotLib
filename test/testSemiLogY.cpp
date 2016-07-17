@@ -24,34 +24,27 @@
  * @endcond
  */
 
-#pragma once
-#ifndef __SEMILOGY_H__
-#define __SEMILOGY_H__
+#include "plot/plotting.h"
 
-#include "plot/abstractPlot.h"
+#include "helper.h"
 
-class SemiLogY
-    : public AbstractPlot
+TEST( SemiLogYPlot, SemiLogYPlot )
 {
-public:
+    TestPlot< SemiLogYPlot >( "SemiLogY", []()
+    {
+        SemiLogYPlot f( ( vec )linspace( 0, 100, 300 ), ( vec )abs( randn( 300 ) ) );
+        f.SetScale( LogScale().SetNonPosY( LogScale::NonPos::Clip ) );
+        return f;
+    } );
+}
 
-    SemiLogY( const Vec &exogenous, const Vec &endogenous );
-
-    SemiLogY( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
-
-    virtual std::string ToString() const override;
-
-    SemiLogY &SetAlpha( double alpha );
-
-    SemiLogY &SetScalar( double scalar );
-
-private:
-
-    std::stringstream mStream;
-};
-
-#ifndef PLOTLIB_NO_HEADER_ONLY
-#   include "../../src/semiLogY.cpp"
-#endif
-
-#endif
+TEST( SemiLogYPlot, SemiLogY2 )
+{
+    TestPlot< SemiLogYPlot >( "SemiLogY2", []()
+    {
+        SemiLogYPlot f( ( vec )linspace( 0, 100, 300 ), ( vec )( abs( randn( 300 ) ) + 0.5 ) );
+        f.SetScale( LogScale().SetBaseY( 10 )
+                    .SetSubsY( { 0, 1, 2 } ) );
+        return f;
+    } );
+}

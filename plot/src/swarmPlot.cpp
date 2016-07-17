@@ -84,7 +84,7 @@ PLOTLIB_INLINE SwarmPlot::SwarmPlot( const Vec &x, const Vec &y )
     mStream << "sns.swarmplot(" << ToArray( x ) << "," << ToArray( y );
 }
 
-PLOTLIB_INLINE std::string SwarmPlot::ToString() const
+PLOTLIB_INLINE std::string SwarmPlot::ToString()
 {
     return mStream.str() + " )";
 }

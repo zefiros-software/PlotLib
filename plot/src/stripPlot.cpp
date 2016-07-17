@@ -84,7 +84,7 @@ PLOTLIB_INLINE StripPlot::StripPlot( const Vec &x, const Vec &y )
     mStream << "sns.stripplot(" << ToArray( x ) << "," << ToArray( y );
 }
 
-PLOTLIB_INLINE std::string StripPlot::ToString() const
+PLOTLIB_INLINE std::string StripPlot::ToString()
 {
     return mStream.str() + " )";
 }

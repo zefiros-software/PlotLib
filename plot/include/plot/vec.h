@@ -53,15 +53,13 @@ public:
     {
     }
 
-    template< typename tContainer >
-    Vec( const tContainer &data )
+    template< typename tT >
+    Vec( const std::valarray< tT > &data )
         : mData( std::begin( data ), std::end( data ) )
     {
     }
 
-
 #ifdef PLOTLIB_ARMA
-    template<>
     Vec( const ::arma::vec &data )
         : mData( data.cbegin(), data.cend() )
     {

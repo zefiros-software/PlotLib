@@ -26,14 +26,9 @@
 
 #include "plot/linePlot.h"
 
-PLOTLIB_INLINE LinePlot::LinePlot( const Vec &endogenous, const std::string &character )
+PLOTLIB_INLINE LinePlot::LinePlot( const Vec &endogenous )
 {
-    mStream << "plt.plot(" << ToArray( endogenous ) << "," << character;
-}
-
-PLOTLIB_INLINE LinePlot::LinePlot( const Vec &exogenous, const Vec &endogenous, const std::string &character )
-{
-    mStream << "plt.plot(" << ToArray( exogenous ) << "," << ToArray( endogenous ) << "," << character;
+    mStream << "plt.plot(" << ToArray( endogenous );
 }
 
 PLOTLIB_INLINE LinePlot::LinePlot( const Vec &exogenous, const Vec &endogenous )
@@ -41,54 +36,7 @@ PLOTLIB_INLINE LinePlot::LinePlot( const Vec &exogenous, const Vec &endogenous )
     mStream << "plt.plot(" << ToArray( exogenous ) << "," << ToArray( endogenous );
 }
 
-PLOTLIB_INLINE LinePlot::LinePlot( const Vec &endogenous )
-{
-    mStream << "plt.plot(" << ToArray( endogenous );
-}
-
-PLOTLIB_INLINE std::string LinePlot::ToString() const
+PLOTLIB_INLINE std::string LinePlot::ToString()
 {
     return mStream.str() + " )";
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::SetAlpha( double alpha )
-{
-    mStream << ", alpha=" << alpha;
-    return *this;
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::SetColour( const std::string &colour )
-{
-    mStream << ", color = '" << colour << "'";
-    return *this;
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::UseColourCycler( const std::string &colourCycler )
-{
-    mStream << ", color = next(" << colourCycler << ")";
-    return *this;
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::SetLabel( const std::string &label )
-{
-    mStream << ", label='" << label << "'";
-    return *this;
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::SetMarker( const std::string &marker )
-{
-    mStream << ", marker='" << marker << "'";
-    return *this;
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::SetWidth( double width )
-{
-    mStream << ", linewidth=" << width;
-    return *this;
-}
-
-PLOTLIB_INLINE LinePlot &LinePlot::SetLineStyle( const std::string &style )
-{
-    mStream << ", linestyle='" << style << "'";
-    return *this;
 }

@@ -29,7 +29,8 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE PointPlot::PointPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE PointPlot::PointPlot( const std::vector< std::pair< Vec, Vec > > &data,
+                                     const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
@@ -84,7 +85,7 @@ PLOTLIB_INLINE PointPlot::PointPlot( const Vec &x, const Vec &y )
     mStream << "sns.pointplot(" << ToArray( x ) << "," << ToArray( y );
 }
 
-PLOTLIB_INLINE std::string PointPlot::ToString() const
+PLOTLIB_INLINE std::string PointPlot::ToString()
 {
     return mStream.str() + " )";
 }
@@ -164,5 +165,17 @@ PLOTLIB_INLINE PointPlot &PointPlot::SetColour( const std::string &colour )
 PLOTLIB_INLINE PointPlot &PointPlot::SetColourMap( const Palette &pallet )
 {
     mStream << ", palette =" << pallet.ToString();
+    return *this;
+}
+
+PLOTLIB_INLINE PointPlot &PointPlot::SetErrorWidth( double width )
+{
+    mStream << ", errwidth = " << width;
+    return *this;
+}
+
+PLOTLIB_INLINE PointPlot &PointPlot::SetCapSize( double size )
+{
+    mStream << ", capsize = " << size;
     return *this;
 }

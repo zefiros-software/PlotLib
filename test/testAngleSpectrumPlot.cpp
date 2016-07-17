@@ -32,10 +32,8 @@ TEST( AngleSpectrumPlot, AngleSpectrumPlot )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot", []()
     {
-        //! [AngleSpectrumPlot]
         vec randVec = randu( 20 ) ;
         AngleSpectrumPlot f( randVec );
-        //! [AngleSpectrumPlot]
         return f;
     } );
 }
@@ -54,11 +52,9 @@ TEST( AngleSpectrumPlot, SetSamplingFrequency )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SamplingFrequency", []()
     {
-        //! [AngleSpectrumPlot_SamplingFrequency]
         vec randVec = randu( 20 );
         AngleSpectrumPlot f( randVec );
         f.SetSamplingFrequency( 10 );
-        //! [AngleSpectrumPlot_SamplingFrequency]
         return f;
     } );
 }
@@ -67,11 +63,9 @@ TEST( AngleSpectrumPlot, SetSides )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetSides", []()
     {
-        //! [AngleSpectrumPlot_SetSides]
         vec randVec = randu( 20 );
         AngleSpectrumPlot f( randVec );
         f.SetSides( AngleSpectrumPlot::Sides::Default );
-        //! [AngleSpectrumPlot_SetSides]
         return f;
     } );
 }
@@ -80,11 +74,9 @@ TEST( AngleSpectrumPlot, SetSides_OneSided )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetSides_OneSided", []()
     {
-        //! [AngleSpectrumPlot_SetSides_OneSided]
         vec randVec = randu( 20 );
         AngleSpectrumPlot f( randVec );
         f.SetSides( AngleSpectrumPlot::Sides::OneSided );
-        //! [AngleSpectrumPlot_SetSides_OneSided]
         return f;
     } );
 }
@@ -93,11 +85,9 @@ TEST( AngleSpectrumPlot, SetSides_TwoSided )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetSides_TwoSided", []()
     {
-        //! [AngleSpectrumPlot_SetSides_TwoSided]
         vec randVec = randu( 20 );
         AngleSpectrumPlot f( randVec );
         f.SetSides( AngleSpectrumPlot::Sides::TwoSided );
-        //! [AngleSpectrumPlot_SetSides_TwoSided]
         return f;
     } );
 }
@@ -106,11 +96,9 @@ TEST( AngleSpectrumPlot, SetCentreFrequency )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetCentreFrequency", []()
     {
-        //! [AngleSpectrumPlot_SetCentreFrequency]
         vec randVec = randu( 20 );
         AngleSpectrumPlot f( randVec );
         f.SetCentreFrequency( 5 );
-        //! [AngleSpectrumPlot_SetCentreFrequency]
         return f;
     } );
 }
@@ -120,11 +108,9 @@ TEST( AngleSpectrumPlot, SetPadTo )
 {
     TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetPadTo", []()
     {
-        //! [AngleSpectrumPlot_SetPadTo]
         vec randVec = randu( 20 );
         AngleSpectrumPlot f( randVec );
         f.SetPadTo( 2 );
-        //! [AngleSpectrumPlot_SetPadTo]
         return f;
     } );
 }

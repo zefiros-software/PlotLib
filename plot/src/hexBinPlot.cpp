@@ -33,7 +33,7 @@ PLOTLIB_INLINE HexBinPlot::HexBinPlot( const Vec &x, const Vec &y )
     mStream << "plt.hexbin(" << ToArray( x ) << ", " << ToArray( y );
 }
 
-PLOTLIB_INLINE std::string HexBinPlot::ToString() const
+PLOTLIB_INLINE std::string HexBinPlot::ToString()
 {
     return mStream.str() + " )\nplt.colorbar()";
 }

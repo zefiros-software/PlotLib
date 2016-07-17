@@ -47,10 +47,20 @@ template< typename tPlot >
 void TestPlot( const std::string &str, std::function< tPlot( void ) > fn )
 {
     Plot p;
-
-    p.AddPlot( fn() )
-    .SetSize( 400, 200 )
+    p.Set( Plot::Context::Notebook )
+    .AddPlot( fn() )
     .Save( str + ".png" );
 }
+
+template< typename tPlot >
+void TestPlot( const std::string &str, std::function< tPlot( Plot & ) > fn )
+{
+    Plot p;
+    p.Set( Plot::Context::Notebook )
+    .AddPlot( fn( p ) )
+    .Save( str + ".png" );
+}
+
+void TestPlot( const std::string &str, std::function< void( Plot & ) > fn );
 
 #endif

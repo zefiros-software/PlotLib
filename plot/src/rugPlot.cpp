@@ -26,24 +26,36 @@
 
 #include "plot/rugPlot.h"
 
-PLOTLIB_INLINE RUGPlot::RUGPlot( const Vec &a )
+PLOTLIB_INLINE std::string RUGPlot::ToString()
 {
-    mStream << "sns.rugplot(" << ToArray( a );
+    return mStream.str() + ")";
 }
 
-PLOTLIB_INLINE std::string RUGPlot::ToString() const
+PLOTLIB_INLINE RUGPlot::RUGPlot( const Vec &a )
 {
-    return mStream.str() + " )";
+    AbstractPlot::mStream << "sns.rugplot(" << ToArray( a );
 }
 
 PLOTLIB_INLINE RUGPlot &RUGPlot::SetHeight( double height )
 {
-    mStream << ", height=" << height;
+    AddArgument( "height", height );
     return *this;
 }
 
 PLOTLIB_INLINE RUGPlot &RUGPlot::SetAxis( Axis axis )
 {
-    mStream << ", kind='" << ( axis == Axis::X ? 'X' : 'Y' ) << "'";
+    AddArgument( "axis", GetString( axis == Axis::X ? "X" : "Y" ) );
+    return *this;
+}
+
+PLOTLIB_INLINE RUGPlot &RUGPlot::SetLine( VLine &vline )
+{
+    mStream << ",**" << vline.ToString();
+    return *this;
+}
+
+PLOTLIB_INLINE RUGPlot &RUGPlot::SetLine( HLine &hline )
+{
+    mStream << ",**" << hline.ToString();
     return *this;
 }

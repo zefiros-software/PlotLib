@@ -26,24 +26,44 @@
 
 #include "plot/spyPlot.h"
 
+static const char *const __PlotLibSpyPlotAspect[] =
+{
+    "'auto'",
+    "'equal'",
+    "None"
+};
+
+
 PLOTLIB_INLINE SpyPlot::SpyPlot( const Mat &mat )
 {
     mStream << "plt.spy(" << ToArray( mat );
 }
 
-PLOTLIB_INLINE std::string SpyPlot::ToString() const
+PLOTLIB_INLINE std::string SpyPlot::ToString()
 {
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE SpyPlot &SpyPlot::SetPrecision( double precision )
 {
-    mStream << ", precision=" << precision;
+    AddArgument( "precision", precision );
     return *this;
 }
 
-PLOTLIB_INLINE SpyPlot &SpyPlot::SetMarkerSize( double size )
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetOrigin( Origin origin )
 {
-    mStream << ", markersize=" << size;
+    AddArgument( "origin", GetString( origin == Origin::Lower ? "lower" : "upper" ) );
+    return *this;
+}
+
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect( double aspect )
+{
+    AddArgument( "aspect", aspect );
+    return *this;
+}
+
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect( Aspect aspect )
+{
+    AddArgument( "aspect", __PlotLibSpyPlotAspect[static_cast<size_t>( aspect )] );
     return *this;
 }

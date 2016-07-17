@@ -28,26 +28,26 @@
 #ifndef __LOGLOGPLOT_H__
 #define __LOGLOGPLOT_H__
 
-#include "plot/abstractPlot.h"
+#include "plot/properties/scaleProperties.h"
+#include "plot/properties/plotProperties.h"
 
 class LogLogPlot
-    : public AbstractPlot
+    : public PlotProperties< LogLogPlot >
 {
 public:
 
+    enum class NonPos
+    {
+        Mask,
+        Clip
+    };
+
     LogLogPlot( const Vec &exogenous, const Vec &endogenous );
 
-    LogLogPlot( const Vec &exogenous, const Vec &endogenous, const std::string &marker );
+    virtual std::string ToString() override;
 
-    virtual std::string ToString() const override;
+    LogLogPlot &SetScale( LogScale &scale );
 
-    LogLogPlot &SetAlpha( double alpha );
-
-    LogLogPlot &SetScalar( double scalar );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
