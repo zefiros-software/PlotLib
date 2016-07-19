@@ -62,7 +62,7 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( IsBase )
+        if ( PlotLib::Identity( IsBase ) )
         {
             AddArgument( "value", GetString( "linear" ) );
         }
@@ -87,7 +87,7 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( IsBase )
+        if ( PlotLib::Identity( IsBase ) )
         {
             AddArgument( "value", GetString( "log" ) );
         }
@@ -156,7 +156,7 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( IsBase )
+        if ( PlotLib::Identity( IsBase ) )
         {
             AddArgument( "value", GetString( "logit" ) );
         }
@@ -183,7 +183,7 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( IsBase )
+        if ( PlotLib::Identity( IsBase ) )
         {
             AddArgument( "value", GetString( "symlog" ) );
         }

@@ -94,7 +94,7 @@ TEST( BarPlot, Constr4 )
 
 TEST( BarPlot, ColourCycler )
 {
-    TestPlot< BarPlot >( "BarPlot_ColourCycler", []( Plot & plot )
+    TestPlotArg< BarPlot >( "BarPlot_ColourCycler", []( Plot & plot )
     {
 
         plot.AddColourCycler( Palette::Diverging::RdYlBu );

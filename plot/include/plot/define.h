@@ -34,4 +34,11 @@
 #   define PLOTLIB_INLINE inline
 #endif
 
+namespace PlotLib
+{
+    template<typename T> const T &Identity( const T &t )
+    {
+        return t;
+    }
+}
 #endif

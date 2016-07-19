@@ -62,7 +62,7 @@ TEST( BoxPlot, Constr2 )
 
 TEST( BoxPlot, Constr3 )
 {
-    TestPlot< BoxPlot >( "BoxPlot_Constr3", []( Plot & plot )
+    TestPlotArg< BoxPlot >( "BoxPlot_Constr3", []( Plot & plot )
     {
         plot.SetYLimit( 0, 110 );
 
@@ -83,7 +83,7 @@ TEST( BoxPlot, Constr3 )
 
 TEST( BoxPlot, Orientation )
 {
-    TestPlot< BoxPlot >( "BoxPlot_Orientation", []( Plot & plot )
+    TestPlotArg< BoxPlot >( "BoxPlot_Orientation", []( Plot & plot )
     {
         plot.SetXLimit( 0, 130 );
 

@@ -85,7 +85,7 @@ PLOTLIB_INLINE ViolinPlot::ViolinPlot( const Vec &x, const Vec &y )
     mStream << "sns.violinplot(" << ToArray( x ) << "," << ToArray( y );
 }
 
-PLOTLIB_INLINE std::string ViolinPlot::ToString() const
+PLOTLIB_INLINE std::string ViolinPlot::ToString()
 {
     return mStream.str() + " )";
 }

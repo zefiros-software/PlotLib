@@ -1,5 +1,6 @@
 -- artifacts
 bin/*
+test/obj/*
 
 -- zpm
 ._config.json
@@ -28,3 +29,9 @@ Makefile
 -- Docs
 *.chi
 *.chm
+
+-- ZPM 
+extern/
+assets/
+test/extern
+test/assets

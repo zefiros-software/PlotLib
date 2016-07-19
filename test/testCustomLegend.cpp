@@ -30,7 +30,7 @@
 
 TEST( CustomLegend, CustomLegend )
 {
-    TestPlot( "CustomLegend", []( Plot & p )
+    TestPlotArg( "CustomLegend", []( Plot & p )
     {
         p.AddPlot( LinePlot( linspace( 0, 20, 20 ), ( vec )randn( 20 ) ) );
         p.AddPlot( LinePlot( linspace( 0, 20, 20 ), ( vec )randn( 20 ) ) );
