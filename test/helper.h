@@ -53,7 +53,7 @@ void TestPlot( const std::string &str, std::function< tPlot( void ) > fn )
 }
 
 template< typename tPlot >
-void TestPlot( const std::string &str, std::function< tPlot( Plot & ) > fn )
+void TestPlotArg( const std::string &str, std::function< tPlot( Plot & ) > fn )
 {
     Plot p;
     p.Set( Plot::Context::Notebook )

@@ -45,6 +45,7 @@ PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const Vec &bins )
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( size_t value )
 {
+    AddArgument( "bins", value );
     return *this;
 }
 

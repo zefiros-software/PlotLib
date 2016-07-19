@@ -27,7 +27,6 @@ local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
 workspace "PlotLib"
 
 	zefiros.setDefaults( "plot", {
-        configurations = { "HeaderOnlyDebug", "HeaderOnlyRelease" },
 		headerOnly = true
     }  )
 

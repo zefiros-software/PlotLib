@@ -43,7 +43,7 @@ public:
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
-#   include ".. / .. / src / plotHLine.cpp"
+#   include "../../src/plotHLine.cpp"
 #endif
 
 #endif

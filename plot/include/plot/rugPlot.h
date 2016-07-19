@@ -56,7 +56,7 @@ public:
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
-#   include ".. / .. / src / rugPlot.cpp"
+#   include "../../src/rugPlot.cpp"
 #endif
 
 #endif

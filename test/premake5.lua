@@ -22,8 +22,6 @@
 -- @endcond
 --]]
 
-local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
-
 workspace "PlotLib"
 
     configurations { "ZPM" }
@@ -39,7 +37,8 @@ workspace "PlotLib"
 		zpm.uses 
         {
             "Zefiros-Software/ArmadilloExt",
-            "Zefiros-Software/PlotLib"
+            "Zefiros-Software/PlotLib",
+            "Zefiros-Software/GoogleTest"
         }
     
 	    debugdir "../docs/images/"
@@ -47,8 +46,8 @@ workspace "PlotLib"
         includedirs "/"
 
         files {
-            "**.cpp",
-            "**.h"
+            "*.cpp",
+            "*.h"
         }
 
         filter {}
