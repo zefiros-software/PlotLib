@@ -40,39 +40,39 @@ class YArrowProperties
 {
 public:
 
-    tReturn &SetXYTip( double x, double y )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYTip( double x, double y )
     {
         AddArgument( "xytip", ToTuple( x, y ) );
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    tReturn &SetXYBase( double x, double y )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYBase( double x, double y )
     {
         AddArgument( "xybase", ToTuple( x, y ) );
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    tReturn &SetWidth( double width )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth( double width )
     {
         AddArgument( "width", width );
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    tReturn &SetFraction( double frac )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetFraction( double frac )
     {
         AddArgument( "frac", frac );
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    tReturn &SetHeadWidth( double headWidth )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetHeadWidth( double headWidth )
     {
         AddArgument( "headwidth", headWidth );
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 };
 

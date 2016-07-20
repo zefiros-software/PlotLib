@@ -209,11 +209,13 @@ private:
     {
         switch ( style )
         {
-        JoinStyle::Miter:
+        case JoinStyle::Miter:
             return "'miter";
-        JoinStyle::Round:
+
+        case JoinStyle::Round:
             return "'round'";
-        JoinStyle::Bevel:
+
+        case JoinStyle::Bevel:
             return "'bevel'";
         }
 
