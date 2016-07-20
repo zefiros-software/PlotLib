@@ -11,5 +11,6 @@ matrix:
           language: generic
 install:
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
+    - chmod a+x ./script/travis-build.sh
 script:
     - ./script/travis-build.sh
