@@ -337,11 +337,13 @@ private:
     {
         switch ( style )
         {
-        CapStyle::Butt:
+        case CapStyle::Butt:
             return "'butt";
-        CapStyle::Round:
+
+        case CapStyle::Round:
             return "'round'";
-        CapStyle::Projecting:
+
+        case CapStyle::Projecting:
             return "'projecting'"
         }
 
@@ -352,11 +354,13 @@ private:
     {
         switch ( style )
         {
-        JoinStyle::Miter:
+        case JoinStyle::Miter:
             return "'miter";
-        JoinStyle::Round:
+
+        case JoinStyle::Round:
             return "'round'";
-        JoinStyle::Bevel:
+
+        case JoinStyle::Bevel:
             return "'bevel'";
         }
 
@@ -367,15 +371,19 @@ private:
     {
         switch ( style )
         {
-        DrawStyle::Default:
+        case DrawStyle::Default:
             return "'default'";
-        DrawStyle::Steps:
+
+        case DrawStyle::Steps:
             return "'steps'";
-        DrawStyle::StepsPre:
+
+        case DrawStyle::StepsPre:
             return "'steps-pre'";
-        DrawStyle::StepsMid:
+
+        case DrawStyle::StepsMid:
             return "'steps-mid'";
-        DrawStyle::StepsPost:
+
+        case DrawStyle::StepsPost:
             return "'steps-post'";
         }
 
@@ -386,15 +394,19 @@ private:
     {
         switch ( style )
         {
-        FillStyle::Full:
+        case FillStyle::Full:
             return "'full'";
-        FillStyle::Left :
+
+        case FillStyle::Left :
             return "'left'";
-        FillStyle::Right :
+
+        case FillStyle::Right :
             return "'right'";
-        FillStyle::Bottom :
+
+        case FillStyle::Bottom :
             return "'bottom'";
-        FillStyle::Top :
+
+        case FillStyle::Top :
             return "'top'";
         }
 
