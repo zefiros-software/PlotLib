@@ -344,7 +344,7 @@ private:
             return "'round'";
 
         case CapStyle::Projecting:
-            return "'projecting'"
+            return "'projecting'";
         }
 
         return "''";
