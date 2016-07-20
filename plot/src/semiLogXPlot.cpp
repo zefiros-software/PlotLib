@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE SemiLogXPlot::SemiLogXPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "plt.semilogx(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    mStream << "plt.semilogx(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }
 
 PLOTLIB_INLINE std::string SemiLogXPlot::ToString()

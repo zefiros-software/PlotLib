@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE AngleSpectrumPlot::AngleSpectrumPlot( const Vec &vec )
 {
-    mStream << "plt.angle_spectrum( " << ToArray( vec );
+    mStream << "plt.angle_spectrum( " << this->ToArray( vec );
 }
 
 PLOTLIB_INLINE std::string AngleSpectrumPlot::ToString()

@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE FancyAutoCorrelationPlot::FancyAutoCorrelationPlot( const Vec &vec )
 {
-    mStream << "autocorrelation_plot(" << ToArray( vec );
+    mStream << "autocorrelation_plot(" << this->ToArray( vec );
 }
 
 PLOTLIB_INLINE std::string FancyAutoCorrelationPlot::ToString()

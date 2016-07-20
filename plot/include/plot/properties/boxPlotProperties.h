@@ -44,7 +44,7 @@ public:
 
     tReturn &SetX( const Vec &x )
     {
-        this->AddArgument( "x", ToArray( x ) );
+        this->AddArgument( "x", this->ToArray( x ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -79,21 +79,21 @@ public:
 
     tReturn &SetMedians( const Vec &medians )
     {
-        this->AddArgument( "usermedians", ToArray( medians ) );
+        this->AddArgument( "usermedians", this->ToArray( medians ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetConfidenceIntervals( const Mat &intervals )
     {
-        this->AddArgument( "conf_intervals", ToArray( intervals ) );
+        this->AddArgument( "conf_intervals", this->ToArray( intervals ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetPositions( const std::vector< uint32_t > &positions )
     {
-        this->AddArgument( "positions", ToArray( positions ) );
+        this->AddArgument( "positions", this->ToArray( positions ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -107,14 +107,14 @@ public:
 
     tReturn &SetWidths( const Vec &widths )
     {
-        this->AddArgument( "widths", ToArray( widths ) );
+        this->AddArgument( "widths", this->ToArray( widths ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLabels( const std::vector< std::string > &labels )
     {
-        this->AddArgument( "labels", ToArray( labels ) );
+        this->AddArgument( "labels", this->ToArray( labels ) );
 
         return static_cast<tBase &>( *this );
     }

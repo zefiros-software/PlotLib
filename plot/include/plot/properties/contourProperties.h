@@ -177,7 +177,7 @@ public:
 
     tReturn &SetLevels( const Vec &levels )
     {
-        this->AddArgument( "levels", ToArray( levels ) );
+        this->AddArgument( "levels", this->ToArray( levels ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -226,7 +226,7 @@ public:
 
     tReturn &SetLineWidths( const Vec &widths )
     {
-        this->AddArgument( "linewidths", ToArray( widths ) );
+        this->AddArgument( "linewidths", this->ToArray( widths ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -240,7 +240,7 @@ public:
 
     tReturn &SetHatches( const Vec &hatches )
     {
-        this->AddArgument( "hatches", ToArray( hatches ) );
+        this->AddArgument( "hatches", this->ToArray( hatches ) );
 
         return static_cast<tReturn &>( *this );
     }

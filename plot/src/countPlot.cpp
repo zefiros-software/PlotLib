@@ -35,7 +35,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data, const std::
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup );
+        mStream << "+ " << this->ToArray( tup );
     }
 
     size_t i = 0;
@@ -44,7 +44,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data, const std::
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( std::vector< std::string >( tup.GetSize(), hue[i++] ) );
+        mStream << "+ " << this->ToArray( std::vector< std::string >( tup.GetSize(), hue[i++] ) );
     }
 
     mStream << "\nsns.countplot( x=x, hue=h";
@@ -57,7 +57,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data )
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup );
+        mStream << "+ " << this->ToArray( tup );
     }
 
     mStream << "\nsns.countplot( x=x";
@@ -65,7 +65,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data )
 
 PLOTLIB_INLINE CountPlot::CountPlot( const Vec &x )
 {
-    mStream << "sns.countplot(x=" << ToArray( x );
+    mStream << "sns.countplot(x=" << this->ToArray( x );
 }
 
 PLOTLIB_INLINE std::string CountPlot::ToString()
@@ -75,13 +75,13 @@ PLOTLIB_INLINE std::string CountPlot::ToString()
 
 PLOTLIB_INLINE CountPlot &CountPlot::SetOrder( const Vec &order )
 {
-    mStream << ", order=" << ToArray( order );
+    mStream << ", order=" << this->ToArray( order );
     return *this;
 }
 
 PLOTLIB_INLINE CountPlot &CountPlot::SetHueOrder( const std::vector< std::string > &order )
 {
-    mStream << ", hue_order=" << ToArray( order );
+    mStream << ", hue_order=" << this->ToArray( order );
     return *this;
 }
 

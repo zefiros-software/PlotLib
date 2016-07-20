@@ -153,7 +153,7 @@ public:
 
     tReturn &SetFamily( const std::vector< std::string > &families )
     {
-        this->AddArgument( "family", ToArray( families ) );
+        this->AddArgument( "family", this->ToArray( families ) );
         return static_cast<tBase &>( *this );
     }
 

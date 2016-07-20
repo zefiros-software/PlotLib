@@ -47,12 +47,12 @@ PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< Mat > &mats, const std::ve
 
         for ( const auto &column : mat.GetData() )
         {
-            mStream << "x" << i << " = x" << i << " + " << ToArray( column ) << "\n";
+            mStream << "x" << i << " = x" << i << " + " << this->ToArray( column ) << "\n";
             ++i;
         }
 
         mStream << "hue = hue + "
-                << ToArray( std::vector< std::string >( mat.GetData()[0].size(), hue[j++] ) ) << "\n";
+                << this->ToArray( std::vector< std::string >( mat.GetData()[0].size(), hue[j++] ) ) << "\n";
     }
 
     size_t l = 0;
@@ -75,7 +75,7 @@ PLOTLIB_INLINE PairPlot::PairPlot( const Mat &mat, const std::vector< std::strin
 
     for ( const auto &column : mat.GetData() )
     {
-        mStream << "data['" << names[i++] << "'] = " << ToArray( column ) << "\n";
+        mStream << "data['" << names[i++] << "'] = " << this->ToArray( column ) << "\n";
     }
 
     mStream << "sns.pairplot( data";
@@ -88,13 +88,13 @@ PLOTLIB_INLINE std::string PairPlot::ToString()
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetXVars( const std::vector< std::string > &xvars )
 {
-    this->AddArgument( "x_vars", ToArray( xvars ) );
+    this->AddArgument( "x_vars", this->ToArray( xvars ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetYVars( const std::vector< std::string > &yvars )
 {
-    this->AddArgument( "y_vars", ToArray( yvars ) );
+    this->AddArgument( "y_vars", this->ToArray( yvars ) );
     return *this;
 }
 
@@ -118,7 +118,7 @@ PLOTLIB_INLINE PairPlot &PairPlot::SetMarker( const std::string &marker )
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetMarkers( const std::vector<std::string> &marker )
 {
-    this->AddArgument( "markers", ToArray( marker ) );
+    this->AddArgument( "markers", this->ToArray( marker ) );
     return *this;
 }
 

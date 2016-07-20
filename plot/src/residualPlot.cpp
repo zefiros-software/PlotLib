@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE ResidualPlot::ResidualPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "sns.residplot( np.array(" << ToArray( exogenous ) << "), np.array(" << ToArray( endogenous ) << ")";
+    mStream << "sns.residplot( np.array(" << this->ToArray( exogenous ) << "), np.array(" << this->ToArray( endogenous ) << ")";
 }
 
 PLOTLIB_INLINE std::string ResidualPlot::ToString()
@@ -44,13 +44,13 @@ PLOTLIB_INLINE ResidualPlot &ResidualPlot::Lowess( bool lowess )
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetXPartial( const Mat &mat )
 {
-    this->AddArgument( "x_partial", ToArray( mat ) );
+    this->AddArgument( "x_partial", this->ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetYPartial( const Mat &mat )
 {
-    this->AddArgument( "y_partial", ToArray( mat ) );
+    this->AddArgument( "y_partial", this->ToArray( mat ) );
     return *this;
 }
 

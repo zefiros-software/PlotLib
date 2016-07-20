@@ -28,12 +28,12 @@
 
 PLOTLIB_INLINE LinePlot::LinePlot( const Vec &endogenous )
 {
-    mStream << "plt.plot(" << ToArray( endogenous );
+    mStream << "plt.plot(" << this->ToArray( endogenous );
 }
 
 PLOTLIB_INLINE LinePlot::LinePlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "plt.plot(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    mStream << "plt.plot(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }
 
 PLOTLIB_INLINE std::string LinePlot::ToString()

@@ -33,7 +33,7 @@ PLOTLIB_INLINE std::string RUGPlot::ToString()
 
 PLOTLIB_INLINE RUGPlot::RUGPlot( const Vec &a )
 {
-    AbstractPlot::mStream << "sns.rugplot(" << ToArray( a );
+    AbstractPlot::mStream << "sns.rugplot(" << this->ToArray( a );
 }
 
 PLOTLIB_INLINE RUGPlot &RUGPlot::SetHeight( double height )

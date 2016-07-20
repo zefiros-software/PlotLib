@@ -113,7 +113,7 @@ public:
 
     tReturn &SetDashes( const std::vector< uint32_t > &dashes )
     {
-        this->AddArgument( "dashes", ToArray( dashes ) );
+        this->AddArgument( "dashes", this->ToArray( dashes ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -148,7 +148,7 @@ public:
 
     tReturn &SetLineStyle( uint32_t offset, const std::vector< uint32_t > &dashes )
     {
-        this->AddArgument( "linestyle", this->ToTuple( GetLineStyle( offset ), ToArray( dashes ) ) );
+        this->AddArgument( "linestyle", this->ToTuple( GetLineStyle( offset ), this->ToArray( dashes ) ) );
 
         return static_cast<tBase &>( *this );
     }

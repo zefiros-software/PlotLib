@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE ScatterPlot::ScatterPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "plt.scatter(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    mStream << "plt.scatter(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }
 
 PLOTLIB_INLINE std::string ScatterPlot::ToString()
@@ -50,7 +50,7 @@ PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( double scalar )
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const Vec &scalar )
 {
-    this->AddArgument( "s", ToArray( scalar ) );
+    this->AddArgument( "s", this->ToArray( scalar ) );
     return *this;
 }
 
@@ -86,7 +86,7 @@ PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMax( double vmax )
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( const Vec &widths )
 {
-    this->AddArgument( "linewidths", ToArray( widths ) );
+    this->AddArgument( "linewidths", this->ToArray( widths ) );
     return *this;
 }
 

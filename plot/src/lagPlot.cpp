@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE LagPlot::LagPlot( const Vec &vec )
 {
-    mStream << "lag_plot(pd.Series(" << ToArray( vec ) << ")";
+    mStream << "lag_plot(pd.Series(" << this->ToArray( vec ) << ")";
 }
 
 PLOTLIB_INLINE std::string LagPlot::ToString()

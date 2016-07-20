@@ -38,14 +38,14 @@ PLOTLIB_INLINE PointPlot::PointPlot( const std::vector< std::pair< Vec, Vec > > 
     for ( auto &tup : data )
     {
         assert( tup.first.GetSize() == tup.second.GetSize() );
-        mStream << "+ " << ToArray( tup.first );
+        mStream << "+ " << this->ToArray( tup.first );
     }
 
     mStream << "\ny = y ";
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.second );
+        mStream << "+ " << this->ToArray( tup.second );
     }
 
     size_t i = 0;
@@ -54,7 +54,7 @@ PLOTLIB_INLINE PointPlot::PointPlot( const std::vector< std::pair< Vec, Vec > > 
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
+        mStream << "+ " << this->ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
     }
 
     mStream << "\nsns.pointplot( x, y, h";
@@ -67,14 +67,14 @@ PLOTLIB_INLINE PointPlot::PointPlot( const std::vector< std::pair< Vec, Vec > > 
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.first );
+        mStream << "+ " << this->ToArray( tup.first );
     }
 
     mStream << "\ny = y ";
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.second );
+        mStream << "+ " << this->ToArray( tup.second );
     }
 
     mStream << "\nsns.pointplot( x, y";
@@ -82,7 +82,7 @@ PLOTLIB_INLINE PointPlot::PointPlot( const std::vector< std::pair< Vec, Vec > > 
 
 PLOTLIB_INLINE PointPlot::PointPlot( const Vec &x, const Vec &y )
 {
-    mStream << "sns.pointplot(" << ToArray( x ) << "," << ToArray( y );
+    mStream << "sns.pointplot(" << this->ToArray( x ) << "," << this->ToArray( y );
 }
 
 PLOTLIB_INLINE std::string PointPlot::ToString()
@@ -92,13 +92,13 @@ PLOTLIB_INLINE std::string PointPlot::ToString()
 
 PLOTLIB_INLINE PointPlot &PointPlot::SetOrder( const Vec &order )
 {
-    mStream << ", order=" << ToArray( order );
+    mStream << ", order=" << this->ToArray( order );
     return *this;
 }
 
 PLOTLIB_INLINE PointPlot &PointPlot::SetHueOrder( const std::vector< std::string > &order )
 {
-    mStream << ", hue_order=" << ToArray( order );
+    mStream << ", hue_order=" << this->ToArray( order );
     return *this;
 }
 
@@ -116,13 +116,13 @@ PLOTLIB_INLINE PointPlot &PointPlot::SetNBoot( size_t bootstrap )
 
 PLOTLIB_INLINE PointPlot &PointPlot::SetMarkers( const std::vector< std::string > &markers )
 {
-    mStream << ", markers=" << ToArray( markers );
+    mStream << ", markers=" << this->ToArray( markers );
     return *this;
 }
 
 PLOTLIB_INLINE PointPlot &PointPlot::SetLineStyles( const std::vector< std::string > &styles )
 {
-    mStream << ", linestyles=" << ToArray( styles );
+    mStream << ", linestyles=" << this->ToArray( styles );
     return *this;
 }
 

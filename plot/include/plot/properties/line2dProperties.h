@@ -158,7 +158,7 @@ public:
 
     tReturn &SetDashes( const std::vector< uint32_t > &dashes )
     {
-        this->AddArgument( "dashes", ToArray( dashes ) );
+        this->AddArgument( "dashes", this->ToArray( dashes ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -193,7 +193,7 @@ public:
 
     tReturn &SetLineStyle( uint32_t offset, const std::vector< uint32_t > &dashes )
     {
-        this->AddArgument( "linestyle", this->ToTuple( offset, ToArray( dashes ) ) );
+        this->AddArgument( "linestyle", this->ToTuple( offset, this->ToArray( dashes ) ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -263,7 +263,7 @@ public:
 
     tReturn &SetEvery( const std::vector< uint32_t > &every )
     {
-        this->AddArgument( "every", ToArray( every ) );
+        this->AddArgument( "every", this->ToArray( every ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -312,14 +312,14 @@ public:
 
     tReturn &SetXData( const Vec &xdata )
     {
-        this->AddArgument( "xdata", ToArray( xdata ) );
+        this->AddArgument( "xdata", this->ToArray( xdata ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetYData( const Vec &ydata )
     {
-        this->AddArgument( "ydata", ToArray( ydata ) );
+        this->AddArgument( "ydata", this->ToArray( ydata ) );
 
         return static_cast<tReturn &>( *this );
     }

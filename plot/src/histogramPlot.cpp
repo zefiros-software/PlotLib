@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE HistogramPlot::HistogramPlot( const Vec &vec )
 {
-    mStream << "plt.hist(" << ToArray( vec );
+    mStream << "plt.hist(" << this->ToArray( vec );
 }
 
 PLOTLIB_INLINE std::string HistogramPlot::ToString()
@@ -38,7 +38,7 @@ PLOTLIB_INLINE std::string HistogramPlot::ToString()
 
 PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBins( const Vec &bins )
 {
-    mStream << ", bins=" << ToArray( bins );
+    mStream << ", bins=" << this->ToArray( bins );
     return *this;
 }
 
@@ -62,7 +62,7 @@ PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetNormed( bool normed )
 
 PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetWeights( const Vec &weights )
 {
-    mStream << ", weights=" << ToArray( weights );
+    mStream << ", weights=" << this->ToArray( weights );
     return *this;
 }
 
@@ -74,7 +74,7 @@ PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetCumulative( bool cumulative )
 
 PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBottom( const Vec &bottom )
 {
-    mStream << ", bottom=" << ToArray( bottom );
+    mStream << ", bottom=" << this->ToArray( bottom );
     return *this;
 }
 

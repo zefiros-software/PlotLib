@@ -30,7 +30,7 @@
 
 PLOTLIB_INLINE SemiLogYPlot::SemiLogYPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "plt.semilogy(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    mStream << "plt.semilogy(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }
 
 PLOTLIB_INLINE std::string SemiLogYPlot::ToString()

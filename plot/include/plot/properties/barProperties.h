@@ -63,7 +63,7 @@ public:
 
     tReturn &SetWidth( const Vec &widths )
     {
-        this->AddArgument( "width", ToArray( widths ) );
+        this->AddArgument( "width", this->ToArray( widths ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -77,7 +77,7 @@ public:
 
     tReturn &SetBottom( const Vec &bottoms )
     {
-        this->AddArgument( "bottom", ToArray( bottoms ) );
+        this->AddArgument( "bottom", this->ToArray( bottoms ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -91,7 +91,7 @@ public:
 
     tReturn &SetColour( const Vec &colours )
     {
-        this->AddArgument( "color", ToArray( colours ) );
+        this->AddArgument( "color", this->ToArray( colours ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -105,7 +105,7 @@ public:
 
     tReturn &SetEdgeColour( const Vec &colours )
     {
-        this->AddArgument( "edgecolor", ToArray( colours ) );
+        this->AddArgument( "edgecolor", this->ToArray( colours ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -119,7 +119,7 @@ public:
 
     tReturn &SetLineWidth( const Vec &widths )
     {
-        this->AddArgument( "linewidth", ToArray( widths ) );
+        this->AddArgument( "linewidth", this->ToArray( widths ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -133,7 +133,7 @@ public:
 
     tReturn &SetTickLabel( const Vec &labels )
     {
-        this->AddArgument( "tick_label", ToArray( labels ) );
+        this->AddArgument( "tick_label", this->ToArray( labels ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -147,7 +147,7 @@ public:
 
     tReturn &SetXError( const Vec &xerr )
     {
-        this->AddArgument( "xerr", ToArray( xerr ) );
+        this->AddArgument( "xerr", this->ToArray( xerr ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -161,7 +161,7 @@ public:
 
     tReturn &SetYError( const Vec &yerr )
     {
-        this->AddArgument( "yerr", ToArray( yerr ) );
+        this->AddArgument( "yerr", this->ToArray( yerr ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -175,7 +175,7 @@ public:
 
     tReturn &SetErrorColour( const Vec &ecolour )
     {
-        this->AddArgument( "ecolor", ToArray( ecolour ) );
+        this->AddArgument( "ecolor", this->ToArray( ecolour ) );
 
         return static_cast<tBase &>( *this );
     }

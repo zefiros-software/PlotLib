@@ -67,7 +67,7 @@ public:
             this->AddArgument( "value", this->GetString( "linear" ) );
         }
 
-        return AbstractPlot::ToString( AbstractPlot::mStream.str() );
+        return AbstractPlot::ToString( this->mStream.str() );
     }
 };
 
@@ -92,7 +92,7 @@ public:
             this->AddArgument( "value", this->GetString( "log" ) );
         }
 
-        return AbstractPlot::ToString( AbstractPlot::mStream.str() );
+        return AbstractPlot::ToString( this->mStream.str() );
     }
 
     typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseY( double base )
@@ -105,7 +105,7 @@ public:
 
     typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const Vec &subsy )
     {
-        this->AddArgument( "subsy", ToArray( subsy ) );
+        this->AddArgument( "subsy", this->ToArray( subsy ) );
 
         return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
@@ -127,7 +127,7 @@ public:
 
     typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const Vec &subsy )
     {
-        this->AddArgument( "subsx", ToArray( subsy ) );
+        this->AddArgument( "subsx", this->ToArray( subsy ) );
 
         return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
@@ -161,14 +161,14 @@ public:
             this->AddArgument( "value", this->GetString( "logit" ) );
         }
 
-        return AbstractPlot::ToString( AbstractPlot::mStream.str() );
+        return AbstractPlot::ToString( this->mStream.str() );
     }
 
     typename ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPos( NonPos nonpos )
     {
         this->AddArgument( "nonpos", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
-        return static_cast<ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
 };
@@ -188,7 +188,7 @@ public:
             this->AddArgument( "value", this->GetString( "symlog" ) );
         }
 
-        return AbstractPlot::ToString( AbstractPlot::mStream.str() );
+        return AbstractPlot::ToString( this->mStream.str() );
     }
 
     typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseY( double base )
@@ -201,7 +201,7 @@ public:
 
     typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const Vec &subsy )
     {
-        this->AddArgument( "subsy", ToArray( subsy ) );
+        this->AddArgument( "subsy", this->ToArray( subsy ) );
 
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
@@ -216,7 +216,7 @@ public:
 
     typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const Vec &subsy )
     {
-        this->AddArgument( "subsx", ToArray( subsy ) );
+        this->AddArgument( "subsx", this->ToArray( subsy ) );
 
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }

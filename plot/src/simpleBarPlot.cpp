@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE SimpleBarPlot::SimpleBarPlot( const Vec &x, const Vec &y )
 {
-    mStream << "plt.bar(" << ToArray( x ) << "," << ToArray( y );
+    mStream << "plt.bar(" << this->ToArray( x ) << "," << this->ToArray( y );
 }
 
 PLOTLIB_INLINE std::string SimpleBarPlot::ToString()

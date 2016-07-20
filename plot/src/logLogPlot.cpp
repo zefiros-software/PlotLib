@@ -30,7 +30,7 @@
 
 PLOTLIB_INLINE LogLogPlot::LogLogPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "plt.loglog(" << ToArray( exogenous ) << "," << ToArray( endogenous );
+    mStream << "plt.loglog(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }
 
 PLOTLIB_INLINE std::string LogLogPlot::ToString()

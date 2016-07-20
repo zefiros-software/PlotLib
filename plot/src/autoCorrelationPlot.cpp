@@ -36,7 +36,7 @@ static const char *const __PlotLibAutoCorrelationPlotDetrend[] =
 PLOTLIB_INLINE AutoCorrelationPlot::AutoCorrelationPlot( const Vec &vec )
     : mDefaultDetrend( Detrend::Mean ) // statistics default
 {
-    mStream << "plt.acorr(" << ToArray( vec );
+    mStream << "plt.acorr(" << this->ToArray( vec );
 }
 
 PLOTLIB_INLINE std::string AutoCorrelationPlot::ToString()

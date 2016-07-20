@@ -30,12 +30,12 @@
 
 PLOTLIB_INLINE KDEPlot::KDEPlot( const Vec &data, const Vec &data2 )
 {
-    mStream << "sns.kdeplot( np.array(" << ToArray( data ) << "), np.array(" << ToArray( data2 ) << ")";
+    mStream << "sns.kdeplot( np.array(" << this->ToArray( data ) << "), np.array(" << this->ToArray( data2 ) << ")";
 }
 
 PLOTLIB_INLINE KDEPlot::KDEPlot( const Vec &data )
 {
-    mStream << "sns.kdeplot(np.array(" << ToArray( data ) << ")";
+    mStream << "sns.kdeplot(np.array(" << this->ToArray( data ) << ")";
 }
 
 PLOTLIB_INLINE std::string KDEPlot::ToString()

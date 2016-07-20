@@ -142,7 +142,7 @@ public:
 
     tReturn &SetTicks( const Vec &ticks )
     {
-        this->AddArgument( "ticks", ToArray( ticks ) );
+        this->AddArgument( "ticks", this->ToArray( ticks ) );
 
         return static_cast<tBase &>( *this );
     }

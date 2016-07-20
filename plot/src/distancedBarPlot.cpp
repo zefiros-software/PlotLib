@@ -35,22 +35,22 @@ PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const std::vector< std::pair<
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.first );
+        mStream << "+ " << this->ToArray( tup.first );
     }
 
     mStream << "\ny = y ";
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.second );
+        mStream << "+ " << this->ToArray( tup.second );
     }
 
-    mStream << "\nplt.bar( x, y" << ",width=" << ToArray( widths );
+    mStream << "\nplt.bar( x, y" << ",width=" << this->ToArray( widths );
 }
 
 PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const Vec &x, const Vec &y, const Vec &widths )
 {
-    mStream << "plt.bar(" << ToArray( x ) << "," << ToArray( y ) << ",width=" << ToArray( widths );
+    mStream << "plt.bar(" << this->ToArray( x ) << "," << this->ToArray( y ) << ",width=" << this->ToArray( widths );
 }
 
 PLOTLIB_INLINE std::string DistancedBarPlot::ToString()

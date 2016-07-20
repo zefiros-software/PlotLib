@@ -30,7 +30,7 @@
 
 PLOTLIB_INLINE ClusterMapPlot::ClusterMapPlot( const Mat &map )
 {
-    mStream << "sns.clustermap(" << ToArray( map );
+    mStream << "sns.clustermap(" << this->ToArray( map );
 }
 
 PLOTLIB_INLINE std::string ClusterMapPlot::ToString()
@@ -82,19 +82,19 @@ PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ColumnCluster( bool cluster )
 
 PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetRowLinkage( const Vec &linkage )
 {
-    mStream << ", row_linkage=" << ToArray( linkage );
+    mStream << ", row_linkage=" << this->ToArray( linkage );
     return *this;
 }
 
 PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetColumnLinkage( const Vec &linkage )
 {
-    mStream << ", col_linkage=" << ToArray( linkage );
+    mStream << ", col_linkage=" << this->ToArray( linkage );
     return *this;
 }
 
 PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMask( const std::vector< bool > &mask )
 {
-    mStream << ", mask=" << ToArray( mask );
+    mStream << ", mask=" << this->ToArray( mask );
     return *this;
 }
 

@@ -29,7 +29,7 @@
 
 PLOTLIB_INLINE DistrPlot::DistrPlot( const Vec &a )
 {
-    mStream << "sns.distplot(" << ToArray( a );
+    mStream << "sns.distplot(" << this->ToArray( a );
 }
 
 PLOTLIB_INLINE std::string DistrPlot::ToString()
@@ -39,7 +39,7 @@ PLOTLIB_INLINE std::string DistrPlot::ToString()
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const Vec &bins )
 {
-    this->AddArgument( "bins", ToArray( bins ) );
+    this->AddArgument( "bins", this->ToArray( bins ) );
     return *this;
 }
 

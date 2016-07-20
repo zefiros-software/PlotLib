@@ -28,8 +28,8 @@
 
 PLOTLIB_INLINE JointPlot::JointPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "xl=" << ToArray( exogenous ) << "\n"
-            << "yl=" << ToArray( endogenous ) << "\n";
+    mStream << "xl=" << this->ToArray( exogenous ) << "\n"
+            << "yl=" << this->ToArray( endogenous ) << "\n";
     mStream << "sns.jointplot(x='x',y='y',data=pd.DataFrame.from_dict({'x': xl,'y': yl})";
 }
 

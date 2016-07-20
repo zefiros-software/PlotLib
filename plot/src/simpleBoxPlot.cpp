@@ -28,7 +28,7 @@
 
 PLOTLIB_INLINE SimpleBoxPlot::SimpleBoxPlot( const ::Mat &x )
 {
-    mStream << "plt.boxplot(" << ToArray( x );
+    mStream << "plt.boxplot(" << this->ToArray( x );
 }
 
 PLOTLIB_INLINE std::string SimpleBoxPlot::ToString()

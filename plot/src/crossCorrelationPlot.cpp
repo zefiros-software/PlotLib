@@ -36,7 +36,7 @@ static const char *const __PlotLibCrossCorrelationPlotDetrend[] =
 PLOTLIB_INLINE CrossCorrelationPlot::CrossCorrelationPlot( const Vec &x, const Vec &y )
     : mDefaultDetrend( Detrend::Mean ) // statistics default
 {
-    mStream << "plt.xcorr(" << ToArray( x ) << "," << ToArray( y );
+    mStream << "plt.xcorr(" << this->ToArray( x ) << "," << this->ToArray( y );
 }
 
 PLOTLIB_INLINE std::string CrossCorrelationPlot::ToString()

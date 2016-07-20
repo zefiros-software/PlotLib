@@ -362,9 +362,9 @@ public:
     Palette( const Palette &palette )
         :  mArguments( palette.mArguments.str() ),
            mCustomType( palette.mCustomType ),
-           mType( palette.mType )
+           mType( palette.mType ),
+           ColourMap( palette )
     {
-        mStream << palette.mStream.str();
     }
 
     std::string ToString() const;

@@ -40,30 +40,30 @@ PLOTLIB_INLINE std::string ContourfPlot::ToString()
 
 PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Vec &x, const Vec &y, const Mat &z, const Vec &levels )
 {
-    mStream << "plt.contourf(" << ToArray( x ) << "," << ToArray( y ) << "," << ToArray( z ) << "," << ToArray( levels );
+    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z ) << "," << this->ToArray( levels );
 }
 
 PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Vec &x, const Vec &y, const Mat &z, uint32_t levels )
 {
-    mStream << "plt.contourf(" << ToArray( x ) << "," << ToArray( y ) << "," << ToArray( z ) << "," << levels;
+    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z ) << "," << levels;
 }
 
 PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Vec &x, const Vec &y, const Mat &z )
 {
-    mStream << "plt.contourf(" << ToArray( x ) << "," << ToArray( y ) << "," << ToArray( z );
+    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z );
 }
 
 PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Mat &z, const Vec &levels )
 {
-    mStream << "plt.contourf(" << ToArray( z ) << "," << ToArray( levels );
+    mStream << "plt.contourf(" << this->ToArray( z ) << "," << this->ToArray( levels );
 }
 
 PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Mat &z, uint32_t levels )
 {
-    mStream << "plt.contourf(" << ToArray( z ) << "," << levels;
+    mStream << "plt.contourf(" << this->ToArray( z ) << "," << levels;
 }
 
 PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Mat &z )
 {
-    mStream << "plt.contourf(" << ToArray( z );
+    mStream << "plt.contourf(" << this->ToArray( z );
 }

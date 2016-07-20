@@ -29,7 +29,7 @@
 
 PLOTLIB_INLINE InteractPlot::InteractPlot( const Vec &endogenous, const Vec &endogenous2, const Vec &exogenous )
 {
-    mStream << "sns.interactplot(" << ToArray( endogenous ) << "," << ToArray( endogenous2 ) << "," << ToArray( exogenous );
+    mStream << "sns.interactplot(" << this->ToArray( endogenous ) << "," << this->ToArray( endogenous2 ) << "," << this->ToArray( exogenous );
 }
 
 PLOTLIB_INLINE std::string InteractPlot::ToString()
@@ -57,7 +57,7 @@ PLOTLIB_INLINE InteractPlot &InteractPlot::ColourBar( bool bar )
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( const Vec &levels )
 {
-    this->AddArgument( "levels", ToArray( levels ) );
+    this->AddArgument( "levels", this->ToArray( levels ) );
     return *this;
 }
 

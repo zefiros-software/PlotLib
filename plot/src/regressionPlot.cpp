@@ -30,7 +30,7 @@
 
 PLOTLIB_INLINE RegressionPlot::RegressionPlot( const Vec &exogenous, const Vec &endogenous )
 {
-    mStream << "sns.regplot(np.array(" << ToArray( exogenous ) << "),np.array(" << ToArray( endogenous ) << ")";
+    mStream << "sns.regplot(np.array(" << this->ToArray( exogenous ) << "),np.array(" << this->ToArray( endogenous ) << ")";
 }
 
 PLOTLIB_INLINE std::string RegressionPlot::ToString()
@@ -40,7 +40,7 @@ PLOTLIB_INLINE std::string RegressionPlot::ToString()
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( const Vec &bins )
 {
-    this->AddArgument( "x_bins", ToArray( bins ) );
+    this->AddArgument( "x_bins", this->ToArray( bins ) );
     return *this;
 }
 
@@ -114,13 +114,13 @@ PLOTLIB_INLINE RegressionPlot &RegressionPlot::LogX( bool logx )
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXPartial( const Mat &mat )
 {
-    this->AddArgument( "x_partial", ToArray( mat ) );
+    this->AddArgument( "x_partial", this->ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYPartial( const Mat &mat )
 {
-    this->AddArgument( "y_partial", ToArray( mat ) );
+    this->AddArgument( "y_partial", this->ToArray( mat ) );
     return *this;
 }
 

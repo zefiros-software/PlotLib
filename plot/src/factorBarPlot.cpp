@@ -31,8 +31,8 @@
 
 PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const Vec &x, const Vec &y )
 {
-    mStream << "y = np.array(" << ToArray( y ) << ")\n";
-    mStream << "sns.barplot(" << ToArray( x ) << ", y / y.min()";
+    mStream << "y = np.array(" << this->ToArray( y ) << ")\n";
+    mStream << "sns.barplot(" << this->ToArray( x ) << ", y / y.min()";
 }
 
 PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data,
@@ -44,14 +44,14 @@ PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, 
     for ( auto &tup : data )
     {
         assert( tup.first.GetSize() == tup.second.GetSize() );
-        mStream << "+ " << ToArray( tup.first );
+        mStream << "+ " << this->ToArray( tup.first );
     }
 
     mStream << "\ny = y ";
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.second );
+        mStream << "+ " << this->ToArray( tup.second );
     }
 
     size_t i = 0;
@@ -60,7 +60,7 @@ PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, 
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
+        mStream << "+ " << this->ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
     }
 
     mStream << "\nsns.barplot( x, y, h";
@@ -73,14 +73,14 @@ PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, 
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.first );
+        mStream << "+ " << this->ToArray( tup.first );
     }
 
     mStream << "\ny = y ";
 
     for ( auto &tup : data )
     {
-        mStream << "+ " << ToArray( tup.second );
+        mStream << "+ " << this->ToArray( tup.second );
     }
 
     mStream << "\nsns.barplot( x, y";
@@ -93,13 +93,13 @@ PLOTLIB_INLINE std::string FactorBarPlot::ToString()
 
 PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrder( const Vec &order )
 {
-    mStream << ", order = " << ToArray( order );
+    mStream << ", order = " << this->ToArray( order );
     return *this;
 }
 
 PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetHueOrder( const std::vector< std::string > &order )
 {
-    mStream << ", hue_order = " << ToArray( order );
+    mStream << ", hue_order = " << this->ToArray( order );
     return *this;
 }
 
