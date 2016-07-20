@@ -44,154 +44,154 @@ public:
 
     tReturn &SetX( const Vec &x )
     {
-        AddArgument( "x", ToArray( x ) );
+        this->AddArgument( "x", ToArray( x ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Notch( bool notch )
     {
-        AddArgument( "notch", GetBool( notch ) );
+        this->AddArgument( "notch", GetBool( notch ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMarkerSymbol( const std::string &symbol )
     {
-        AddArgument( "sym", GetString( symbol ) );
+        this->AddArgument( "sym", GetString( symbol ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetWhis( double whis )
     {
-        AddArgument( "whis", whis );
+        this->AddArgument( "whis", whis );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetBootstrap( uint32_t bootstrap )
     {
-        AddArgument( "bootstrap", bootstrap );
+        this->AddArgument( "bootstrap", bootstrap );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMedians( const Vec &medians )
     {
-        AddArgument( "usermedians", ToArray( medians ) );
+        this->AddArgument( "usermedians", ToArray( medians ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetConfidenceIntervals( const Mat &intervals )
     {
-        AddArgument( "conf_intervals", ToArray( intervals ) );
+        this->AddArgument( "conf_intervals", ToArray( intervals ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetPositions( const std::vector< uint32_t > &positions )
     {
-        AddArgument( "positions", ToArray( positions ) );
+        this->AddArgument( "positions", ToArray( positions ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetWidths( double widths )
     {
-        AddArgument( "widths", widths );
+        this->AddArgument( "widths", widths );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetWidths( const Vec &widths )
     {
-        AddArgument( "widths", ToArray( widths ) );
+        this->AddArgument( "widths", ToArray( widths ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLabels( const std::vector< std::string > &labels )
     {
-        AddArgument( "labels", ToArray( labels ) );
+        this->AddArgument( "labels", ToArray( labels ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ShowMeans( bool showmeans )
     {
-        AddArgument( "showmeans", GetBool( showmeans ) );
+        this->AddArgument( "showmeans", GetBool( showmeans ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ShowBox( bool showbox )
     {
-        AddArgument( "showbox", GetBool( showbox ) );
+        this->AddArgument( "showbox", GetBool( showbox ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ShowFliers( bool showfliers )
     {
-        AddArgument( "showfliers", GetBool( showfliers ) );
+        this->AddArgument( "showfliers", GetBool( showfliers ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &MeanLine( bool meanline )
     {
-        AddArgument( "meanline", GetBool( meanline ) );
+        this->AddArgument( "meanline", GetBool( meanline ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ManageXTicks( bool manage )
     {
-        AddArgument( "manage_xticks", GetBool( manage ) );
+        this->AddArgument( "manage_xticks", GetBool( manage ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetBox( Line2D &properties )
     {
-        AddArgument( "boxprops", properties.ToString() );
+        this->AddArgument( "boxprops", properties.ToString() );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetWhisker( Line2D &properties )
     {
-        AddArgument( "whiskerprops", properties.ToString() );
+        this->AddArgument( "whiskerprops", properties.ToString() );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetCap( Line2D &properties )
     {
-        AddArgument( "capprops", properties.ToString() );
+        this->AddArgument( "capprops", properties.ToString() );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFlier( Line2D &properties )
     {
-        AddArgument( "flierprops", properties.ToString() );
+        this->AddArgument( "flierprops", properties.ToString() );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMedian( Line2D &properties )
     {
-        AddArgument( "medianprops", properties.ToString() );
+        this->AddArgument( "medianprops", properties.ToString() );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMean( Line2D &properties )
     {
-        AddArgument( "meanprops", properties.ToString() );
+        this->AddArgument( "meanprops", properties.ToString() );
 
         return static_cast<tBase &>( *this );
     }

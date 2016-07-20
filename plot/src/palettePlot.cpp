@@ -39,6 +39,6 @@ PLOTLIB_INLINE std::string PalettePlot::ToString()
 
 PLOTLIB_INLINE PalettePlot &PalettePlot::SetSize( double size )
 {
-    AddArgument( "size", size );
+    this->AddArgument( "size", size );
     return *this;
 }

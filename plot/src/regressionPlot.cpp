@@ -40,122 +40,122 @@ PLOTLIB_INLINE std::string RegressionPlot::ToString()
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( const Vec &bins )
 {
-    AddArgument( "x_bins", ToArray( bins ) );
+    this->AddArgument( "x_bins", ToArray( bins ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( size_t bins )
 {
-    AddArgument( "x_bins", bins );
+    this->AddArgument( "x_bins", bins );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXConfidenceInterval( size_t ci )
 {
     assert( ci <= 100 );
-    AddArgument( "x_ci", ci );
+    this->AddArgument( "x_ci", ci );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetConfidenceInterval( size_t ci )
 {
     assert( ci <= 100 );
-    AddArgument( "ci", ci );
+    this->AddArgument( "ci", ci );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::Scatter( bool scatter )
 {
-    AddArgument( "scatter",  GetBool( scatter ) );
+    this->AddArgument( "scatter",  GetBool( scatter ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::FitRegression( bool fit )
 {
-    AddArgument( "fit_reg", GetBool( fit ) );
+    this->AddArgument( "fit_reg", GetBool( fit ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetNBoots( size_t nboots )
 {
-    AddArgument( "n_boots", nboots );
+    this->AddArgument( "n_boots", nboots );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetOrder( size_t order )
 {
-    AddArgument( "order", order );
+    this->AddArgument( "order", order );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::Logistic( bool logistic )
 {
-    AddArgument( "logistic", GetBool( logistic ) );
+    this->AddArgument( "logistic", GetBool( logistic ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::Lowess( bool lowess )
 {
-    AddArgument( "lowess", GetBool( lowess ) );
+    this->AddArgument( "lowess", GetBool( lowess ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::Robust( bool robust )
 {
-    AddArgument( "robust", GetBool( robust ) );
+    this->AddArgument( "robust", GetBool( robust ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::LogX( bool logx )
 {
-    AddArgument( "logx", GetBool( logx ) );
+    this->AddArgument( "logx", GetBool( logx ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXPartial( const Mat &mat )
 {
-    AddArgument( "x_partial", ToArray( mat ) );
+    this->AddArgument( "x_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYPartial( const Mat &mat )
 {
-    AddArgument( "y_partial", ToArray( mat ) );
+    this->AddArgument( "y_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::Truncate( bool trunc )
 {
-    AddArgument( "truncate", GetBool( trunc ) );
+    this->AddArgument( "truncate", GetBool( trunc ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXJitter( double jitter )
 {
-    AddArgument( "x_jitter", jitter );
+    this->AddArgument( "x_jitter", jitter );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYJitter( double jitter )
 {
-    AddArgument( "y_jitter", jitter );
+    this->AddArgument( "y_jitter", jitter );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLabel( const std::string &label )
 {
-    AddArgument( "label", GetString( label ) );
+    this->AddArgument( "label", GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetColour( const std::string &colour )
 {
-    AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetMarker( const std::string &marker )
 {
-    AddArgument( "marker", GetString( marker ) );
+    this->AddArgument( "marker", GetString( marker ) );
     return *this;
 }

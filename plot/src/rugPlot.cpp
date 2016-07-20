@@ -38,13 +38,13 @@ PLOTLIB_INLINE RUGPlot::RUGPlot( const Vec &a )
 
 PLOTLIB_INLINE RUGPlot &RUGPlot::SetHeight( double height )
 {
-    AddArgument( "height", height );
+    this->AddArgument( "height", height );
     return *this;
 }
 
 PLOTLIB_INLINE RUGPlot &RUGPlot::SetAxis( Axis axis )
 {
-    AddArgument( "axis", GetString( axis == Axis::X ? "X" : "Y" ) );
+    this->AddArgument( "axis", GetString( axis == Axis::X ? "X" : "Y" ) );
     return *this;
 }
 

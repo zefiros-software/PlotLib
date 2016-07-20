@@ -73,84 +73,84 @@ public:
 
     inline tReturn &SetSize( double size )
     {
-        AddArgument( "s", size );
+        this->AddArgument( "s", size );
 
         return static_cast<tReturn &>( *this );
     }
 
     inline tReturn &SetColour( const std::string &colour )
     {
-        AddArgument( "c", colour );
+        this->AddArgument( "c", colour );
 
         return static_cast<tReturn &>( *this );
     }
 
     inline tReturn &SetMarker( const std::string &style )
     {
-        AddArgument( "marker", style );
+        this->AddArgument( "marker", style );
 
         return static_cast<tReturn &>( *this );
     }
 
     inline tReturn &SetColourMap( ColourMap &map )
     {
-        AddArgument( "cmap", map.ToString() );
+        this->AddArgument( "cmap", map.ToString() );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetNormalise( Normalise norm )
     {
-        AddArgument( "norm", __PlotLibScatterPlotPropertiesNormalise[static_cast<size_t>( norm )] );
+        this->AddArgument( "norm", __PlotLibScatterPlotPropertiesNormalise[static_cast<size_t>( norm )] );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetVMin( double vmin )
     {
-        AddArgument( "vmin", vmin );
+        this->AddArgument( "vmin", vmin );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetVMax( double vmax )
     {
-        AddArgument( "vmax", vmax );
+        this->AddArgument( "vmax", vmax );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetAlpha( double alpha )
     {
-        AddArgument( "alpha", alpha );
+        this->AddArgument( "alpha", alpha );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLineWidths( double width )
     {
-        AddArgument( "linewidths", width );
+        this->AddArgument( "linewidths", width );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLineWidths( const Vec &widths )
     {
-        AddArgument( "linewidths", ToArray( widths ) );
+        this->AddArgument( "linewidths", ToArray( widths ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetEdgeColour( const std::string &colour )
     {
-        AddArgument( "edgecolor", GetString( colour ) );
+        this->AddArgument( "edgecolor", GetString( colour ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetEdgeColour( const Vec &colours )
     {
-        AddArgument( "edgecolor", ToArray( colours ) );
+        this->AddArgument( "edgecolor", ToArray( colours ) );
 
         return static_cast<tReturn &>( *this );
     }

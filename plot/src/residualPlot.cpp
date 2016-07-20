@@ -38,54 +38,54 @@ PLOTLIB_INLINE std::string ResidualPlot::ToString()
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::Lowess( bool lowess )
 {
-    AddArgument( "lowess", GetBool( lowess ) );
+    this->AddArgument( "lowess", GetBool( lowess ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetXPartial( const Mat &mat )
 {
-    AddArgument( "x_partial", ToArray( mat ) );
+    this->AddArgument( "x_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetYPartial( const Mat &mat )
 {
-    AddArgument( "y_partial", ToArray( mat ) );
+    this->AddArgument( "y_partial", ToArray( mat ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetOrder( size_t order )
 {
-    AddArgument( "order", order );
+    this->AddArgument( "order", order );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::Robust( bool robust )
 {
-    AddArgument( "robust", GetBool( robust ) );
+    this->AddArgument( "robust", GetBool( robust ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetLabel( const std::string &label )
 {
-    AddArgument( "label", GetString( label ) );
+    this->AddArgument( "label", GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetColour( const std::string &colour )
 {
-    AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetScatter( Scatter &scatter )
 {
-    AddArgument( "scatter_kws", scatter.ToString() );
+    this->AddArgument( "scatter_kws", scatter.ToString() );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetLine( Line &scatter )
 {
-    AddArgument( "line_kws", scatter.ToString() );
+    this->AddArgument( "line_kws", scatter.ToString() );
     return *this;
 }

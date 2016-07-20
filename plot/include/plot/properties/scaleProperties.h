@@ -64,7 +64,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            AddArgument( "value", GetString( "linear" ) );
+            this->AddArgument( "value", GetString( "linear" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -89,7 +89,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            AddArgument( "value", GetString( "log" ) );
+            this->AddArgument( "value", GetString( "log" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -98,21 +98,21 @@ public:
     tReturn &SetBaseY( double base )
     {
         assert( base > 1 );
-        AddArgument( "basey", base );
+        this->AddArgument( "basey", base );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetSubsY( const Vec &subsy )
     {
-        AddArgument( "subsy", ToArray( subsy ) );
+        this->AddArgument( "subsy", ToArray( subsy ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetNonPosY( NonPos nonpos )
     {
-        AddArgument( "nonposy", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument( "nonposy", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -120,21 +120,21 @@ public:
     tReturn &SetBaseX( double base )
     {
         assert( base > 1 );
-        AddArgument( "basex", base );
+        this->AddArgument( "basex", base );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetSubsX( const Vec &subsy )
     {
-        AddArgument( "subsx", ToArray( subsy ) );
+        this->AddArgument( "subsx", ToArray( subsy ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetNonPosX( NonPos nonpos )
     {
-        AddArgument( "nonposx", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument( "nonposx", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -158,7 +158,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            AddArgument( "value", GetString( "logit" ) );
+            this->AddArgument( "value", GetString( "logit" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -166,7 +166,7 @@ public:
 
     tReturn &SetNonPos( NonPos nonpos )
     {
-        AddArgument( "nonpos", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument( "nonpos", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -185,7 +185,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            AddArgument( "value", GetString( "symlog" ) );
+            this->AddArgument( "value", GetString( "symlog" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -194,14 +194,14 @@ public:
     tReturn &SetBaseY( double base )
     {
         assert( base > 1 );
-        AddArgument( "basey", base );
+        this->AddArgument( "basey", base );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetSubsY( const Vec &subsy )
     {
-        AddArgument( "subsy", ToArray( subsy ) );
+        this->AddArgument( "subsy", ToArray( subsy ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -209,42 +209,42 @@ public:
     tReturn &SetBaseX( double base )
     {
         assert( base > 1 );
-        AddArgument( "basex", base );
+        this->AddArgument( "basex", base );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetSubsX( const Vec &subsy )
     {
-        AddArgument( "subsx", ToArray( subsy ) );
+        this->AddArgument( "subsx", ToArray( subsy ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLinThresholdX( double min, double max )
     {
-        AddArgument( "linthreshx", ToTuple( min, max ) );
+        this->AddArgument( "linthreshx", this->ToTuple( min, max ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLinThresholdY( double min, double max )
     {
-        AddArgument( "linthreshy", ToTuple( min, max ) );
+        this->AddArgument( "linthreshy", this->ToTuple( min, max ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLinScaleX( double min, double max )
     {
-        AddArgument( "linscalex", ToTuple( min, max ) );
+        this->AddArgument( "linscalex", this->ToTuple( min, max ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLinScaleY( double min, double max )
     {
-        AddArgument( "linscaley", ToTuple( min, max ) );
+        this->AddArgument( "linscaley", this->ToTuple( min, max ) );
 
         return static_cast<tReturn &>( *this );
     }

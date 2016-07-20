@@ -70,119 +70,119 @@ public:
 
     tReturn &SetAlpha( double alpha )
     {
-        AddArgument( "alpha", alpha );
+        this->AddArgument( "alpha", alpha );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Animated( bool animated )
     {
-        AddArgument( "antialiased", GetBool( animated ) );
+        this->AddArgument( "antialiased", GetBool( animated ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetBackgroundColour( const std::string &colour )
     {
-        AddArgument( "backgroundcolor", GetString( colour ) );
+        this->AddArgument( "backgroundcolor", GetString( colour ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ClipOn( bool clip )
     {
-        AddArgument( "clipon", GetBool( clip ) );
+        this->AddArgument( "clipon", GetBool( clip ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColour( const std::string &colour )
     {
-        AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", GetString( colour ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFamily( const std::string &family )
     {
-        AddArgument( "family", GetString( family ) );
+        this->AddArgument( "family", GetString( family ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFont( Font &font )
     {
-        AddArgument( "fontproperties", font.ToString() );
+        this->AddArgument( "fontproperties", font.ToString() );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetHorizontalAlignment( Alignment alignment )
     {
-        AddArgument( "horizontalalignment",
+        this->AddArgument( "horizontalalignment",
                      GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLabel( const std::string &label )
     {
-        AddArgument( "label", GetString( label ) );
+        this->AddArgument( "label", GetString( label ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetText( const std::string &text )
     {
-        AddArgument( "text", GetString( text ) );
+        this->AddArgument( "text", GetString( text ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetUrl( const std::string &url )
     {
-        AddArgument( "url", GetString( url ) );
+        this->AddArgument( "url", GetString( url ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Visible( bool visible )
     {
-        AddArgument( "visible", GetBool( visible ) );
+        this->AddArgument( "visible", GetBool( visible ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineSpacing( double spacing )
     {
-        AddArgument( "linespacing", spacing );
+        this->AddArgument( "linespacing", spacing );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMultiAlignment( Alignment alignment )
     {
-        AddArgument( "multialignment",
+        this->AddArgument( "multialignment",
                      GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetPosition( double x, double y )
     {
-        AddArgument( "position", ToTuple( x, y ) );
+        this->AddArgument( "position", this->ToTuple( x, y ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Rasterised( bool rasterised )
     {
-        AddArgument( "rasterized", GetBool( rasterised ) );
+        this->AddArgument( "rasterized", GetBool( rasterised ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetRotation( double rotation )
     {
-        AddArgument( "rotation", rotation );
+        this->AddArgument( "rotation", rotation );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetRotation( Rotation rotation )
     {
-        AddArgument( "rotation",
+        this->AddArgument( "rotation",
                      GetString( __PlotLibTextPropertiesRotation[static_cast<size_t>( rotation )] ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetZOrder( uint32_t zorder )
     {
-        AddArgument( "zorder", zorder );
+        this->AddArgument( "zorder", zorder );
 
         return static_cast<tBase &>( *this );
     }

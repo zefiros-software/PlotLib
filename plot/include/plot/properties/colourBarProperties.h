@@ -72,91 +72,91 @@ public:
 
     tReturn &SetOrientation( Orientation orientation )
     {
-        AddArgument( "orientation", GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
+        this->AddArgument( "orientation", GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFraction( double fraction )
     {
-        AddArgument( "fraction", fraction );
+        this->AddArgument( "fraction", fraction );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetPad( double pad )
     {
-        AddArgument( "pad", pad );
+        this->AddArgument( "pad", pad );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetShrink( double shrink )
     {
-        AddArgument( "shrink", shrink );
+        this->AddArgument( "shrink", shrink );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetAspect( double aspect )
     {
-        AddArgument( "aspect", aspect );
+        this->AddArgument( "aspect", aspect );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetAnchor( std::pair<double, double> anchor )
     {
-        AddArgument( "anchor", ToTuple( anchor.first, anchor.second ) );
+        this->AddArgument( "anchor", this->ToTuple( anchor.first, anchor.second ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetParentAnchor( std::pair<double, double> panchor )
     {
-        AddArgument( "panchor", ToTuple( panchor.first, panchor.second ) );
+        this->AddArgument( "panchor", this->ToTuple( panchor.first, panchor.second ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetExtend( Extend extend )
     {
-        AddArgument( "extend", GetString( __PlotLibColourBarPropertiesExtend[static_cast<size_t>( extend )] ) );
+        this->AddArgument( "extend", GetString( __PlotLibColourBarPropertiesExtend[static_cast<size_t>( extend )] ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ExtendRect( bool extend )
     {
-        AddArgument( "extendrect", GetBool( extend ) );
+        this->AddArgument( "extendrect", GetBool( extend ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetSpacing( Spacing spacing )
     {
-        AddArgument( "spacing", GetString( spacing == Spacing::Proportional ? "proportional" : "uniform" ) );
+        this->AddArgument( "spacing", GetString( spacing == Spacing::Proportional ? "proportional" : "uniform" ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetTicks( const Vec &ticks )
     {
-        AddArgument( "ticks", ToArray( ticks ) );
+        this->AddArgument( "ticks", ToArray( ticks ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFormat( const std::string &fmt )
     {
-        AddArgument( "fmt", GetString( fmt ) );
+        this->AddArgument( "fmt", GetString( fmt ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &DrawEdges( bool draw )
     {
-        AddArgument( "drawedges", GetBool( draw ) );
+        this->AddArgument( "drawedges", GetBool( draw ) );
 
         return static_cast<tBase &>( *this );
     }

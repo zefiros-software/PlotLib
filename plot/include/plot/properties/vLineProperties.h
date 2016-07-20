@@ -45,7 +45,7 @@ public:
     {
         if ( !mColour.empty() )
         {
-            AddArgument( "color", mColour );
+            this->AddArgument( "color", mColour );
         }
 
         return Line2DProperties< VLineProperties< tBase, IsDict >, IsDict, true >::ToString();
@@ -53,13 +53,13 @@ public:
 
     PLOTLIB_INLINE VLineProperties &SetYMin( double ymin )
     {
-        AddArgument( "ymin", ymin );
+        this->AddArgument( "ymin", ymin );
         return *this;
     }
 
     PLOTLIB_INLINE VLineProperties &SetYMax( double ymax )
     {
-        AddArgument( "ymax", ymax );
+        this->AddArgument( "ymax", ymax );
         return *this;
     }
 

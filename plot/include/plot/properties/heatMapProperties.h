@@ -46,68 +46,68 @@ public:
 
     tReturn &SetMinValue( double value )
     {
-        AddArgument( "vmin", value );
+        this->AddArgument( "vmin", value );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMaxValue( double value )
     {
-        AddArgument( "vmax", value );
+        this->AddArgument( "vmax", value );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetCentre( double value )
     {
-        AddArgument( "center", value );
+        this->AddArgument( "center", value );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Robust( bool robust )
     {
-        AddArgument( "center", GetBool( robust ) );
+        this->AddArgument( "center", GetBool( robust ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Annotate( bool annotate )
     {
-        AddArgument( "annot", GetBool( annotate ) );
+        this->AddArgument( "annot", GetBool( annotate ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetAnnotate( const Mat &annot )
     {
-        AddArgument( "annot", "pd.DataFrame(" + ToArray( annot ) + ")" );
+        this->AddArgument( "annot", "pd.DataFrame(" + ToArray( annot ) + ")" );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFormat( const std::string &fmt )
     {
-        AddArgument( "fmt", GetString( fmt ) );
+        this->AddArgument( "fmt", GetString( fmt ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineWidths( double value )
     {
-        AddArgument( "linewidths", value );
+        this->AddArgument( "linewidths", value );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineColour( const std::string &colour )
     {
-        AddArgument( "linecolor", GetString( colour ) );
+        this->AddArgument( "linecolor", GetString( colour ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColourMap( Palette pallet )
     {
         pallet.SetColourMap( true );
-        AddArgument( "color", pallet.ToString() );
+        this->AddArgument( "color", pallet.ToString() );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Square( bool square )
     {
-        AddArgument( "square", GetBool( square ) );
+        this->AddArgument( "square", GetBool( square ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -149,31 +149,31 @@ public:
 
     tReturn &SetMask( const std::vector< bool > &mask )
     {
-        AddArgument( "mask", ToArray( mask ) );
+        this->AddArgument( "mask", ToArray( mask ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetMask( const Mat &mask )
     {
-        AddArgument( "mask", "pd.DataFrame(" + ToArray( mask ) + ")" );
+        this->AddArgument( "mask", "pd.DataFrame(" + ToArray( mask ) + ")" );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ColourBar( bool enable )
     {
-        AddArgument( "cbar", GetBool( enable ) );
+        this->AddArgument( "cbar", GetBool( enable ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColourBar( ColourBarProps &prop )
     {
-        AddArgument( "cbar_kws", prop.ToString() );
+        this->AddArgument( "cbar_kws", prop.ToString() );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetText( Text &prop )
     {
-        AddArgument( "annot_kws", prop.ToString() );
+        this->AddArgument( "annot_kws", prop.ToString() );
         return static_cast<tBase &>( *this );
     }
 

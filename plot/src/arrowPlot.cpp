@@ -40,43 +40,43 @@ PLOTLIB_INLINE std::string ArrowPlot::ToString()
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetWidth( double width )
 {
-    AddArgument( "width", width );
+    this->AddArgument( "width", width );
     return *this;
 }
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::LengthIncludesHead( bool includes )
 {
-    AddArgument( "length_includes_head", GetBool( includes ) );
+    this->AddArgument( "length_includes_head", GetBool( includes ) );
     return *this;
 }
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetHeadWidth( double width )
 {
-    AddArgument( "head_width", width );
+    this->AddArgument( "head_width", width );
     return *this;
 }
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetHeadLength( double length )
 {
-    AddArgument( "head_length", length );
+    this->AddArgument( "head_length", length );
     return *this;
 }
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetShape( Shape shape )
 {
-    AddArgument( "shape", GetShape( shape ) );
+    this->AddArgument( "shape", GetShape( shape ) );
     return *this;
 }
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetOverhang( double overhang )
 {
-    AddArgument( "overhang", overhang );
+    this->AddArgument( "overhang", overhang );
     return *this;
 }
 
 PLOTLIB_INLINE ArrowPlot &ArrowPlot::HeadStartsAtZero( bool starts )
 {
-    AddArgument( "head_starts_at_zero", GetBool( starts ) );
+    this->AddArgument( "head_starts_at_zero", GetBool( starts ) );
     return *this;
 }
 

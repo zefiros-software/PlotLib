@@ -128,119 +128,119 @@ public:
 
     tReturn &SetCornerMask( CornerMask mask )
     {
-        AddArgument( "corner_mask", __PlotLibContourPropertiesCornerMask[static_cast<size_t>( mask )] );
+        this->AddArgument( "corner_mask", __PlotLibContourPropertiesCornerMask[static_cast<size_t>( mask )] );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColour( const std::string &colour )
     {
-        AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetAlpha( double alpha )
     {
-        AddArgument( "alpha", alpha );
+        this->AddArgument( "alpha", alpha );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetColourMap( ColourMap pallet )
     {
-        AddArgument( "cmap", pallet.ToString() );
+        this->AddArgument( "cmap", pallet.ToString() );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetNormalise( Normalise norm )
     {
-        AddArgument( "norm", __PlotLibContourPropertiesNormalise[static_cast<size_t>( norm )] );
+        this->AddArgument( "norm", __PlotLibContourPropertiesNormalise[static_cast<size_t>( norm )] );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetVMin( double vmin )
     {
-        AddArgument( "vmin", vmin );
+        this->AddArgument( "vmin", vmin );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetVMax( double vmax )
     {
-        AddArgument( "vmax", vmax );
+        this->AddArgument( "vmax", vmax );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLevels( const Vec &levels )
     {
-        AddArgument( "levels", ToArray( levels ) );
+        this->AddArgument( "levels", ToArray( levels ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetOrigin( Origin origin )
     {
-        AddArgument( "origin", __PlotLibContourPropertiesOrigin[static_cast<size_t>( origin )] );
+        this->AddArgument( "origin", __PlotLibContourPropertiesOrigin[static_cast<size_t>( origin )] );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetExtent( double x0, double x1, double y0, double y1 )
     {
-        AddArgument( "extent", ToTuple( x0, x1, y0, y1 ) );
+        this->AddArgument( "extent", this->ToTuple( x0, x1, y0, y1 ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetExtent( Extent extent )
     {
-        AddArgument( "extent", __PlotLibContourPropertiesExtent[static_cast<size_t>( extent )] );
+        this->AddArgument( "extent", __PlotLibContourPropertiesExtent[static_cast<size_t>( extent )] );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &AntiAliased( bool aa )
     {
-        AddArgument( "antialiased", GetBool( aa ) );
+        this->AddArgument( "antialiased", GetBool( aa ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetNChunk( uint32_t nchunk )
     {
-        AddArgument( "nchunk", nchunk );
+        this->AddArgument( "nchunk", nchunk );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLineWidths( double width )
     {
-        AddArgument( "linewidths", width );
+        this->AddArgument( "linewidths", width );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLineWidths( const Vec &widths )
     {
-        AddArgument( "linewidths", ToArray( widths ) );
+        this->AddArgument( "linewidths", ToArray( widths ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetLineStyle( LineStyle style )
     {
-        AddArgument( "linestyles", GetLineStyle( style ) );
+        this->AddArgument( "linestyles", GetLineStyle( style ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetHatches( const Vec &hatches )
     {
-        AddArgument( "hatches", ToArray( hatches ) );
+        this->AddArgument( "hatches", ToArray( hatches ) );
 
         return static_cast<tReturn &>( *this );
     }

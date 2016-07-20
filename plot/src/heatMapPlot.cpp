@@ -79,12 +79,12 @@ PLOTLIB_INLINE std::string HeatMapPlot::ToString()
 {
     if ( !mXTickLabels.empty() )
     {
-        AddArgument( "xticklabels", mXTickLabels );
+        this->AddArgument( "xticklabels", mXTickLabels );
     }
 
     if ( !mYTickLabels.empty() )
     {
-        AddArgument( "yticklabels", mYTickLabels );
+        this->AddArgument( "yticklabels", mYTickLabels );
     }
 
     return mStream.str() + " )";

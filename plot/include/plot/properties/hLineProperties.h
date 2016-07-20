@@ -45,7 +45,7 @@ public:
     {
         if ( !mColour.empty() )
         {
-            AddArgument( "color", mColour );
+            this->AddArgument( "color", mColour );
         }
 
         return Line2DProperties< HLineProperties< tBase, IsDict >, IsDict, true >::ToString();
@@ -53,13 +53,13 @@ public:
 
     PLOTLIB_INLINE HLineProperties &SetXMin( double ymin )
     {
-        AddArgument( "xmin", ymin );
+        this->AddArgument( "xmin", ymin );
         return *this;
     }
 
     PLOTLIB_INLINE HLineProperties &SetXMax( double ymax )
     {
-        AddArgument( "xmax", ymax );
+        this->AddArgument( "xmax", ymax );
         return *this;
     }
 

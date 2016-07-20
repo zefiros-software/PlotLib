@@ -42,35 +42,35 @@ public:
 
     typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYTip( double x, double y )
     {
-        AddArgument( "xytip", ToTuple( x, y ) );
+        this->AddArgument( "xytip", this->ToTuple( x, y ) );
 
         return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
     typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYBase( double x, double y )
     {
-        AddArgument( "xybase", ToTuple( x, y ) );
+        this->AddArgument( "xybase", this->ToTuple( x, y ) );
 
         return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
     typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth( double width )
     {
-        AddArgument( "width", width );
+        this->AddArgument( "width", width );
 
         return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
     typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetFraction( double frac )
     {
-        AddArgument( "frac", frac );
+        this->AddArgument( "frac", frac );
 
         return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
     typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetHeadWidth( double headWidth )
     {
-        AddArgument( "headwidth", headWidth );
+        this->AddArgument( "headwidth", headWidth );
 
         return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }

@@ -41,31 +41,31 @@ PLOTLIB_INLINE CrossCorrelationPlot::CrossCorrelationPlot( const Vec &x, const V
 
 PLOTLIB_INLINE std::string CrossCorrelationPlot::ToString()
 {
-    AddArgument( "detrend", __PlotLibCrossCorrelationPlotDetrend[static_cast<size_t>( mDefaultDetrend )] );
+    this->AddArgument( "detrend", __PlotLibCrossCorrelationPlotDetrend[static_cast<size_t>( mDefaultDetrend )] );
     return mStream.str() + " )";
 }
 
 PLOTLIB_INLINE CrossCorrelationPlot &CrossCorrelationPlot::Hold( bool hold )
 {
-    AddArgument( "hold", GetBool( hold ) );
+    this->AddArgument( "hold", GetBool( hold ) );
     return *this;
 }
 
 PLOTLIB_INLINE CrossCorrelationPlot &CrossCorrelationPlot::Normed( bool normed )
 {
-    AddArgument( "normed", GetBool( normed ) );
+    this->AddArgument( "normed", GetBool( normed ) );
     return *this;
 }
 
 PLOTLIB_INLINE CrossCorrelationPlot &CrossCorrelationPlot::VLines( bool vlines )
 {
-    AddArgument( "usevlines", GetBool( vlines ) );
+    this->AddArgument( "usevlines", GetBool( vlines ) );
     return *this;
 }
 
 PLOTLIB_INLINE CrossCorrelationPlot &CrossCorrelationPlot::SetMaxLags( size_t maxlags )
 {
-    AddArgument( "maxlags", maxlags );
+    this->AddArgument( "maxlags", maxlags );
     return *this;
 }
 

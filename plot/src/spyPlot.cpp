@@ -46,24 +46,24 @@ PLOTLIB_INLINE std::string SpyPlot::ToString()
 
 PLOTLIB_INLINE SpyPlot &SpyPlot::SetPrecision( double precision )
 {
-    AddArgument( "precision", precision );
+    this->AddArgument( "precision", precision );
     return *this;
 }
 
 PLOTLIB_INLINE SpyPlot &SpyPlot::SetOrigin( Origin origin )
 {
-    AddArgument( "origin", GetString( origin == Origin::Lower ? "lower" : "upper" ) );
+    this->AddArgument( "origin", GetString( origin == Origin::Lower ? "lower" : "upper" ) );
     return *this;
 }
 
 PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect( double aspect )
 {
-    AddArgument( "aspect", aspect );
+    this->AddArgument( "aspect", aspect );
     return *this;
 }
 
 PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect( Aspect aspect )
 {
-    AddArgument( "aspect", __PlotLibSpyPlotAspect[static_cast<size_t>( aspect )] );
+    this->AddArgument( "aspect", __PlotLibSpyPlotAspect[static_cast<size_t>( aspect )] );
     return *this;
 }

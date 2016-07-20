@@ -39,31 +39,31 @@ PLOTLIB_INLINE std::string AnnotatePlot::ToString()
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYText( double x, double y )
 {
-    AddArgument( "xytext", ToTuple( x, y ) );
+    this->AddArgument( "xytext", this->ToTuple( x, y ) );
     return *this;
 }
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYCoordinates( Type type )
 {
-    AddArgument( "xycoords", GetType( type ) );
+    this->AddArgument( "xycoords", GetType( type ) );
     return *this;
 }
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetTextCoordinates( Type type )
 {
-    AddArgument( "textcoords", GetType( type ) );
+    this->AddArgument( "textcoords", GetType( type ) );
     return *this;
 }
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps( FancyArrow &props )
 {
-    AddArgument( "arrowprops", props.ToString() );
+    this->AddArgument( "arrowprops", props.ToString() );
     return *this;
 }
 
 PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps( YArrow &props )
 {
-    AddArgument( "arrowprops", props.ToString() );
+    this->AddArgument( "arrowprops", props.ToString() );
     return *this;
 }
 

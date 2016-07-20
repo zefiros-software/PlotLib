@@ -38,60 +38,60 @@ PLOTLIB_INLINE std::string ScatterPlot::ToString()
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetAlpha( double alpha )
 {
-    AddArgument( "alpha", alpha );
+    this->AddArgument( "alpha", alpha );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( double scalar )
 {
-    AddArgument( "s", scalar );
+    this->AddArgument( "s", scalar );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const Vec &scalar )
 {
-    AddArgument( "s", ToArray( scalar ) );
+    this->AddArgument( "s", ToArray( scalar ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetColour( const std::string &colour )
 {
-    AddArgument( "cmap", GetString( colour ) );
+    this->AddArgument( "cmap", GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetEdgeColour( const std::string &colour )
 {
-    AddArgument( "edgecolors", GetString( colour ) );
+    this->AddArgument( "edgecolors", GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetMarker( const std::string &marker )
 {
-    AddArgument( "marker", GetString( marker ) );
+    this->AddArgument( "marker", GetString( marker ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMin( double vmin )
 {
-    AddArgument( "vmin", vmin );
+    this->AddArgument( "vmin", vmin );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMax( double vmax )
 {
-    AddArgument( "vmax", vmax );
+    this->AddArgument( "vmax", vmax );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( const Vec &widths )
 {
-    AddArgument( "linewidths", ToArray( widths ) );
+    this->AddArgument( "linewidths", ToArray( widths ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( double lineWidth )
 {
-    AddArgument( "linewidths", lineWidth );
+    this->AddArgument( "linewidths", lineWidth );
     return *this;
 }

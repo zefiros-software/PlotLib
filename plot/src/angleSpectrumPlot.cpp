@@ -38,25 +38,25 @@ PLOTLIB_INLINE std::string AngleSpectrumPlot::ToString()
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSamplingFrequency( double fs )
 {
-    AddArgument( "Fs", fs );
+    this->AddArgument( "Fs", fs );
     return *this;
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSides( Sides sides )
 {
-    AddArgument( "sides", GetSides( sides ) );
+    this->AddArgument( "sides", GetSides( sides ) );
     return *this;
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetCentreFrequency( int32_t fc )
 {
-    AddArgument( "Fc", fc );
+    this->AddArgument( "Fc", fc );
     return *this;
 }
 
 PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetPadTo( int32_t pad )
 {
-    AddArgument( "pad_to", pad );
+    this->AddArgument( "pad_to", pad );
     return *this;
 }
 

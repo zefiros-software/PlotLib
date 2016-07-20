@@ -60,18 +60,18 @@ PLOTLIB_INLINE std::string DistancedBarPlot::ToString()
 
 PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetZOrder( double order )
 {
-    AddArgument( "zorder", order );
+    this->AddArgument( "zorder", order );
     return *this;
 }
 
 PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::UseColourCycler( const std::string &colourCycler )
 {
-    AddArgument( "color", "next( " + colourCycler + " )" );
+    this->AddArgument( "color", "next( " + colourCycler + " )" );
     return *this;
 }
 
 PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::CycleColour()
 {
-    AddArgument( "color", "next( colour_cycler )" );
+    this->AddArgument( "color", "next( colour_cycler )" );
     return *this;
 }

@@ -39,61 +39,61 @@ PLOTLIB_INLINE std::string DistrPlot::ToString()
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const Vec &bins )
 {
-    AddArgument( "bins", ToArray( bins ) );
+    this->AddArgument( "bins", ToArray( bins ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( size_t value )
 {
-    AddArgument( "bins", value );
+    this->AddArgument( "bins", value );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::Hist( bool hist )
 {
-    AddArgument( "hist", GetBool( hist ) );
+    this->AddArgument( "hist", GetBool( hist ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::KDE( bool kde )
 {
-    AddArgument( "kde", GetBool( kde ) );
+    this->AddArgument( "kde", GetBool( kde ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::RUG( bool rug )
 {
-    AddArgument( "rug", GetBool( rug ) );
+    this->AddArgument( "rug", GetBool( rug ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::Vertical( bool vertical )
 {
-    AddArgument( "vertical", GetBool( vertical ) );
+    this->AddArgument( "vertical", GetBool( vertical ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::NormHist( bool normHist )
 {
-    AddArgument( "norm_hist", GetBool( normHist ) );
+    this->AddArgument( "norm_hist", GetBool( normHist ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetLabel( const std::string &label )
 {
-    AddArgument( "label", GetString( label ) );
+    this->AddArgument( "label", GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxisLabel( const std::string &label )
 {
-    AddArgument( "axlabel", GetString( label ) );
+    this->AddArgument( "axlabel", GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetColour( const std::string &colour )
 {
-    AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", GetString( colour ) );
 
     return *this;
 }

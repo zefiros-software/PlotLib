@@ -40,43 +40,43 @@ PLOTLIB_INLINE std::string JointPlot::ToString()
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
 {
-    AddArgument( "kind", GetString( GetKind( kind ) ) );
+    this->AddArgument( "kind", GetString( GetKind( kind ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t size )
 {
-    AddArgument( "size", size );
+    this->AddArgument( "size", size );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetRatio( size_t ratio )
 {
-    AddArgument( "ratio", ratio );
+    this->AddArgument( "ratio", ratio );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetSpace( double space )
 {
-    AddArgument( "space", space );
+    this->AddArgument( "space", space );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetXLimit( const std::pair<double, double> &x )
 {
-    AddArgument( "xlim", ToTuple( x.first, x.second ) );
+    this->AddArgument( "xlim", this->ToTuple( x.first, x.second ) );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetYLimit( const std::pair<double, double> &y )
 {
-    AddArgument( "ylim", ToTuple( y.first, y.second ) );
+    this->AddArgument( "ylim", this->ToTuple( y.first, y.second ) );
     return *this;
 }
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetColour( const std::string &colour )
 {
-    AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", GetString( colour ) );
     return *this;
 }
 

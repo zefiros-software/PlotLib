@@ -88,48 +88,48 @@ PLOTLIB_INLINE std::string PairPlot::ToString()
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetXVars( const std::vector< std::string > &xvars )
 {
-    AddArgument( "x_vars", ToArray( xvars ) );
+    this->AddArgument( "x_vars", ToArray( xvars ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetYVars( const std::vector< std::string > &yvars )
 {
-    AddArgument( "y_vars", ToArray( yvars ) );
+    this->AddArgument( "y_vars", ToArray( yvars ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetType( Type type )
 {
-    AddArgument( "kind", GetString( type == Type::Scatter ? "scatter" : "reg" ) );
+    this->AddArgument( "kind", GetString( type == Type::Scatter ? "scatter" : "reg" ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetDiagonalType( DiagonalType type )
 {
-    AddArgument( "diag_kind", GetString( type == DiagonalType::Histogram ? "hist" : "kde" ) );
+    this->AddArgument( "diag_kind", GetString( type == DiagonalType::Histogram ? "hist" : "kde" ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetMarker( const std::string &marker )
 {
-    AddArgument( "markers", GetString( marker ) );
+    this->AddArgument( "markers", GetString( marker ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetMarkers( const std::vector<std::string> &marker )
 {
-    AddArgument( "markers", ToArray( marker ) );
+    this->AddArgument( "markers", ToArray( marker ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetSize( double size )
 {
-    AddArgument( "size", size );
+    this->AddArgument( "size", size );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetAspect( double aspect )
 {
-    AddArgument( "aspect", aspect );
+    this->AddArgument( "aspect", aspect );
     return *this;
 }

@@ -71,133 +71,133 @@ public:
 
     tReturn &SetAlpha( double alpha )
     {
-        AddArgument( "alpha", alpha );
+        this->AddArgument( "alpha", alpha );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Animated( bool animated )
     {
-        AddArgument( "animated", GetBool( animated ) );
+        this->AddArgument( "animated", GetBool( animated ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &AntiAliased( bool aa )
     {
-        AddArgument( "antialiased", GetBool( aa ) );
+        this->AddArgument( "antialiased", GetBool( aa ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &ClipOn( bool clip )
     {
-        AddArgument( "clipon", GetBool( clip ) );
+        this->AddArgument( "clipon", GetBool( clip ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColour( const std::string &colour )
     {
-        AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetJoinStyle( JoinStyle style )
     {
-        AddArgument( "joinstyle", GetJoinStyle( style ) );
+        this->AddArgument( "joinstyle", GetJoinStyle( style ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetDashes( const std::vector< uint32_t > &dashes )
     {
-        AddArgument( "dashes", ToArray( dashes ) );
+        this->AddArgument( "dashes", ToArray( dashes ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Fill( bool fill )
     {
-        AddArgument( "fill", GetBool( fill ) );
+        this->AddArgument( "fill", GetBool( fill ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetHatch( const std::string &hatch )
     {
-        AddArgument( "hatch", GetString( hatch ) );
+        this->AddArgument( "hatch", GetString( hatch ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLabel( const std::string &label )
     {
-        AddArgument( "label", GetString( label ) );
+        this->AddArgument( "label", GetString( label ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineStyle( LineStyle style )
     {
-        AddArgument( "linestyle", GetLineStyle( style ) );
+        this->AddArgument( "linestyle", GetLineStyle( style ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineStyle( uint32_t offset, const std::vector< uint32_t > &dashes )
     {
-        AddArgument( "linestyle", ToTuple( GetLineStyle( offset ), ToArray( dashes ) ) );
+        this->AddArgument( "linestyle", this->ToTuple( GetLineStyle( offset ), ToArray( dashes ) ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineWidth( double lineWidth )
     {
-        AddArgument( "linewidth", lineWidth );
+        this->AddArgument( "linewidth", lineWidth );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetEdgeColour( const std::string &colour )
     {
-        AddArgument( "edgecolor", GetString( colour ) );
+        this->AddArgument( "edgecolor", GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFaceColour( const std::string &colour )
     {
-        AddArgument( "facecolor", GetString( colour ) );
+        this->AddArgument( "facecolor", GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Rasterised( bool rasterised )
     {
-        AddArgument( "rasterized", GetBool( rasterised ) );
+        this->AddArgument( "rasterized", GetBool( rasterised ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetUrl( const std::string &url )
     {
-        AddArgument( "url", GetString( url ) );
+        this->AddArgument( "url", GetString( url ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Visible( bool visible )
     {
-        AddArgument( "visible", GetBool( visible ) );
+        this->AddArgument( "visible", GetBool( visible ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetZOrder( uint32_t zorder )
     {
-        AddArgument( "zorder", zorder );
+        this->AddArgument( "zorder", zorder );
 
         return static_cast<tBase &>( *this );
     }

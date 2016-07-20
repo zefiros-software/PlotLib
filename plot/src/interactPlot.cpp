@@ -39,48 +39,48 @@ PLOTLIB_INLINE std::string InteractPlot::ToString()
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::Filled( bool filled )
 {
-    AddArgument( "filled", GetBool( filled ) );
+    this->AddArgument( "filled", GetBool( filled ) );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetColourMap( ColourMap pallet )
 {
-    AddArgument( "cmap", pallet.ToString() );
+    this->AddArgument( "cmap", pallet.ToString() );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::ColourBar( bool bar )
 {
-    AddArgument( "colorbar", GetBool( bar ) );
+    this->AddArgument( "colorbar", GetBool( bar ) );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( const Vec &levels )
 {
-    AddArgument( "levels", ToArray( levels ) );
+    this->AddArgument( "levels", ToArray( levels ) );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( size_t levelCount )
 {
-    AddArgument( "levels", levelCount );
+    this->AddArgument( "levels", levelCount );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::Logistic( bool logistic )
 {
-    AddArgument( "logistic", GetBool( logistic ) );
+    this->AddArgument( "logistic", GetBool( logistic ) );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetScatter( Line &scatter )
 {
-    AddArgument( "scatter_kws", scatter.ToString() );
+    this->AddArgument( "scatter_kws", scatter.ToString() );
     return *this;
 }
 
 PLOTLIB_INLINE InteractPlot &InteractPlot::SetContour( Contour &contour )
 {
-    AddArgument( "contour_kws", contour.ToString() );
+    this->AddArgument( "contour_kws", contour.ToString() );
     return *this;
 }

@@ -45,74 +45,74 @@ PLOTLIB_INLINE std::string KDEPlot::ToString()
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::Vertical( bool vertical )
 {
-    AddArgument( "vertical", GetBool( vertical ) );
+    this->AddArgument( "vertical", GetBool( vertical ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetKernel( Kernel kernel )
 {
-    AddArgument( "kernel", GetString( GetKernel( kernel ) ) );
+    this->AddArgument( "kernel", GetString( GetKernel( kernel ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( const std::pair<double, double> &scalars )
 {
-    AddArgument( "bw", ToTuple( scalars.first, scalars.second ) );
+    this->AddArgument( "bw", this->ToTuple( scalars.first, scalars.second ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( double scalar )
 {
-    AddArgument( "bw", scalar );
+    this->AddArgument( "bw", scalar );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( BW bw )
 {
-    AddArgument( "bw", GetString( GetBW( bw ) ) );
+    this->AddArgument( "bw", GetString( GetBW( bw ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetGridSize( size_t size )
 {
-    AddArgument( "gridsize", size );
+    this->AddArgument( "gridsize", size );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetCut( double cut )
 {
-    AddArgument( "cut", cut );
+    this->AddArgument( "cut", cut );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clipx,
                                           const std::pair<double, double> &clipy )
 {
-    AddArgument( "clip", ToTuple( ToTuple( clipx.first, clipx.second ), ToTuple( clipy.first, clipy.second ) ) );
+    this->AddArgument( "clip", this->ToTuple( this->ToTuple( clipx.first, clipx.second ), this->ToTuple( clipy.first, clipy.second ) ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clip )
 {
-    AddArgument( "clip", ToTuple( clip.first, clip.second ) );
+    this->AddArgument( "clip", this->ToTuple( clip.first, clip.second ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::Legend( bool legend )
 {
-    AddArgument( "legend", GetBool( legend ) );
+    this->AddArgument( "legend", GetBool( legend ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::Cumulative( bool cumulative )
 {
-    AddArgument( "cumulative", GetBool( cumulative ) );
+    this->AddArgument( "cumulative", GetBool( cumulative ) );
     return *this;
 }
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::ShadeLowest( bool shadeLowest )
 {
-    AddArgument( "shade_lowest", GetBool( shadeLowest ) );
+    this->AddArgument( "shade_lowest", GetBool( shadeLowest ) );
     return *this;
 }
 

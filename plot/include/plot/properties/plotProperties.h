@@ -43,21 +43,21 @@ public:
 
     inline tReturn &UseColourCycler( const std::string &colourCycler )
     {
-        AddArgument( "color", "next(" + colourCycler + ")" );
+        this->AddArgument( "color", "next(" + colourCycler + ")" );
 
         return static_cast<tBase &>( *this );
     }
 
     inline tReturn &SetWidth( double width )
     {
-        AddArgument( "linewidth", width );
+        this->AddArgument( "linewidth", width );
 
         return static_cast<tBase &>( *this );
     }
 
     inline tReturn &SetLineStyle( const std::string &style )
     {
-        AddArgument( "linestyle", GetString( style ) );
+        this->AddArgument( "linestyle", GetString( style ) );
 
         return static_cast<tBase &>( *this );
     }

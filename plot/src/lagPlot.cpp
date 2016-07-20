@@ -38,6 +38,6 @@ PLOTLIB_INLINE std::string LagPlot::ToString()
 
 PLOTLIB_INLINE LagPlot &LagPlot::SetLag( int32_t lag )
 {
-    AddArgument( "lag", lag );
+    this->AddArgument( "lag", lag );
     return *this;
 }

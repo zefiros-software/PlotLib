@@ -56,161 +56,161 @@ public:
 
     tReturn &SetWidth( double width )
     {
-        AddArgument( "width", width );
+        this->AddArgument( "width", width );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetWidth( const Vec &widths )
     {
-        AddArgument( "width", ToArray( widths ) );
+        this->AddArgument( "width", ToArray( widths ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetBottom( double bottom )
     {
-        AddArgument( "bottom", bottom );
+        this->AddArgument( "bottom", bottom );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetBottom( const Vec &bottoms )
     {
-        AddArgument( "bottom", ToArray( bottoms ) );
+        this->AddArgument( "bottom", ToArray( bottoms ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColour( const std::string &colour )
     {
-        AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetColour( const Vec &colours )
     {
-        AddArgument( "color", ToArray( colours ) );
+        this->AddArgument( "color", ToArray( colours ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetEdgeColour( const std::string &colour )
     {
-        AddArgument( "edgecolor", GetString( colour ) );
+        this->AddArgument( "edgecolor", GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetEdgeColour( const Vec &colours )
     {
-        AddArgument( "edgecolor", ToArray( colours ) );
+        this->AddArgument( "edgecolor", ToArray( colours ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineWidth( double width )
     {
-        AddArgument( "linewidth", width );
+        this->AddArgument( "linewidth", width );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLineWidth( const Vec &widths )
     {
-        AddArgument( "linewidth", ToArray( widths ) );
+        this->AddArgument( "linewidth", ToArray( widths ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetTickLabel( const std::string &label )
     {
-        AddArgument( "tick_label", label );
+        this->AddArgument( "tick_label", label );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetTickLabel( const Vec &labels )
     {
-        AddArgument( "tick_label", ToArray( labels ) );
+        this->AddArgument( "tick_label", ToArray( labels ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetXError( double xerr )
     {
-        AddArgument( "xerr", xerr );
+        this->AddArgument( "xerr", xerr );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetXError( const Vec &xerr )
     {
-        AddArgument( "xerr", ToArray( xerr ) );
+        this->AddArgument( "xerr", ToArray( xerr ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetYError( double yerr )
     {
-        AddArgument( "yerr", yerr );
+        this->AddArgument( "yerr", yerr );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetYError( const Vec &yerr )
     {
-        AddArgument( "yerr", ToArray( yerr ) );
+        this->AddArgument( "yerr", ToArray( yerr ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetErrorColour( const std::string &ecolour )
     {
-        AddArgument( "ecolor", ecolour );
+        this->AddArgument( "ecolor", ecolour );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetErrorColour( const Vec &ecolour )
     {
-        AddArgument( "ecolor", ToArray( ecolour ) );
+        this->AddArgument( "ecolor", ToArray( ecolour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetCapSize( double size )
     {
-        AddArgument( "capsize", size );
+        this->AddArgument( "capsize", size );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetAlign( Align align )
     {
-        AddArgument( "align", GetString( align == Align::Centre ? "center" : "edge" ) );
+        this->AddArgument( "align", GetString( align == Align::Centre ? "center" : "edge" ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetOrientation( Orientation orientation )
     {
-        AddArgument( "align", GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
+        this->AddArgument( "align", GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &Log( bool log )
     {
-        AddArgument( "log", GetBool( log ) );
+        this->AddArgument( "log", GetBool( log ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetHatch( const std::string &hatch )
     {
-        AddArgument( "hatch", GetString( hatch ) );
+        this->AddArgument( "hatch", GetString( hatch ) );
 
         return static_cast<tBase &>( *this );
     }
