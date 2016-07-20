@@ -6,8 +6,8 @@ msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=x64
 msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=x64
 
 cd ../docs/images/
-../../bin/x86/plot-test.exe
-../../bin/x86/plot-testd.exe
+start ../../bin/x86/plot-test.exe
+start ../../bin/x86/plot-testd.exe
 
-../../bin/x86_64/plot-test.exe
-../../bin/x86_64/plot-testd.exe
+start ../../bin/x86_64/plot-test.exe
+start ../../bin/x86_64/plot-testd.exe
