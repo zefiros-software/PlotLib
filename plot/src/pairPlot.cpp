@@ -100,19 +100,19 @@ PLOTLIB_INLINE PairPlot &PairPlot::SetYVars( const std::vector< std::string > &y
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetType( Type type )
 {
-    this->AddArgument( "kind", GetString( type == Type::Scatter ? "scatter" : "reg" ) );
+    this->AddArgument( "kind", this->GetString( type == Type::Scatter ? "scatter" : "reg" ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetDiagonalType( DiagonalType type )
 {
-    this->AddArgument( "diag_kind", GetString( type == DiagonalType::Histogram ? "hist" : "kde" ) );
+    this->AddArgument( "diag_kind", this->GetString( type == DiagonalType::Histogram ? "hist" : "kde" ) );
     return *this;
 }
 
 PLOTLIB_INLINE PairPlot &PairPlot::SetMarker( const std::string &marker )
 {
-    this->AddArgument( "markers", GetString( marker ) );
+    this->AddArgument( "markers", this->GetString( marker ) );
     return *this;
 }
 

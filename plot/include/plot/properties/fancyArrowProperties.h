@@ -92,14 +92,14 @@ public:
     typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetConnectionStyle( ConnectionStyle style )
     {
         this->AddArgument( "connectionstyle"
-                           , GetString( __PlotLibFancyArrowPropertiesConnectionStyle[static_cast<size_t>( style )] ) );
+                           , this->GetString( __PlotLibFancyArrowPropertiesConnectionStyle[static_cast<size_t>( style )] ) );
 
         return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
     typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetArrowStyle( const std::string &style )
     {
-        this->AddArgument( "arrowstyle", GetString( style ) );
+        this->AddArgument( "arrowstyle", this->GetString( style ) );
 
         return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }

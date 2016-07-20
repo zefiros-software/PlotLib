@@ -58,7 +58,7 @@ public:
 
     tReturn &SetMarkerSymbol( const std::string &symbol )
     {
-        this->AddArgument( "sym", GetString( symbol ) );
+        this->AddArgument( "sym", this->GetString( symbol ) );
 
         return static_cast<tBase &>( *this );
     }

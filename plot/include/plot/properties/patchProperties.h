@@ -99,7 +99,7 @@ public:
 
     tReturn &SetColour( const std::string &colour )
     {
-        this->AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", this->GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -127,14 +127,14 @@ public:
 
     tReturn &SetHatch( const std::string &hatch )
     {
-        this->AddArgument( "hatch", GetString( hatch ) );
+        this->AddArgument( "hatch", this->GetString( hatch ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLabel( const std::string &label )
     {
-        this->AddArgument( "label", GetString( label ) );
+        this->AddArgument( "label", this->GetString( label ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -162,14 +162,14 @@ public:
 
     tReturn &SetEdgeColour( const std::string &colour )
     {
-        this->AddArgument( "edgecolor", GetString( colour ) );
+        this->AddArgument( "edgecolor", this->GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFaceColour( const std::string &colour )
     {
-        this->AddArgument( "facecolor", GetString( colour ) );
+        this->AddArgument( "facecolor", this->GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -183,7 +183,7 @@ public:
 
     tReturn &SetUrl( const std::string &url )
     {
-        this->AddArgument( "url", GetString( url ) );
+        this->AddArgument( "url", this->GetString( url ) );
 
         return static_cast<tBase &>( *this );
     }

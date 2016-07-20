@@ -52,7 +52,7 @@ PLOTLIB_INLINE SpyPlot &SpyPlot::SetPrecision( double precision )
 
 PLOTLIB_INLINE SpyPlot &SpyPlot::SetOrigin( Origin origin )
 {
-    this->AddArgument( "origin", GetString( origin == Origin::Lower ? "lower" : "upper" ) );
+    this->AddArgument( "origin", this->GetString( origin == Origin::Lower ? "lower" : "upper" ) );
     return *this;
 }
 

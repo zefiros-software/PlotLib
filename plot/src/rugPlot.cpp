@@ -44,7 +44,7 @@ PLOTLIB_INLINE RUGPlot &RUGPlot::SetHeight( double height )
 
 PLOTLIB_INLINE RUGPlot &RUGPlot::SetAxis( Axis axis )
 {
-    this->AddArgument( "axis", GetString( axis == Axis::X ? "X" : "Y" ) );
+    this->AddArgument( "axis", this->GetString( axis == Axis::X ? "X" : "Y" ) );
     return *this;
 }
 

@@ -159,19 +159,19 @@ public:
 
     tReturn &SetStyle( Style style )
     {
-        this->AddArgument( "style", GetString( __PlotLibFontPropertiesStyle[static_cast<size_t>( style )] ) );
+        this->AddArgument( "style", this->GetString( __PlotLibFontPropertiesStyle[static_cast<size_t>( style )] ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetVariant( Variant variant )
     {
-        this->AddArgument( "variantvariant", GetString( __PlotLibFontPropertiesVariant[static_cast<size_t>( variant )] ) );
+        this->AddArgument( "variantvariant", this->GetString( __PlotLibFontPropertiesVariant[static_cast<size_t>( variant )] ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetStretch( Stretch stretch )
     {
-        this->AddArgument( "stretch", GetString( __PlotLibFontPropertiesStrech[static_cast<size_t>( stretch )] ) );
+        this->AddArgument( "stretch", this->GetString( __PlotLibFontPropertiesStrech[static_cast<size_t>( stretch )] ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -183,7 +183,7 @@ public:
 
     tReturn &SetWeight( Weight weight )
     {
-        this->AddArgument( "weight", GetString( __PlotLibFontPropertiesWeight[static_cast<size_t>( weight )] ) );
+        this->AddArgument( "weight", this->GetString( __PlotLibFontPropertiesWeight[static_cast<size_t>( weight )] ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -195,7 +195,7 @@ public:
 
     tReturn &SetSize( Size size )
     {
-        this->AddArgument( "size", GetString( __PlotLibFontPropertiesSize[static_cast<size_t>( size )] ) );
+        this->AddArgument( "size", this->GetString( __PlotLibFontPropertiesSize[static_cast<size_t>( size )] ) );
         return static_cast<tBase &>( *this );
     }
 

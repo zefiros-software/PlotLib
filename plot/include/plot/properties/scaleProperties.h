@@ -64,7 +64,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            this->AddArgument( "value", GetString( "linear" ) );
+            this->AddArgument( "value", this->GetString( "linear" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -89,7 +89,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            this->AddArgument( "value", GetString( "log" ) );
+            this->AddArgument( "value", this->GetString( "log" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -112,7 +112,7 @@ public:
 
     tReturn &SetNonPosY( NonPos nonpos )
     {
-        this->AddArgument( "nonposy", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument( "nonposy", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -134,7 +134,7 @@ public:
 
     tReturn &SetNonPosX( NonPos nonpos )
     {
-        this->AddArgument( "nonposx", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument( "nonposx", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -158,7 +158,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            this->AddArgument( "value", GetString( "logit" ) );
+            this->AddArgument( "value", this->GetString( "logit" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );
@@ -166,7 +166,7 @@ public:
 
     tReturn &SetNonPos( NonPos nonpos )
     {
-        this->AddArgument( "nonpos", GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument( "nonpos", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -185,7 +185,7 @@ public:
     {
         if ( PlotLib::Identity( IsBase ) )
         {
-            this->AddArgument( "value", GetString( "symlog" ) );
+            this->AddArgument( "value", this->GetString( "symlog" ) );
         }
 
         return AbstractPlot::ToString( mStream.str() );

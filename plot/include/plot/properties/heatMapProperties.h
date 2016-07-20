@@ -82,7 +82,7 @@ public:
 
     tReturn &SetFormat( const std::string &fmt )
     {
-        this->AddArgument( "fmt", GetString( fmt ) );
+        this->AddArgument( "fmt", this->GetString( fmt ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -94,7 +94,7 @@ public:
 
     tReturn &SetLineColour( const std::string &colour )
     {
-        this->AddArgument( "linecolor", GetString( colour ) );
+        this->AddArgument( "linecolor", this->GetString( colour ) );
         return static_cast<tBase &>( *this );
     }
 

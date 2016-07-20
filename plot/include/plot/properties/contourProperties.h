@@ -135,7 +135,7 @@ public:
 
     tReturn &SetColour( const std::string &colour )
     {
-        this->AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", this->GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }

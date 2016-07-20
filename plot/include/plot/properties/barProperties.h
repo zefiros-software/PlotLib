@@ -84,7 +84,7 @@ public:
 
     tReturn &SetColour( const std::string &colour )
     {
-        this->AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", this->GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -98,7 +98,7 @@ public:
 
     tReturn &SetEdgeColour( const std::string &colour )
     {
-        this->AddArgument( "edgecolor", GetString( colour ) );
+        this->AddArgument( "edgecolor", this->GetString( colour ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -189,14 +189,14 @@ public:
 
     tReturn &SetAlign( Align align )
     {
-        this->AddArgument( "align", GetString( align == Align::Centre ? "center" : "edge" ) );
+        this->AddArgument( "align", this->GetString( align == Align::Centre ? "center" : "edge" ) );
 
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetOrientation( Orientation orientation )
     {
-        this->AddArgument( "align", GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
+        this->AddArgument( "align", this->GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -210,7 +210,7 @@ public:
 
     tReturn &SetHatch( const std::string &hatch )
     {
-        this->AddArgument( "hatch", GetString( hatch ) );
+        this->AddArgument( "hatch", this->GetString( hatch ) );
 
         return static_cast<tBase &>( *this );
     }

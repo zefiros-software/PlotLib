@@ -68,13 +68,13 @@ PLOTLIB_INLINE ResidualPlot &ResidualPlot::Robust( bool robust )
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetLabel( const std::string &label )
 {
-    this->AddArgument( "label", GetString( label ) );
+    this->AddArgument( "label", this->GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetColour( const std::string &colour )
 {
-    this->AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", this->GetString( colour ) );
     return *this;
 }
 

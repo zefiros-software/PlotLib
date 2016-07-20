@@ -143,7 +143,7 @@ public:
 
     tReturn &SetEdgeColour( const std::string &colour )
     {
-        this->AddArgument( "edgecolor", GetString( colour ) );
+        this->AddArgument( "edgecolor", this->GetString( colour ) );
 
         return static_cast<tReturn &>( *this );
     }

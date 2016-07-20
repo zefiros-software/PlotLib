@@ -72,7 +72,7 @@ public:
 
     tReturn &SetOrientation( Orientation orientation )
     {
-        this->AddArgument( "orientation", GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
+        this->AddArgument( "orientation", this->GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -121,7 +121,7 @@ public:
 
     tReturn &SetExtend( Extend extend )
     {
-        this->AddArgument( "extend", GetString( __PlotLibColourBarPropertiesExtend[static_cast<size_t>( extend )] ) );
+        this->AddArgument( "extend", this->GetString( __PlotLibColourBarPropertiesExtend[static_cast<size_t>( extend )] ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -135,7 +135,7 @@ public:
 
     tReturn &SetSpacing( Spacing spacing )
     {
-        this->AddArgument( "spacing", GetString( spacing == Spacing::Proportional ? "proportional" : "uniform" ) );
+        this->AddArgument( "spacing", this->GetString( spacing == Spacing::Proportional ? "proportional" : "uniform" ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -149,7 +149,7 @@ public:
 
     tReturn &SetFormat( const std::string &fmt )
     {
-        this->AddArgument( "fmt", GetString( fmt ) );
+        this->AddArgument( "fmt", this->GetString( fmt ) );
 
         return static_cast<tBase &>( *this );
     }

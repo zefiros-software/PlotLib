@@ -82,7 +82,7 @@ public:
 
     tReturn &SetBackgroundColour( const std::string &colour )
     {
-        this->AddArgument( "backgroundcolor", GetString( colour ) );
+        this->AddArgument( "backgroundcolor", this->GetString( colour ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -95,13 +95,13 @@ public:
 
     tReturn &SetColour( const std::string &colour )
     {
-        this->AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", this->GetString( colour ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetFamily( const std::string &family )
     {
-        this->AddArgument( "family", GetString( family ) );
+        this->AddArgument( "family", this->GetString( family ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -114,25 +114,25 @@ public:
     tReturn &SetHorizontalAlignment( Alignment alignment )
     {
         this->AddArgument( "horizontalalignment",
-                     GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
+                     this->GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetLabel( const std::string &label )
     {
-        this->AddArgument( "label", GetString( label ) );
+        this->AddArgument( "label", this->GetString( label ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetText( const std::string &text )
     {
-        this->AddArgument( "text", GetString( text ) );
+        this->AddArgument( "text", this->GetString( text ) );
         return static_cast<tBase &>( *this );
     }
 
     tReturn &SetUrl( const std::string &url )
     {
-        this->AddArgument( "url", GetString( url ) );
+        this->AddArgument( "url", this->GetString( url ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -151,7 +151,7 @@ public:
     tReturn &SetMultiAlignment( Alignment alignment )
     {
         this->AddArgument( "multialignment",
-                     GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
+                     this->GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
         return static_cast<tBase &>( *this );
     }
 
@@ -176,7 +176,7 @@ public:
     tReturn &SetRotation( Rotation rotation )
     {
         this->AddArgument( "rotation",
-                     GetString( __PlotLibTextPropertiesRotation[static_cast<size_t>( rotation )] ) );
+                     this->GetString( __PlotLibTextPropertiesRotation[static_cast<size_t>( rotation )] ) );
         return static_cast<tBase &>( *this );
     }
 

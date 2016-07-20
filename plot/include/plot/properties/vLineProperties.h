@@ -65,7 +65,7 @@ public:
 
     PLOTLIB_INLINE VLineProperties &SetColour( const std::string &colour )
     {
-        mColour = GetString( colour );
+        mColour = this->GetString( colour );
         return *this;
     }
 

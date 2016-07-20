@@ -123,35 +123,35 @@ public:
 
     tReturn &SetColour( const std::string &colour )
     {
-        this->AddArgument( "color", GetString( colour ) );
+        this->AddArgument( "color", this->GetString( colour ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetDashCapStyle( CapStyle style )
     {
-        this->AddArgument( "dash_capstyle", GetString( GetCapStyle( style ) ) );
+        this->AddArgument( "dash_capstyle", this->GetString( GetCapStyle( style ) ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetDashJoinStyle( JoinStyle style )
     {
-        this->AddArgument( "dash_joinstyle", GetString( GetJoinStyle( style ) ) );
+        this->AddArgument( "dash_joinstyle", this->GetString( GetJoinStyle( style ) ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetSolidCapStyle( CapStyle style )
     {
-        this->AddArgument( "solid_capstyle", GetString( GetCapStyle( style ) ) );
+        this->AddArgument( "solid_capstyle", this->GetString( GetCapStyle( style ) ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetSolidJoinStyle( JoinStyle style )
     {
-        this->AddArgument( "solid_joinstyle", GetString( GetJoinStyle( style ) ) );
+        this->AddArgument( "solid_joinstyle", this->GetString( GetJoinStyle( style ) ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -179,7 +179,7 @@ public:
 
     tReturn &SetLabel( const std::string &label )
     {
-        this->AddArgument( "label", GetString( label ) );
+        this->AddArgument( "label", this->GetString( label ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -207,28 +207,28 @@ public:
 
     tReturn &SetMarker( const std::string &marker )
     {
-        this->AddArgument( "marker", GetString( marker ) );
+        this->AddArgument( "marker", this->GetString( marker ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetMarkerEdgeColour( const std::string &colour )
     {
-        this->AddArgument( "markeredgecolor", GetString( colour ) );
+        this->AddArgument( "markeredgecolor", this->GetString( colour ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetMarkerFaceColour( const std::string &colour )
     {
-        this->AddArgument( "markerfacecolor", GetString( colour ) );
+        this->AddArgument( "markerfacecolor", this->GetString( colour ) );
 
         return static_cast<tReturn &>( *this );
     }
 
     tReturn &SetMarkerFaceColourAlt( const std::string &colour )
     {
-        this->AddArgument( "markerfacecoloralt", GetString( colour ) );
+        this->AddArgument( "markerfacecoloralt", this->GetString( colour ) );
 
         return static_cast<tReturn &>( *this );
     }
@@ -298,7 +298,7 @@ public:
 
     tReturn &SetUrl( const std::string &url )
     {
-        this->AddArgument( "url", GetString( url ) );
+        this->AddArgument( "url", this->GetString( url ) );
 
         return static_cast<tReturn &>( *this );
     }

@@ -81,19 +81,19 @@ PLOTLIB_INLINE DistrPlot &DistrPlot::NormHist( bool normHist )
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetLabel( const std::string &label )
 {
-    this->AddArgument( "label", GetString( label ) );
+    this->AddArgument( "label", this->GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxisLabel( const std::string &label )
 {
-    this->AddArgument( "axlabel", GetString( label ) );
+    this->AddArgument( "axlabel", this->GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE DistrPlot &DistrPlot::SetColour( const std::string &colour )
 {
-    this->AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", this->GetString( colour ) );
 
     return *this;
 }

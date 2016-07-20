@@ -51,7 +51,7 @@ PLOTLIB_INLINE KDEPlot &KDEPlot::Vertical( bool vertical )
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetKernel( Kernel kernel )
 {
-    this->AddArgument( "kernel", GetString( GetKernel( kernel ) ) );
+    this->AddArgument( "kernel", this->GetString( GetKernel( kernel ) ) );
     return *this;
 }
 
@@ -69,7 +69,7 @@ PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( double scalar )
 
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( BW bw )
 {
-    this->AddArgument( "bw", GetString( GetBW( bw ) ) );
+    this->AddArgument( "bw", this->GetString( GetBW( bw ) ) );
     return *this;
 }
 

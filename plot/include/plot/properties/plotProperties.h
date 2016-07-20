@@ -57,7 +57,7 @@ public:
 
     inline tReturn &SetLineStyle( const std::string &style )
     {
-        this->AddArgument( "linestyle", GetString( style ) );
+        this->AddArgument( "linestyle", this->GetString( style ) );
 
         return static_cast<tBase &>( *this );
     }

@@ -56,19 +56,19 @@ PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const Vec &scalar )
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetColour( const std::string &colour )
 {
-    this->AddArgument( "cmap", GetString( colour ) );
+    this->AddArgument( "cmap", this->GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetEdgeColour( const std::string &colour )
 {
-    this->AddArgument( "edgecolors", GetString( colour ) );
+    this->AddArgument( "edgecolors", this->GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetMarker( const std::string &marker )
 {
-    this->AddArgument( "marker", GetString( marker ) );
+    this->AddArgument( "marker", this->GetString( marker ) );
     return *this;
 }
 

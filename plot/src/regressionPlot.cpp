@@ -144,18 +144,18 @@ PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYJitter( double jitter )
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLabel( const std::string &label )
 {
-    this->AddArgument( "label", GetString( label ) );
+    this->AddArgument( "label", this->GetString( label ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetColour( const std::string &colour )
 {
-    this->AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", this->GetString( colour ) );
     return *this;
 }
 
 PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetMarker( const std::string &marker )
 {
-    this->AddArgument( "marker", GetString( marker ) );
+    this->AddArgument( "marker", this->GetString( marker ) );
     return *this;
 }

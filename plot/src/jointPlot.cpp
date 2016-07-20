@@ -40,7 +40,7 @@ PLOTLIB_INLINE std::string JointPlot::ToString()
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
 {
-    this->AddArgument( "kind", GetString( GetKind( kind ) ) );
+    this->AddArgument( "kind", this->GetString( GetKind( kind ) ) );
     return *this;
 }
 
@@ -76,7 +76,7 @@ PLOTLIB_INLINE JointPlot &JointPlot::SetYLimit( const std::pair<double, double> 
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetColour( const std::string &colour )
 {
-    this->AddArgument( "color", GetString( colour ) );
+    this->AddArgument( "color", this->GetString( colour ) );
     return *this;
 }
 
