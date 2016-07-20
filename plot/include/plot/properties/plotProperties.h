@@ -41,21 +41,22 @@ class PlotProperties
 {
 public:
 
-    inline tReturn &UseColourCycler( const std::string &colourCycler )
+    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &UseColourCycler(
+        const std::string &colourCycler )
     {
         this->AddArgument( "color", "next(" + colourCycler + ")" );
 
         return static_cast<tBase &>( *this );
     }
 
-    inline tReturn &SetWidth( double width )
+    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth( double width )
     {
         this->AddArgument( "linewidth", width );
 
         return static_cast<tBase &>( *this );
     }
 
-    inline tReturn &SetLineStyle( const std::string &style )
+    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLineStyle( const std::string &style )
     {
         this->AddArgument( "linestyle", this->GetString( style ) );
 

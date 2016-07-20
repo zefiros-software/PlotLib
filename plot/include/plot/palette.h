@@ -298,6 +298,11 @@ public:
         mStream << GetColour( colour, type );
     }
 
+    ColourMap( const ColourMap &colourMap )
+    {
+        mStream << colourMap.mStream.str();
+    }
+
     virtual std::string ToString() const;
 
     template< typename tT >
