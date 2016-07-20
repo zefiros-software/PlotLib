@@ -1,5 +1,4 @@
 premake5 install-package --allow-install --allow-module
-find assets/
 premake5 gmake
 make config=debug_x86
 make config=debug_x86_64
