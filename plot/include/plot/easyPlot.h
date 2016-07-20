@@ -26,8 +26,10 @@
 
 #pragma once
 #ifndef __EASYPLOT_H__
+
 #define __EASYPLOT_H__
 
+#include "plot/distancedBarPlot.h"
 #include "plot/scatterPlot.h"
 #include "plot/linePlot.h"
 #include "plot/barPlot.h"
