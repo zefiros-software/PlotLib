@@ -24,4 +24,8 @@
 
 dofile( "assets/Zefiros-Software/PlotLib/Zefiros-Software/Anaconda/anaconda.lua" )
 
-os.execute( "pip install mkdocs -U" )
+if os.get() == "windows" then
+    os.execute( "echo yes | pip install mkdocs -U" )
+else
+    os.execute( "yes | pip install mkdocs -U" )
+end
