@@ -24,4 +24,8 @@
 
 dofile( "assets/Zefiros-Software/PlotLib/Zefiros-Software/Anaconda/anaconda.lua" )
 
-os.execute( "conda install seaborn -y" )
+if os.get() == "windows" then
+    os.execute( "echo yes | pip install seaborn -U" )
+else
+    os.execute( "yes | pip install seaborn -U" )
+end
