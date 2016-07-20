@@ -108,8 +108,6 @@ public:
 
 private:
 
-    std::stringstream mStream;
-
     std::string GetScale( Scale scale ) const;
 
     std::string GetInterior( Interior inner ) const;

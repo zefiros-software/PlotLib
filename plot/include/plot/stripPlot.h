@@ -73,10 +73,6 @@ public:
     StripPlot &SetEdgdeColour( const std::string &colour );
 
     StripPlot &SetLineWidth( double width );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

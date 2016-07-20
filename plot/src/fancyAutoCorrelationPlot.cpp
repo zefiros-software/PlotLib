@@ -26,12 +26,12 @@
 
 #include "plot/fancyAutoCorrelationPlot.h"
 
-FancyAutoCorrelationPlot::FancyAutoCorrelationPlot( const Vec &vec )
+PLOTLIB_INLINE FancyAutoCorrelationPlot::FancyAutoCorrelationPlot( const Vec &vec )
 {
     mStream << "autocorrelation_plot(" << ToArray( vec );
 }
 
-std::string FancyAutoCorrelationPlot::ToString()
+PLOTLIB_INLINE std::string FancyAutoCorrelationPlot::ToString()
 {
     return mStream.str() + ")";
 }

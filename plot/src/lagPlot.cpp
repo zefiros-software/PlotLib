@@ -26,17 +26,17 @@
 
 #include "plot/lagPlot.h"
 
-LagPlot::LagPlot( const Vec &vec )
+PLOTLIB_INLINE LagPlot::LagPlot( const Vec &vec )
 {
     mStream << "lag_plot(pd.Series(" << ToArray( vec ) << ")";
 }
 
-std::string LagPlot::ToString()
+PLOTLIB_INLINE std::string LagPlot::ToString()
 {
     return mStream.str() + ")";
 }
 
-LagPlot &LagPlot::SetLag( int32_t lag )
+PLOTLIB_INLINE LagPlot &LagPlot::SetLag( int32_t lag )
 {
     AddArgument( "lag", lag );
     return *this;

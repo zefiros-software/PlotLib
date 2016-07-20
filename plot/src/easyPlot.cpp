@@ -50,7 +50,7 @@ PLOTLIB_INLINE void EasyPlot::ResidualPlot( ::Plot &plot, const Vec &exogenous, 
     .SetXLabel( "X-Samples" )
     .SetYLabel( "Norm Residual" )
     .SetLegend( { "Residual" } )
-    .SetYScale( Plot::Scale::Symlog )
+    .SetYScale( SymLogScale() )
     .SetXLimit( exogenous.Min(), exogenous.Max() );
     plot.SetTightLayout();
 }

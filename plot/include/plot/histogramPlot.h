@@ -94,8 +94,6 @@ public:
 
 private:
 
-    std::stringstream mStream;
-
     std::string GetType( Type type );
 
     std::string GetAlignment( Alignment align );

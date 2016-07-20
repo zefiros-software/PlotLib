@@ -55,13 +55,13 @@ PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetTextCoordinates( Type type )
     return *this;
 }
 
-AnnotatePlot &AnnotatePlot::SetArrowProps( FancyArrow &props )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps( FancyArrow &props )
 {
     AddArgument( "arrowprops", props.ToString() );
     return *this;
 }
 
-AnnotatePlot &AnnotatePlot::SetArrowProps( YArrow &props )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps( YArrow &props )
 {
     AddArgument( "arrowprops", props.ToString() );
     return *this;

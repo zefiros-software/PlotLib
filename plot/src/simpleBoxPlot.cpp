@@ -26,12 +26,12 @@
 
 #include "plot/simpleBoxPlot.h"
 
-SimpleBoxPlot::SimpleBoxPlot( const ::Mat &x )
+PLOTLIB_INLINE SimpleBoxPlot::SimpleBoxPlot( const ::Mat &x )
 {
     mStream << "plt.boxplot(" << ToArray( x );
 }
 
-std::string SimpleBoxPlot::ToString()
+PLOTLIB_INLINE std::string SimpleBoxPlot::ToString()
 {
     if ( mIsDictionary )
     {

@@ -26,12 +26,12 @@
 
 #include "plot/simpleBarPlot.h"
 
-SimpleBarPlot::SimpleBarPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE SimpleBarPlot::SimpleBarPlot( const Vec &x, const Vec &y )
 {
     mStream << "plt.bar(" << ToArray( x ) << "," << ToArray( y );
 }
 
-std::string SimpleBarPlot::ToString()
+PLOTLIB_INLINE std::string SimpleBarPlot::ToString()
 {
     if ( mIsDictionary )
     {

@@ -1,14 +1,30 @@
 [
     {
         "project": "PlotLib",
+        "options": {
+            "HeaderOnly": false
+        },
         "do":
         [
             {"kind": "StaticLib"},
-            {"flags": [ "C++11" ] },
-            {"headeronly": true},
+            {"language": "C++11"},
             {"export": [
                 {"includedirs": "plot/include/"}                        
-            ]}
+            ]},
+            {
+                "filter-options": {
+                    "HeaderOnly": false
+                },
+                "do":
+                [
+                    {"defines": "PLOTLIB_NO_HEADER_ONLY"},
+                    {"files": [ "plot/src" ] }
+                ],
+                "otherwise":
+                [                    
+                    {"headeronly": true}
+                ]
+            }
         ]
     }
 ]    

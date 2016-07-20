@@ -82,10 +82,6 @@ public:
     PointPlot &SetErrorWidth( double width );
 
     PointPlot &SetCapSize( double size );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

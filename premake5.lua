@@ -27,8 +27,9 @@ local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
 workspace "PlotLib"
 
 	zefiros.setDefaults( "plot", {
-		headerOnly = true
-    }  )
+		headerOnly = true,
+        noHeaderOnlySwitch = "PLOTLIB_NO_HEADER_ONLY"
+    } )
 
 	floatingpoint "Fast"
     defines "PLOTLIB_ARMA"

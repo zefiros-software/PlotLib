@@ -232,21 +232,6 @@ PLOTLIB_INLINE Plot &Plot::SetPalette( const Palette &palette )
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetYScale( Scale scale )
-{
-    mStream << "plt.yscale('" << GetScale( scale ) << "')\n";
-
-    return *this;
-}
-
-PLOTLIB_INLINE Plot &Plot::SetYScaleSymLog( double linthreshy, double linscaley )
-{
-    mStream << "plt.yscale('" << GetScale( Scale::Symlog ) << "', linthreshy=" << linthreshy << ", linscaley=" << linscaley
-            << ")\n";
-
-    return *this;
-}
-
 PLOTLIB_INLINE Plot &Plot::AddPlot( AbstractPlot &plot )
 {
     mStream << "\n" << plot.ToString() << "\n";
@@ -377,26 +362,6 @@ PLOTLIB_INLINE std::string Plot::GetContext( Context context )
 
     case Context::Poster:
         return "poster";
-    }
-
-    return "";
-}
-
-PLOTLIB_INLINE std::string Plot::GetScale( Scale scale )
-{
-    switch ( scale )
-    {
-    case Scale::Linear:
-        return "linear";
-
-    case Scale::Log:
-        return "log";
-
-    case Scale::Logit:
-        return "logit";
-
-    case Scale::Symlog:
-        return "symlog";
     }
 
     return "";

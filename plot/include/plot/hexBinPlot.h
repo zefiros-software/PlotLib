@@ -85,8 +85,6 @@ public:
 
 private:
 
-    std::stringstream mStream;
-
     static std::string GetScale( Scale scale );
 };
 

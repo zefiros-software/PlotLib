@@ -69,10 +69,6 @@ public:
     FactorBarPlot &SetSaturation( double sat );
 
     FactorBarPlot &SetErrorColour( const std::string &colour );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

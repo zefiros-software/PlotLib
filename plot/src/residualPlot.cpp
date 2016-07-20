@@ -78,13 +78,13 @@ PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetColour( const std::string &colour 
     return *this;
 }
 
-ResidualPlot &ResidualPlot::SetScatter( Scatter &scatter )
+PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetScatter( Scatter &scatter )
 {
     AddArgument( "scatter_kws", scatter.ToString() );
     return *this;
 }
 
-ResidualPlot &ResidualPlot::SetLine( Line &scatter )
+PLOTLIB_INLINE ResidualPlot &ResidualPlot::SetLine( Line &scatter )
 {
     AddArgument( "line_kws", scatter.ToString() );
     return *this;

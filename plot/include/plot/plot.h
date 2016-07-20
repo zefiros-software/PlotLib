@@ -28,6 +28,7 @@
 #ifndef __PLOT_H__
 #define __PLOT_H__
 
+#include "plot/properties/scaleProperties.h"
 #include "plot/abstractPlot.h"
 #include "plot/palette.h"
 
@@ -47,14 +48,6 @@ public:
         Dark,
         White,
         Ticks
-    };
-
-    enum class Scale
-    {
-        Linear,
-        Log,
-        Logit,
-        Symlog
     };
 
     enum class Context
@@ -149,9 +142,13 @@ public:
 
     Plot &SetPalette( const Palette &palette );
 
-    Plot &SetYScale( Scale scale );
+    template< typename tScale >
+    Plot &SetYScale( const tScale &scale )
+    {
+        mStream << const_cast< tScale & >( scale ).ToString() << "\n";
 
-    Plot &SetYScaleSymLog( double linthreshy, double linscaley );
+        return *this;
+    }
 
     Plot &AddPlot( AbstractPlot &plot );
 
@@ -189,8 +186,6 @@ protected:
     bool mHasColourCycler;
 
     static std::string GetContext( Context context );
-
-    static std::string GetScale( Scale scale );
 
     static std::string GetLocation( Location location );
 

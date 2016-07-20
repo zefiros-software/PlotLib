@@ -71,10 +71,6 @@ public:
     SwarmPlot &SetEdgeColour( const std::string &colour );
 
     SwarmPlot &SetLineWidth( double width );
-
-private:
-
-    std::stringstream mStream;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
