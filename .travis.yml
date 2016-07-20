@@ -12,20 +12,4 @@ matrix:
 install:
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
 script:
-    - premake5 gmake
-    - make config=debug_x86
-    - make config=debug_x86_64
-    - make config=release_x86
-    - make config=release_x86_64
-    - make config=coverage_x86
-    - make config=coverage_x86_64
-
-    - cd ../bin/x86/
-    - ./plot-test
-    - ./plot-testd
-    - ./plot-testcd
-
-    - cd ../x86_64/
-    - ./plot-test
-    - ./plot-testd
-    - ./plot-testcd
+    - ./script/travis-build.sh
