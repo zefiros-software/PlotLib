@@ -295,9 +295,9 @@ PLOTLIB_INLINE Plot &Plot::Show()
     ss.close();
 
 #ifdef _WIN32
-    system( "python plot.in" );
+    assert( system( "python plot.in" ) == 0 );
 #else
-    system( "python3.5 plot.in" );
+    assert( system( "python3.5 plot.in" ) == 0 );
 #endif
     return *this;
 }
@@ -318,9 +318,9 @@ PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
     ss.close();
 
 #ifdef _WIN32
-    system( "python plot.in" );
+    assert( system( "python plot.in" ) == 0 );
 #else
-    system( "python3.5 plot.in" );
+    assert( system( "python3.5 plot.in" ) == 0 );
 #endif
 
     return *this;
