@@ -26,10 +26,6 @@
 
 #include "helper.h"
 
-#pragma once
-#ifndef __TESTMAT_H__
-#define __TESTMAT_H__
-
 TEST( Mat, ConstructVec )
 {
     ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
@@ -214,5 +210,3 @@ TEST( Mat, ConstructMapCheckDim )
     { {1, "1"}, {2, "2"}, {3, "3"} } ),
     "Assertion failed: vec.size\\(\\) == size" );
 }
-
-#endif

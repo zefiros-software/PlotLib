@@ -7,7 +7,8 @@
         "do":
         [
             {"kind": "StaticLib"},
-            {"language": "C++11"},
+            {"language": "C++"},
+            {"flags": "C++11"},
             {"export": [
                 {"includedirs": "plot/include/"}                        
             ]},

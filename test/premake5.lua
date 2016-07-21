@@ -29,8 +29,10 @@ workspace "PlotLib"
 
     zpm.buildLibraries()
     
-	project "plot-test"
+	project "plot-zpm-test"
 
+        location "tests/zpm/"
+        objdir "bin/obj/"
 		kind "ConsoleApp"
 		flags "WinMain"
 
