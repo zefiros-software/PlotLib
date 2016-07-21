@@ -298,9 +298,6 @@ public:
         mStream << GetColour( colour, type );
     }
 
-    template<>
-    ColourMap( Palette colour, ColourType type ) = delete;
-
     ColourMap( const ColourMap &colourMap )
     {
         mStream << colourMap.mStream.str();
