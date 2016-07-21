@@ -86,6 +86,7 @@ PLOTLIB_INLINE std::string Palette::GetPalette( Type palette ) const
     case Type::Custom:
         return "'" + mCustomType + "'";
 
+    case Type::Integer:
     case Type::ColorPallette:
         return mCustomType;
 

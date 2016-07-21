@@ -28,12 +28,11 @@
 #ifndef __PREDICTION_HELPER_H__
 #define __PREDICTION_HELPER_H__
 
-#define CONCATEXT( a, b ) a##b
+#define CONCATEXT( a, b ) a ## b
 #define CONCAT( a, b ) CONCATEXT( a, b )
-#define PX( prefix ) CONCAT( PREFIX, prefix )
 #define GTEST_DONT_DEFINE_TEST 1
 
-# define TEST(test_case_name, test_name) GTEST_TEST( PX( test_case_name ), test_name)
+# define TEST(test_case_name, test_name) GTEST_TEST( CONCAT( PREFIX, test_case_name ), test_name)
 
 #include <armadillo>
 
