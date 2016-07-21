@@ -363,7 +363,7 @@ public:
     }
 
     Palette( const Palette &palette )
-        : ColourMap( palette ),
+        : ColourMap( static_cast< const ColourMap &>( palette ) ),
           mArguments( palette.mArguments.str() ),
           mCustomType( palette.mCustomType ),
           mType( palette.mType )
