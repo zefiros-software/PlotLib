@@ -50,7 +50,7 @@
     "assets": [
         {
             "name": "Zefiros-Software/Anaconda",
-            "version": ">=4.0.0"
+            "version": "@head"
         }
     ],
     "install": "install/plotlib.lua"

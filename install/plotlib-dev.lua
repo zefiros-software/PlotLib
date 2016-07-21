@@ -24,8 +24,6 @@
 
 dofile( "assets/Zefiros-Software/PlotLib/Zefiros-Software/Anaconda/anaconda.lua" )
 
-if os.get() == "windows" then
-    os.execute( "echo yes | pip install mkdocs -U" )
-else
-    os.execute( "yes | pip install mkdocs -U" )
-end
+local anaBin = os.get() == "windows" and os.getenv("UserProfile") .. "/zpm-anaconda/Scripts/" or os.getenv("HOME") .. "/zpm-anaconda/Scripts/"
+
+os.executef( "%spip install mkdocs -U", anaBin )

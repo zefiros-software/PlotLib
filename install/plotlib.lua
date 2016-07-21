@@ -24,9 +24,8 @@
 
 dofile( "assets/Zefiros-Software/PlotLib/Zefiros-Software/Anaconda/anaconda.lua" )
 
-if os.get() == "windows" then
-    os.execute( "echo yes | pip install seaborn -U --no-dependencies" )
-else
-    os.execute( "yes | pip install seaborn -U --no-dependencies" )
-end
-os.execute( "conda install matplotlib -y" )
+local anaBin = os.get() == "windows" and os.getenv("UserProfile") .. "/zpm-anaconda/Scripts/" or os.getenv("HOME") .. "/zpm-anaconda/Scripts/"
+
+os.executef( "%spip install seaborn -U --no-dependencies", anaBin )
+
+os.executef( "%sconda install matplotlib -y", anaBin )
