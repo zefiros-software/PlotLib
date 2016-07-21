@@ -298,6 +298,9 @@ public:
         mStream << GetColour( colour, type );
     }
 
+    template<>
+    ColourMap( Palette colour, ColourType type ) = delete;
+
     ColourMap( const ColourMap &colourMap )
     {
         mStream << colourMap.mStream.str();
@@ -360,10 +363,10 @@ public:
     }
 
     Palette( const Palette &palette )
-        :  mArguments( palette.mArguments.str() ),
-           mCustomType( palette.mCustomType ),
-           mType( palette.mType ),
-           ColourMap( palette )
+        : ColourMap( palette ),
+          mArguments( palette.mArguments.str() ),
+          mCustomType( palette.mCustomType ),
+          mType( palette.mType )
     {
     }
 
