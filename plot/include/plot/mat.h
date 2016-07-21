@@ -33,12 +33,15 @@
 #include <vector>
 #include <map>
 
-
 #ifdef PLOTLIB_ARMA
-#pragma warning(push)
-#pragma warning(disable : 4702)
+#   ifdef WIN32
+#       pragma warning(push)
+#       pragma warning(disable : 4702)
+#   endif
 #include <armadillo>
-#pragma warning(pop)
+#   ifdef WIN32
+#       pragma warning(pop)
+#   endif
 #endif
 
 class Mat
