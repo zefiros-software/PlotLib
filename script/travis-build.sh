@@ -12,6 +12,7 @@ make config=release_x86_64
 
 cd ../test/
 
+premake5 gmake
 make
 
 cd ../docs/images/

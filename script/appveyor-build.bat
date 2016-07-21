@@ -5,6 +5,8 @@ msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=Win32 
 msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=x64 || exit /b
 msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=x64 || exit /b
 
+cd test/
+premake5 vs2015 || exit /b
 msbuild test/PlotLib-ZPM.sln || exit /b
 
 cd ../docs/images/ || exit /b
