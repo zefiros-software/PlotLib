@@ -1,3 +1,5 @@
+set -e
+
 premake5 install-package --allow-install --allow-module
 premake5 gmake
 cd plot

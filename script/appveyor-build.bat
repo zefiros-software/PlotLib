@@ -1,17 +1,17 @@
-premake5 install-package --allow-install --allow-module
-premake5 vs2015
-msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=Win32
-msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=Win32
-msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=x64
-msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=x64
+premake5 install-package --allow-install --allow-module  || exit /b
+premake5 vs2015 || exit /b
+msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=Win32 || exit /b
+msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=Win32 || exit /b
+msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=x64 || exit /b
+msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=x64 || exit /b
 
-msbuild test/PlotLib-ZPM.sln
+msbuild test/PlotLib-ZPM.sln || exit /b
 
-cd ../docs/images/
-start ../../bin/x86/plot-test.exe
-start ../../bin/x86/plot-testd.exe
+cd ../docs/images/ || exit /b
+start ../../bin/x86/plot-test.exe || exit /b
+start ../../bin/x86/plot-testd.exe || exit /b
 
-start ../../bin/x86_64/plot-test.exe
-start ../../bin/x86_64/plot-testd.exe
+start ../../bin/x86_64/plot-test.exe || exit /b
+start ../../bin/x86_64/plot-testd.exe || exit /b
 
-start ../../bin/x86/plot-zpm-test.exe
+start ../../bin/x86/plot-zpm-test.exe || exit /b

@@ -46,7 +46,5 @@ int main( int argc, char **argv )
 
     uint32_t result = RUN_ALL_TESTS();
 
-    system( "pause" );
-
     return result;
 }
