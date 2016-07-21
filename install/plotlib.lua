@@ -29,3 +29,4 @@ if os.get() == "windows" then
 else
     os.execute( "yes | pip install seaborn -U --no-dependencies" )
 end
+os.execute( "conda install matplotlib -y" )

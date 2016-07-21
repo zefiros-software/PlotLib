@@ -5,9 +5,13 @@ msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=Win32
 msbuild plot/PlotLib.sln /property:Configuration=Release /property:Platform=x64
 msbuild plot/PlotLib.sln /property:Configuration=Debug /property:Platform=x64
 
+msbuild test/PlotLib-ZPM.sln
+
 cd ../docs/images/
 start ../../bin/x86/plot-test.exe
 start ../../bin/x86/plot-testd.exe
 
 start ../../bin/x86_64/plot-test.exe
 start ../../bin/x86_64/plot-testd.exe
+
+start ../../bin/x86/plot-zpm-test.exe

@@ -22,7 +22,7 @@
 -- @endcond
 --]]
 
-workspace "PlotLib"
+workspace "PlotLib-ZPM"
 
     configurations { "ZPM" }
     defines "PLOTLIB_ARMA"
