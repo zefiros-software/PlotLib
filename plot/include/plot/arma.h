@@ -36,14 +36,14 @@
 #include <armadillo>
 
 template<>
-PLOTLIB_INLINE Vec::Vec( const ::arma::vec &data )
+inline Vec::Vec( const ::arma::vec &data )
     : mData( data.cbegin(), data.cend() )
 {
 }
 
 
 template<>
-PLOTLIB_INLINE Mat::Mat( const ::arma::umat &data )
+inline Mat::Mat( const ::arma::umat &data )
     : mData( data.n_rows )
 {
     size_t i = 0;
@@ -57,7 +57,7 @@ PLOTLIB_INLINE Mat::Mat( const ::arma::umat &data )
 }
 
 template<>
-PLOTLIB_INLINE Mat::Mat( const ::arma::mat &data )
+inline Mat::Mat( const ::arma::mat &data )
     : mData( data.n_rows )
 {
     size_t i = 0;
