@@ -46,7 +46,7 @@ TEST( EasyPlot, StackedBarPlot )
         vec x = round( randu( 200 ) * 10 );
         vec x2 = round( randu( 200 ) * 10 );;
         EasyPlot::StackedBarPlot( p, { x, x2 }, { linspace( 0, 20, 200 ), linspace( 0, 20, 200 ) }, Palette::Diverging::RdYlBu,
-                                  []( uint32_t v )
+                                  []( size_t v )
         {
             return std::to_string( v );
         } );
@@ -61,7 +61,7 @@ TEST( EasyPlot, StackedDistancedBarPlot )
         vec x2 = round( randu( 20 ) * 10 );;
         EasyPlot::StackedDistancedBarPlot( p, { x, x2 }, { x, x2 }, { x, x2 },
                                            Palette::Diverging::RdYlBu,
-                                           []( uint32_t v )
+                                           []( size_t v )
         {
             return std::to_string( v );
         } );
@@ -76,7 +76,7 @@ TEST( EasyPlot, BackgroundForegroundBarPlot )
         vec x2 = round( randu( 10 ) * 10 );;
         EasyPlot::BackgroundForegroundBarPlot( p, { x, x2 }, { x, x2 }, { linspace( 0, 20, 10 ), linspace( 0, 20, 10 ) },
                                                Palette::Diverging::RdYlBu, Palette::Seaborn::Deep,
-                                               []( uint32_t v )
+                                               []( size_t v )
         {
             return "Background-" + std::to_string( v );
         },

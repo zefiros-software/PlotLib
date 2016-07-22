@@ -68,7 +68,7 @@ public:
 #ifdef PLOTLIB_ARMA
 
     template< typename tT >
-    PLOTLIB_INLINE Vec( const tT &data )
+    Vec( const tT &data )
         : mData( data.cbegin(), data.cend() )
     {
     }
