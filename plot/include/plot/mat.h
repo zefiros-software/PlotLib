@@ -33,17 +33,6 @@
 #include <vector>
 #include <map>
 
-#ifdef PLOTLIB_ARMA
-#   ifdef WIN32
-#       pragma warning(push)
-#       pragma warning(disable : 4702)
-#   endif
-#include <armadillo>
-#   ifdef WIN32
-#       pragma warning(pop)
-#   endif
-#endif
-
 class Mat
 {
 public:
@@ -52,13 +41,6 @@ public:
 
     Mat( const std::initializer_list< std::initializer_list< double > > &data );
 
-#ifdef PLOTLIB_ARMA
-
-    Mat( const arma::mat &data );
-
-    Mat( const arma::umat &data );
-
-#endif
 
     Mat( const std::vector< std::vector< std::string > > &data );
 
@@ -66,6 +48,24 @@ public:
     Mat( const std::initializer_list< std::initializer_list< std::string > > &data );
 
     Mat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map );
+
+#ifdef PLOTLIB_ARMA
+
+    template< typename tT >
+    Mat( const tT &data )
+        : mData( data.n_rows )
+    {
+        size_t i = 0;
+
+        data.each_row( [&]( const arma::urowvec & v )
+        {
+            mData[i++] = arma::conv_to< std::vector<double> >::from( v );
+        } );
+
+        mDimension = CheckDimensions( mData );
+    }
+
+#endif
 
     const std::vector< std::vector< double > > &GetData() const;
 

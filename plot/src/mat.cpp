@@ -58,36 +58,6 @@ PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< std::string > > &data )
     mDimension = CheckDimensions( mStrData );
 }
 
-#ifdef PLOTLIB_ARMA
-
-PLOTLIB_INLINE Mat::Mat( const arma::mat &data )
-    : mData( data.n_rows )
-{
-    size_t i = 0;
-
-    data.each_row( [&]( const arma::rowvec & v )
-    {
-        mData[i++] = arma::conv_to< std::vector<double> >::from( v );
-    } );
-
-    mDimension = CheckDimensions( mData );
-}
-
-PLOTLIB_INLINE Mat::Mat( const arma::umat &data )
-    : mData( data.n_rows )
-{
-    size_t i = 0;
-
-    data.each_row( [&]( const arma::urowvec & v )
-    {
-        mData[i++] = arma::conv_to< std::vector<double> >::from( v );
-    } );
-
-    mDimension = CheckDimensions( mData );
-}
-
-#endif
-
 PLOTLIB_INLINE Mat::Mat( const std::initializer_list< std::initializer_list< double > > &data )
     : mData( data.begin(), data.end() )
 {

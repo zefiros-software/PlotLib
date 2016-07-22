@@ -76,5 +76,7 @@
 #include "plot/spyPlot.h"
 #include "plot/plot.h"
 
+#include "plot/arma.h"
+
 
 #endif

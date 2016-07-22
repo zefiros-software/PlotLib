@@ -32,7 +32,6 @@ workspace "PlotLib"
     } )
 
 	floatingpoint "Fast"
-    defines "PLOTLIB_ARMA"
 
     filter "not HeaderOnly*"
         defines "PLOTLIB_NO_HEADER_ONLY"
@@ -40,6 +39,8 @@ workspace "PlotLib"
     filter {}
 
 	project "plot-test"
+
+        defines "PLOTLIB_ARMA"
 
 		zpm.uses "Zefiros-Software/ArmadilloExt"
     
@@ -51,8 +52,6 @@ workspace "PlotLib"
         filter {}
             
     project "plot"
-
-		zpm.uses "Zefiros-Software/ArmadilloExt"
             
         filter "not HeaderOnly*"                
             files { 
