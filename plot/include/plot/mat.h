@@ -55,14 +55,6 @@ public:
     Mat( const tT &data )
         : mData( data.n_rows )
     {
-        size_t i = 0;
-
-        data.each_row( [&]( const arma::urowvec & v )
-        {
-            mData[i++] = arma::conv_to< std::vector<double> >::from( v );
-        } );
-
-        mDimension = CheckDimensions( mData );
     }
 
 #endif
