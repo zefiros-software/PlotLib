@@ -50,8 +50,7 @@ workspace "PlotLib-ZPM"
         includedirs "/"
 
         files {
-            "*.cpp",
-            "*.h"
+            "*.cpp"
         }
 
         filter {}

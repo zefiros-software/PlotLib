@@ -32,6 +32,7 @@ workspace "PlotLib"
     } )
 
 	floatingpoint "Fast"
+    defines "PLOTLIB_USE_ZPM_ANACONDA"
 
     filter "not HeaderOnly*"
         defines "PLOTLIB_NO_HEADER_ONLY"

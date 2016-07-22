@@ -182,8 +182,11 @@ protected:
 
     std::stringstream mInitStream;
     std::stringstream mStream;
+    std::string mPython;
 
     bool mHasColourCycler;
+
+    void SetPythonPath();
 
     static std::string GetContext( Context context );
 

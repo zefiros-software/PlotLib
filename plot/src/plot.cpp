@@ -51,6 +51,8 @@ PLOTLIB_INLINE Plot::Plot( Context context )
 
     Set( context, 1.2 );
     SetColourCodes();
+
+    SetPythonPath();
 }
 
 PLOTLIB_INLINE Plot::Plot()
@@ -294,11 +296,8 @@ PLOTLIB_INLINE Plot &Plot::Show()
 
     ss.close();
 
-#ifdef _WIN32
-    assert( system( "python plot.in" ) == 0 );
-#else
-    assert( system( "python3.5 plot.in" ) == 0 );
-#endif
+    assert( system( ( mPython + "plot.in" ).c_str() ) == 0 );
+
     return *this;
 }
 
@@ -317,11 +316,7 @@ PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
 
     ss.close();
 
-#ifdef _WIN32
-    assert( system( "python plot.in" ) == 0 );
-#else
-    assert( system( "python3.5 plot.in" ) == 0 );
-#endif
+    assert( system( ( mPython + "plot.in" ).c_str() ) == 0 );
 
     return *this;
 }
@@ -345,6 +340,23 @@ PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
     mStream << "\nplt.subplot( " << y << ", " << x << ", " << n << " )\n";
 
     return *this;
+}
+
+PLOTLIB_INLINE void Plot::SetPythonPath()
+{
+#ifdef _WIN32
+    mPython = "python";
+#else
+    mPython = "python3.5";
+#endif
+
+#ifdef PLOTLIB_USE_ZPM_ANACONDA
+#   ifdef _WIN32
+    mPython = "%UserProfile%/zpm-anaconda/Scripts/" + mPython;
+#   else
+    mPython = "~/zpm-anaconda/bin/" + mPython;
+#   endif
+#endif
 }
 
 PLOTLIB_INLINE std::string Plot::GetContext( Context context )
