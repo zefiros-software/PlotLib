@@ -34,17 +34,6 @@
 #include <vector>
 #include <map>
 
-#ifdef PLOTLIB_ARMA
-#   ifdef WIN32
-#       pragma warning(push)
-#       pragma warning(disable : 4702)
-#   endif
-#include <armadillo>
-#   ifdef WIN32
-#       pragma warning(pop)
-#   endif
-#endif
-
 class Vec
 {
     friend class Matrix;
@@ -62,14 +51,6 @@ public:
     {
     }
 
-#ifdef PLOTLIB_ARMA
-    Vec( const ::arma::vec &data )
-        : mData( data.cbegin(), data.cend() )
-    {
-    }
-
-#endif
-
     Vec( const std::vector< std::string > &data );
 
     Vec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map );
@@ -83,6 +64,16 @@ public:
     Vec( const std::initializer_list< double > &data );
 
     Vec( const std::initializer_list< std::string > &data );
+
+#ifdef PLOTLIB_ARMA
+
+    template< typename tT >
+    Vec( const tT &data )
+        : mData( data.cbegin(), data.cend() )
+    {
+    }
+
+#endif
 
     const std::vector< double > &GetData() const;
 
