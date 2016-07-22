@@ -24,19 +24,19 @@
 
 workspace "PlotLib-ZPM"
 
+    location "zpm/"
+    objdir "bin/obj/"
     configurations { "x86" }
-    defines "PLOTLIB_ARMA"
 
     startproject( "plot-zpm-test" )
 
     zpm.buildLibraries()
     
 	project "plot-zpm-test"
-
-        location "tests/zpm/"
-        objdir "bin/obj/"
 		kind "ConsoleApp"
 		flags "WinMain"
+        
+        defines "PLOTLIB_ARMA"
 
 		zpm.uses 
         {

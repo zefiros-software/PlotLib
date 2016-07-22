@@ -13,7 +13,10 @@ make config=release_x86_64
 cd ../test/
 
 premake5 gmake
+
+cd zpm/
 make
+cd ../
 
 cd ../docs/images/
 ../../bin/x86/plot-test
