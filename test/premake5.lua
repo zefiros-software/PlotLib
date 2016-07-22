@@ -24,8 +24,10 @@
 
 workspace "PlotLib-ZPM"
 
-    configurations { "ZPM" }
+    configurations { "x86" }
     defines "PLOTLIB_ARMA"
+
+    startproject( "plot-zpm-test" )
 
     zpm.buildLibraries()
     

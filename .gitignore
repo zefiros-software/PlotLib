@@ -1,6 +1,7 @@
 -- artifacts
 bin/*
 test/obj/*
+test/bin/*
 
 -- zpm
 ._config.json

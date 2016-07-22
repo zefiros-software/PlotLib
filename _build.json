@@ -19,7 +19,7 @@
                 "do":
                 [
                     {"defines": "PLOTLIB_NO_HEADER_ONLY"},
-                    {"files": [ "plot/src" ] }
+                    {"files": "plot/src/**.cpp" }
                 ],
                 "otherwise":
                 [                    
