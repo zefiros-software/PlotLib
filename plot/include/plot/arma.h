@@ -43,26 +43,26 @@ Vec::Vec( const ::arma::vec &data )
 
 
 template<>
-Mat::Mat( const arma::umat &data )
+Mat::Mat( const ::arma::umat &data )
     : mData( data.n_rows )
 {
     size_t i = 0;
 
-    data.each_row( [&]( const arma::urowvec & v )
+    data.each_row( [&]( const ::arma::urowvec & v )
     {
-        mData[i++] = arma::conv_to< std::vector<double> >::from( v );
+        mData[i++] = ::arma::conv_to< std::vector<double> >::from( v );
     } );
 
     mDimension = CheckDimensions( mData );
 }
 
 template<>
-Mat::Mat( const arma::mat &data )
+Mat::Mat( const ::arma::mat &data )
     : mData( data.n_rows )
 {
     size_t i = 0;
 
-    data.each_row( [&]( const arma::rowvec & v )
+    data.each_row( [&]( const ::arma::rowvec & v )
     {
         mData[i++] = arma::conv_to< std::vector<double> >::from( v );
     } );
