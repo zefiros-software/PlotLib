@@ -3,7 +3,7 @@ set -e
 premake5 install-package --allow-install --allow-module
 premake5 gmake
 cd plot
-make config=debug_x86
+make config=debug_x86 verbose=1
 make config=debug_x86_64
 make config=release_x86
 make config=release_x86_64
