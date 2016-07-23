@@ -10,10 +10,10 @@ premake5 vs2015 || exit /b
 msbuild zpm/PlotLib-ZPM.sln || exit /b
 
 cd ../docs/images/ || exit /b
-%~dp0/../../bin/x86/plot-test.exe || exit /b
-%~dp0/../../bin/x86/plot-testd.exe || exit /b
+..\..\bin\x86\plot-test.exe || exit /b
+..\..\bin\x86\plot-testd.exe || exit /b
 
-%~dp0/../../bin/x86_64/plot-test.exe || exit /b
-%~dp0/../../bin/x86_64/plot-testd.exe || exit /b
+..\..\bin\x86_64\plot-test.exe || exit /b
+..\..\bin\x86_64\plot-testd.exe || exit /b
 
-%~dp0/../../test/bin/x86/plot-zpm-test.exe || exit /b
+..\..\test\bin\x86\plot-zpm-test.exe || exit /b
