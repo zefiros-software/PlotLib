@@ -189,24 +189,24 @@ TEST( Mat, ConstructMap )
 TEST( Mat, ConstructVecCheckDim )
 {
     EXPECT_DEATH( ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } ),
-    "Assertion failed: vec.size\\(\\) == size" );
+    "vec.size\\(\\) == size" );
 }
 
 TEST( Mat, ConstructInitCheckDim )
 {
     EXPECT_DEATH( ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } ),
-    "Assertion failed: vec.size\\(\\) == size" );
+    "vec.size\\(\\) == size" );
 }
 
 TEST( Mat, ConstructStrCheckDim )
 {
     EXPECT_DEATH( ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8" } } ),
-    "Assertion failed: vec.size\\(\\) == size" );
+    "vec.size\\(\\) == size" );
 }
 
 TEST( Mat, ConstructMapCheckDim )
 {
     EXPECT_DEATH( ::Mat m( { {1, 2, 3}, {1, 2, 3}, {1, 2} },
     { {1, "1"}, {2, "2"}, {3, "3"} } ),
-    "Assertion failed: vec.size\\(\\) == size" );
+    "vec.size\\(\\) == size" );
 }
