@@ -26,8 +26,6 @@
 
 #include "helper.h"
 
-
-
 void TestPlot( const std::string &str, std::function< void( Plot & ) > fn )
 {
     Plot p;

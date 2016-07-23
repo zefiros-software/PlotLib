@@ -30,6 +30,8 @@ workspace "PlotLib-ZPM"
 
     startproject( "plot-zpm-test" )
 
+    defines( "PREFIX=ZPM" )
+
     zpm.buildLibraries()
     
 	project "plot-zpm-test"
@@ -47,7 +49,7 @@ workspace "PlotLib-ZPM"
     
 	    debugdir "../docs/images/"
 
-        includedirs "/"
+        includedirs "./"
 
         files {
             "*.cpp"
