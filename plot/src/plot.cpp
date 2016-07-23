@@ -39,7 +39,13 @@ PLOTLIB_INLINE Plot::Plot( AbstractPlot &plot )
 PLOTLIB_INLINE Plot::Plot( Context context )
     : mHasColourCycler( false )
 {
-    mInitStream << "import seaborn as sns\n"
+#ifdef PLOTLIB_HEADLESS
+    mInitStream << "import matplotlib"
+                "matplotlib.use('Agg')";
+#endif
+
+    mInitStream <<
+                "import seaborn as sns\n"
                 "import numpy as np\n"
                 "import pandas as pd\n"
                 "import matplotlib.pyplot as plt\n"
