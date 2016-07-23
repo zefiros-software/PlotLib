@@ -358,7 +358,7 @@ PLOTLIB_INLINE void Plot::SetPythonPath()
 
 #ifdef PLOTLIB_USE_ZPM_ANACONDA
 #   ifdef _WIN32
-    mPython = "%UserProfile%/zpm-anaconda/Scripts/" + mPython;
+    mPython = "%UserProfile%/zpm-anaconda/" + mPython;
 #   else
     mPython = "~/zpm-anaconda/bin/" + mPython;
 #   endif

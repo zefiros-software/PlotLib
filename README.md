@@ -5,16 +5,21 @@ PlotLib is an easy to use, C++ plotting library that produces scientific publica
 PlotLib makes use of [MatplotLib](http://matplotlib.org/) and [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/) to produce its images.
 PlotLib assumes that there is a full SciPy stack installed in the path. 
 
-## Easy Installation
+## ZPM Installation
 
-For Windows:
-```
-setup.bat
+In `.package.json`
+```json
+"requires": [
+		{
+			"name": "Zefiros-Software/PlotLib",
+			"version": "@head"
+		}
+]
 ```
 
-For Linux:
-```
-./setup.sh
+In `premake5.lua`
+```lua
+zpm.uses "Zefiros-Software/PlotLib"
 ```
 
 ## Manual Installation
@@ -22,7 +27,7 @@ The easiest installation is running [Anaconda](https://www.continuum.io/download
 Please note that Anaconda misses the Seaborn package which we install using:
 
 ```
-pip install seaborn
+pip install seaborn -U
 ```
 
 ## Features
