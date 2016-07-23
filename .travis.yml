@@ -1,4 +1,7 @@
 language: generic
+cache:
+    directories: 
+        - $HOME/.cache/matplotlib
 matrix:
     include:
         # Use the built in venv for linux builds
