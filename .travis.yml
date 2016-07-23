@@ -1,7 +1,4 @@
 language: generic
-cache:
-    directories: 
-        - $HOME/.cache/matplotlib
 matrix:
     include:
         # Use the built in venv for linux builds
@@ -13,6 +10,7 @@ matrix:
         #  osx_image: xcode8
         #  language: generic
 install:
+    - rm -rf ~/.matplotlib/fontList.cache
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
     - chmod a+x ./script/travis-build.sh
     # annoying pip fix
