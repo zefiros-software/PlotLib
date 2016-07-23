@@ -46,7 +46,11 @@ PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t size )
 {
+#ifdef _WIN32
     this->AddArgument( "size", size );
+#else
+#warning "This function currently segfaults on unix."
+#endif
     return *this;
 }
 
