@@ -11,7 +11,8 @@
             {"language": "C++"},
             {"flags": "C++11"},
             {"export": [
-                {"includedirs": "plot/include/"}                        
+                {"includedirs": "plot/include/"},
+                {"flags": "C++11"}               
             ]},
             {
                 "filter-options": {

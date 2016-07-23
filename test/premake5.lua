@@ -22,37 +22,20 @@
 -- @endcond
 --]]
 
+local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
+
+
 workspace "PlotLib-ZPM"
 
-    location "zpm/"
-    objdir "bin/obj/"
-    configurations { "x86" }
-
-    startproject( "plot-zpm-test" )
-
-    defines( "PREFIX=ZPM" )
-
-    zpm.buildLibraries()
+	zefiros.setTestZPMDefaults( "plot")
     
 	project "plot-zpm-test"
-		kind "ConsoleApp"
-		flags "WinMain"
         
         defines "PLOTLIB_ARMA"
 
-		zpm.uses 
-        {
+		zpm.uses {
             "Zefiros-Software/ArmadilloExt",
-            "Zefiros-Software/PlotLib",
-            "Zefiros-Software/GoogleTest"
+            "Zefiros-Software/PlotLib"
         }
     
 	    debugdir "../docs/images/"
-
-        includedirs "./"
-
-        files {
-            "*.cpp"
-        }
-
-        filter {}
