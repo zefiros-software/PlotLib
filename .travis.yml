@@ -8,9 +8,10 @@ matrix:
         - os: linux
           dist: trusty
         # Use generic language for osx
-        - os: osx
-          osx_image: xcode8
-          language: generic
+        # disabled due to premake bug
+        #- os: osx
+        #  osx_image: xcode8
+        #  language: generic
 install:
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
     - chmod a+x ./script/travis-build.sh

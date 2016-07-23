@@ -1,14 +1,5 @@
 set -e
 
-if [[ ${TRAVIS_OS_NAME} = osx ]]; then
-    # Since default gcc on osx is just a front-end for LLVM
-    # and osx is currently broken with clang frontend
-    if [[ ${CC} = gcc ]]; then
-        export CXX=g++-4.8
-        export CC=gcc-4.8
-    fi
-fi
-
 premake5 install-package --allow-install --allow-module
 premake5 gmake
 cd plot
