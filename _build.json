@@ -7,7 +7,6 @@
         },
         "do":
         [
-            {"kind": "StaticLib"},
             {"language": "C++"},
             {"flags": "C++11"},
             {"export": [
@@ -20,11 +19,13 @@
                 },
                 "do":
                 [
+                    {"kind": "StaticLib"},
                     {"defines": "PLOTLIB_NO_HEADER_ONLY"},
                     {"files": "plot/src/**.cpp" }
                 ],
                 "otherwise":
                 [                    
+                    {"kind": "None"},
                     {"headeronly": true}
                 ]
             },
