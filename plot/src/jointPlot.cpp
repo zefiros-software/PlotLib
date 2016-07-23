@@ -44,15 +44,18 @@ PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
     return *this;
 }
 
+#ifdef _WIN32
 PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t size )
 {
-#ifdef _WIN32
     this->AddArgument( "size", size );
-#else
-#warning "This function currently segfaults on unix."
-#endif
     return *this;
 }
+#else
+PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t )
+{
+    return *this;
+}
+#endif
 
 PLOTLIB_INLINE JointPlot &JointPlot::SetRatio( size_t ratio )
 {
