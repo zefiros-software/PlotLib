@@ -27,4 +27,4 @@ cd ../docs/images/
 ../../bin/x86_64/plot-testd
 #../../bin/x86_64/plot-testcd
 
-../../test/zpm/bin/x86/plot-zpm-test
+../../test/bin/x86/plot-zpm-test
