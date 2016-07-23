@@ -40,8 +40,8 @@ PLOTLIB_INLINE Plot::Plot( Context context )
     : mHasColourCycler( false )
 {
 #ifdef PLOTLIB_HEADLESS
-    mInitStream << "import matplotlib"
-                "matplotlib.use('Agg')";
+    mInitStream << "import matplotlib\n"
+                "matplotlib.use('Agg')\n";
 #endif
 
     mInitStream <<
