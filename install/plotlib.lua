@@ -27,7 +27,7 @@ dofile( "assets/Zefiros-Software/PlotLib/Zefiros-Software/Anaconda/anaconda.lua"
 local anaBin = os.get() == "windows" and os.getenv("UserProfile") .. "/zpm-anaconda/Scripts/" or "~/zpm-anaconda/bin/"
 
 if os.get() == "windows" then
-    os.executef( "%s../python %spip install seaborn -U", anaBin, anaBin )
+    os.executef( "%spip install seaborn -U", anaBin )
 else
     os.executef( "%s/python3 %spip install seaborn -U", anaBin, anaBin )
 end

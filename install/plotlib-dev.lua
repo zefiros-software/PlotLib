@@ -25,7 +25,7 @@
 local anaBin = os.get() == "windows" and os.getenv("UserProfile") .. "/zpm-anaconda/Scripts/" or "~/zpm-anaconda/bin/"
 
 if os.get() == "windows" then
-    os.executef( "%s../python %spip install mkdocs -U", anaBin, anaBin )
+    os.executef( "%spip install mkdocs -U", anaBin )
 else
     os.executef( "%s/python3 %spip install mkdocs -U", anaBin, anaBin )
 end
