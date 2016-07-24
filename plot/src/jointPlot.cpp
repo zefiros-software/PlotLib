@@ -44,7 +44,7 @@ PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
     return *this;
 }
 
-#ifdef _WIN32
+#ifndef PLOTLIB_HEADLESS
 PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t size )
 {
     this->AddArgument( "size", size );
