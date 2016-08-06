@@ -3,7 +3,7 @@ project "PlotLib"
 
     if zpm.option( "HeaderOnly" ) then
         zpm.export [[
-        defines "PLOTLIB_NO_HEADER_ONLY"   
+            defines "PLOTLIB_NO_HEADER_ONLY"
         ]]  
         files "plot/src/**.cpp"   
         kind "StaticLib"
