@@ -1,6 +1,5 @@
 
 project "PlotLib"
-    language "C++"
 
     if zpm.option( "HeaderOnly" ) then
         defines "PLOTLIB_NO_HEADER_ONLY"     
