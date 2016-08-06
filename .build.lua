@@ -15,5 +15,6 @@ project "PlotLib"
 
     zpm.export [[
         includedirs "plot/include/"
+        defines "PLOTLIB_USE_ZPM_ANACONDA"
         flags "C++11"
     ]]
