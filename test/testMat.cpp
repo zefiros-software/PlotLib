@@ -186,27 +186,45 @@ TEST( Mat, ConstructMap )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
+template< typename tT >
+void PreventOptimisation( tT func )
+{
+    func();
+}
+
 TEST( Mat, ConstructVecCheckDim )
 {
-    EXPECT_DEATH( ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } ),
-    "== size" );
+    EXPECT_DEATH( PreventOptimisation( []()
+    {
+        ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } );
+        EXPECT_EQ( std::vector< std::vector< std::string > > {{""}}, m.GetStrings() );
+    } ), "== size" );
 }
 
 TEST( Mat, ConstructInitCheckDim )
 {
-    EXPECT_DEATH( ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } ),
-    "== size" );
+    EXPECT_DEATH( PreventOptimisation( []()
+    {
+        ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } );
+        EXPECT_EQ( std::vector< std::vector< std::string > > { {""} }, m.GetStrings() );
+    } ), "== size" );
 }
 
 TEST( Mat, ConstructStrCheckDim )
 {
-    EXPECT_DEATH( ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8" } } ),
-    "== size" );
+    EXPECT_DEATH( PreventOptimisation( []()
+    {
+        ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8" } } );
+        EXPECT_EQ( std::vector< std::vector< std::string > > { {""} }, m.GetStrings() );
+    } ), "== size" );
 }
 
 TEST( Mat, ConstructMapCheckDim )
 {
-    EXPECT_DEATH( ::Mat m( { {1, 2, 3}, {1, 2, 3}, {1, 2} },
-    { {1, "1"}, {2, "2"}, {3, "3"} } ),
-    "== size" );
+    EXPECT_DEATH( PreventOptimisation( []()
+    {
+        ::Mat m( { {1, 2, 3}, {1, 2, 3}, {1, 2} },
+        { {1, "1"}, {2, "2"}, {3, "3"} } );
+        EXPECT_EQ( std::vector< std::vector< std::string > > { {""} }, m.GetStrings() );
+    } ), "== size" );
 }
