@@ -192,6 +192,9 @@ void PreventOptimisation( tT func )
     func();
 }
 
+// won't work due to optimisation
+#ifdef DEBUG
+
 TEST( Mat, ConstructVecCheckDim )
 {
     EXPECT_DEATH( PreventOptimisation( []()
@@ -224,3 +227,5 @@ TEST( Mat, ConstructMapCheckDim )
         { {1, "1"}, {2, "2"}, {3, "3"} } );
     } ), "== size" );
 }
+
+#endif
