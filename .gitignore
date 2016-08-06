@@ -4,7 +4,8 @@ test/obj/*
 test/bin/*
 
 -- zpm
-._config.json
+.config.json
+docs/style/.assets.lua
 
 -- git
 *.orig

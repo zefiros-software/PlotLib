@@ -46,7 +46,11 @@
                     "version": "@head"
                 }
             ]
-    },
+    },    
+    "options": {
+        "HeaderOnly": false,
+        "UseZPMAnaconda": true
+    },  
     "assets": [
         {
             "name": "Zefiros-Software/Anaconda",
