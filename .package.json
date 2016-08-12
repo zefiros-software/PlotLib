@@ -50,12 +50,9 @@
     "options": {
         "HeaderOnly": false,
         "UseZPMAnaconda": true
-    },  
-    "assets": [
-        {
-            "name": "Zefiros-Software/Anaconda",
-            "version": "@head"
-        }
+    },
+    "modules": [
+        "Zefiros-Software/Anaconda"
     ],
     "install": "install/plotlib.lua"
 }

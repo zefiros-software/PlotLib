@@ -22,10 +22,7 @@
 -- @endcond
 --]]
 
-local anaBin = os.get() == "windows" and os.getenv("UserProfile") .. "/zpm-anaconda/Scripts/" or "~/zpm-anaconda/bin/"
+local ana = require( "Zefiros-Software/Anaconda", "@head" )
 
-if os.get() == "windows" then
-    os.executef( "%spip install mkdocs -U", anaBin )
-else
-    os.executef( "%s/python3 %spip install mkdocs -U", anaBin, anaBin )
-end
+ana.install()
+ana.pip( "install mkdocs -U" )
