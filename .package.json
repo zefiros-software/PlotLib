@@ -28,10 +28,6 @@
         ],
         "assets": [
             {
-                "name": "Zefiros-Software/gcov2clover",
-                "version": ">=1.0.0"            
-            },  
-            {
                 "name": "Zefiros-Software/Zefiros-Mkdocs-Style",
                 "version": "^1.0.0"
             }
