@@ -18,7 +18,7 @@ In `.package.json`
 "requires": [
 		{
 			"name": "Zefiros-Software/PlotLib",
-			"version": "@head"
+			"version": "^1.0.0"
 		}
 ]
 ```
