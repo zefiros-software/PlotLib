@@ -11,7 +11,7 @@ Windows     | [![Build status](https://ci.appveyor.com/api/projects/status/w46ca
 PlotLib makes use of [MatplotLib](http://matplotlib.org/) and [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/) to produce its images.
 PlotLib assumes that there is a full SciPy stack installed in the path. 
 
-## ZPM Installation
+# [ZPM](zpm.zefiros.eu) Installation
 
 In `.package.json`
 ```json
