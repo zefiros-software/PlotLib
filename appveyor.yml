@@ -1,4 +1,3 @@
-sudo: required
 platform:
   - Win32
 environment:

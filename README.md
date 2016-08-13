@@ -1,6 +1,12 @@
 # PlotLib
 PlotLib is an easy to use, C++ plotting library that produces scientific publication quality ready images.
 
+# Status
+OS          | Status
+----------- | -------
+Linux & OSX | [![Build Status](https://travis-ci.org/Zefiros-Software/PlotLib.svg?branch=master)](https://travis-ci.org/Zefiros-Software/PlotLib)
+Windows     | [![Build status](https://ci.appveyor.com/api/projects/status/w46ca7on3w4mwv38?svg=true)](https://ci.appveyor.com/project/PaulVisscher/plotlib)
+
 # Requirements
 PlotLib makes use of [MatplotLib](http://matplotlib.org/) and [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/) to produce its images.
 PlotLib assumes that there is a full SciPy stack installed in the path. 
