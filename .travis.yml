@@ -15,6 +15,5 @@ install:
     - chmod a+x ./script/travis-build.sh
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
-    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install g++-multilib -y; fi
 script:
     - ./script/travis-build.sh
