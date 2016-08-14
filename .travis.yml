@@ -13,8 +13,7 @@ matrix:
 install:
     - rm -rf ~/.matplotlib/fontList.cache
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
-    - chmod a+x ./script/travis-build.sh
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
 script:
-    - ./script/travis-build.sh
+    - bash script/travis-build.sh
