@@ -2,13 +2,13 @@
 project "PlotLib"
 
     if zpm.option( "HeaderOnly" ) then
+        kind "Utility"
+    else
         zpm.export [[
             defines "PLOTLIB_NO_HEADER_ONLY"
         ]]  
         files "plot/src/**.cpp"   
         kind "StaticLib"
-    else
-        kind "Utility"
     end
 
     if zpm.option( "UseZPMAnaconda" ) then
