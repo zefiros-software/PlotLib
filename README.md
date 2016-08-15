@@ -47,9 +47,9 @@ When a bug is found please insert it in the issue tracker, so we can resolve it 
 5. Submit a pull request
 
 ## Authors
-* Mick van Duijn <mick.v.duijn@zefiros.eu>
+* Mick van Duijn <m.vanduijn@zefiros.eu>
 * Paul Visscher <p.e.visscher@zefiros.eu>
-* Koen Visscher <koen.visscher@zefiros.eu>
+* Koen Visscher <k.m.visscher@zefiros.eu>
 
 ## Used By
 We are interested to find out what projects use SerLib. We would love it to include your projects here, 
@@ -61,7 +61,7 @@ just shoot us a mail. :)
 This project is licensed under the MIT license.
 
 ```
-Copyright (c) 2015 Mick van Duijn, Koen Visscher and Paul Visscher
+Copyright (c) 2016 Mick van Duijn, Koen Visscher and Paul Visscher
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
