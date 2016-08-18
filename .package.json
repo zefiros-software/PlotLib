@@ -36,13 +36,15 @@
                 {
                     "name": "Zefiros-Software/GoogleTest",
                     "version": "@head"
-                },
-                {
-                    "name": "Zefiros-Software/ArmadilloExt",
-                    "version": "@head"
                 }
             ]
-    },    
+    },   
+    "requires": [
+        {
+            "name": "Zefiros-Software/ArmadilloExt",
+            "version": "@head"
+        } 
+    ],
     "options": {
         "HeaderOnly": false,
         "UseZPMAnaconda": true
