@@ -11,6 +11,10 @@
         {
             "name": "Zefiros-Software/GoogleTest",
             "version": "@head"
+        },
+        {
+            "name": "Zefiros-Software/ArmadilloExt",
+            "version": "@head"
         }
     ]
 }

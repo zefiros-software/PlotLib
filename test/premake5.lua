@@ -37,6 +37,7 @@ workspace "PlotLib-ZPM"
         defines "PLOTLIB_ARMA"
 
 		zpm.uses {
+            "Zefiros-Software/ArmadilloExt",
             "Zefiros-Software/PlotLib"
         }
     
