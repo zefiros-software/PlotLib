@@ -302,7 +302,8 @@ PLOTLIB_INLINE Plot &Plot::Show()
 
     ss.close();
 
-    assert( system( ( mPython + "plot.in" ).c_str() ) == 0 );
+    int32_t result = system( ( mPython + "plot.in" ).c_str() );
+    assert( result == 0 );
 
     return *this;
 }
@@ -322,7 +323,8 @@ PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
 
     ss.close();
 
-    assert( system( ( mPython + "plot.in" ).c_str() ) == 0 );
+    int32_t result = system( ( mPython + "plot.in" ).c_str() );
+    assert( result == 0 );
 
     return *this;
 }
