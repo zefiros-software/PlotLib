@@ -47,7 +47,7 @@ workspace "PlotLib"
 
         defines "PLOTLIB_ARMA"
 
-		zpm.uses "Zefiros-Software/ArmadilloExt"
+		zpm.uses "Zefiros-Software/Armadillo"
     
 	    debugdir "docs/images/"
             
