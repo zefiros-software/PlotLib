@@ -2,10 +2,11 @@
 PlotLib is an easy to use, C++ plotting library that produces scientific publication quality ready images.
 
 # Status
-OS          | Status
+Type        | Status
 ----------- | -------
 Linux & OSX | [![Build Status](https://travis-ci.org/Zefiros-Software/PlotLib.svg?branch=master)](https://travis-ci.org/Zefiros-Software/PlotLib)
 Windows     | [![Build status](https://ci.appveyor.com/api/projects/status/w46ca7on3w4mwv38?svg=true)](https://ci.appveyor.com/project/PaulVisscher/plotlib)
+Coverage	| [![codecov](https://codecov.io/gh/Zefiros-Software/PlotLib/branch/master/graph/badge.svg)](https://codecov.io/gh/Zefiros-Software/PlotLib)
 
 # Requirements
 PlotLib makes use of [MatplotLib](http://matplotlib.org/) and [Seaborn](http://stanford.edu/~mwaskom/software/seaborn/) to produce its images.
@@ -58,7 +59,7 @@ just shoot us a mail. :)
 * Zefiros Engine 
 
 ## License
-This project is licensed under the MIT license.
+This project is licensed under the MIT license by [Zefiros Software](https://zefiros.eu).
 
 ```
 Copyright (c) 2016 Mick van Duijn, Koen Visscher and Paul Visscher

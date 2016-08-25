@@ -11,9 +11,11 @@ matrix:
         #  osx_image: xcode8
         #  language: generic
 install:
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install codecov; fi
     - rm -rf ~/.matplotlib/fontList.cache
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
 script:
     - bash script/travis-build.sh
+    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then bash ./script/coverage.sh; fi 
