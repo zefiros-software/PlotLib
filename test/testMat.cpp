@@ -26,9 +26,9 @@
 
 #include "helper.h"
 
-TEST( Mat, ConstructVec )
+TEST( PMat, ConstructVec )
 {
-    ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
+    ::PMat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
 
     EXPECT_EQ( 3, m.GetData()[0].size() );
@@ -55,9 +55,9 @@ TEST( Mat, ConstructVec )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( Mat, ConstructInit )
+TEST( PMat, ConstructInit )
 {
-    ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
+    ::PMat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
 
     EXPECT_EQ( 3, m.GetData()[0].size() );
@@ -84,9 +84,9 @@ TEST( Mat, ConstructInit )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( Mat, ConstructArma )
+TEST( PMat, ConstructArma )
 {
-    ::Mat m( mat{ { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
+    ::PMat m( mat{ { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } } );
     EXPECT_EQ( 3, m.GetData().size() );
 
     EXPECT_EQ( 3, m.GetData()[0].size() );
@@ -113,9 +113,9 @@ TEST( Mat, ConstructArma )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( Mat, ConstructArma2 )
+TEST( PMat, ConstructArma2 )
 {
-    ::Mat m( mat{ { 1, 2, 3 }, { 4, 5, 6 } } );
+    ::PMat m( mat{ { 1, 2, 3 }, { 4, 5, 6 } } );
     EXPECT_EQ( 2, m.GetData().size() );
 
     EXPECT_EQ( 3, m.GetData()[0].size() );
@@ -128,9 +128,9 @@ TEST( Mat, ConstructArma2 )
     EXPECT_DOUBLE_EQ( 5, m.GetData()[1][1] );
 }
 
-TEST( Mat, ConstructStr )
+TEST( PMat, ConstructStr )
 {
-    ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8", "9" } } );
+    ::PMat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8", "9" } } );
     EXPECT_EQ( 3, m.GetStrings().size() );
 
     EXPECT_EQ( 3, m.GetStrings()[0].size() );
@@ -157,9 +157,9 @@ TEST( Mat, ConstructStr )
     EXPECT_EQ( dim, m.GetDimension() );
 }
 
-TEST( Mat, ConstructMap )
+TEST( PMat, ConstructMap )
 {
-    ::Mat m( { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } },
+    ::PMat m( { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } },
     { { 1, "1" }, { 2, "2" }, { 3, "3" } } );
     EXPECT_EQ( 3, m.GetStrings().size() );
 
@@ -195,35 +195,35 @@ void PreventOptimisation( tT func )
 // won't work due to optimisation
 #ifdef DEBUG
 
-TEST( Mat, ConstructVecCheckDim )
+TEST( PMat, ConstructVecCheckDim )
 {
     EXPECT_DEATH( PreventOptimisation( []()
     {
-        volatile ::Mat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } );
+        volatile ::PMat m( std::vector< std::vector< double > > { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } );
     } ), "== size" );
 }
 
-TEST( Mat, ConstructInitCheckDim )
+TEST( PMat, ConstructInitCheckDim )
 {
     EXPECT_DEATH( PreventOptimisation( []()
     {
-        volatile ::Mat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } );
+        volatile ::PMat m( { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8 } } );
     } ), "== size" );
 }
 
-TEST( Mat, ConstructStrCheckDim )
+TEST( PMat, ConstructStrCheckDim )
 {
     EXPECT_DEATH( PreventOptimisation( []()
     {
-        volatile ::Mat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8" } } );
+        volatile ::PMat m( { { "1", "2", "3" }, { "4", "5", "6" }, { "7", "8" } } );
     } ), "== size" );
 }
 
-TEST( Mat, ConstructMapCheckDim )
+TEST( PMat, ConstructMapCheckDim )
 {
     EXPECT_DEATH( PreventOptimisation( []()
     {
-        volatile ::Mat m( { {1, 2, 3}, {1, 2, 3}, {1, 2} },
+        volatile ::PMat m( { {1, 2, 3}, {1, 2, 3}, {1, 2} },
         { {1, "1"}, {2, "2"}, {3, "3"} } );
     } ), "== size" );
 }

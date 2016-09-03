@@ -35,9 +35,9 @@ class LinePlot
 {
 public:
 
-    LinePlot( const Vec &endogenous );
+    LinePlot( const PVec &endogenous );
 
-    LinePlot( const Vec &exogenous, const Vec &endogenous );
+    LinePlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 };

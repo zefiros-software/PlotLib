@@ -29,7 +29,7 @@
 #define __BARPLOT_H__
 
 #include "plot/properties/barProperties.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -44,14 +44,14 @@ public:
         Horizontal
     };
 
-    BarPlot( const Vec &x, const Vec &y );
+    BarPlot( const PVec &x, const PVec &y );
 
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    BarPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    BarPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     template< typename tT, typename tFunc >
-    BarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< tT > &hueData, const tFunc &hueFunc )
+    BarPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< tT > &hueData, const tFunc &hueFunc )
     {
         std::vector< std::string > hue;
 
@@ -67,7 +67,7 @@ public:
 
     virtual std::string ToString() override;
 
-    BarPlot &SetOrder( const Vec &order );
+    BarPlot &SetOrder( const PVec &order );
 
     BarPlot &SetHueOrder( const std::vector< std::string > &order );
 
@@ -93,9 +93,9 @@ public:
 
 private:
 
-    void InitData( const std::vector< std::pair< Vec, Vec > > &data );
+    void InitData( const std::vector< std::pair< PVec, PVec > > &data );
 
-    void InitHue( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    void InitHue( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     void PlotData();
 

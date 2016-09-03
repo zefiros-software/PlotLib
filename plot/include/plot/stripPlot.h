@@ -29,7 +29,7 @@
 #define __STRIPPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -44,15 +44,15 @@ public:
         Horizontal
     };
 
-    StripPlot( const Vec &x, const Vec &y );
+    StripPlot( const PVec &x, const PVec &y );
 
-    StripPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    StripPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    StripPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    StripPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    StripPlot &SetOrder( const Vec &order );
+    StripPlot &SetOrder( const PVec &order );
 
     StripPlot &SetHueOrder( const std::vector< std::string > &order );
 

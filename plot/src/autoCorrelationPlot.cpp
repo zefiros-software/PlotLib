@@ -33,7 +33,7 @@ static const char *const __PlotLibAutoCorrelationPlotDetrend[] =
     "detrend_linear"
 };
 
-PLOTLIB_INLINE AutoCorrelationPlot::AutoCorrelationPlot( const Vec &vec )
+PLOTLIB_INLINE AutoCorrelationPlot::AutoCorrelationPlot( const PVec &vec )
     : mDefaultDetrend( Detrend::Mean ) // statistics default
 {
     mStream << "plt.acorr(" << this->ToArray( vec );

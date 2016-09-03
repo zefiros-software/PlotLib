@@ -44,7 +44,7 @@ public:
         Hexbin
     };
 
-    JointPlot( const Vec &exogenous, const Vec &endogenous );
+    JointPlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 

@@ -28,12 +28,12 @@
 
 
 
-PLOTLIB_INLINE KDEPlot::KDEPlot( const Vec &data, const Vec &data2 )
+PLOTLIB_INLINE KDEPlot::KDEPlot( const PVec &data, const PVec &data2 )
 {
     mStream << "sns.kdeplot( np.array(" << this->ToArray( data ) << "), np.array(" << this->ToArray( data2 ) << ")";
 }
 
-PLOTLIB_INLINE KDEPlot::KDEPlot( const Vec &data )
+PLOTLIB_INLINE KDEPlot::KDEPlot( const PVec &data )
 {
     mStream << "sns.kdeplot(np.array(" << this->ToArray( data ) << ")";
 }
@@ -88,7 +88,8 @@ PLOTLIB_INLINE KDEPlot &KDEPlot::SetCut( double cut )
 PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clipx,
                                           const std::pair<double, double> &clipy )
 {
-    this->AddArgument( "clip", this->ToTuple( this->ToTuple( clipx.first, clipx.second ), this->ToTuple( clipy.first, clipy.second ) ) );
+    this->AddArgument( "clip", this->ToTuple( this->ToTuple( clipx.first, clipx.second ), this->ToTuple( clipy.first,
+                                                                                                         clipy.second ) ) );
     return *this;
 }
 

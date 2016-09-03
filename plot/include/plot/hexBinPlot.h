@@ -48,7 +48,7 @@ public:
         Logarithmic
     };
 
-    HexBinPlot( const Vec &x, const Vec &y );
+    HexBinPlot( const PVec &x, const PVec &y );
 
     virtual std::string ToString() override;
 
@@ -61,7 +61,7 @@ public:
 
     HexBinPlot &SetBins( BinType type );
 
-    HexBinPlot &SetBins( const Vec &bins );
+    HexBinPlot &SetBins( const PVec &bins );
 
     HexBinPlot &SetXScale( Scale scale );
 

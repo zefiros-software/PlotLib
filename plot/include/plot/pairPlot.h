@@ -48,9 +48,9 @@ public:
         KernelDensity
     };
 
-    PairPlot( const Mat &mat, const std::vector< std::string > &names );
+    PairPlot( const PMat &mat, const std::vector< std::string > &names );
 
-    PairPlot( const std::vector< Mat > &mats, const std::vector< std::string > &names,
+    PairPlot( const std::vector< PMat > &mats, const std::vector< std::string > &names,
               const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;

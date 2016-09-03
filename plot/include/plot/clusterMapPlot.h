@@ -71,7 +71,7 @@ public:
         WMinkowski
     };
 
-    ClusterMapPlot( const ::Mat &map );
+    ClusterMapPlot( const ::PMat &map );
 
     virtual std::string ToString() override;
 
@@ -89,9 +89,9 @@ public:
 
     ClusterMapPlot &ColumnCluster( bool cluster );
 
-    ClusterMapPlot &SetRowLinkage( const Vec &linkage );
+    ClusterMapPlot &SetRowLinkage( const PVec &linkage );
 
-    ClusterMapPlot &SetColumnLinkage( const Vec &linkage );
+    ClusterMapPlot &SetColumnLinkage( const PVec &linkage );
 
     ClusterMapPlot &SetMask( const std::vector< bool > &mask );
 

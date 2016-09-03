@@ -29,7 +29,7 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< Vec, Vec > > &data,
+PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< PVec, PVec > > &data,
                                  const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
@@ -60,7 +60,7 @@ PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< Vec, Vec > > &dat
     mStream << "\nsns.boxplot( x, y, h";
 }
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< Vec, Vec > > &data )
+PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< PVec, PVec > > &data )
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
@@ -80,7 +80,7 @@ PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< Vec, Vec > > &dat
     mStream << "\nsns.boxplot( x, y";
 }
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE BoxPlot::BoxPlot( const PVec &x, const PVec &y )
 {
     mStream << "sns.boxplot( " << this->ToArray( x ) << ", " << this->ToArray( y );
 }
@@ -90,7 +90,7 @@ PLOTLIB_INLINE std::string BoxPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetOrder( const Vec &order )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetOrder( const PVec &order )
 {
     mStream << ", order = " << this->ToArray( order );
     return *this;

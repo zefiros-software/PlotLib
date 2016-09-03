@@ -56,25 +56,25 @@ public:
         Horizontal
     };
 
-    HistogramPlot( const Vec &vec );
+    HistogramPlot( const PVec &vec );
 
     virtual std::string ToString() override;
 
     HistogramPlot &SetBins( size_t value );
 
-    HistogramPlot &SetBins( const Vec &bins );
+    HistogramPlot &SetBins( const PVec &bins );
 
     HistogramPlot &SetRange( double min, double max );
 
     HistogramPlot &SetNormed( bool normed );
 
-    HistogramPlot &SetWeights( const Vec &weights );
+    HistogramPlot &SetWeights( const PVec &weights );
 
     HistogramPlot &SetCumulative( bool cumulative );
 
     HistogramPlot &SetBottom( double bottom );
 
-    HistogramPlot &SetBottom( const Vec &bottom );
+    HistogramPlot &SetBottom( const PVec &bottom );
 
     HistogramPlot &SetType( Type type );
 

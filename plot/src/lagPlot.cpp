@@ -26,7 +26,7 @@
 
 #include "plot/lagPlot.h"
 
-PLOTLIB_INLINE LagPlot::LagPlot( const Vec &vec )
+PLOTLIB_INLINE LagPlot::LagPlot( const PVec &vec )
 {
     mStream << "lag_plot(pd.Series(" << this->ToArray( vec ) << ")";
 }

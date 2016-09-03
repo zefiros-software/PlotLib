@@ -35,7 +35,7 @@ class FancyAutoCorrelationPlot
 {
 public:
 
-    FancyAutoCorrelationPlot( const Vec &vec );
+    FancyAutoCorrelationPlot( const PVec &vec );
 
     virtual std::string ToString() override;
 

@@ -29,14 +29,14 @@
 #define __SIMPLEBARPLOT_H__
 
 #include "plot/properties/barProperties.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class SimpleBarPlot
     : public BarPlotProperties< SimpleBarPlot >
 {
 public:
 
-    SimpleBarPlot( const Vec &x, const Vec &y );
+    SimpleBarPlot( const PVec &x, const PVec &y );
 
     virtual std::string ToString() override;
 };

@@ -26,12 +26,12 @@
 
 #include "plot/linePlot.h"
 
-PLOTLIB_INLINE LinePlot::LinePlot( const Vec &endogenous )
+PLOTLIB_INLINE LinePlot::LinePlot( const PVec &endogenous )
 {
     mStream << "plt.plot(" << this->ToArray( endogenous );
 }
 
-PLOTLIB_INLINE LinePlot::LinePlot( const Vec &exogenous, const Vec &endogenous )
+PLOTLIB_INLINE LinePlot::LinePlot( const PVec &exogenous, const PVec &endogenous )
 {
     mStream << "plt.plot(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }

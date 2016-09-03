@@ -36,15 +36,15 @@ class ResidualPlot
 {
 public:
 
-    ResidualPlot( const Vec &exogenous, const Vec &endogenous );
+    ResidualPlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 
     ResidualPlot &Lowess( bool lowess );
 
-    ResidualPlot &SetXPartial( const Mat &mat );
+    ResidualPlot &SetXPartial( const PMat &mat );
 
-    ResidualPlot &SetYPartial( const Mat &mat );
+    ResidualPlot &SetYPartial( const PMat &mat );
 
     ResidualPlot &SetOrder( size_t order );
 

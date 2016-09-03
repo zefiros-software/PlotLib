@@ -42,7 +42,7 @@ class BoxPlotProperties
 public:
     typedef typename std::conditional < IsDict &&!IsBase, BoxPlotProperties< tBase, IsDict >, tBase & >::type tReturn;
 
-    tReturn &SetX( const Vec &x )
+    tReturn &SetX( const PVec &x )
     {
         this->AddArgument( "x", this->ToArray( x ) );
 
@@ -77,14 +77,14 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetMedians( const Vec &medians )
+    tReturn &SetMedians( const PVec &medians )
     {
         this->AddArgument( "usermedians", this->ToArray( medians ) );
 
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetConfidenceIntervals( const Mat &intervals )
+    tReturn &SetConfidenceIntervals( const PMat &intervals )
     {
         this->AddArgument( "conf_intervals", this->ToArray( intervals ) );
 
@@ -105,7 +105,7 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetWidths( const Vec &widths )
+    tReturn &SetWidths( const PVec &widths )
     {
         this->AddArgument( "widths", this->ToArray( widths ) );
 

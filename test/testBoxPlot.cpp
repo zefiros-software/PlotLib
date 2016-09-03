@@ -44,8 +44,8 @@ TEST( BoxPlot, Constr2 )
 {
     TestPlot< BoxPlot >( "BoxPlot_Constr2", []()
     {
-        Vec x = ( vec )( round( randu( 100 ) * 10 ) );
-        BoxPlot f( std::vector< std::pair< Vec, Vec > >
+        PVec x = ( vec )( round( randu( 100 ) * 10 ) );
+        BoxPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 100 ) * 100 )},
             { x, ( vec )( randu( 100 ) * 100 ) },
@@ -66,8 +66,8 @@ TEST( BoxPlot, Constr3 )
     {
         plot.SetYLimit( 0, 110 );
 
-        Vec x = ( vec )( round( randu( 100 ) * 10 ) );
-        BoxPlot f( std::vector< std::pair< Vec, Vec > >
+        PVec x = ( vec )( round( randu( 100 ) * 10 ) );
+        BoxPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 100 ) * 100 )},
             { x, ( vec )( randu( 100 ) * 100 ) },
@@ -88,7 +88,7 @@ TEST( BoxPlot, Orientation )
         plot.SetXLimit( 0, 130 );
 
         vec x = round( randu( 100 ) * 10 );
-        BoxPlot f( std::vector< std::pair< Vec, Vec > >
+        BoxPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { ( vec )( randu( 100 ) * 100 ), x },
             { ( vec )( randu( 100 ) * 100 ), x },

@@ -74,7 +74,7 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetAnnotate( const Mat &annot )
+    tReturn &SetAnnotate( const PMat &annot )
     {
         this->AddArgument( "annot", "pd.DataFrame(" + this->ToArray( annot ) + ")" );
         return static_cast<tBase &>( *this );
@@ -117,7 +117,7 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetYTickLabels( const Vec &names )
+    tReturn &SetYTickLabels( const PVec &names )
     {
         mYTickLabels = this->ToArray( names );
         return static_cast<tBase &>( *this );
@@ -135,7 +135,7 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetXTickLabels( const Vec &names )
+    tReturn &SetXTickLabels( const PVec &names )
     {
         mXTickLabels = this->ToArray( names );
         return static_cast<tBase &>( *this );
@@ -153,7 +153,7 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetMask( const Mat &mask )
+    tReturn &SetMask( const PMat &mask )
     {
         this->AddArgument( "mask", "pd.DataFrame(" + this->ToArray( mask ) + ")" );
         return static_cast<tBase &>( *this );

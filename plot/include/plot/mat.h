@@ -34,26 +34,26 @@
 #include <vector>
 #include <map>
 
-class Mat
+class PMat
 {
 public:
 
-    Mat( const std::vector< std::vector< double > > &data );
+    PMat( const std::vector< std::vector< double > > &data );
 
-    Mat( const std::initializer_list< std::initializer_list< double > > &data );
-
-
-    Mat( const std::vector< std::vector< std::string > > &data );
+    PMat( const std::initializer_list< std::initializer_list< double > > &data );
 
 
-    Mat( const std::initializer_list< std::initializer_list< std::string > > &data );
+    PMat( const std::vector< std::vector< std::string > > &data );
 
-    Mat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map );
+
+    PMat( const std::initializer_list< std::initializer_list< std::string > > &data );
+
+    PMat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map );
 
 #ifdef PLOTLIB_ARMA
 
     template< typename tT >
-    Mat( const tT &data )
+    PMat( const tT &data )
         : mData( data.n_rows )
     {
     }

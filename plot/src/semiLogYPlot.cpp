@@ -28,7 +28,7 @@
 
 #include <cassert>
 
-PLOTLIB_INLINE SemiLogYPlot::SemiLogYPlot( const Vec &exogenous, const Vec &endogenous )
+PLOTLIB_INLINE SemiLogYPlot::SemiLogYPlot( const PVec &exogenous, const PVec &endogenous )
 {
     mStream << "plt.semilogy(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }

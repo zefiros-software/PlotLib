@@ -29,7 +29,7 @@
 #define __VIOLINPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -66,15 +66,15 @@ public:
         None
     };
 
-    ViolinPlot( const Vec &x, const Vec &y );
+    ViolinPlot( const PVec &x, const PVec &y );
 
-    ViolinPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    ViolinPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    ViolinPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    ViolinPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    ViolinPlot &SetOrder( const Vec &order );
+    ViolinPlot &SetOrder( const PVec &order );
 
     ViolinPlot &SetHueOrder( const std::vector< std::string > &order );
 

@@ -310,14 +310,14 @@ public:
         return static_cast<tReturn &>( *this );
     }
 
-    tReturn &SetXData( const Vec &xdata )
+    tReturn &SetXData( const PVec &xdata )
     {
         this->AddArgument( "xdata", this->ToArray( xdata ) );
 
         return static_cast<tReturn &>( *this );
     }
 
-    tReturn &SetYData( const Vec &ydata )
+    tReturn &SetYData( const PVec &ydata )
     {
         this->AddArgument( "ydata", this->ToArray( ydata ) );
 

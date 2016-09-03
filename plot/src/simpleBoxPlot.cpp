@@ -26,7 +26,7 @@
 
 #include "plot/simpleBoxPlot.h"
 
-PLOTLIB_INLINE SimpleBoxPlot::SimpleBoxPlot( const ::Mat &x )
+PLOTLIB_INLINE SimpleBoxPlot::SimpleBoxPlot( const ::PMat &x )
 {
     mStream << "plt.boxplot(" << this->ToArray( x );
 }

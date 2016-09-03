@@ -42,7 +42,7 @@ public:
         Linear
     };
 
-    AutoCorrelationPlot( const Vec &vec );
+    AutoCorrelationPlot( const PVec &vec );
 
     virtual std::string ToString() override;
 

@@ -38,32 +38,34 @@ PLOTLIB_INLINE std::string ContourfPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Vec &x, const Vec &y, const Mat &z, const Vec &levels )
+PLOTLIB_INLINE ContourfPlot::ContourfPlot( const PVec &x, const PVec &y, const PMat &z, const PVec &levels )
 {
-    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z ) << "," << this->ToArray( levels );
+    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray(
+                z ) << "," << this->ToArray( levels );
 }
 
-PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Vec &x, const Vec &y, const Mat &z, uint32_t levels )
+PLOTLIB_INLINE ContourfPlot::ContourfPlot( const PVec &x, const PVec &y, const PMat &z, uint32_t levels )
 {
-    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z ) << "," << levels;
+    mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray(
+                z ) << "," << levels;
 }
 
-PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Vec &x, const Vec &y, const Mat &z )
+PLOTLIB_INLINE ContourfPlot::ContourfPlot( const PVec &x, const PVec &y, const PMat &z )
 {
     mStream << "plt.contourf(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z );
 }
 
-PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Mat &z, const Vec &levels )
+PLOTLIB_INLINE ContourfPlot::ContourfPlot( const PMat &z, const PVec &levels )
 {
     mStream << "plt.contourf(" << this->ToArray( z ) << "," << this->ToArray( levels );
 }
 
-PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Mat &z, uint32_t levels )
+PLOTLIB_INLINE ContourfPlot::ContourfPlot( const PMat &z, uint32_t levels )
 {
     mStream << "plt.contourf(" << this->ToArray( z ) << "," << levels;
 }
 
-PLOTLIB_INLINE ContourfPlot::ContourfPlot( const Mat &z )
+PLOTLIB_INLINE ContourfPlot::ContourfPlot( const PMat &z )
 {
     mStream << "plt.contourf(" << this->ToArray( z );
 }

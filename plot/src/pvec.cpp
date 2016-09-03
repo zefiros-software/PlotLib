@@ -25,23 +25,23 @@
  */
 
 #include "plot/define.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 #include <algorithm>
 
-PLOTLIB_INLINE Vec::Vec( const std::initializer_list< std::string > &data )
+PLOTLIB_INLINE PVec::PVec( const std::initializer_list< std::string > &data )
     : mStrData( data )
 {
 
 }
 
-PLOTLIB_INLINE Vec::Vec( const std::initializer_list< double > &data )
+PLOTLIB_INLINE PVec::PVec( const std::initializer_list< double > &data )
     : mData( data )
 {
 
 }
 
-PLOTLIB_INLINE Vec::Vec( const Vec &x, std::function< double( double ) > function )
+PLOTLIB_INLINE PVec::PVec( const PVec &x, std::function< double( double ) > function )
 {
     for ( const auto &val : x.GetData() )
     {
@@ -49,19 +49,19 @@ PLOTLIB_INLINE Vec::Vec( const Vec &x, std::function< double( double ) > functio
     }
 }
 
-PLOTLIB_INLINE Vec::Vec( double min, double max, size_t n, std::function< double( double ) > function )
-    : Vec( LinSpace( min, max, n ), function )
+PLOTLIB_INLINE PVec::PVec( double min, double max, size_t n, std::function< double( double ) > function )
+    : PVec( LinSpace( min, max, n ), function )
 {
 
 }
 
-PLOTLIB_INLINE Vec::Vec( double min, double max, size_t n )
-    : Vec( LinSpace( min, max, n ) )
+PLOTLIB_INLINE PVec::PVec( double min, double max, size_t n )
+    : PVec( LinSpace( min, max, n ) )
 {
 
 }
 
-PLOTLIB_INLINE Vec::Vec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map )
+PLOTLIB_INLINE PVec::PVec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map )
 {
     for ( auto &val : data )
     {
@@ -69,38 +69,38 @@ PLOTLIB_INLINE Vec::Vec( const std::vector< int64_t > &data, const std::map< int
     }
 }
 
-PLOTLIB_INLINE Vec::Vec( const std::vector< std::string > &data )
+PLOTLIB_INLINE PVec::PVec( const std::vector< std::string > &data )
     : mStrData( data )
 {
 
 }
 
-PLOTLIB_INLINE const std::vector< double > &Vec::GetData() const
+PLOTLIB_INLINE const std::vector< double > &PVec::GetData() const
 {
     return mData;
 }
 
-PLOTLIB_INLINE const std::vector< std::string > &Vec::GetStrings() const
+PLOTLIB_INLINE const std::vector< std::string > &PVec::GetStrings() const
 {
     return mStrData;
 }
 
-PLOTLIB_INLINE size_t Vec::GetSize() const
+PLOTLIB_INLINE size_t PVec::GetSize() const
 {
     return mStrData.empty() ? mData.size() : mStrData.size();
 }
 
-PLOTLIB_INLINE double Vec::Min() const
+PLOTLIB_INLINE double PVec::Min() const
 {
     return *std::min_element( mData.begin(), mData.end() );
 }
 
-PLOTLIB_INLINE double Vec::Max() const
+PLOTLIB_INLINE double PVec::Max() const
 {
     return *std::max_element( mData.begin(), mData.end() );
 }
 
-PLOTLIB_INLINE std::vector<double> Vec::LinSpace( double start, double end, size_t num )
+PLOTLIB_INLINE std::vector<double> PVec::LinSpace( double start, double end, size_t num )
 {
     double delta = ( end - start ) / ( num - 1 );
 

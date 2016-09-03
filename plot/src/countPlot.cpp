@@ -28,7 +28,7 @@
 #include "plot/palette.h"
 
 
-PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< PVec > &data, const std::vector< std::string > &hue )
 {
     mStream << "x = []\nh = []\n";
     mStream << "x = x ";
@@ -50,7 +50,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data, const std::
     mStream << "\nsns.countplot( x=x, hue=h";
 }
 
-PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data )
+PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< PVec > &data )
 {
     mStream << "x = []\n";
     mStream << "x = x ";
@@ -63,7 +63,7 @@ PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< Vec > &data )
     mStream << "\nsns.countplot( x=x";
 }
 
-PLOTLIB_INLINE CountPlot::CountPlot( const Vec &x )
+PLOTLIB_INLINE CountPlot::CountPlot( const PVec &x )
 {
     mStream << "sns.countplot(x=" << this->ToArray( x );
 }
@@ -73,7 +73,7 @@ PLOTLIB_INLINE std::string CountPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetOrder( const Vec &order )
+PLOTLIB_INLINE CountPlot &CountPlot::SetOrder( const PVec &order )
 {
     mStream << ", order=" << this->ToArray( order );
     return *this;

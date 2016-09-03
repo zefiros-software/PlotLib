@@ -29,7 +29,7 @@
 #define __POINTPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 #include "barPlot.h"
 
 class Palette;
@@ -45,15 +45,15 @@ public:
         Horizontal
     };
 
-    PointPlot( const Vec &x, const Vec &y );
+    PointPlot( const PVec &x, const PVec &y );
 
-    PointPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    PointPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    PointPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    PointPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    PointPlot &SetOrder( const Vec &order );
+    PointPlot &SetOrder( const PVec &order );
 
     PointPlot &SetHueOrder( const std::vector< std::string > &order );
 

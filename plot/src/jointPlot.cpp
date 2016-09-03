@@ -26,7 +26,7 @@
 
 #include "plot/jointPlot.h"
 
-PLOTLIB_INLINE JointPlot::JointPlot( const Vec &exogenous, const Vec &endogenous )
+PLOTLIB_INLINE JointPlot::JointPlot( const PVec &exogenous, const PVec &endogenous )
 {
     mStream << "xl=" << this->ToArray( exogenous ) << "\n"
             << "yl=" << this->ToArray( endogenous ) << "\n";

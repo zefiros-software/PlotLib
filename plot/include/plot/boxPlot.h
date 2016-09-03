@@ -29,7 +29,7 @@
 #define __BOXPLOT_H__
 
 #include "plot/properties/boxPlotProperties.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -44,15 +44,15 @@ public:
         Horizontal
     };
 
-    BoxPlot( const Vec &x, const Vec &y );
+    BoxPlot( const PVec &x, const PVec &y );
 
-    BoxPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    BoxPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    BoxPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    BoxPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    BoxPlot &SetOrder( const Vec &order );
+    BoxPlot &SetOrder( const PVec &order );
 
     BoxPlot &SetHueOrder( const std::vector< std::string > &order );
 

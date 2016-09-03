@@ -37,7 +37,7 @@ class InteractPlot
 {
 public:
 
-    InteractPlot( const Vec &endogenous, const Vec &endogenous2, const Vec &exogenous );
+    InteractPlot( const PVec &endogenous, const PVec &endogenous2, const PVec &exogenous );
 
     virtual std::string ToString() override;
 
@@ -49,7 +49,7 @@ public:
 
     InteractPlot &SetLevels( size_t levelCount );
 
-    InteractPlot &SetLevels( const Vec &levels );
+    InteractPlot &SetLevels( const PVec &levels );
 
     InteractPlot &Logistic( bool logistic );
 

@@ -29,13 +29,13 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const PVec &x, const PVec &y )
 {
     mStream << "y = np.array(" << this->ToArray( y ) << ")\n";
     mStream << "sns.barplot(" << this->ToArray( x ) << ", y / y.min()";
 }
 
-PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data,
+PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data,
                                              const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
@@ -66,7 +66,7 @@ PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, 
     mStream << "\nsns.barplot( x, y, h";
 }
 
-PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data )
+PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data )
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
@@ -91,7 +91,7 @@ PLOTLIB_INLINE std::string FactorBarPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrder( const Vec &order )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrder( const PVec &order )
 {
     mStream << ", order = " << this->ToArray( order );
     return *this;

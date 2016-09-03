@@ -47,7 +47,7 @@ public:
         None
     };
 
-    SpyPlot( const Mat &mat );
+    SpyPlot( const PMat &mat );
 
     virtual std::string ToString() override;
 

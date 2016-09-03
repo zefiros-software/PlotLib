@@ -35,41 +35,41 @@
 #include <vector>
 #include <map>
 
-class Vec
+class PVec
 {
     friend class Matrix;
 public:
 
     template< typename tT >
-    Vec( const std::vector< tT > &data )
+    PVec( const std::vector< tT > &data )
         : mData( data.begin(), data.end() )
     {
     }
 
     template< typename tT >
-    Vec( const std::valarray< tT > &data )
+    PVec( const std::valarray< tT > &data )
         : mData( std::begin( data ), std::end( data ) )
     {
     }
 
-    Vec( const std::vector< std::string > &data );
+    PVec( const std::vector< std::string > &data );
 
-    Vec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map );
+    PVec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map );
 
-    Vec( double min, double max, size_t n );
+    PVec( double min, double max, size_t n );
 
-    Vec( double min, double max, size_t n, std::function< double( double ) > function );
+    PVec( double min, double max, size_t n, std::function< double( double ) > function );
 
-    Vec( const Vec &x, std::function< double( double ) > function );
+    PVec( const PVec &x, std::function< double( double ) > function );
 
-    Vec( const std::initializer_list< double > &data );
+    PVec( const std::initializer_list< double > &data );
 
-    Vec( const std::initializer_list< std::string > &data );
+    PVec( const std::initializer_list< std::string > &data );
 
 #ifdef PLOTLIB_ARMA
 
     template< typename tT >
-    Vec( const tT &data )
+    PVec( const tT &data )
         : mData( data.cbegin(), data.cend() )
     {
     }
@@ -95,7 +95,7 @@ private:
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY
-#   include "../../src/vec.cpp"
+#   include "../../src/pvec.cpp"
 #endif
 
 #endif

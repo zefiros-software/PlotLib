@@ -29,24 +29,24 @@
 #define __CONTOURFPLOT_H__
 
 #include "plot/properties/contourProperties.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class ContourfPlot
     : public ContourProperties< ContourfPlot >
 {
 public:
 
-    ContourfPlot( const Mat &z );
+    ContourfPlot( const PMat &z );
 
-    ContourfPlot( const Mat &z, uint32_t levels );
+    ContourfPlot( const PMat &z, uint32_t levels );
 
-    ContourfPlot( const Mat &z, const Vec &levels );
+    ContourfPlot( const PMat &z, const PVec &levels );
 
-    ContourfPlot( const Vec &x, const Vec &y, const Mat &z );
+    ContourfPlot( const PVec &x, const PVec &y, const PMat &z );
 
-    ContourfPlot( const Vec &x, const Vec &y, const Mat &z, uint32_t levels );
+    ContourfPlot( const PVec &x, const PVec &y, const PMat &z, uint32_t levels );
 
-    ContourfPlot( const Vec &x, const Vec &y, const Mat &z, const Vec &levels );
+    ContourfPlot( const PVec &x, const PVec &y, const PMat &z, const PVec &levels );
 
     std::string ToString() override;
 

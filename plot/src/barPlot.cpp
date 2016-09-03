@@ -29,12 +29,12 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE BarPlot::BarPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE BarPlot::BarPlot( const PVec &x, const PVec &y )
 {
     mStream << "sns.barplot(" << this->ToArray( x ) << "," << this->ToArray( y );
 }
 
-PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &data )
+PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< PVec, PVec > > &data )
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
@@ -54,7 +54,7 @@ PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &dat
     mStream << "\nsns.barplot( x, y";
 }
 
-PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< Vec, Vec > > &data,
+PLOTLIB_INLINE BarPlot::BarPlot( const std::vector< std::pair< PVec, PVec > > &data,
                                  const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
@@ -90,7 +90,7 @@ PLOTLIB_INLINE std::string BarPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE BarPlot &BarPlot::SetOrder( const Vec &order )
+PLOTLIB_INLINE BarPlot &BarPlot::SetOrder( const PVec &order )
 {
     mStream << ", order = " << this->ToArray( order );
     return *this;
@@ -162,7 +162,7 @@ PLOTLIB_INLINE BarPlot &BarPlot::SetCapSize( double size )
     return *this;
 }
 
-PLOTLIB_INLINE void BarPlot::InitData( const std::vector< std::pair< Vec, Vec > > &data )
+PLOTLIB_INLINE void BarPlot::InitData( const std::vector< std::pair< PVec, PVec > > &data )
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
@@ -181,7 +181,7 @@ PLOTLIB_INLINE void BarPlot::InitData( const std::vector< std::pair< Vec, Vec > 
     }
 }
 
-PLOTLIB_INLINE void BarPlot::InitHue( const std::vector< std::pair< Vec, Vec > > &data,
+PLOTLIB_INLINE void BarPlot::InitHue( const std::vector< std::pair< PVec, PVec > > &data,
                                       const std::vector< std::string > &hue )
 {
     size_t i = 0;

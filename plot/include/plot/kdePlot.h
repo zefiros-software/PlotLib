@@ -51,9 +51,9 @@ public:
         Silverman
     };
 
-    KDEPlot( const Vec &data );
+    KDEPlot( const PVec &data );
 
-    KDEPlot( const Vec &data, const Vec &data2 );
+    KDEPlot( const PVec &data, const PVec &data2 );
 
     virtual std::string ToString() override;
 

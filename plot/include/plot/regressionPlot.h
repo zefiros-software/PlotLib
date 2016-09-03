@@ -35,13 +35,13 @@ class RegressionPlot
 {
 public:
 
-    RegressionPlot( const Vec &exogenous, const Vec &endogenous );
+    RegressionPlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 
     RegressionPlot &SetXBins( size_t bins );
 
-    RegressionPlot &SetXBins( const Vec &bins );
+    RegressionPlot &SetXBins( const PVec &bins );
 
     RegressionPlot &SetXConfidenceInterval( size_t ci );
 
@@ -63,9 +63,9 @@ public:
 
     RegressionPlot &LogX( bool logx );
 
-    RegressionPlot &SetXPartial( const Mat &mat );
+    RegressionPlot &SetXPartial( const PMat &mat );
 
-    RegressionPlot &SetYPartial( const Mat &mat );
+    RegressionPlot &SetYPartial( const PMat &mat );
 
     RegressionPlot &Truncate( bool trunc );
 

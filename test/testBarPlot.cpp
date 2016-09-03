@@ -43,8 +43,8 @@ TEST( BarPlot, Constr2 )
 {
     TestPlot< BarPlot >( "BarPlot_Constr2", []()
     {
-        Vec x = ( vec )( round( randu( 10 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< Vec, Vec > >
+        PVec x = ( vec )( round( randu( 10 ) * 100 ) );
+        BarPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 10 ) * 100 )},
             { x, ( vec )( randu( 10 ) * 100 ) },
@@ -61,8 +61,8 @@ TEST( BarPlot, Constr3 )
 {
     TestPlot< BarPlot >( "BarPlot_Constr3", []()
     {
-        Vec x = ( vec )( round( randu( 8 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< Vec, Vec > >
+        PVec x = ( vec )( round( randu( 8 ) * 100 ) );
+        BarPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 8 ) * 100 )},
             { x, ( vec )( randu( 8 ) * 100 ) },
@@ -76,8 +76,8 @@ TEST( BarPlot, Constr4 )
 {
     TestPlot< BarPlot >( "BarPlot_Constr4", []()
     {
-        Vec x = ( vec )( round( randu( 8 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< Vec, Vec > >
+        PVec x = ( vec )( round( randu( 8 ) * 100 ) );
+        BarPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 8 ) * 100 )},
             { x, ( vec )( randu( 8 ) * 100 ) },
@@ -98,8 +98,8 @@ TEST( BarPlot, ColourCycler )
     {
 
         plot.AddColourCycler( Palette::Diverging::RdYlBu );
-        Vec x = ( vec )( round( randu( 10 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< Vec, Vec > >
+        PVec x = ( vec )( round( randu( 10 ) * 100 ) );
+        BarPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 10 ) * 100 )},
             { x, ( vec )( randu( 10 ) * 100 ) },
@@ -118,7 +118,7 @@ TEST( BarPlot, SetColourMap )
     TestPlot< BarPlot >( "BarPlot_SetColourMap", []()
     {
         vec x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        BarPlot f( std::vector< std::pair< Vec, Vec > >
+        BarPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { x, ( vec )( randu( 10 ) * 100 )},
             { x, ( vec )( randu( 10 ) * 100 ) },
@@ -141,7 +141,7 @@ TEST( BarPlot, Orientation )
     TestPlot< BarPlot >( "BarPlot_Orientation", []()
     {
         vec x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        BarPlot f( std::vector< std::pair< Vec, Vec > >
+        BarPlot f( std::vector< std::pair< PVec, PVec > >
         {
             { ( vec )( randu( 10 ) * 100 ), x },
             { ( vec )( randu( 10 ) * 100 ), x },

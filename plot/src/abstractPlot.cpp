@@ -26,7 +26,7 @@
 
 #include "plot/abstractPlot.h"
 
-#include "plot/vec.h"
+#include "plot/pvec.h"
 #include "plot/mat.h"
 
 PLOTLIB_INLINE AbstractPlot::AbstractPlot()
@@ -68,13 +68,13 @@ PLOTLIB_INLINE std::string AbstractPlot::GetBool( bool boolean )
 }
 
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const Vec &vec )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray( const PVec &vec )
 {
     const std::vector< std::string > vecStr = vec.GetStrings();
     return vecStr.size() ? ToArray( vecStr ) : ToArray( vec.GetData() );
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const Mat &mat )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray( const PMat &mat )
 {
     const std::vector<std::vector< std::string > > matStr = mat.GetStrings();
     return matStr.size() ? ToArray( matStr ) : ToArray( mat.GetData() );

@@ -29,7 +29,7 @@
 #define __SWARMPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -44,15 +44,15 @@ public:
         Horizontal
     };
 
-    SwarmPlot( const Vec &x, const Vec &y );
+    SwarmPlot( const PVec &x, const PVec &y );
 
-    SwarmPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    SwarmPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    SwarmPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    SwarmPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    SwarmPlot &SetOrder( const Vec &order );
+    SwarmPlot &SetOrder( const PVec &order );
 
     SwarmPlot &SetHueOrder( const std::vector< std::string > &order );
 

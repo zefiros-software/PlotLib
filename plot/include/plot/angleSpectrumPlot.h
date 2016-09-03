@@ -41,7 +41,7 @@ public:
         TwoSided
     };
 
-    AngleSpectrumPlot( const Vec &vec );
+    AngleSpectrumPlot( const PVec &vec );
 
     virtual std::string ToString() override;
 

@@ -42,7 +42,7 @@ public:
         Clip
     };
 
-    SemiLogXPlot( const Vec &exogenous, const Vec &endogenous );
+    SemiLogXPlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 

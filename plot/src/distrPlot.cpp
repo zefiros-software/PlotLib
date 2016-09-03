@@ -25,9 +25,9 @@
  */
 
 #include "plot/distrPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
-PLOTLIB_INLINE DistrPlot::DistrPlot( const Vec &a )
+PLOTLIB_INLINE DistrPlot::DistrPlot( const PVec &a )
 {
     mStream << "sns.distplot(" << this->ToArray( a );
 }
@@ -37,7 +37,7 @@ PLOTLIB_INLINE std::string DistrPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const Vec &bins )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const PVec &bins )
 {
     this->AddArgument( "bins", this->ToArray( bins ) );
     return *this;

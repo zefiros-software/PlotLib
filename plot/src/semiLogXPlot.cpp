@@ -26,7 +26,7 @@
 
 #include "plot/semiLogXPlot.h"
 
-PLOTLIB_INLINE SemiLogXPlot::SemiLogXPlot( const Vec &exogenous, const Vec &endogenous )
+PLOTLIB_INLINE SemiLogXPlot::SemiLogXPlot( const PVec &exogenous, const PVec &endogenous )
 {
     mStream << "plt.semilogx(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }

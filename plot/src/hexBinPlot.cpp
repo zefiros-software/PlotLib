@@ -28,7 +28,7 @@
 
 
 
-PLOTLIB_INLINE HexBinPlot::HexBinPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE HexBinPlot::HexBinPlot( const PVec &x, const PVec &y )
 {
     mStream << "plt.hexbin(" << this->ToArray( x ) << ", " << this->ToArray( y );
 }
@@ -50,7 +50,7 @@ PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetGridSize( const std::pair< size_t, siz
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins( const Vec &bins )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins( const PVec &bins )
 {
     mStream << ", bins=" << this->ToArray( bins );
     return *this;

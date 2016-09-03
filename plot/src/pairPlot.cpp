@@ -26,7 +26,7 @@
 
 #include "plot/pairPlot.h"
 
-PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< Mat > &mats, const std::vector< std::string > &names,
+PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< PMat > &mats, const std::vector< std::string > &names,
                                    const std::vector< std::string > &hue )
 {
     assert( hue.size() == mats.size() );
@@ -67,7 +67,7 @@ PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< Mat > &mats, const std::ve
     mStream << "sns.pairplot( data, hue = 'hue'";
 }
 
-PLOTLIB_INLINE PairPlot::PairPlot( const Mat &mat, const std::vector< std::string > &names )
+PLOTLIB_INLINE PairPlot::PairPlot( const PMat &mat, const std::vector< std::string > &names )
 {
     assert( names.size() == mat.GetData().size() );
     mStream << "data = pd.DataFrame()\n";

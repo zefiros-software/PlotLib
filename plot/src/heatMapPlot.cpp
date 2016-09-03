@@ -26,7 +26,7 @@
 
 #include "plot/heatMapPlot.h"
 
-PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins /*= 50 */ )
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const PVec &x, const PVec &y, size_t bins /*= 50 */ )
 {
     mStream << "heatmap, yedges, xedges = np.histogram2d( "
             << this->ToArray( x ) << ", " << this->ToArray( y ) << ", bins=" << bins << ")\n";
@@ -36,7 +36,7 @@ PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins
     mYTickLabels = "yedges";
 }
 
-PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins )
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const PVec &x, const PVec &y, std::pair< size_t, size_t > bins )
 {
     mStream << "heatmap, yedges, xedges = np.histogram2d( "
             << this->ToArray( x ) << ", " << this->ToArray( y ) << ", bins=(" << bins.first << "," << bins.second << "))\n";
@@ -46,7 +46,7 @@ PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, std::pair< 
     mYTickLabels = "yedges";
 }
 
-PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins, std::pair< double, double > xextent,
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const PVec &x, const PVec &y, size_t bins, std::pair< double, double > xextent,
                                          std::pair<double, double> yextent )
 {
     mStream << "heatmap, yedges, xedges = np.histogram2d( "
@@ -58,7 +58,7 @@ PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, size_t bins
     mYTickLabels = "yedges";
 }
 
-PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins,
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const PVec &x, const PVec &y, std::pair< size_t, size_t > bins,
                                          std::pair< double, double > xextent, std::pair<double, double> yextent )
 {
     mStream << "heatmap, yedges, xedges = np.histogram2d( "
@@ -70,7 +70,7 @@ PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Vec &x, const Vec &y, std::pair< 
     mYTickLabels = "yedges";
 }
 
-PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const Mat &map )
+PLOTLIB_INLINE HeatMapPlot::HeatMapPlot( const PMat &map )
 {
     mStream << "sns.heatmap(" << this->ToArray( map );
 }

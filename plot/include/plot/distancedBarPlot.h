@@ -29,16 +29,16 @@
 #define __DISTANCEDBARPLOT_H__
 
 #include "plot/properties/barProperties.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class DistancedBarPlot
     : public BarPlotProperties< DistancedBarPlot >
 {
 public:
 
-    DistancedBarPlot( const Vec &x, const Vec &y, const Vec &widths );
+    DistancedBarPlot( const PVec &x, const PVec &y, const PVec &widths );
 
-    DistancedBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const Vec &widths );
+    DistancedBarPlot( const std::vector< std::pair< PVec, PVec > > &data, const PVec &widths );
 
     virtual std::string ToString() override;
 

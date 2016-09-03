@@ -26,7 +26,7 @@
 
 #include "plot/angleSpectrumPlot.h"
 
-PLOTLIB_INLINE AngleSpectrumPlot::AngleSpectrumPlot( const Vec &vec )
+PLOTLIB_INLINE AngleSpectrumPlot::AngleSpectrumPlot( const PVec &vec )
 {
     mStream << "plt.angle_spectrum( " << this->ToArray( vec );
 }

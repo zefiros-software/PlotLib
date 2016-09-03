@@ -26,7 +26,8 @@
 
 #include "plot/easyPlot.h"
 
-PLOTLIB_INLINE void EasyPlot::ResidualPlot( ::Plot &plot, const Vec &exogenous, const Vec &endogenous, const Vec &fit )
+PLOTLIB_INLINE void EasyPlot::ResidualPlot( ::Plot &plot, const PVec &exogenous, const PVec &endogenous,
+                                            const PVec &fit )
 {
     plot.SubPlot( 2, 1, 1 )
     .AddPlot( LinePlot( exogenous, endogenous ) )
@@ -55,25 +56,25 @@ PLOTLIB_INLINE void EasyPlot::ResidualPlot( ::Plot &plot, const Vec &exogenous, 
     plot.SetTightLayout();
 }
 
-PLOTLIB_INLINE std::vector< int32_t > EasyPlot::StackedBarPlot( ::Plot &plot, const std::vector< Vec > &xValues,
-                                                                const std::vector< Vec > &yValues )
+PLOTLIB_INLINE std::vector< int32_t > EasyPlot::StackedBarPlot( ::Plot &plot, const std::vector< PVec > &xValues,
+                                                                const std::vector< PVec > &yValues )
 {
-    std::vector< Vec > yData;
+    std::vector< PVec > yData;
 
     std::valarray< double > yValData( yValues[0].GetData().data(), yValues[0].GetSize() );
-    yData.emplace_back( Vec( yValues[0] ) );
+    yData.emplace_back( PVec( yValues[0] ) );
 
     for ( size_t i = 1, end = yValues.size(); i < end; ++i )
     {
         yValData += std::valarray< double >( yValues[i].GetData().data(), yValues[i].GetSize() );
-        yData.emplace_back( Vec( yValData ) );
+        yData.emplace_back( PVec( yValData ) );
     }
 
     std::vector< int32_t > hueData;
 
     for ( int32_t i = ( int32_t )yValues.size() - 1; i >= 0; --i )
     {
-        plot.AddPlot( BarPlot( Vec( xValues[i] ), yData[i] ).UseColourCycler( plot.GetColourCycler() )
+        plot.AddPlot( BarPlot( PVec( xValues[i] ), yData[i] ).UseColourCycler( plot.GetColourCycler() )
                       .SetCapSize( 0.5 )
                       .SetErrorWidth( 1.2 ) );
         hueData.push_back( i );

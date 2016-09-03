@@ -31,7 +31,7 @@ PLOTLIB_INLINE std::string RUGPlot::ToString()
     return mStream.str() + ")";
 }
 
-PLOTLIB_INLINE RUGPlot::RUGPlot( const Vec &a )
+PLOTLIB_INLINE RUGPlot::RUGPlot( const PVec &a )
 {
     AbstractPlot::mStream << "sns.rugplot(" << this->ToArray( a );
 }

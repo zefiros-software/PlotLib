@@ -30,18 +30,18 @@
 
 #include "plot/abstractPlot.h"
 
-class Vec;
+class PVec;
 
 class DistrPlot
     : public AbstractPlot
 {
 public:
 
-    DistrPlot( const Vec &a );
+    DistrPlot( const PVec &a );
 
     virtual std::string ToString() override;
 
-    DistrPlot &SetBins( const Vec &bins );
+    DistrPlot &SetBins( const PVec &bins );
 
     DistrPlot &SetBins( size_t value );
 

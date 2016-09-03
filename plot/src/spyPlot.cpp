@@ -34,7 +34,7 @@ static const char *const __PlotLibSpyPlotAspect[] =
 };
 
 
-PLOTLIB_INLINE SpyPlot::SpyPlot( const Mat &mat )
+PLOTLIB_INLINE SpyPlot::SpyPlot( const PMat &mat )
 {
     mStream << "plt.spy(" << this->ToArray( mat );
 }

@@ -36,32 +36,34 @@ PLOTLIB_INLINE std::string ContourPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const Vec &x, const Vec &y, const Mat &z, const Vec &levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot( const PVec &x, const PVec &y, const PMat &z, const PVec &levels )
 {
-    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z ) << "," << this->ToArray( levels );
+    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray(
+                z ) << "," << this->ToArray( levels );
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const Vec &x, const Vec &y, const Mat &z, int32_t levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot( const PVec &x, const PVec &y, const PMat &z, int32_t levels )
 {
-    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z ) << "," << levels;
+    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray(
+                z ) << "," << levels;
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const Vec &x, const Vec &y, const Mat &z )
+PLOTLIB_INLINE ContourPlot::ContourPlot( const PVec &x, const PVec &y, const PMat &z )
 {
     mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z );
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const Mat &z, const Vec &levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot( const PMat &z, const PVec &levels )
 {
     mStream << "plt.contour(" << this->ToArray( z ) << "," << this->ToArray( levels );
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const Mat &z, uint32_t levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot( const PMat &z, uint32_t levels )
 {
     mStream << "plt.contour(" << this->ToArray( z ) << "," << levels;
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const Mat &z )
+PLOTLIB_INLINE ContourPlot::ContourPlot( const PMat &z )
 {
     mStream << "plt.contour(" << this->ToArray( z );
 }

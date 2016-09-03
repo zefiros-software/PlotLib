@@ -26,7 +26,7 @@
 
 #include "plot/simpleBarPlot.h"
 
-PLOTLIB_INLINE SimpleBarPlot::SimpleBarPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE SimpleBarPlot::SimpleBarPlot( const PVec &x, const PVec &y )
 {
     mStream << "plt.bar(" << this->ToArray( x ) << "," << this->ToArray( y );
 }

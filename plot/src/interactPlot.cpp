@@ -25,11 +25,12 @@
  */
 
 #include "plot/interactPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
-PLOTLIB_INLINE InteractPlot::InteractPlot( const Vec &endogenous, const Vec &endogenous2, const Vec &exogenous )
+PLOTLIB_INLINE InteractPlot::InteractPlot( const PVec &endogenous, const PVec &endogenous2, const PVec &exogenous )
 {
-    mStream << "sns.interactplot(" << this->ToArray( endogenous ) << "," << this->ToArray( endogenous2 ) << "," << this->ToArray( exogenous );
+    mStream << "sns.interactplot(" << this->ToArray( endogenous ) << "," << this->ToArray(
+                endogenous2 ) << "," << this->ToArray( exogenous );
 }
 
 PLOTLIB_INLINE std::string InteractPlot::ToString()
@@ -55,7 +56,7 @@ PLOTLIB_INLINE InteractPlot &InteractPlot::ColourBar( bool bar )
     return *this;
 }
 
-PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( const Vec &levels )
+PLOTLIB_INLINE InteractPlot &InteractPlot::SetLevels( const PVec &levels )
 {
     this->AddArgument( "levels", this->ToArray( levels ) );
     return *this;

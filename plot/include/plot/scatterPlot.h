@@ -35,7 +35,7 @@ class ScatterPlot
 {
 public:
 
-    ScatterPlot( const Vec &exogenous, const Vec &endogenous );
+    ScatterPlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 
@@ -43,7 +43,7 @@ public:
 
     ScatterPlot &SetScalar( double scalar );
 
-    ScatterPlot &SetScalar( const Vec &scalar );
+    ScatterPlot &SetScalar( const PVec &scalar );
 
     ScatterPlot &SetColour( const std::string &colour );
 
@@ -57,7 +57,7 @@ public:
 
     ScatterPlot &SetLineWidth( double lineWidth );
 
-    ScatterPlot &SetLineWidth( const Vec &widths );
+    ScatterPlot &SetLineWidth( const PVec &widths );
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

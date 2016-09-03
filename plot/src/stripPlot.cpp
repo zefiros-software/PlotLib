@@ -29,7 +29,8 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE StripPlot::StripPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE StripPlot::StripPlot( const std::vector< std::pair< PVec, PVec > > &data,
+                                     const std::vector< std::string > &hue )
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
@@ -59,7 +60,7 @@ PLOTLIB_INLINE StripPlot::StripPlot( const std::vector< std::pair< Vec, Vec > > 
     mStream << "\nsns.stripplot( x, y, h";
 }
 
-PLOTLIB_INLINE StripPlot::StripPlot( const std::vector< std::pair< Vec, Vec > > &data )
+PLOTLIB_INLINE StripPlot::StripPlot( const std::vector< std::pair< PVec, PVec > > &data )
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
@@ -79,7 +80,7 @@ PLOTLIB_INLINE StripPlot::StripPlot( const std::vector< std::pair< Vec, Vec > > 
     mStream << "\nsns.stripplot( x, y";
 }
 
-PLOTLIB_INLINE StripPlot::StripPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE StripPlot::StripPlot( const PVec &x, const PVec &y )
 {
     mStream << "sns.stripplot(" << this->ToArray( x ) << "," << this->ToArray( y );
 }
@@ -89,7 +90,7 @@ PLOTLIB_INLINE std::string StripPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE StripPlot &StripPlot::SetOrder( const Vec &order )
+PLOTLIB_INLINE StripPlot &StripPlot::SetOrder( const PVec &order )
 {
     mStream << ", order=" << this->ToArray( order );
     return *this;

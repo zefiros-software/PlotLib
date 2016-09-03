@@ -28,7 +28,7 @@
 
 #include <cassert>
 
-PLOTLIB_INLINE LogLogPlot::LogLogPlot( const Vec &exogenous, const Vec &endogenous )
+PLOTLIB_INLINE LogLogPlot::LogLogPlot( const PVec &exogenous, const PVec &endogenous )
 {
     mStream << "plt.loglog(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }

@@ -44,7 +44,7 @@ public:
 
     virtual std::string ToString() override;
 
-    RUGPlot( const Vec &a );
+    RUGPlot( const PVec &a );
 
     RUGPlot &SetHeight( double height );
 

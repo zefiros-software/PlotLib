@@ -28,7 +28,8 @@
 
 
 
-PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const Vec &widths )
+PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const std::vector< std::pair< PVec, PVec > > &data,
+                                                   const PVec &widths )
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
@@ -48,7 +49,7 @@ PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const std::vector< std::pair<
     mStream << "\nplt.bar( x, y" << ",width=" << this->ToArray( widths );
 }
 
-PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const Vec &x, const Vec &y, const Vec &widths )
+PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const PVec &x, const PVec &y, const PVec &widths )
 {
     mStream << "plt.bar(" << this->ToArray( x ) << "," << this->ToArray( y ) << ",width=" << this->ToArray( widths );
 }

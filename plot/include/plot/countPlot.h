@@ -29,7 +29,7 @@
 #define __COUNTPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -44,15 +44,15 @@ public:
         Horizontal
     };
 
-    CountPlot( const Vec &x );
+    CountPlot( const PVec &x );
 
-    CountPlot( const std::vector< Vec > &data );
+    CountPlot( const std::vector< PVec > &data );
 
-    CountPlot( const std::vector< Vec > &data, const std::vector< std::string > &hue );
+    CountPlot( const std::vector< PVec > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    CountPlot &SetOrder( const Vec &order );
+    CountPlot &SetOrder( const PVec &order );
 
     CountPlot &SetHueOrder( const std::vector< std::string > &order );
 

@@ -28,7 +28,7 @@
 #ifndef __ARMA_H__
 #define __ARMA_H__
 
-#include "plot/vec.h"
+#include "plot/pvec.h"
 #include "plot/mat.h"
 
 #ifdef PLOTLIB_ARMA
@@ -36,14 +36,14 @@
 #include <armadillo>
 
 template<>
-inline Vec::Vec( const ::arma::vec &data )
+inline PVec::PVec( const ::arma::vec &data )
     : mData( data.cbegin(), data.cend() )
 {
 }
 
 
 template<>
-inline Mat::Mat( const ::arma::umat &data )
+inline PMat::PMat( const ::arma::umat &data )
     : mData( data.n_rows )
 {
     size_t i = 0;
@@ -57,7 +57,7 @@ inline Mat::Mat( const ::arma::umat &data )
 }
 
 template<>
-inline Mat::Mat( const ::arma::mat &data )
+inline PMat::PMat( const ::arma::mat &data )
     : mData( data.n_rows )
 {
     size_t i = 0;

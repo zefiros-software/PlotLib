@@ -26,7 +26,7 @@
 
 #include "plot/scatterPlot.h"
 
-PLOTLIB_INLINE ScatterPlot::ScatterPlot( const Vec &exogenous, const Vec &endogenous )
+PLOTLIB_INLINE ScatterPlot::ScatterPlot( const PVec &exogenous, const PVec &endogenous )
 {
     mStream << "plt.scatter(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
 }
@@ -48,7 +48,7 @@ PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( double scalar )
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const Vec &scalar )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const PVec &scalar )
 {
     this->AddArgument( "s", this->ToArray( scalar ) );
     return *this;
@@ -84,7 +84,7 @@ PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMax( double vmax )
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( const Vec &widths )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( const PVec &widths )
 {
     this->AddArgument( "linewidths", this->ToArray( widths ) );
     return *this;

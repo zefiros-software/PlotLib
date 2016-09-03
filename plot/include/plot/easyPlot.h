@@ -34,22 +34,22 @@
 #include "plot/linePlot.h"
 #include "plot/barPlot.h"
 #include "plot/plot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 #include <valarray>
 #include <vector>
 
 namespace EasyPlot
 {
-    void ResidualPlot( ::Plot &plot, const Vec &exogenous, const Vec &endogenous, const Vec &fit );
+    void ResidualPlot( ::Plot &plot, const PVec &exogenous, const PVec &endogenous, const PVec &fit );
 
     template< typename tBackHueFunc, typename tForeHueFunc >
-    PLOTLIB_INLINE void BackgroundForegroundBarPlot( ::Plot &plot, const std::vector< Vec > &background,
-                                                     const std::vector< Vec > &foreground, const std::vector< Vec > &x,
+    PLOTLIB_INLINE void BackgroundForegroundBarPlot( ::Plot &plot, const std::vector< PVec > &background,
+                                                     const std::vector< PVec > &foreground, const std::vector< PVec > &x,
                                                      const Palette &backPalette, const Palette &forePalette, const tBackHueFunc &backHue, const tForeHueFunc &foreHue )
     {
-        std::vector< std::pair< Vec, Vec > > backData;
-        std::vector< std::pair< Vec, Vec > > foreData;
+        std::vector< std::pair< PVec, PVec > > backData;
+        std::vector< std::pair< PVec, PVec > > foreData;
         std::vector< size_t > hueData;
 
         for ( size_t i = 0, end = background.size(); i < end; ++i )
@@ -57,8 +57,8 @@ namespace EasyPlot
             std::valarray< double > backVal( background[i].GetData().data(), background[i].GetSize() );
             backVal += std::valarray< double >( foreground[i].GetData().data(), foreground[i].GetSize() );
 
-            backData.emplace_back( Vec( x[i] ), Vec( backVal ) );
-            foreData.emplace_back( Vec( x[i] ), Vec( foreground[i] ) );
+            backData.emplace_back( PVec( x[i] ), PVec( backVal ) );
+            foreData.emplace_back( PVec( x[i] ), PVec( foreground[i] ) );
             hueData.push_back( i );
         }
 
@@ -67,12 +67,12 @@ namespace EasyPlot
         plot.SetLegend( Plot::Location::Best );
     }
 
-    std::vector< int32_t > StackedBarPlot( ::Plot &plot, const std::vector< Vec > &xValues,
-                                           const std::vector< Vec > &yValues );
+    std::vector< int32_t > StackedBarPlot( ::Plot &plot, const std::vector< PVec > &xValues,
+                                           const std::vector< PVec > &yValues );
 
     template< typename tFunc >
-    PLOTLIB_INLINE void StackedBarPlot( ::Plot &plot, const std::vector< Vec > &xValues,
-                                        const std::vector< Vec > &yValues, const Palette &palette, const tFunc &hueFunc )
+    PLOTLIB_INLINE void StackedBarPlot( ::Plot &plot, const std::vector< PVec > &xValues,
+                                        const std::vector< PVec > &yValues, const Palette &palette, const tFunc &hueFunc )
     {
 
         plot.AddColourCycler( palette );        ;
@@ -81,12 +81,12 @@ namespace EasyPlot
     }
 
     template< typename tFunc >
-    PLOTLIB_INLINE void StackedDistancedBarPlot( ::Plot &plot, const std::vector< Vec > &gapWidths,
-                                                 const std::vector< Vec > &barWidths,
-                                                 const std::vector< Vec > &yValues,
+    PLOTLIB_INLINE void StackedDistancedBarPlot( ::Plot &plot, const std::vector< PVec > &gapWidths,
+                                                 const std::vector< PVec > &barWidths,
+                                                 const std::vector< PVec > &yValues,
                                                  const Palette &palette, const tFunc &hueFunc )
     {
-        std::vector< Vec > yData;
+        std::vector< PVec > yData;
         std::vector<double> lineX;
         std::vector<std::vector<double>> lineY( gapWidths.size() );
 
@@ -98,7 +98,7 @@ namespace EasyPlot
         }
 
         std::valarray< double > yValData( yValues[0].GetData().data(), yValues[0].GetSize() );
-        yData.emplace_back( Vec( yValues[0] ) );
+        yData.emplace_back( PVec( yValues[0] ) );
 
         for ( auto height : yValData )
         {
@@ -116,7 +116,7 @@ namespace EasyPlot
                 lineY[i].push_back( height );
             }
 
-            yData.emplace_back( Vec( yValData ) );
+            yData.emplace_back( PVec( yValData ) );
         }
 
 

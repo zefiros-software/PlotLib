@@ -27,8 +27,8 @@
 #include "plot/define.h"
 #include "plot/mat.h"
 
-PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< int64_t > > &data,
-                         const std::map< int64_t, std::string > &map )
+PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< int64_t > > &data,
+                           const std::map< int64_t, std::string > &map )
 {
     mStrData.resize( data.size() );
     size_t i = 0;
@@ -46,46 +46,46 @@ PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< int64_t > > &data,
     mDimension = CheckDimensions( mStrData );
 }
 
-PLOTLIB_INLINE Mat::Mat( const std::initializer_list< std::initializer_list< std::string > > &data )
+PLOTLIB_INLINE PMat::PMat( const std::initializer_list< std::initializer_list< std::string > > &data )
     : mStrData( data.begin(), data.end() )
 {
     mDimension = CheckDimensions( mStrData );
 }
 
-PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< std::string > > &data )
+PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< std::string > > &data )
     : mStrData( data )
 {
     mDimension = CheckDimensions( mStrData );
 }
 
-PLOTLIB_INLINE Mat::Mat( const std::initializer_list< std::initializer_list< double > > &data )
+PLOTLIB_INLINE PMat::PMat( const std::initializer_list< std::initializer_list< double > > &data )
     : mData( data.begin(), data.end() )
 {
     mDimension = CheckDimensions( mData );
 }
 
-PLOTLIB_INLINE Mat::Mat( const std::vector< std::vector< double > > &data )
+PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< double > > &data )
     : mData( data )
 {
     mDimension = CheckDimensions( mData );
 }
 
-PLOTLIB_INLINE const std::vector< std::vector< double > > &Mat::GetData() const
+PLOTLIB_INLINE const std::vector< std::vector< double > > &PMat::GetData() const
 {
     return mData;
 }
 
-PLOTLIB_INLINE const std::vector< std::vector< std::string > > &Mat::GetStrings() const
+PLOTLIB_INLINE const std::vector< std::vector< std::string > > &PMat::GetStrings() const
 {
     return mStrData;
 }
 
-PLOTLIB_INLINE size_t Mat::GetSize() const
+PLOTLIB_INLINE size_t PMat::GetSize() const
 {
     return mStrData.empty() ? mData.size() : mStrData.size();
 }
 
-PLOTLIB_INLINE std::pair< size_t, size_t > Mat::GetDimension() const
+PLOTLIB_INLINE std::pair< size_t, size_t > PMat::GetDimension() const
 {
     return mDimension;
 }

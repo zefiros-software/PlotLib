@@ -28,7 +28,7 @@
 
 
 
-PLOTLIB_INLINE ClusterMapPlot::ClusterMapPlot( const Mat &map )
+PLOTLIB_INLINE ClusterMapPlot::ClusterMapPlot( const PMat &map )
 {
     mStream << "sns.clustermap(" << this->ToArray( map );
 }
@@ -80,13 +80,13 @@ PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ColumnCluster( bool cluster )
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetRowLinkage( const Vec &linkage )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetRowLinkage( const PVec &linkage )
 {
     mStream << ", row_linkage=" << this->ToArray( linkage );
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetColumnLinkage( const Vec &linkage )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetColumnLinkage( const PVec &linkage )
 {
     mStream << ", col_linkage=" << this->ToArray( linkage );
     return *this;

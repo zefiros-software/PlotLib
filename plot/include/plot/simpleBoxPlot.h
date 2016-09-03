@@ -29,14 +29,14 @@
 #define __SIMPLEBOXPLOT_H__
 
 #include "plot/properties/boxPlotProperties.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class SimpleBoxPlot
     : public BoxPlotProperties< SimpleBoxPlot >
 {
 public:
 
-    SimpleBoxPlot( const ::Mat &x );
+    SimpleBoxPlot( const ::PMat &x );
 
     virtual std::string ToString() override;
 };

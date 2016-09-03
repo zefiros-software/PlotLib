@@ -40,16 +40,16 @@ public:
 
     friend class SubPlots;
 
-    HeatMapPlot( const Mat &map );
+    HeatMapPlot( const PMat &map );
 
-    HeatMapPlot( const Vec &x, const Vec &y, size_t bins = 10 );
+    HeatMapPlot( const PVec &x, const PVec &y, size_t bins = 10 );
 
-    HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins );
+    HeatMapPlot( const PVec &x, const PVec &y, std::pair< size_t, size_t > bins );
 
-    HeatMapPlot( const Vec &x, const Vec &y, size_t bins, std::pair< double, double > xextent,
+    HeatMapPlot( const PVec &x, const PVec &y, size_t bins, std::pair< double, double > xextent,
                  std::pair<double, double> yextent );
 
-    HeatMapPlot( const Vec &x, const Vec &y, std::pair< size_t, size_t > bins, std::pair< double, double > xextent,
+    HeatMapPlot( const PVec &x, const PVec &y, std::pair< size_t, size_t > bins, std::pair< double, double > xextent,
                  std::pair<double, double> yextent );
 
     std::string ToString() override;

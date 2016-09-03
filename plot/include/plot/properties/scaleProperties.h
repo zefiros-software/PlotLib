@@ -103,7 +103,7 @@ public:
         return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const Vec &subsy )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const PVec &subsy )
     {
         this->AddArgument( "subsy", this->ToArray( subsy ) );
 
@@ -125,7 +125,7 @@ public:
         return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const Vec &subsy )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const PVec &subsy )
     {
         this->AddArgument( "subsx", this->ToArray( subsy ) );
 
@@ -199,7 +199,7 @@ public:
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const Vec &subsy )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const PVec &subsy )
     {
         this->AddArgument( "subsy", this->ToArray( subsy ) );
 
@@ -214,35 +214,39 @@ public:
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const Vec &subsy )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const PVec &subsy )
     {
         this->AddArgument( "subsx", this->ToArray( subsy ) );
 
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdX( double min, double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdX( double min,
+                                                                                                             double max )
     {
         this->AddArgument( "linthreshx", this->ToTuple( min, max ) );
 
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdY( double min, double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdY( double min,
+                                                                                                             double max )
     {
         this->AddArgument( "linthreshy", this->ToTuple( min, max ) );
 
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleX( double min, double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleX( double min,
+                                                                                                         double max )
     {
         this->AddArgument( "linscalex", this->ToTuple( min, max ) );
 
         return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleY( double min, double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleY( double min,
+                                                                                                         double max )
     {
         this->AddArgument( "linscaley", this->ToTuple( min, max ) );
 

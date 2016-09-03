@@ -34,8 +34,8 @@
 #include <string>
 #include <vector>
 
-class Vec;
-class Mat;
+class PVec;
+class PMat;
 
 /**
  * An abstract plot from which every plot type should inherit.
@@ -98,7 +98,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const Vec &vec );
+    static std::string ToArray( const PVec &vec );
 
     /**
      * Convert this matrix into python representation.
@@ -108,7 +108,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const ::Mat &mat );
+    static std::string ToArray( const ::PMat &mat );
 
     /**
      * Convert this vector into python representation.

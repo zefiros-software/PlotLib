@@ -40,12 +40,12 @@ TEST( AngleSpectrumPlot, AngleSpectrumPlot )
 
 TEST( AngleSpectrumPlot, Construct )
 {
-    AngleSpectrumPlot( Vec( { 0 } ) );
+    AngleSpectrumPlot( PVec( { 0 } ) );
 }
 
 TEST( AngleSpectrumPlot, ToString )
 {
-    EXPECT_EQ( "plt.angle_spectrum( [0] )", AngleSpectrumPlot( Vec( { 0 } ) ).ToString() );
+    EXPECT_EQ( "plt.angle_spectrum( [0] )", AngleSpectrumPlot( PVec( { 0 } ) ).ToString() );
 }
 
 TEST( AngleSpectrumPlot, SetSamplingFrequency )

@@ -42,7 +42,7 @@ public:
         Linear
     };
 
-    CrossCorrelationPlot( const Vec &x, const Vec &y );
+    CrossCorrelationPlot( const PVec &x, const PVec &y );
 
     virtual std::string ToString() override;
 

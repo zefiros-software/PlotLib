@@ -1,15 +1,15 @@
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 #include "helper.h"
 
-TEST( Vec, Construct )
+TEST( PVec, Construct )
 {
-    EXPECT_FALSE( std::is_constructible<Vec>::value );
+    EXPECT_FALSE( std::is_constructible<PVec>::value );
 }
 
-TEST( Vec, FloatConstr )
+TEST( PVec, FloatConstr )
 {
-    Vec v( { 0.1f, 2.0f, 8.0f } );
+    PVec v( { 0.1f, 2.0f, 8.0f } );
 
     EXPECT_DOUBLE_EQ( 0.1f, v.GetData()[0] );
     EXPECT_DOUBLE_EQ( 2.0f, v.GetData()[1] );
@@ -19,9 +19,9 @@ TEST( Vec, FloatConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, DoubleConstr )
+TEST( PVec, DoubleConstr )
 {
-    Vec v( { 0.1, 2.0, 8.0 } );
+    PVec v( { 0.1, 2.0, 8.0 } );
 
     EXPECT_DOUBLE_EQ( 0.1, v.GetData()[0] );
     EXPECT_DOUBLE_EQ( 2.0, v.GetData()[1] );
@@ -31,9 +31,9 @@ TEST( Vec, DoubleConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, IntConstr )
+TEST( PVec, IntConstr )
 {
-    Vec v( { 1, 2, 8 } );
+    PVec v( { 1, 2, 8 } );
 
     EXPECT_DOUBLE_EQ( 1, v.GetData()[0] );
     EXPECT_DOUBLE_EQ( 2, v.GetData()[1] );
@@ -43,9 +43,9 @@ TEST( Vec, IntConstr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, IntStrConstr )
+TEST( PVec, IntStrConstr )
 {
-    Vec v( {"1", "2", "8" } );
+    PVec v( {"1", "2", "8" } );
 
     EXPECT_EQ( "1", v.GetStrings()[0] );
     EXPECT_EQ( "2", v.GetStrings()[1] );
@@ -55,9 +55,9 @@ TEST( Vec, IntStrConstr )
     EXPECT_EQ( 0, v.GetData().size() );
 }
 
-TEST( Vec, Valarr )
+TEST( PVec, Valarr )
 {
-    Vec v( std::valarray< int16_t > { 1, 2, 8 } );
+    PVec v( std::valarray< int16_t > { 1, 2, 8 } );
 
     EXPECT_DOUBLE_EQ( 1, v.GetData()[0] );
     EXPECT_DOUBLE_EQ( 2, v.GetData()[1] );
@@ -67,9 +67,9 @@ TEST( Vec, Valarr )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, Str )
+TEST( PVec, Str )
 {
-    Vec v( { "1", "2", "8" } );
+    PVec v( { "1", "2", "8" } );
 
     EXPECT_EQ( "1", v.GetStrings()[0] );
     EXPECT_EQ( "2", v.GetStrings()[1] );
@@ -79,9 +79,9 @@ TEST( Vec, Str )
     EXPECT_EQ( 0, v.GetData().size() );
 }
 
-TEST( Vec, Map )
+TEST( PVec, Map )
 {
-    Vec v( { 1, 2, 8 }, { { 1, "1" }, { 2, "2" }, { 8, "8" } } );
+    PVec v( { 1, 2, 8 }, { { 1, "1" }, { 2, "2" }, { 8, "8" } } );
 
     EXPECT_EQ( "1", v.GetStrings()[0] );
     EXPECT_EQ( "2", v.GetStrings()[1] );
@@ -91,9 +91,9 @@ TEST( Vec, Map )
     EXPECT_EQ( 0, v.GetData().size() );
 }
 
-TEST( Vec, Linspace )
+TEST( PVec, Linspace )
 {
-    Vec v( 0, 2, 3 );
+    PVec v( 0, 2, 3 );
 
     EXPECT_DOUBLE_EQ( 0.0, v.GetData()[0] );
     EXPECT_DOUBLE_EQ( 1.0, v.GetData()[1] );
@@ -103,9 +103,9 @@ TEST( Vec, Linspace )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, LinspaceFunc )
+TEST( PVec, LinspaceFunc )
 {
-    Vec v( 0, 2, 3, []( double x )
+    PVec v( 0, 2, 3, []( double x )
     {
         return x - 1;
     } );
@@ -118,9 +118,9 @@ TEST( Vec, LinspaceFunc )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, Func )
+TEST( PVec, Func )
 {
-    Vec v( { 0, 2, 3 }, []( double x )
+    PVec v( { 0, 2, 3 }, []( double x )
     {
         return x - 1;
     } );
@@ -133,9 +133,9 @@ TEST( Vec, Func )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, Arma )
+TEST( PVec, Arma )
 {
-    Vec v( arma::vec{ 0, 2, 3 } );
+    PVec v( arma::vec{ 0, 2, 3 } );
 
     EXPECT_DOUBLE_EQ( 0.0, v.GetData()[0] );
     EXPECT_DOUBLE_EQ( 2.0, v.GetData()[1] );
@@ -145,26 +145,26 @@ TEST( Vec, Arma )
     EXPECT_EQ( 0, v.GetStrings().size() );
 }
 
-TEST( Vec, GetSizeDouble )
+TEST( PVec, GetSizeDouble )
 {
-    Vec v( { 0, 2, 3, 4 } );
+    PVec v( { 0, 2, 3, 4 } );
     EXPECT_EQ( 4, v.GetSize() );
 }
 
-TEST( Vec, GetSizeStr )
+TEST( PVec, GetSizeStr )
 {
-    Vec v( { "0", "2", "3", "4" } );
+    PVec v( { "0", "2", "3", "4" } );
     EXPECT_EQ( 4, v.GetSize() );
 }
 
-TEST( Vec, Min )
+TEST( PVec, Min )
 {
-    Vec v( { 0, 2, 3, 4, -2 } );
+    PVec v( { 0, 2, 3, 4, -2 } );
     EXPECT_DOUBLE_EQ( -2.0, v.Min() );
 }
 
-TEST( Vec, Max )
+TEST( PVec, Max )
 {
-    Vec v( { 0, 2, 3, 4, -2 } );
+    PVec v( { 0, 2, 3, 4, -2 } );
     EXPECT_DOUBLE_EQ( 4.0, v.Max() );
 }

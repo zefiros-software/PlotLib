@@ -26,7 +26,7 @@
 
 #include "plot/fancyAutoCorrelationPlot.h"
 
-PLOTLIB_INLINE FancyAutoCorrelationPlot::FancyAutoCorrelationPlot( const Vec &vec )
+PLOTLIB_INLINE FancyAutoCorrelationPlot::FancyAutoCorrelationPlot( const PVec &vec )
 {
     mStream << "autocorrelation_plot(" << this->ToArray( vec );
 }

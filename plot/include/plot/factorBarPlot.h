@@ -29,7 +29,7 @@
 #define __FACTORBARPLOT_H__
 
 #include "plot/abstractPlot.h"
-#include "plot/vec.h"
+#include "plot/pvec.h"
 
 class Palette;
 
@@ -44,15 +44,15 @@ public:
         Horizontal
     };
 
-    FactorBarPlot( const Vec &x, const Vec &y );
+    FactorBarPlot( const PVec &x, const PVec &y );
 
-    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data );
+    FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data );
 
-    FactorBarPlot( const std::vector< std::pair< Vec, Vec > > &data, const std::vector< std::string > &hue );
+    FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
 
     virtual std::string ToString() override;
 
-    FactorBarPlot &SetOrder( const Vec &order );
+    FactorBarPlot &SetOrder( const PVec &order );
 
     FactorBarPlot &SetHueOrder( const std::vector< std::string > &order );
 

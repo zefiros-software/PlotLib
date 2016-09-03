@@ -72,7 +72,8 @@ public:
 
     tReturn &SetOrientation( Orientation orientation )
     {
-        this->AddArgument( "orientation", this->GetString( orientation == Orientation::Horizontal ? "horizontal" : "vertical" ) );
+        this->AddArgument( "orientation", this->GetString( orientation == Orientation::Horizontal ? "horizontal" :
+                                                           "vertical" ) );
 
         return static_cast<tBase &>( *this );
     }
@@ -140,7 +141,7 @@ public:
         return static_cast<tBase &>( *this );
     }
 
-    tReturn &SetTicks( const Vec &ticks )
+    tReturn &SetTicks( const PVec &ticks )
     {
         this->AddArgument( "ticks", this->ToArray( ticks ) );
 

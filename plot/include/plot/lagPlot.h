@@ -35,7 +35,7 @@ class LagPlot
 {
 public:
 
-    LagPlot( const Vec &vec );
+    LagPlot( const PVec &vec );
 
     virtual std::string ToString() override;
 

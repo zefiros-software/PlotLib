@@ -134,7 +134,7 @@ public:
         return static_cast<tReturn &>( *this );
     }
 
-    tReturn &SetLineWidths( const Vec &widths )
+    tReturn &SetLineWidths( const PVec &widths )
     {
         this->AddArgument( "linewidths", this->ToArray( widths ) );
 
@@ -148,7 +148,7 @@ public:
         return static_cast<tReturn &>( *this );
     }
 
-    tReturn &SetEdgeColour( const Vec &colours )
+    tReturn &SetEdgeColour( const PVec &colours )
     {
         this->AddArgument( "edgecolor", this->ToArray( colours ) );
 

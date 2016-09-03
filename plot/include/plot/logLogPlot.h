@@ -42,7 +42,7 @@ public:
         Clip
     };
 
-    LogLogPlot( const Vec &exogenous, const Vec &endogenous );
+    LogLogPlot( const PVec &exogenous, const PVec &endogenous );
 
     virtual std::string ToString() override;
 

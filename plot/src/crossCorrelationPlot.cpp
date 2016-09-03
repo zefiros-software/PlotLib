@@ -33,7 +33,7 @@ static const char *const __PlotLibCrossCorrelationPlotDetrend[] =
     "detrend_linear"
 };
 
-PLOTLIB_INLINE CrossCorrelationPlot::CrossCorrelationPlot( const Vec &x, const Vec &y )
+PLOTLIB_INLINE CrossCorrelationPlot::CrossCorrelationPlot( const PVec &x, const PVec &y )
     : mDefaultDetrend( Detrend::Mean ) // statistics default
 {
     mStream << "plt.xcorr(" << this->ToArray( x ) << "," << this->ToArray( y );
