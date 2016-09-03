@@ -52,12 +52,6 @@ When a bug is found please insert it in the issue tracker, so we can resolve it 
 * Paul Visscher <p.e.visscher@zefiros.eu>
 * Koen Visscher <k.m.visscher@zefiros.eu>
 
-## Used By
-We are interested to find out what projects use SerLib. We would love it to include your projects here, 
-just shoot us a mail. :)
-
-* Zefiros Engine 
-
 ## License
 This project is licensed under the MIT license by [Zefiros Software](https://zefiros.eu).
 

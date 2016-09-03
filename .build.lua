@@ -17,6 +17,12 @@ project "PlotLib"
         ]]
     end
 
+    if zpm.option( "UseArma" ) then
+        zpm.export [[
+            defines "PLOTLIB_ARMA"
+        ]]
+    end
+
     zpm.export [[
         includedirs "plot/include/"
         flags "C++11"
