@@ -77,7 +77,7 @@ public:
 
     Plot( Context context );
 
-    Plot( AbstractPlot &plot );
+    Plot( const AbstractPlot &plot );
 
     Plot &AxisStyle( Style style, const std::vector< std::pair< std::string, std::string >> &params = {} );
 

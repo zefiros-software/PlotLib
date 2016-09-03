@@ -30,7 +30,7 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE Plot::Plot( AbstractPlot &plot )
+PLOTLIB_INLINE Plot::Plot( const AbstractPlot &plot )
     : Plot()
 {
     AddPlot( plot );
