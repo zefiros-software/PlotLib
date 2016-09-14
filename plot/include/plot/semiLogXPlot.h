@@ -36,7 +36,7 @@ class SemiLogXPlot
 {
 public:
 
-    enum class NonPos
+    enum NonPos
     {
         Mask,
         Clip

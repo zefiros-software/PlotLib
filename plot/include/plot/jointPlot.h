@@ -35,7 +35,7 @@ class JointPlot
 {
 public:
 
-    enum class Kind
+    enum Kind
     {
         Scatter,
         Regression,

@@ -35,7 +35,7 @@ class ClusterMapPlot
 {
 public:
 
-    enum class Linkage
+    enum Linkage
     {
         Single,
         Complete,

@@ -35,7 +35,7 @@ class ArrowPlot
 {
 public:
 
-    enum class Shape
+    enum Shape
     {
         Full,
         Left,

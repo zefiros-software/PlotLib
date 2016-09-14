@@ -35,7 +35,7 @@ class CrossCorrelationPlot
 {
 public:
 
-    enum class Detrend
+    enum Detrend
     {
         None,
         Mean,

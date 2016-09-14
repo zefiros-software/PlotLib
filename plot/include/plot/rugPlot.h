@@ -36,7 +36,7 @@ class RUGPlot
 {
 public:
 
-    enum class Axis
+    enum Axis
     {
         X,
         Y

@@ -36,7 +36,7 @@ class LogLogPlot
 {
 public:
 
-    enum class NonPos
+    enum NonPos
     {
         Mask,
         Clip

@@ -36,7 +36,7 @@ class HexBinPlot
 {
 public:
 
-    enum class BinType
+    enum BinType
     {
         Logarithmic,
         None

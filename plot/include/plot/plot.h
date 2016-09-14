@@ -41,7 +41,7 @@ class Plot
 {
 public:
 
-    enum class Style
+    enum Style
     {
         DarkGrid,
         WhiteGrid,
@@ -50,7 +50,7 @@ public:
         Ticks
     };
 
-    enum class Context
+    enum Context
     {
         Paper,
         Notebook,
@@ -58,7 +58,7 @@ public:
         Poster
     };
 
-    enum class Location
+    enum Location
     {
         Best,
         UpperRight,

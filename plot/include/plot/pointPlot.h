@@ -39,7 +39,7 @@ class PointPlot
 {
 public:
 
-    enum class Orientation
+    enum Orientation
     {
         Vertical,
         Horizontal

@@ -35,7 +35,7 @@ class AutoCorrelationPlot
 {
 public:
 
-    enum class Detrend
+    enum Detrend
     {
         None,
         Mean,

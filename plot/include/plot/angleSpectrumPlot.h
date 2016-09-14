@@ -34,7 +34,7 @@ class AngleSpectrumPlot
     : public Line2DProperties< AngleSpectrumPlot >
 {
 public:
-    enum class Sides
+    enum Sides
     {
         Default,
         OneSided,

@@ -34,13 +34,13 @@ class SpyPlot
 {
 public:
 
-    enum class Origin
+    enum Origin
     {
         Lower,
         Upper
     };
 
-    enum class Aspect
+    enum Aspect
     {
         Auto,
         Equal,

@@ -35,7 +35,7 @@ class KDEPlot
 {
 public:
 
-    enum class Kernel
+    enum Kernel
     {
         Gauss,
         Cos,

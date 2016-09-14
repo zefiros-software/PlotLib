@@ -38,26 +38,26 @@ class ViolinPlot
 {
 public:
 
-    enum class Orientation
+    enum Orientation
     {
         Vertical,
         Horizontal
     };
 
-    enum class KernelBandwidth
+    enum KernelBandwidth
     {
         Scott,
         Silverman
     };
 
-    enum class Scale
+    enum Scale
     {
         Area,
         Count,
         Width
     };
 
-    enum class Interior
+    enum Interior
     {
         Box,
         Quartile,

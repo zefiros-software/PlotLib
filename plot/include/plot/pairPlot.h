@@ -36,13 +36,13 @@ class PairPlot
 {
 public:
 
-    enum class Type
+    enum Type
     {
         Scatter,
         Regression
     };
 
-    enum class DiagonalType
+    enum DiagonalType
     {
         Histogram,
         KernelDensity

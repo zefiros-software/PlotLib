@@ -37,7 +37,7 @@ class AnnotatePlot
 {
 public:
 
-    enum class Type
+    enum Type
     {
         FigurePoints,
         FigurePixels,

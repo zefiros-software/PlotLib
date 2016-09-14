@@ -38,7 +38,7 @@ class CountPlot
 {
 public:
 
-    enum class Orientation
+    enum Orientation
     {
         Vertical,
         Horizontal

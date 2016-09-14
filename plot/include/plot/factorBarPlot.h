@@ -38,7 +38,7 @@ class FactorBarPlot
 {
 public:
 
-    enum class Orientation
+    enum Orientation
     {
         Vertical,
         Horizontal

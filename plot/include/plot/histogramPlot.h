@@ -35,7 +35,7 @@ class HistogramPlot
 {
 public:
 
-    enum class Type
+    enum Type
     {
         Bar,
         BarStacked,
