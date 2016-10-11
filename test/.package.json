@@ -6,7 +6,7 @@
     "requires": [
         {
             "name": "Zefiros-Software/PlotLib",
-            "version": "@head"
+            "path": "../"
         },
         {
             "name": "Zefiros-Software/GoogleTest",

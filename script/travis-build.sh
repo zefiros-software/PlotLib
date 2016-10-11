@@ -20,11 +20,11 @@ cd ../
 
 cd ../docs/images/
 ../../bin/x86/plot-test
-../../bin/x86/plot-testd
+#../../bin/x86/plot-testd
 #../../bin/x86/plot-testcd
 
 ../../bin/x86_64/plot-test
-../../bin/x86_64/plot-testd
+#../../bin/x86_64/plot-testd
 #../../bin/x86_64/plot-testcd
 
 ../../test/bin/x86/plot-zpm-test
