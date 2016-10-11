@@ -2,7 +2,7 @@ extensions: .h .cpp .cc .hpp
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) %CurrentYear% Koen Visscher, Paul Visscher and individual contributors.
+ * Copyright (c) %CurrentYear% Mick van Duijn, Koen Visscher and Paul Visscher
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
