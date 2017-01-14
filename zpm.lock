@@ -1,0 +1,26 @@
+
+{
+    "dependencies": [ 
+    {
+        "hash": "5e7fd50e17b6edf1cadff973d0ec68966cf3265e",
+        "name": "Zefiros-Software/GoogleTest",
+        "tag": "master",
+        "type": "library",
+        "version": "@head"
+    }, 
+    {
+        "hash": "3058c123c01f008d5e498eac7bf5811d132eab70",
+        "name": "Zefiros-Software/Armadillo",
+        "tag": "master",
+        "type": "library",
+        "version": "@head"
+    }, 
+    {
+        "hash": "4d543a49f499199210d5beff785e008c71ce4f36",
+        "name": "Zefiros-Software/Zefiros-Mkdocs-Style",
+        "tag": "1.0.2",
+        "type": "assets",
+        "version": "1.0.2"
+    }],
+    "name": "Zefiros-Software/PlotLib"
+}

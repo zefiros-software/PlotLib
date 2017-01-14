@@ -8,7 +8,7 @@ site_url:
 repo_url: 
 site_description: 
 theme: united
-copyright: Copyright © 2016 Mick van Duijn, Koen Visscher and Paul Visscher
+copyright: Copyright © 2017 Zefiros Software.
 google_analytics: 
 
 theme_dir: docs/style
