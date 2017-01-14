@@ -1,30 +1,32 @@
+#!/bin/bash
 set -e
 
-premake5 install-package --allow-install --allow-module
-premake5 gmake
-cd plot
-make config=debug_x86
-make config=debug_x86_64
-make config=release_x86
-make config=release_x86_64
-#make config=coverage_x86
-#make config=coverage_x86_64
+if [ "$TYPE" == "zpm" ]; then
+    cd test
+    
+    zpm install-package --allow-install --allow-module
+    zpm gmake --allow-install
 
-cd ../test/
+    cd zpm/
+    make
+    cd ../../
 
-premake5 gmake
+    test/bin/x86/plot-zpm-test
 
-cd zpm/
-make
-cd ../
+else
+    zpm install-package --allow-install --allow-module
+    zpm gmake --allow-install
+    cd plot
+    make config=${TYPE}_${ARCH}
+    cd ../
 
-cd ../docs/images/
-../../bin/x86/plot-test
-#../../bin/x86/plot-testd
-#../../bin/x86/plot-testcd
 
-../../bin/x86_64/plot-test
-#../../bin/x86_64/plot-testd
-#../../bin/x86_64/plot-testcd
+    if [ "$TYPE" == "debug" ]; then
+        bin/${ARCH}/plot-testd
 
-../../test/bin/x86/plot-zpm-test
+    elif [ "$TYPE" == "coverage" ]; then
+        ./plot-testcd
+    else
+        bin/${ARCH}/plot-test
+    fi
+fi
