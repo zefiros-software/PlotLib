@@ -44,6 +44,9 @@ matrix:
         - os: linux
           dist: trusty
           env: TYPE=zpm VERSION=6
+        - os: linux
+          dist: trusty
+          env: TYPE=zpm VERSION=6
 install:
     - bash script/install-unix.sh
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
@@ -52,7 +55,7 @@ install:
 script:
     - bash script/travis-build.sh
 after_success:
-  - if [[ "$TRAVIS_OS_NAME" == "linux" && "$TYPE" = "coverage" ]]; then codecov; fi    
+    - if [[ "$TRAVIS_OS_NAME" == "linux" && "$TYPE" = "coverage" ]]; then codecov; fi    
 notifications:
     slack:
         secure: "C8qOVBHq8wCKjQx0fY333ZsGhvBuZLe9qWtWVss87jb97UUAEws/K5Wz9xfKy6E6M8mAHZziKrUzXSx9HbiUUcqBp6tykRROOJF/s/be/YUxf0RX0ckGj+b7zsw+hqQd+k2pSWdpyBMcD9Rshj1ENrRLRzQFg7Jz5GZVakvnJAxzuJTZrQGlSnAm37lWkgPSqRkMNeUtN78nvbldU+EpRpatAtfq9PSpj32xU+wbFZp0un80Gcwebhd0RmfMcYXpRAqrlM2kjKlPdAl0prizn68IZi+CSQ6Exn+2Y6+wySpjtmSXSgnBiNVDxgtTmXNZjXY19HTB0XSIKSlekWLlEE0vaUsoh5ojCwoXcawVoSTQWBgjftLp5SCezOVwzuy9vyr2JY6e01gQ7w3964UNrLtRo1xLxO5yT5LP7zSkzak7gAcAEIheAfHSEswfQw9i2cQw0GsLw6rAMP2MvtkBrY68Zv3cmV63t/dnTgOj6Zi61AzcEajGCt5ZaBGTR/umdoFXZE8h3QfL62fKodf2dufAAtTcsNjBWxru3bEtOeKeioLIM9tT0sKTv4uf0A70Frkqdly9y1oFJz+L+pNh4kgIjOgXBvmkNQ6WyC1xq8qFS3NxeQhmu+jTF60LUiOYhgabIOBQ/d7SBebh8mDz+fEDkV500c3HYG7HIcQ0mjU="
