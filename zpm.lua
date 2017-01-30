@@ -31,7 +31,9 @@ workspace "PlotLib"
         noHeaderOnlySwitch = "PLOTLIB_NO_HEADER_ONLY"
     } )
 
+
 	floatingpoint "Fast"
+    flags "C++11"
 
     defines {
         "PLOTLIB_USE_ZPM_ANACONDA",
