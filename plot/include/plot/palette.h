@@ -288,7 +288,6 @@ public:
 
     ColourMap()
     {
-        mStream << GetColour( Seaborn::Deep, ColourType::None );
     }
 
 
@@ -302,6 +301,8 @@ public:
     {
         mStream << colourMap.mStream.str();
     }
+
+    virtual ~ColourMap() = default;
 
     virtual std::string ToString() const;
 

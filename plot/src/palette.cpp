@@ -29,6 +29,16 @@
 
 #include <assert.h>
 
+PLOTLIB_INLINE std::string ColourMap::ToString() const
+{
+    if ( mStream.str().empty() )
+    {
+        return "'" + GetColour( Seaborn::Deep, ColourType::None ) + "'";
+    }
+
+    return "'" + mStream.str() + "'";
+}
+
 PLOTLIB_INLINE Palette::Palette( Type type )
     : mType( type )
 {
@@ -320,9 +330,4 @@ PLOTLIB_INLINE DivergingPalette &DivergingPalette::SetCentre( Centre centre )
 {
     mArguments << ", center = " << ( centre == Centre::Dark ? "'dark'" : "light'" );
     return *this;
-}
-
-PLOTLIB_INLINE std::string ColourMap::ToString() const
-{
-    return "'" + mStream.str() + "'";
 }

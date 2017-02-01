@@ -86,3 +86,23 @@ TEST( EasyPlot, BackgroundForegroundBarPlot )
         } );
     } );
 }
+
+TEST( EasyPlot, BackgroundForegroundBarPlot2 )
+{
+    TestPlot( "EasyPlot_BackgroundForegroundBarPlot", []( Plot & p )
+    {
+        CubeHelixPalette palette;
+        vec x = round( randu( 10 ) * 10 );
+        vec x2 = round( randu( 10 ) * 10 );;
+        EasyPlot::BackgroundForegroundBarPlot( p, { x, x2 }, { x, x2 }, { linspace( 0, 20, 10 ), linspace( 0, 20, 10 ) },
+                                               palette, Palette::Seaborn::Deep,
+                                               []( size_t v )
+        {
+            return "Background-" + std::to_string( v );
+        },
+        []( uint32_t v )
+        {
+            return "Foreground-" + std::to_string( v );
+        } );
+    } );
+}
