@@ -44,7 +44,7 @@ PLOTLIB_INLINE InteractPlot &InteractPlot::Filled( bool filled )
     return *this;
 }
 
-PLOTLIB_INLINE InteractPlot &InteractPlot::SetColourMap( ColourMap pallet )
+PLOTLIB_INLINE InteractPlot &InteractPlot::SetColourMap( const ColourMap &pallet )
 {
     this->AddArgument( "cmap", pallet.ToString() );
     return *this;

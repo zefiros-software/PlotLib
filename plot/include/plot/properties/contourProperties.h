@@ -147,7 +147,7 @@ public:
         return static_cast<tReturn &>( *this );
     }
 
-    tReturn &SetColourMap( ColourMap pallet )
+    tReturn &SetColourMap( const ColourMap &pallet )
     {
         this->AddArgument( "cmap", pallet.ToString() );
 

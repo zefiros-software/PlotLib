@@ -49,9 +49,29 @@ TEST( KDEPlot, KDEPlot2 )
         f.SetBW( KDEPlot::BW::Silverman )
         .SetGridSize( 100 )
         .SetCut( 5 )
-        .SetClip( { -8, 8}, { -8, 8} )
+        .SetClip( { -8, 8 }, { -8, 8 } )
         .Legend( true )
         .ShadeLowest( true );
+        return f;
+    } );
+}
+
+TEST( KDEPlot, KDEPlot3 )
+{
+    TestPlot< KDEPlot >( "KDEPlot3", []()
+    {
+        KDEPlot f( ( vec )randn( 100 ), ( vec )randn( 100 ) );
+        f.SetBW( 0.5 );
+        return f;
+    } );
+}
+
+TEST( KDEPlot, KDEPlot4 )
+{
+    TestPlot< KDEPlot >( "KDEPlot4", []()
+    {
+        KDEPlot f( ( vec )randn( 100 ), ( vec )randn( 100 ) );
+        f.SetBW( { 0.5, 1 } );
         return f;
     } );
 }

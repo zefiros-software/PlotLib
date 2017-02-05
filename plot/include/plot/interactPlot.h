@@ -43,7 +43,7 @@ public:
 
     InteractPlot &Filled( bool filled );
 
-    InteractPlot &SetColourMap( ColourMap pallet );
+    InteractPlot &SetColourMap( const ColourMap &pallet );
 
     InteractPlot &ColourBar( bool bar );
 
