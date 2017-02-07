@@ -10,13 +10,13 @@ project "PlotLib"
         files "plot/src/**.cpp"   
     end
 
-    if zpm.option( "UseZPMAnaconda" ) then
+    if zpm.setting( "UseZPMAnaconda" ) then
         zpm.export [[
             defines "PLOTLIB_USE_ZPM_ANACONDA"
         ]]
     end
 
-    if zpm.option( "UseArma" ) then
+    if zpm.option( "AllowArmaUsage" ) then
         zpm.export [[
             defines "PLOTLIB_ARMA"
         ]]

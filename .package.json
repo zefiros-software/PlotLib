@@ -45,8 +45,10 @@
     },    
     "options": {
         "HeaderOnly": false,
-        "UseZPMAnaconda": true,
-        "UseArma": false
+        "AllowArmaUsage": false
+    },
+    "settings": {
+        "UseZPMAnaconda": true
     },
     "modules": [
         "Zefiros-Software/Anaconda"
