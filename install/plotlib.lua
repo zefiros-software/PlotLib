@@ -26,4 +26,4 @@ local ana = require( "Zefiros-Software/Anaconda", "@head" )
 
 ana.install()
 ana.conda( "install seaborn" )
-ana.conda( "install statsmodels" )
+ana.conda( "install -c https://conda.binstar.org/statsmodels statsmodels" )
