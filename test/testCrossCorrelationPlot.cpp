@@ -39,7 +39,7 @@ TEST( CrossCorrelationPlot, CrossCorrelationPlot )
     } );
 }
 
-TEST( CrossCorrelationPlot, SetHold )
+TEST( CrossCorrelationPlot, CrossCorrelationPlot)
 {
     TestPlot< CrossCorrelationPlot >( "CrossCorrelationPlot_SetHold", []()
     {
@@ -48,7 +48,6 @@ TEST( CrossCorrelationPlot, SetHold )
         CrossCorrelationPlot f( xVec, yVec );
         f.SetLineWidth( 3 )
         .SetColour( "b" )
-        .Hold( false )
         .Normed( true );
         return f;
     } );

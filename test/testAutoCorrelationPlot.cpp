@@ -40,7 +40,7 @@ TEST( AutoCorrelationPlot, AutoCorrelationPlot )
     } );
 }
 
-TEST( AutoCorrelationPlot, SetHold )
+TEST( AutoCorrelationPlot, AutoCorrelationPlot2)
 {
     TestPlot< AutoCorrelationPlot >( "AutoCorrelationPlot_SetHold", []()
     {
@@ -48,7 +48,6 @@ TEST( AutoCorrelationPlot, SetHold )
         AutoCorrelationPlot f( randVec );
         f.SetLineWidth( 3 )
         .SetColour( "b" )
-        .Hold( false )
         .Normed( true );
         return f;
     } );
