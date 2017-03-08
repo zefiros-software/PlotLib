@@ -70,6 +70,16 @@ PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< double > > &data )
     mDimension = CheckDimensions( mData );
 }
 
+PLOTLIB_INLINE PMat::PMat( const std::vector< PVec > &data )
+{
+    for ( auto &v : data )
+    {
+        mData.push_back( v.GetData() );
+    }
+
+    mDimension = CheckDimensions( mData );
+}
+
 PLOTLIB_INLINE const std::vector< std::vector< double > > &PMat::GetData() const
 {
     return mData;

@@ -28,6 +28,8 @@
 #ifndef __MAT_H__
 #define __MAT_H__
 
+#include "plot/pvec.h"
+
 #include <initializer_list>
 #include <assert.h>
 #include <string>
@@ -39,6 +41,8 @@ class PMat
 public:
 
     PMat( const std::vector< std::vector< double > > &data );
+
+    PMat( const std::vector< PVec > &data );
 
     PMat( const std::initializer_list< std::initializer_list< double > > &data );
 

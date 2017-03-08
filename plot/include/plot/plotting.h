@@ -65,6 +65,7 @@
 #include "plot/linePlot.h"
 #include "plot/easyPlot.h"
 #include "plot/pairPlot.h"
+#include "plot/surfPlot.h"
 #include "plot/subPlots.h"
 #include "plot/boxPlot.h"
 #include "plot/lagPlot.h"
