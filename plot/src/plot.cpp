@@ -353,7 +353,7 @@ PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
 PLOTLIB_INLINE void Plot::SetPythonPath()
 {
     mPython = "python ";
-    
+
 #ifdef PLOTLIB_USE_ZPM_ANACONDA
 #   ifdef _WIN32
     mPython = "%UserProfile%/zpm-anaconda/" + mPython;
