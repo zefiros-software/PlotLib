@@ -37,11 +37,11 @@ class SurfPlot : public PlotProperties< SurfPlot >
 {
 public:
 
-    SurfPlot::SurfPlot( const PVec &x, const std::vector<PVec> &y, const std::vector<PVec> &z );
+    SurfPlot( const PVec &x, const std::vector<PVec> &y, const std::vector<PVec> &z );
 
-    SurfPlot::SurfPlot( const PVec &x, const PVec &y, const std::vector<PVec> &z );
+    SurfPlot( const PVec &x, const PVec &y, const std::vector<PVec> &z );
 
-    SurfPlot::SurfPlot( const PMat &x, const PMat &y, const PMat &z );
+    SurfPlot( const PMat &x, const PMat &y, const PMat &z );
 
     SurfPlot &SetColourMap( const ColourMap &pallet );
 
