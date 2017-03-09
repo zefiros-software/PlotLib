@@ -81,6 +81,22 @@ PLOTLIB_INLINE Plot &Plot::SetYLabel( const std::string &ylabel, size_t fontSize
     return *this;
 }
 
+
+PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel )
+{
+    mStream << "ax.set_zlabel('" << zlabel << "')\n";
+
+    return *this;
+}
+
+
+PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel, size_t fontSize )
+{
+    mStream << "ax.set_zlabel('" << zlabel << "',fontsize=" << fontSize << ")\n";
+
+    return *this;
+}
+
 PLOTLIB_INLINE Plot &Plot::SetXLimit( double xmin, double xmax )
 {
     mStream << "plt.xlim(" << xmin << "," << xmax << ")\n";

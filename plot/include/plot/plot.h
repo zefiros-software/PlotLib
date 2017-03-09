@@ -93,6 +93,8 @@ public:
 
     Plot &SetYLabel( const std::string &ylabel, size_t fontSize );
 
+    Plot &SetZLabel( const std::string &zlabel, size_t fontSize );
+
     Plot &SetXLimit( double xmin, double xmax );
 
     Plot &SetYLimit( double ymin, double ymax );
@@ -106,6 +108,8 @@ public:
     Plot &SetXLabel( const std::string &xlabel );
 
     Plot &SetYLabel( const std::string &ylabel );
+
+    Plot &SetZLabel( const std::string &zlabel );
 
     Plot &SetTitle( const std::string &title );
 
