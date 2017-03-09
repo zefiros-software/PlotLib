@@ -63,7 +63,7 @@ PLOTLIB_INLINE SurfPlot::SurfPlot( const PVec &x, const PVec &y, const std::vect
 {
     mStream << "X=[";
 
-    for ( auto &Y : y.GetData() )
+    for ( auto &Z : z )
     {
         mStream << this->ToArray( x ) << ",";
     }
