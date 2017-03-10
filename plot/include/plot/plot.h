@@ -174,7 +174,7 @@ public:
 
     Plot &SetTightLayout();
 
-    Plot &EnableLatex();
+    Plot &EnableLaTeX();
 
     Plot &Save( const std::string &fname );
 
