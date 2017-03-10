@@ -174,6 +174,8 @@ public:
 
     Plot &SetTightLayout();
 
+    Plot &EnableLatex();
+
     Plot &Save( const std::string &fname );
 
     Plot &Figure( size_t n );

@@ -331,6 +331,14 @@ PLOTLIB_INLINE Plot &Plot::SetTightLayout()
     return *this;
 }
 
+
+PLOTLIB_INLINE Plot &Plot::EnableLaTeX()
+{
+    mStream << "\nplt.rc('text', usetex=True)\n";
+
+    return *this;
+}
+
 PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
 {
     std::ofstream ss( "plot.in" );
