@@ -374,6 +374,12 @@ PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
     return *this;
 }
 
+
+PLOTLIB_INLINE Plot &Plot::AddCustomPython( const std::string &str )
+{
+    return ( *this << "\n" << str << "\n" );
+}
+
 PLOTLIB_INLINE void Plot::SetPythonPath()
 {
     mPython = "python ";

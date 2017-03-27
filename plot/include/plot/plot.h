@@ -184,6 +184,16 @@ public:
 
     Plot &SubPlot( size_t y, size_t x, size_t n );
 
+    template< typename tT >
+    Plot &operator<<( const tT &t )
+    {
+        mStream << t;
+
+        return *this;
+    }
+
+    Plot &AddCustomPython( const std::string &str );
+
 protected:
 
     std::stringstream mInitStream;
