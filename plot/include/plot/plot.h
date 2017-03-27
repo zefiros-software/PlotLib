@@ -176,13 +176,23 @@ public:
 
     Plot &EnableLaTeX();
 
-    Plot &Save( const std::string &fname );
+    Plot &Save( const std::string &fname, size_t dpi = 72 );
 
     Plot &Figure( size_t n );
 
     Plot &Figure();
 
     Plot &SubPlot( size_t y, size_t x, size_t n );
+
+    template< typename tT >
+    Plot &operator<<( const tT &t )
+    {
+        mStream << t;
+
+        return *this;
+    }
+
+    Plot &AddCustomPython( const std::string &str );
 
 protected:
 

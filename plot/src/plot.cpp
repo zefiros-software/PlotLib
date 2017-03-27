@@ -339,11 +339,11 @@ PLOTLIB_INLINE Plot &Plot::EnableLaTeX()
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
+PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname, size_t dpi /*= 72*/ )
 {
     std::ofstream ss( "plot.in" );
 
-    ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=120 )";
+    ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=" << dpi << " )";
 
     ss.close();
 
@@ -372,6 +372,12 @@ PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
     mStream << "\nplt.subplot( " << y << ", " << x << ", " << n << " )\n";
 
     return *this;
+}
+
+
+PLOTLIB_INLINE Plot &Plot::AddCustomPython( const std::string &str )
+{
+    return ( *this << "\n" << str << "\n" );
 }
 
 PLOTLIB_INLINE void Plot::SetPythonPath()
