@@ -100,7 +100,9 @@ public:
 
     ViolinPlot &SetLineWidth( double width );
 
-    ViolinPlot &SetColour( const std::string &colour );
+    ViolinPlot &SetDodge(bool dodge);
+
+    ViolinPlot &SetColour(const std::string &colour);
 
     ViolinPlot &SetColourMap( const Palette &pallet );
 

@@ -81,6 +81,8 @@ public:
 
     KDEPlot &ShadeLowest( bool shadwLowest );
 
+    KDEPlot &ColourBar(bool bar);
+
 private:
 
     static std::string GetBW( BW bw );

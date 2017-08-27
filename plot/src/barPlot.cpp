@@ -120,6 +120,12 @@ PLOTLIB_INLINE BarPlot &BarPlot::SetOrientation( Orientation orientation )
     return *this;
 }
 
+PLOTLIB_INLINE BarPlot &BarPlot::SetDodge(bool dodge)
+{
+    mStream << ", dodge = " << GetBool(dodge);
+    return *this;
+}
+
 PLOTLIB_INLINE BarPlot &BarPlot::SetColour( const std::string &colour )
 {
     mStream << ", color = '" << colour << "'";

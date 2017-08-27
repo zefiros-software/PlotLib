@@ -132,6 +132,12 @@ PLOTLIB_INLINE BoxPlot &BoxPlot::SetWidth( double width )
     return *this;
 }
 
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetDodge(bool dodge)
+{
+    mStream << ", dodge = " << GetBool(dodge);
+    return *this;
+}
+
 PLOTLIB_INLINE BoxPlot &BoxPlot::SetFlierSize( double fliersize )
 {
     mStream << ", fliersize = " << fliersize;

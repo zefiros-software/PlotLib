@@ -77,7 +77,9 @@ public:
 
     BarPlot &SetOrientation( Orientation orientation );
 
-    BarPlot &SetColour( const std::string &colour );
+    BarPlot &SetDodge(bool dodge);
+
+    BarPlot &SetColour(const std::string &colour);
 
     BarPlot &UseColourCycler( const std::string &colourCycler );
 

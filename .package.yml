@@ -1,0 +1,35 @@
+description: ''
+keywords: []
+website: 'http://plotlib.eu/'
+license: MIT
+authors:
+  - name: Mick van Duijn
+    email: m.vanduijn@zefiros.eu
+    website: 'https://zefiros.eu/'
+  - name: Paul Visscher
+    email: p.e.visscher@zefiros.eu
+    website: 'https://zefiros.eu/'
+  - name: Koen Visscher
+    email: k.m.visscher@zefiros.eu
+    website: 'https://zefiros.eu/'
+modules:
+    - name: 'Zefiros-Software/Miniconda'
+      version: '@head'
+dev:
+  modules:
+      - name: Zefiros-Software/Zefiros-Defaults
+        version: '@head'
+  assets:
+      - name: Zefiros-Software/Zefiros-Mkdocs-Style
+        version: ^1.0.0
+  libraries:
+      - name: Zefiros-Software/GoogleTest
+        version: '@head'
+      - name: Zefiros-Software/Armadillo
+        version: '@head'
+options:
+    HeaderOnly: false
+    AllowArmaUsage: false
+settings:
+    UseZPMAnaconda: true
+install: install/plotlib.lua

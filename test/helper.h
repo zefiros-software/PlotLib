@@ -46,8 +46,8 @@ template< typename tPlot >
 void TestPlot( const std::string &str, std::function< tPlot( void ) > fn )
 {
     Plot p;
-    p.Set( Plot::Context::Notebook )
-    .AddPlot( fn() )
+    //p.Set( Plot::Context::Notebook )
+    p.AddPlot( fn() )
     .Save( str + ".png" );
 }
 
@@ -55,8 +55,8 @@ template< typename tPlot >
 void TestPlotArg( const std::string &str, std::function< tPlot( Plot & ) > fn )
 {
     Plot p;
-    p.Set( Plot::Context::Notebook )
-    .AddPlot( fn( p ) )
+    //p.Set( Plot::Context::Notebook )
+    p.AddPlot( fn( p ) )
     .Save( str + ".png" );
 }
 

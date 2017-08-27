@@ -102,9 +102,9 @@ PLOTLIB_INLINE SwarmPlot &SwarmPlot::SetHueOrder( const std::vector< std::string
     return *this;
 }
 
-PLOTLIB_INLINE SwarmPlot &SwarmPlot::SetSplit( bool split )
+PLOTLIB_INLINE SwarmPlot &SwarmPlot::SetDodge( bool dodge )
 {
-    mStream << ", jitter= " << GetBool( split );
+    mStream << ", dodge= " << GetBool(dodge);
     return *this;
 }
 

@@ -47,6 +47,7 @@ static const char *const __PlotLibColours[] =
     "GnBu", "Greens", "Greys", "Oranges", "OrRd",
     "PuBu", "PuBuGn", "PuRd", "Purples", "RdPu",
     "Reds", "YlGn", "YlGnBu", "YlOrBr", "YlOrRd",
+    "rocket", "mako",
 
     "afmhot", "autumn", "bone", "cool",
     "copper", "gist_heat", "gray", "hot",
@@ -54,7 +55,7 @@ static const char *const __PlotLibColours[] =
 
     "BrBG", "bwr", "coolwarm", "PiYG", "PRGn", "PuOr",
     "RdBu", "RdGy", "RdYlBu", "RdYlGn", "Spectral",
-    "seismic",
+    "seismic", "icefire", "warm",
 
     "Accent", "Dark2", "Paired", "Pastel1",
     "Pastel2", "Set1", "Set2", "Set3",
@@ -132,6 +133,8 @@ public:
         YlGnBu,
         YlOrBr,
         YlOrRd,
+        Rocket,
+        Mako,
 
         // sequential 2
         Afmhot,
@@ -160,6 +163,8 @@ public:
         RdYlGn,
         Spectral,
         Seismic,
+        Icefire,
+        Warm,
 
         // qualitative
         Accent,

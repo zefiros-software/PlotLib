@@ -60,7 +60,7 @@ public:
 
     StripPlot &SetJitter( bool jitter );
 
-    StripPlot &SetSplit( bool split );
+    StripPlot &SetDodge( bool dodge);
 
     StripPlot &SetOrientation( Orientation orientation );
 

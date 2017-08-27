@@ -117,6 +117,12 @@ PLOTLIB_INLINE KDEPlot &KDEPlot::ShadeLowest( bool shadeLowest )
     return *this;
 }
 
+PLOTLIB_INLINE KDEPlot &KDEPlot::ColourBar(bool bar)
+{
+    this->AddArgument("colorbar", GetBool(bar));
+    return *this;
+}
+
 PLOTLIB_INLINE std::string KDEPlot::GetBW( BW bw )
 {
     switch ( bw )

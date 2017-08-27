@@ -168,6 +168,12 @@ PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetLineWidth( double width )
     return *this;
 }
 
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetDodge(bool dodge)
+{
+    mStream << ", dodge = " << GetBool(dodge);
+    return *this;
+}
+
 PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetColour( const std::string &colour )
 {
     mStream << ", color = '" << colour << "'";

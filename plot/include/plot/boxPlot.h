@@ -62,9 +62,11 @@ public:
 
     BoxPlot &SetColourMap( const Palette &pallet );
 
-    BoxPlot &SetSaturation( double sat );
+    BoxPlot &SetSaturation(double sat);
 
-    BoxPlot &SetWidth( double width );
+    BoxPlot &SetWidth(double width);
+
+    BoxPlot &SetDodge(bool dodge);
 
     BoxPlot &SetFlierSize( double fliersize );
 

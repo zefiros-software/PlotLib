@@ -114,9 +114,9 @@ PLOTLIB_INLINE StripPlot &StripPlot::SetJitter( double jitter )
     return *this;
 }
 
-PLOTLIB_INLINE StripPlot &StripPlot::SetSplit( bool split )
+PLOTLIB_INLINE StripPlot &StripPlot::SetDodge( bool dodge )
 {
-    mStream << ", jitter= " << GetBool( split );
+    mStream << ", dodge= " << GetBool( dodge );
     return *this;
 }
 

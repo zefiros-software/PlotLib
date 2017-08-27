@@ -56,7 +56,7 @@ public:
 
     SwarmPlot &SetHueOrder( const std::vector< std::string > &order );
 
-    SwarmPlot &SetSplit( bool split );
+    SwarmPlot &SetDodge( bool dodge);
 
     SwarmPlot &SetOrientation( Orientation orientation );
 

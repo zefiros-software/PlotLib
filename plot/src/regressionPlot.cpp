@@ -50,10 +50,10 @@ PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( size_t bins )
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXConfidenceInterval( size_t ci )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXConfidenceInterval(size_t ci)
 {
-    assert( ci <= 100 );
-    this->AddArgument( "x_ci", ci );
+    assert(ci <= 100);
+    this->AddArgument("x_ci", ci);
     return *this;
 }
 

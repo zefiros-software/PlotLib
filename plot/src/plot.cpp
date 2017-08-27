@@ -57,6 +57,7 @@ PLOTLIB_INLINE Plot::Plot( Context context )
 
     Set( context, 1.2 );
     SetColourCodes();
+    AxisStyle(Plot::Style::WhiteGrid);
 
     SetPythonPath();
 }
@@ -360,6 +361,12 @@ PLOTLIB_INLINE void Plot::SetPythonPath()
 #   else
     mPython = "~/zpm-anaconda/bin/" + mPython;
 #   endif
+
+#ifdef MINICONDA_PYTHON_PATH
+    mPython = MINICONDA_PYTHON_PATH;
+    mPython += " ";
+#endif
+
 #endif
 }
 

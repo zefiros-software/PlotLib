@@ -29,7 +29,7 @@
 void TestPlot( const std::string &str, std::function< void( Plot & ) > fn )
 {
     Plot p;
-    p.Set( Plot::Context::Notebook );
+    //p.Set( Plot::Context::Notebook );
     fn( p );
     p.Save( str + ".png" );
 }
