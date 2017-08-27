@@ -93,6 +93,8 @@ public:
 
     Plot &SetYLabel( const std::string &ylabel, size_t fontSize );
 
+    Plot &SetZLabel( const std::string &zlabel, size_t fontSize );
+
     Plot &SetXLimit( double xmin, double xmax );
 
     Plot &SetYLimit( double ymin, double ymax );
@@ -106,6 +108,8 @@ public:
     Plot &SetXLabel( const std::string &xlabel );
 
     Plot &SetYLabel( const std::string &ylabel );
+
+    Plot &SetZLabel( const std::string &zlabel );
 
     Plot &SetTitle( const std::string &title );
 
@@ -170,6 +174,8 @@ public:
 
     Plot &SetTightLayout();
 
+    Plot &EnableLaTeX();
+
     Plot &Save( const std::string &fname );
 
     Plot &Figure( size_t n );
@@ -177,6 +183,16 @@ public:
     Plot &Figure();
 
     Plot &SubPlot( size_t y, size_t x, size_t n );
+
+    template< typename tT >
+    Plot &operator<<( const tT &t )
+    {
+        mStream << t;
+
+        return *this;
+    }
+
+    Plot &AddCustomPython( const std::string &str );
 
 protected:
 

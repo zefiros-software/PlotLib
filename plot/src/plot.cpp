@@ -82,6 +82,22 @@ PLOTLIB_INLINE Plot &Plot::SetYLabel( const std::string &ylabel, size_t fontSize
     return *this;
 }
 
+
+PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel )
+{
+    mStream << "ax.set_zlabel('" << zlabel << "')\n";
+
+    return *this;
+}
+
+
+PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel, size_t fontSize )
+{
+    mStream << "ax.set_zlabel('" << zlabel << "',fontsize=" << fontSize << ")\n";
+
+    return *this;
+}
+
 PLOTLIB_INLINE Plot &Plot::SetXLimit( double xmin, double xmax )
 {
     mStream << "plt.xlim(" << xmin << "," << xmax << ")\n";
@@ -316,6 +332,14 @@ PLOTLIB_INLINE Plot &Plot::SetTightLayout()
     return *this;
 }
 
+
+PLOTLIB_INLINE Plot &Plot::EnableLaTeX()
+{
+    mStream << "\nplt.rc('text', usetex=True)\n";
+
+    return *this;
+}
+
 PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
 {
     std::ofstream ss( "plot.in" );
@@ -351,10 +375,16 @@ PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
     return *this;
 }
 
+
+PLOTLIB_INLINE Plot &Plot::AddCustomPython( const std::string &str )
+{
+    return ( *this << "\n" << str << "\n" );
+}
+
 PLOTLIB_INLINE void Plot::SetPythonPath()
 {
     mPython = "python ";
-    
+
 #ifdef PLOTLIB_USE_ZPM_ANACONDA
 #   ifdef _WIN32
     mPython = "%UserProfile%/zpm-anaconda/" + mPython;

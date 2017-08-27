@@ -14,7 +14,7 @@
         },
         {
             "name": "Zefiros-Software/Armadillo",
-            "version": "@head"
+            "version": "^7.800.0"
         }
     ]
 }

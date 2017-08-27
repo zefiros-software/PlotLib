@@ -40,7 +40,7 @@ TEST( AutoCorrelationPlot, AutoCorrelationPlot )
     } );
 }
 
-TEST( AutoCorrelationPlot, AutoCorrelationPlot2)
+TEST( AutoCorrelationPlot, AutoCorrelationPlot2 )
 {
     TestPlot< AutoCorrelationPlot >( "AutoCorrelationPlot_SetHold", []()
     {

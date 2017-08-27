@@ -39,7 +39,7 @@ TEST( CrossCorrelationPlot, CrossCorrelationPlot )
     } );
 }
 
-TEST( CrossCorrelationPlot, CrossCorrelationPlot2)
+TEST( CrossCorrelationPlot, CrossCorrelationPlot2 )
 {
     TestPlot< CrossCorrelationPlot >( "CrossCorrelationPlot_SetHold", []()
     {
