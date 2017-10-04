@@ -41,7 +41,6 @@
 #include "plot/histogramPlot.h"
 #include "plot/factorBarPlot.h"
 #include "plot/residualPlot.h"
-#include "plot/interactPlot.h"
 #include "plot/annotatePlot.h"
 #include "plot/customLegend.h"
 #include "plot/semiLogXPlot.h"

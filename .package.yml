@@ -12,24 +12,26 @@ authors:
   - name: Koen Visscher
     email: k.m.visscher@zefiros.eu
     website: 'https://zefiros.eu/'
+public:
+  libraries:
+    - name: Zefiros-Software/Armadillo
+      optional: true
+      version: '^7.800.0'
 modules:
-    - name: 'Zefiros-Software/Miniconda'
-      version: '@head'
+  - name: 'Zefiros-Software/Miniconda'
+    version: '@head'
 dev:
   modules:
-      - name: Zefiros-Software/Zefiros-Defaults
-        version: '@head'
-  assets:
-      - name: Zefiros-Software/Zefiros-Mkdocs-Style
-        version: ^1.0.0
+    - name: Zefiros-Software/Zefiros-Defaults
+      version: '@head'
   libraries:
-      - name: Zefiros-Software/GoogleTest
-        version: '@head'
-      - name: Zefiros-Software/Armadillo
-        version: '@head'
-options:
-    HeaderOnly: false
-    AllowArmaUsage: false
+    - name: Zefiros-Software/Armadillo
+      optional: false
+      version: '^7.800.0'
 settings:
-    UseZPMAnaconda: true
-install: install/plotlib.lua
+  headerOnly:
+    default: false
+    reduce: anyTrue
+  useZPMPython:
+    default: true
+    reduce: anyFalse

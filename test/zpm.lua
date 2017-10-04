@@ -22,13 +22,10 @@
 -- @endcond
 --]]
 
-local zefiros = require( "Zefiros-Software/Zefiros-Defaults", "@head" )
-
-
 workspace "PlotLib-ZPM"
 
     -- needed for build servers
-    defines( "PLOTLIB_HEADLESS" )
+    defines "PLOTLIB_HEADLESS"
 
 	zefiros.setTestZPMDefaults( "plot")
     

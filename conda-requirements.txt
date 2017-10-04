@@ -1,2 +1,2 @@
 matplotlib
-seaborn
+seaborn=0.8.0

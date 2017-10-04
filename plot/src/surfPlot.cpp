@@ -124,7 +124,7 @@ PLOTLIB_INLINE SurfPlot &SurfPlot::ColourBar( bool bar )
 }
 
 
-SurfPlot::SurfPlot()
+PLOTLIB_INLINE SurfPlot::SurfPlot()
     : mHasColourMap( false ),
       mShowColourBar( false )
 {

@@ -1,0 +1,11 @@
+
+modules:
+  - name: Zefiros-Software/Zefiros-Defaults
+    version: '@head'
+libraries:
+  - name: Zefiros-Software/PlotLib
+    repository: ../
+public:
+  libraries:
+    - name: Zefiros-Software/Armadillo
+      version: '^7.800.0'

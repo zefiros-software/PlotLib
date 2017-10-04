@@ -349,7 +349,7 @@ PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
     ss.close();
 
     int32_t result = system( ( mPython + "plot.in" ).c_str() );
-    assert( result == 0 );
+    //assert( result == 0 );
 
     return *this;
 }

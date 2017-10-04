@@ -38,3 +38,8 @@ assets/
 test/extern
 test/assets
 *.lock
+@bin/*
+@obj/*
+test/@bin/*
+test/@obj/*
+.zpm/*
