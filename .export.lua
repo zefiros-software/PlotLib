@@ -20,8 +20,6 @@ project "PlotLib"
         zpm.export [[
             defines "PLOTLIB_ARMA"
         ]]
-    else
-        print("NO ARMADILLO!")
     end
 
     zpm.export [[
