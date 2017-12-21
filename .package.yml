@@ -24,10 +24,11 @@ dev:
   modules:
     - name: Zefiros-Software/Zefiros-Defaults
       version: '@head'
-  libraries:
-    - name: Zefiros-Software/Armadillo
-      optional: false
-      version: '^7.800.0'
+  public:
+    libraries:
+      - name: Zefiros-Software/Armadillo
+        optional: false
+        version: '^7.800.0'
 settings:
   headerOnly:
     default: false

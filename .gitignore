@@ -43,3 +43,5 @@ test/assets
 test/@bin/*
 test/@obj/*
 .zpm/*
+**/.obj/*
+**/.bin/*

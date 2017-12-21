@@ -31,7 +31,7 @@ workspace "PlotLib"
 
 
 	floatingpoint "Fast"
-    flags "C++11"
+    cppdialect "C++11"
 
     defines {
         "PLOTLIB_USE_ZPM_ANACONDA",

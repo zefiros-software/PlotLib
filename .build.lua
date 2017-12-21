@@ -24,5 +24,5 @@ project "PlotLib"
 
     zpm.export [[
         includedirs "plot/include/"
-        flags "C++11"
+        cppdialect "C++11"
     ]]
