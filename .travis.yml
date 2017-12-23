@@ -49,7 +49,7 @@ matrix:
           env: TYPE=zpm VERSION=6
 install:
     - bash script/install-unix.sh
-    - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/master/script/install-zpm-travis.sh | bash
+    - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh | bash
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
 script:
