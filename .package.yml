@@ -20,7 +20,7 @@ public:
 modules:
   - name: 'Zefiros-Software/Miniconda'
     version: '@head'
-dev:
+development:
   modules:
     - name: Zefiros-Software/Zefiros-Defaults
       version: '@head'
@@ -33,6 +33,3 @@ settings:
   headerOnly:
     default: false
     reduce: anyTrue
-  useZPMPython:
-    default: true
-    reduce: anyFalse

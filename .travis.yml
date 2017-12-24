@@ -22,33 +22,32 @@ matrix:
         # Use the built in venv for linux builds
         - os: linux
           dist: trusty
-          env: TYPE=release ARCH=x86 VERSION=6
+          env: TYPE=release ARCH=x86 GCC_VERSION=6
         - os: linux
           dist: trusty
-          env: TYPE=debug ARCH=x86 VERSION=6
+          env: TYPE=debug ARCH=x86 GCC_VERSION=6
         - os: linux
           dist: trusty
-          env: TYPE=release ARCH=x86_64 VERSION=6
+          env: TYPE=release ARCH=x86_64 GCC_VERSION=6
         - os: linux
           dist: trusty
-          env: TYPE=coverage ARCH=x86_64 VERSION=6
+          env: TYPE=coverage ARCH=x86_64 GCC_VERSION=6
         - os: linux
           dist: trusty
-          env: TYPE=debug ARCH=x86_64 VERSION=6
+          env: TYPE=debug ARCH=x86_64 GCC_VERSION=6
         - os: linux
           dist: trusty
-          env: TYPE=release VERSION=5 ARCH=x86_64
+          env: TYPE=release GCC_VERSION=5 ARCH=x86_64
         - os: linux
           dist: trusty
-          env: TYPE=release VERSION=6 ARCH=x86_64
+          env: TYPE=release GCC_VERSION=6 ARCH=x86_64
         - os: linux
           dist: trusty
-          env: TYPE=zpm VERSION=6
+          env: TYPE=zpm GCC_VERSION=6
         - os: linux
           dist: trusty
-          env: TYPE=zpm VERSION=6
+          env: TYPE=zpm GCC_VERSION=6
 install:
-    - bash script/install-unix.sh
     - wget -O - https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh | bash
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue

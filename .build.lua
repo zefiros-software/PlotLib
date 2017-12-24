@@ -1,25 +1,28 @@
-
 project "PlotLib"
-        
+
     kind "StaticLib"
 
-    if not zpm.option( "HeaderOnly" ) then
+    if not zpm.setting("headerOnly") then
         zpm.export [[
             defines "PLOTLIB_NO_HEADER_ONLY"
-        ]]  
-        files "plot/src/**.cpp"   
+        ]]
+    
+        
+        files "plot/src/**.cpp"
     end
 
-    if zpm.setting( "UseZPMAnaconda" ) then
+    if zpm.has("Zefiros-Software/Miniconda") then
         zpm.export [[
             defines "PLOTLIB_USE_ZPM_ANACONDA"
         ]]
+
     end
 
-    if zpm.option( "AllowArmaUsage" ) then
+    if zpm.has("Zefiros-Software/Armadillo") then
         zpm.export [[
             defines "PLOTLIB_ARMA"
         ]]
+
     end
 
     zpm.export [[
