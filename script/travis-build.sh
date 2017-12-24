@@ -4,8 +4,7 @@ set -e
 if [ "$TYPE" == "zpm" ]; then
     cd test
     
-    zpm install-package --allow-install --allow-module
-    zpm gmake --allow-install
+    zpm gmake
 
     cd zpm/
     make
@@ -14,8 +13,7 @@ if [ "$TYPE" == "zpm" ]; then
     test/bin/x86/plot-zpm-test
 
 else
-    zpm install-package --allow-install --allow-module
-    zpm gmake --allow-install
+    zpm gmake
     cd plot
     make config=${TYPE}_${ARCH}
     cd ../
