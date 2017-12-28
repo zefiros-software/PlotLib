@@ -1,7 +1,9 @@
 
 modules:
   - name: Zefiros-Software/Zefiros-Defaults
-    version: '@head'
+    version: '^2.0.0'
+    settings:
+      installCI: true
 libraries:
   - name: Zefiros-Software/PlotLib
     repository: ../

@@ -4,7 +4,7 @@ set -e
 if [ "$TYPE" == "zpm" ]; then
     cd test
     
-    zpm gmake
+    zpm gmake --skip-lock
 
     cd zpm/
     make
@@ -13,7 +13,7 @@ if [ "$TYPE" == "zpm" ]; then
     test/bin/x86/plot-zpm-test
 
 else
-    zpm gmake
+    zpm gmake --skip-lock
     cd plot
     make config=${TYPE}_${ARCH}
     cd ../
