@@ -52,8 +52,8 @@ install:
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
 script:
-    - zpm run build-ci --verbose PlotLib plot
-    - zpm run test-ci --verbose PlotLib plot
+    - zpm run build-ci --verbose --skip-lock PlotLib plot
+    - zpm run test-ci --verbose --skip-lock PlotLib plot
 after_success:
     - if [[ "$TRAVIS_OS_NAME" == "linux" && "$TYPE" = "coverage" ]]; then codecov; fi    
 notifications:
