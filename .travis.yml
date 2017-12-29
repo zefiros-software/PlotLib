@@ -48,11 +48,12 @@ matrix:
           dist: trusty
           env: TYPE=zpm GCC_VERSION=6
 install:
-    - source /dev/stdin  <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
+    - source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
 script:
-    - bash script/travis-build.sh
+    - zpm run build-ci --verbose PlotLib plot
+    - zpm run test-ci --verbose PlotLib plot
 after_success:
     - if [[ "$TRAVIS_OS_NAME" == "linux" && "$TYPE" = "coverage" ]]; then codecov; fi    
 notifications:

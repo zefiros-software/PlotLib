@@ -23,7 +23,7 @@ modules:
 development:
   modules:
     - name: Zefiros-Software/Zefiros-Defaults
-      version: '^2.0.0'
+      version: '@head'
       settings:
         installCI: true
   public:
