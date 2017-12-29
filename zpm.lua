@@ -29,8 +29,6 @@ workspace "PlotLib"
         noHeaderOnlySwitch = "PLOTLIB_NO_HEADER_ONLY"
     } )
 
-
-	floatingpoint "Fast"
     cppdialect "C++11"
 
     defines {

@@ -392,10 +392,12 @@ PLOTLIB_INLINE void Plot::SetPythonPath()
     mPython = "~/zpm-anaconda/bin/" + mPython;
 #   endif
 
-#ifdef MINICONDA_PYTHON_PATH
-    mPython = MINICONDA_PYTHON_PATH;
+#   ifdef MINICONDA_PYTHON_PATH
+#   define STRING(s) #s
+    mPython = STRING(MINICONDA_PYTHON_PATH);
     mPython += " ";
-#endif
+#   undef STRING
+#   endif
 
 #endif
 }
