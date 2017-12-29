@@ -48,7 +48,7 @@ matrix:
           dist: trusty
           env: TYPE=zpm GCC_VERSION=6
 install:
-    - source /dev/stdin <<< "$(curl -s http://bit.ly/2Cjkht3)"
+    - source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
     # annoying pip fix
     - export BOTO_CONFIG=/tmp/bogusvalue
 script:
