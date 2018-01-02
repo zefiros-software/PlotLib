@@ -44,9 +44,6 @@ matrix:
         - os: linux
           dist: trusty
           env: TYPE=zpm GCC_VERSION=6
-        - os: linux
-          dist: trusty
-          env: TYPE=zpm GCC_VERSION=6
 install:
     - source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
     # annoying pip fix

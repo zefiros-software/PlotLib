@@ -396,7 +396,6 @@ PLOTLIB_INLINE void Plot::SetPythonPath()
 #   ifdef MINICONDA_PYTHON_PATH
     mPython = MINICONDA_PYTHON_PATH;
     mPython += " ";
-#   undef STRING
 #   endif
 
 #endif

@@ -1,0 +1,4 @@
+
+dependencies:
+  - matplotlib
+  - seaborn=0.8.1
