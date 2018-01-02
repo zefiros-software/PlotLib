@@ -5,7 +5,7 @@ test/bin/*
 
 -- zpm
 .config.json
-docs/style/.assets.lua
+.config.yml
 
 -- git
 *.orig
