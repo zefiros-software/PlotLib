@@ -33,15 +33,4 @@ Makefile
 *.chm
 
 -- ZPM 
-extern/
-assets/
-test/extern
-test/assets
 *.lock
-@bin/*
-@obj/*
-test/@bin/*
-test/@obj/*
-.zpm/*
-**/.obj/*
-**/.bin/*

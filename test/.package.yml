@@ -8,4 +8,4 @@ libraries:
 public:
   libraries:
     - name: Zefiros-Software/Armadillo
-      version: '^7.800.0'
+      version: '>=7.800.0'
