@@ -11,7 +11,6 @@ project "PlotLib"
         files "plot/src/**.cpp"
     end
 
-    print(zpm.has("Zefiros-Software/Miniconda", "modules"), "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$")
     if zpm.has("Zefiros-Software/Miniconda", "modules") then
         zpm.export [[
             defines "PLOTLIB_USE_ZPM_ANACONDA"
