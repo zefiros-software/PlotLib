@@ -385,18 +385,20 @@ PLOTLIB_INLINE Plot &Plot::AddCustomPython( const std::string &str )
 PLOTLIB_INLINE void Plot::SetPythonPath()
 {
     mPython = "python ";
-
+    std::cout << mPython << std::endl;
 #ifdef PLOTLIB_USE_ZPM_ANACONDA
 #   ifdef _WIN32
     mPython = "%UserProfile%/zpm-anaconda/" + mPython;
 #   else
     mPython = "~/zpm-anaconda/bin/" + mPython;
 #   endif
+    std::cout << mPython << std::endl;
 
 #   ifdef MINICONDA_PYTHON_PATH
     mPython = MINICONDA_PYTHON_PATH;
     mPython += " ";
 #   endif
+    std::cout << mPython << std::endl;
 
 #endif
 }
