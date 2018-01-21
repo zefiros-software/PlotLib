@@ -28,77 +28,77 @@
 
 #include "helper.h"
 
-TEST( AbstractPlot, Construct )
+TEST(AbstractPlot, Construct)
 {
-    EXPECT_FALSE( std::is_constructible<AbstractPlot>::value );
+    EXPECT_FALSE(std::is_constructible<AbstractPlot>::value);
 }
 
-TEST( AbstractPlot, GetBool )
+TEST(AbstractPlot, GetBool)
 {
-    EXPECT_EQ( "True", AbstractPlot::GetBool( true ) );
-    EXPECT_EQ( "False", AbstractPlot::GetBool( false ) );
+    EXPECT_EQ("True", AbstractPlot::GetBool(true));
+    EXPECT_EQ("False", AbstractPlot::GetBool(false));
 }
 
-TEST( AbstractPlot, ToArray_Vec )
+TEST(AbstractPlot, ToArray_Vec)
 {
-    EXPECT_EQ( "[1, 2, 3]", AbstractPlot::ToArray( PVec{ 1, 2, 3 } ) );
+    EXPECT_EQ("[1, 2, 3]", AbstractPlot::ToArray(PVec{ 1, 2, 3 }));
 }
 
-TEST( AbstractPlot, ToArray_Vec2 )
+TEST(AbstractPlot, ToArray_Vec2)
 {
-    EXPECT_EQ( "[1, 2, 3, 4]", AbstractPlot::ToArray( PVec{ 1, 2, 3, 4 } ) );
+    EXPECT_EQ("[1, 2, 3, 4]", AbstractPlot::ToArray(PVec{ 1, 2, 3, 4 }));
 }
 
 
-TEST( AbstractPlot, ToArray_IntVec )
+TEST(AbstractPlot, ToArray_IntVec)
 {
-    EXPECT_EQ( "[1, 2, 3, 4]", AbstractPlot::ToArray( std::vector<uint32_t> { 1, 2, 3, 4 } ) );
+    EXPECT_EQ("[1, 2, 3, 4]", AbstractPlot::ToArray(std::vector<uint32_t> { 1, 2, 3, 4 }));
 }
 
-TEST( AbstractPlot, ToArray_VecStr )
+TEST(AbstractPlot, ToArray_VecStr)
 {
-    EXPECT_EQ( "['1', '2', '3']", AbstractPlot::ToArray( PVec{ "1", "2", "3" } ) );
+    EXPECT_EQ("['1', '2', '3']", AbstractPlot::ToArray(PVec{ "1", "2", "3" }));
 }
 
-TEST( AbstractPlot, ToArray_VecBool )
+TEST(AbstractPlot, ToArray_VecBool)
 {
-    EXPECT_EQ( "[1, 1, 0]", AbstractPlot::ToArray( std::vector<bool> { true, true, false } ) );
+    EXPECT_EQ("[1, 1, 0]", AbstractPlot::ToArray(std::vector<bool> { true, true, false }));
 }
 
-TEST( AbstractPlot, ToArray_VecEmptyStr )
+TEST(AbstractPlot, ToArray_VecEmptyStr)
 {
-    EXPECT_EQ( "[]", AbstractPlot::ToArray( PVec( std::vector<std::string >() ) ) );
+    EXPECT_EQ("[]", AbstractPlot::ToArray(PVec(std::vector<std::string >())));
 }
 
-TEST( AbstractPlot, ToArray_VecEmpty )
+TEST(AbstractPlot, ToArray_VecEmpty)
 {
-    EXPECT_EQ( "[]", AbstractPlot::ToArray( PVec( std::vector< double >() ) ) );
+    EXPECT_EQ("[]", AbstractPlot::ToArray(PVec(std::vector< double >())));
 }
 
-TEST( AbstractPlot, ToArray_Mat )
+TEST(AbstractPlot, ToArray_Mat)
 {
-    EXPECT_EQ( "[[1, 2],[3, 4]]",
-    AbstractPlot::ToArray( ::PMat{ { 1, 2 }, { 3, 4 } } ) );
+    EXPECT_EQ("[[1, 2],[3, 4]]",
+    AbstractPlot::ToArray(::PMat{ { 1, 2 }, { 3, 4 } }));
 }
 
-TEST( AbstractPlot, ToArray_Mat2 )
+TEST(AbstractPlot, ToArray_Mat2)
 {
-    EXPECT_EQ( "[[1, 2, 3],[4, 5, 6]]",
-    AbstractPlot::ToArray( ::PMat{ { 1, 2, 3 }, { 4, 5, 6 } } ) );
+    EXPECT_EQ("[[1, 2, 3],[4, 5, 6]]",
+    AbstractPlot::ToArray(::PMat{ { 1, 2, 3 }, { 4, 5, 6 } }));
 }
 
-TEST( AbstractPlot, ToArray_MatStr )
+TEST(AbstractPlot, ToArray_MatStr)
 {
-    ::PMat m( { { "1", "2" }, { "3", "4" } } );
-    EXPECT_EQ( "[['1', '2'],['3', '4']]", AbstractPlot::ToArray( m ) );
+    ::PMat m({ { "1", "2" }, { "3", "4" } });
+    EXPECT_EQ("[['1', '2'],['3', '4']]", AbstractPlot::ToArray(m));
 }
 
-TEST( AbstractPlot, ToArray_Mat_Empty )
+TEST(AbstractPlot, ToArray_Mat_Empty)
 {
-    EXPECT_EQ( "[]", AbstractPlot::ToArray( ::PMat( std::vector< std::vector< double > >() ) ) );
+    EXPECT_EQ("[]", AbstractPlot::ToArray(::PMat(std::vector< std::vector< double >>())));
 }
 
-TEST( AbstractPlot, ToArray_MatStr_Empty )
+TEST(AbstractPlot, ToArray_MatStr_Empty)
 {
-    EXPECT_EQ( "[]", AbstractPlot::ToArray( ::PMat( std::vector< std::vector< std::string > >() ) ) );
+    EXPECT_EQ("[]", AbstractPlot::ToArray(::PMat(std::vector< std::vector< std::string >>())));
 }

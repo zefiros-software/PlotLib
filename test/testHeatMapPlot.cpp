@@ -28,109 +28,109 @@
 
 #include "helper.h"
 
-TEST( HeatMapPlot, HeatMapPlot )
+TEST(HeatMapPlot, HeatMapPlot)
 {
-    TestPlot< HeatMapPlot >( "HeatMapPlot", []()
+    TestPlot< HeatMapPlot >("HeatMapPlot", []()
     {
-        mat randMat = randu( 100, 100 );
-        HeatMapPlot f( randMat );
-        f.SetYTickLabel( 10 )
-        .SetXTickLabel( 10 );
+        mat randMat = randu(100, 100);
+        HeatMapPlot f(randMat);
+        f.SetYTickLabel(10)
+        .SetXTickLabel(10);
         return f;
-    } );
+    });
 }
 
-TEST( HeatMapPlot, HeatMapPlot_Constr2 )
+TEST(HeatMapPlot, HeatMapPlot_Constr2)
 {
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Constr2", []()
+    TestPlot< HeatMapPlot >("HeatMapPlot_Constr2", []()
     {
-        vec xVec = randn( 200 );
-        vec yVec = randn( 200 );
-        HeatMapPlot f( xVec, yVec, 5 );
-        f.Robust( true );
+        vec xVec = randn(200);
+        vec yVec = randn(200);
+        HeatMapPlot f(xVec, yVec, 5);
+        f.Robust(true);
         return f;
-    } );
+    });
 }
 
-TEST( HeatMapPlot, HeatMapPlot_Constr3 )
+TEST(HeatMapPlot, HeatMapPlot_Constr3)
 {
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Constr3", []()
+    TestPlot< HeatMapPlot >("HeatMapPlot_Constr3", []()
     {
-        vec xVec = randn( 200 ) * 1.5;
-        vec yVec = randn( 200 );
-        HeatMapPlot f( xVec, yVec, { 5, 6 } );
-        f.XTickLabel( false )
-        .YTickLabel( false )
-        .ColourBar( false );
+        vec xVec = randn(200) * 1.5;
+        vec yVec = randn(200);
+        HeatMapPlot f(xVec, yVec, { 5, 6 });
+        f.XTickLabel(false)
+        .YTickLabel(false)
+        .ColourBar(false);
         return f;
-    } );
+    });
 }
 
-TEST( HeatMapPlot, HeatMapPlot_Constr4 )
+TEST(HeatMapPlot, HeatMapPlot_Constr4)
 {
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Constr4", []()
+    TestPlot< HeatMapPlot >("HeatMapPlot_Constr4", []()
     {
-        vec xVec = randn( 200 ) * 1.5;
-        vec yVec = randn( 200 );
-        HeatMapPlot f( xVec, yVec, 3, { -6, 6 }, { -3, 3 } );
-        f.Square( true )
-        .Annotate( true )
-        .SetFormat( "f" );
+        vec xVec = randn(200) * 1.5;
+        vec yVec = randn(200);
+        HeatMapPlot f(xVec, yVec, 3, { -6, 6 }, { -3, 3 });
+        f.Square(true)
+        .Annotate(true)
+        .SetFormat("f");
         return f;
-    } );
-}
-
-
-TEST( HeatMapPlot, HeatMapPlot_Constr5 )
-{
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Constr5", []()
-    {
-        vec xVec = randn( 200 ) * 1.5;
-        vec yVec = randn( 200 );
-        HeatMapPlot f( xVec, yVec, { 10, 5 }, { -6, 6 }, { -3, 3 } );
-        f.SetCentre( 16 )
-        .SetMaxValue( 32 )
-        .SetMinValue( 0 );
-        return f;
-    } );
-}
-
-TEST( HeatMapPlot, HeatMapPlot_Small )
-{
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Small", []()
-    {
-        mat randMat = randu( 3, 3 );
-        HeatMapPlot f( randMat );
-        f.SetXTickLabels( { 1, 2, 3 } )
-        .SetYTickLabels( { 4, 5, 6 } );
-        return f;
-    } );
-}
-
-TEST( HeatMapPlot, HeatMapPlot_Mask )
-{
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Mask", []()
-    {
-        mat randMat = randu( 2, 3 );
-        HeatMapPlot f( randMat );
-        f.SetMask( { false, true, false } )
-        .SetAnnotate( {{"first", "x", "second"}, {"third", "x", "fourth"}} )
-        .SetFormat( "s" );
-        return f;
-    } );
+    });
 }
 
 
-TEST( HeatMapPlot, HeatMapPlot_Mask2 )
+TEST(HeatMapPlot, HeatMapPlot_Constr5)
 {
-    TestPlot< HeatMapPlot >( "HeatMapPlot_Mask2", []()
+    TestPlot< HeatMapPlot >("HeatMapPlot_Constr5", []()
     {
-        mat randMat = randu( 2, 2 );
-        HeatMapPlot f( randMat );
-        f.SetMask( { {true, false}, {true, true} } )
-        .SetLineWidths( 2 )
-        .SetLineColour( "r" )
-        .SetColourMap( Palette::Diverging::PRGn );
+        vec xVec = randn(200) * 1.5;
+        vec yVec = randn(200);
+        HeatMapPlot f(xVec, yVec, { 10, 5 }, { -6, 6 }, { -3, 3 });
+        f.SetCentre(16)
+        .SetMaxValue(32)
+        .SetMinValue(0);
         return f;
-    } );
+    });
+}
+
+TEST(HeatMapPlot, HeatMapPlot_Small)
+{
+    TestPlot< HeatMapPlot >("HeatMapPlot_Small", []()
+    {
+        mat randMat = randu(3, 3);
+        HeatMapPlot f(randMat);
+        f.SetXTickLabels({ 1, 2, 3 })
+        .SetYTickLabels({ 4, 5, 6 });
+        return f;
+    });
+}
+
+TEST(HeatMapPlot, HeatMapPlot_Mask)
+{
+    TestPlot< HeatMapPlot >("HeatMapPlot_Mask", []()
+    {
+        mat randMat = randu(2, 3);
+        HeatMapPlot f(randMat);
+        f.SetMask({ false, true, false })
+        .SetAnnotate({{"first", "x", "second"}, {"third", "x", "fourth"}})
+        .SetFormat("s");
+        return f;
+    });
+}
+
+
+TEST(HeatMapPlot, HeatMapPlot_Mask2)
+{
+    TestPlot< HeatMapPlot >("HeatMapPlot_Mask2", []()
+    {
+        mat randMat = randu(2, 2);
+        HeatMapPlot f(randMat);
+        f.SetMask({ {true, false}, {true, true} })
+        .SetLineWidths(2)
+        .SetLineColour("r")
+        .SetColourMap(Palette::Diverging::PRGn);
+        return f;
+    });
 }

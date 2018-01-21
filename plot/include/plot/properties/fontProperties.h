@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -151,58 +151,58 @@ public:
         XXLarge
     };
 
-    tReturn &SetFamily( const std::vector< std::string > &families )
+    tReturn &SetFamily(const std::vector< std::string > &families)
     {
-        this->AddArgument( "family", this->ToArray( families ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("family", this->ToArray(families));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetStyle( Style style )
+    tReturn &SetStyle(Style style)
     {
-        this->AddArgument( "style", this->GetString( __PlotLibFontPropertiesStyle[static_cast<size_t>( style )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("style", this->GetString(__PlotLibFontPropertiesStyle[static_cast<size_t>(style)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetVariant( Variant variant )
+    tReturn &SetVariant(Variant variant)
     {
-        this->AddArgument( "variantvariant", this->GetString( __PlotLibFontPropertiesVariant[static_cast<size_t>( variant )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("variantvariant", this->GetString(__PlotLibFontPropertiesVariant[static_cast<size_t>(variant)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetStretch( Stretch stretch )
+    tReturn &SetStretch(Stretch stretch)
     {
-        this->AddArgument( "stretch", this->GetString( __PlotLibFontPropertiesStrech[static_cast<size_t>( stretch )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("stretch", this->GetString(__PlotLibFontPropertiesStrech[static_cast<size_t>(stretch)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetStretch( uint32_t stretch )
+    tReturn &SetStretch(uint32_t stretch)
     {
-        this->AddArgument( "stretch", stretch );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("stretch", stretch);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetWeight( Weight weight )
+    tReturn &SetWeight(Weight weight)
     {
-        this->AddArgument( "weight", this->GetString( __PlotLibFontPropertiesWeight[static_cast<size_t>( weight )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("weight", this->GetString(__PlotLibFontPropertiesWeight[static_cast<size_t>(weight)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetWeight( uint32_t weight )
+    tReturn &SetWeight(uint32_t weight)
     {
-        this->AddArgument( "weight", weight );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("weight", weight);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetSize( Size size )
+    tReturn &SetSize(Size size)
     {
-        this->AddArgument( "size", this->GetString( __PlotLibFontPropertiesSize[static_cast<size_t>( size )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("size", this->GetString(__PlotLibFontPropertiesSize[static_cast<size_t>(size)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetSize( double size )
+    tReturn &SetSize(double size)
     {
-        this->AddArgument( "size", size );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("size", size);
+        return static_cast<tBase &>(*this);
     }
 };
 

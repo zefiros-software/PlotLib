@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -51,43 +51,43 @@ public:
         Silverman
     };
 
-    KDEPlot( const PVec &data );
+    KDEPlot(const PVec &data);
 
-    KDEPlot( const PVec &data, const PVec &data2 );
+    KDEPlot(const PVec &data, const PVec &data2);
 
     virtual std::string ToString() override;
 
-    KDEPlot &Vertical( bool vertical );
+    KDEPlot &Vertical(bool vertical);
 
-    KDEPlot &SetKernel( Kernel kernel );
+    KDEPlot &SetKernel(Kernel kernel);
 
-    KDEPlot &SetBW( BW bw );
+    KDEPlot &SetBW(BW bw);
 
-    KDEPlot &SetBW( double scalar );
+    KDEPlot &SetBW(double scalar);
 
-    KDEPlot &SetBW( const std::pair<double, double> &scalars );
+    KDEPlot &SetBW(const std::pair<double, double> &scalars);
 
-    KDEPlot &SetGridSize( size_t size );
+    KDEPlot &SetGridSize(size_t size);
 
-    KDEPlot &SetCut( double cut );
+    KDEPlot &SetCut(double cut);
 
-    KDEPlot &SetClip( const std::pair<double, double> &clip );
+    KDEPlot &SetClip(const std::pair<double, double> &clip);
 
-    KDEPlot &SetClip( const std::pair<double, double> &clipx, const std::pair<double, double> &clipy );
+    KDEPlot &SetClip(const std::pair<double, double> &clipx, const std::pair<double, double> &clipy);
 
-    KDEPlot &Legend( bool legend );
+    KDEPlot &Legend(bool legend);
 
-    KDEPlot &Cumulative( bool cumulative );
+    KDEPlot &Cumulative(bool cumulative);
 
-    KDEPlot &ShadeLowest( bool shadwLowest );
+    KDEPlot &ShadeLowest(bool shadwLowest);
 
     KDEPlot &ColourBar(bool bar);
 
 private:
 
-    static std::string GetBW( BW bw );
+    static std::string GetBW(BW bw);
 
-    static std::string GetKernel( Kernel kernel );
+    static std::string GetKernel(Kernel kernel);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

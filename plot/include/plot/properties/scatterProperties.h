@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -68,91 +68,91 @@ public:
 
     std::string ToString() override
     {
-        return AbstractPlot::ToString( mStream.str() );
+        return AbstractPlot::ToString(mStream.str());
     }
 
-    inline tReturn &SetSize( double size )
+    inline tReturn &SetSize(double size)
     {
-        this->AddArgument( "s", size );
+        this->AddArgument("s", size);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    inline tReturn &SetColour( const std::string &colour )
+    inline tReturn &SetColour(const std::string &colour)
     {
-        this->AddArgument( "c", colour );
+        this->AddArgument("c", colour);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    inline tReturn &SetMarker( const std::string &style )
+    inline tReturn &SetMarker(const std::string &style)
     {
-        this->AddArgument( "marker", style );
+        this->AddArgument("marker", style);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    inline tReturn &SetColourMap( ColourMap &map )
+    inline tReturn &SetColourMap(ColourMap &map)
     {
-        this->AddArgument( "cmap", map.ToString() );
+        this->AddArgument("cmap", map.ToString());
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetNormalise( Normalise norm )
+    tReturn &SetNormalise(Normalise norm)
     {
-        this->AddArgument( "norm", __PlotLibScatterPlotPropertiesNormalise[static_cast<size_t>( norm )] );
+        this->AddArgument("norm", __PlotLibScatterPlotPropertiesNormalise[static_cast<size_t>(norm)]);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetVMin( double vmin )
+    tReturn &SetVMin(double vmin)
     {
-        this->AddArgument( "vmin", vmin );
+        this->AddArgument("vmin", vmin);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetVMax( double vmax )
+    tReturn &SetVMax(double vmax)
     {
-        this->AddArgument( "vmax", vmax );
+        this->AddArgument("vmax", vmax);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetAlpha( double alpha )
+    tReturn &SetAlpha(double alpha)
     {
-        this->AddArgument( "alpha", alpha );
+        this->AddArgument("alpha", alpha);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineWidths( double width )
+    tReturn &SetLineWidths(double width)
     {
-        this->AddArgument( "linewidths", width );
+        this->AddArgument("linewidths", width);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineWidths( const PVec &widths )
+    tReturn &SetLineWidths(const PVec &widths)
     {
-        this->AddArgument( "linewidths", this->ToArray( widths ) );
+        this->AddArgument("linewidths", this->ToArray(widths));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEdgeColour( const std::string &colour )
+    tReturn &SetEdgeColour(const std::string &colour)
     {
-        this->AddArgument( "edgecolor", this->GetString( colour ) );
+        this->AddArgument("edgecolor", this->GetString(colour));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEdgeColour( const PVec &colours )
+    tReturn &SetEdgeColour(const PVec &colours)
     {
-        this->AddArgument( "edgecolor", this->ToArray( colours ) );
+        this->AddArgument("edgecolor", this->ToArray(colours));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
 };

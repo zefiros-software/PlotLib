@@ -28,21 +28,21 @@
 
 #include "helper.h"
 
-TEST( SimpleBoxPlot, SimpleBoxPlot )
+TEST(SimpleBoxPlot, SimpleBoxPlot)
 {
-    TestPlot< SimpleBoxPlot >( "SimpleBoxPlot", []()
+    TestPlot< SimpleBoxPlot >("SimpleBoxPlot", []()
     {
-        vec randX = randu( 10 ) * 10;
-        SimpleBoxPlot f( randX );
+        vec randX = randu(10) * 10;
+        SimpleBoxPlot f(randX);
         return f;
-    } );
+    });
 }
 
-TEST( SimpleBoxPlot, SimpleBoxPlot2 )
+TEST(SimpleBoxPlot, SimpleBoxPlot2)
 {
-    TestPlot< SimpleBoxPlot >( "SimpleBoxPlot2", []()
+    TestPlot< SimpleBoxPlot >("SimpleBoxPlot2", []()
     {
-        SimpleBoxPlot f( ( mat )randu( 10, 10 ) );
+        SimpleBoxPlot f((mat)randu(10, 10));
         return f;
-    } );
+    });
 }

@@ -28,128 +28,128 @@
 
 #include "helper.h"
 
-TEST( ContourPlot, ContourPlot )
+TEST(ContourPlot, ContourPlot)
 {
-    TestPlot< ContourPlot >( "ContourPlot", []()
+    TestPlot< ContourPlot >("ContourPlot", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourPlot f( m );
-        f.SetColourMap( ColourMap::Sequential::YlGnBu );
+        ContourPlot f(m);
+        f.SetColourMap(ColourMap::Sequential::YlGnBu);
         return f;
-    } );
+    });
 }
 
 
-TEST( ContourPlot, ContourPlot2 )
+TEST(ContourPlot, ContourPlot2)
 {
-    TestPlot< ContourPlot >( "ContourPlot2", []()
+    TestPlot< ContourPlot >("ContourPlot2", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourPlot f( m, 10 );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourPlot f(m, 10);
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }
 
-TEST( ContourPlot, ContourPlot3 )
+TEST(ContourPlot, ContourPlot3)
 {
-    TestPlot< ContourPlot >( "ContourPlot3", []()
+    TestPlot< ContourPlot >("ContourPlot3", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourPlot f( m, { 0, 1, 4 } );
-        f.SetColourMap( ColourMap::Sequential::Oranges );
+        ContourPlot f(m, { 0, 1, 4 });
+        f.SetColourMap(ColourMap::Sequential::Oranges);
         return f;
-    } );
+    });
 }
 
-TEST( ContourPlot, ContourPlot4 )
+TEST(ContourPlot, ContourPlot4)
 {
-    TestPlot< ContourPlot >( "ContourPlot4", []()
+    TestPlot< ContourPlot >("ContourPlot4", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourPlot f( ( vec )( linspace( -15, 15, 300 ) ),
-                       ( vec )( linspace( -15, 15, 300 ) ),
-                       m, 3 );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourPlot f((vec)(linspace(-15, 15, 300)),
+                      (vec)(linspace(-15, 15, 300)),
+                      m, 3);
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }
 
-TEST( ContourPlot, ContourPlot5 )
+TEST(ContourPlot, ContourPlot5)
 {
-    TestPlot< ContourPlot >( "ContourPlot5", []()
+    TestPlot< ContourPlot >("ContourPlot5", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourPlot f( ( vec )( linspace( -15, 15, 300 ) ),
-                       ( vec )( linspace( -15, 15, 300 ) ),
-                       m, { 0, 0.5, 1 } );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourPlot f((vec)(linspace(-15, 15, 300)),
+                      (vec)(linspace(-15, 15, 300)),
+                      m, { 0, 0.5, 1 });
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }
 
-TEST( ContourPlot, ContourPlot6 )
+TEST(ContourPlot, ContourPlot6)
 {
-    TestPlot< ContourPlot >( "ContourPlot6", []()
+    TestPlot< ContourPlot >("ContourPlot6", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourPlot f( ( vec )( linspace( 0, 15, 300 ) ),
-                       ( vec )( linspace( 0, 15, 300 ) ), m );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourPlot f((vec)(linspace(0, 15, 300)),
+                      (vec)(linspace(0, 15, 300)), m);
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }

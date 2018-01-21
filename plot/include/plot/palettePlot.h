@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,11 +37,11 @@ class PalettePlot
 {
 public:
 
-    PalettePlot( const Palette &palette );
+    PalettePlot(const Palette &palette);
 
     virtual std::string ToString() override;
 
-    PalettePlot &SetSize( double size );
+    PalettePlot &SetSize(double size);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

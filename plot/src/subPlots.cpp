@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@
 #include "plot/heatMapPlot.h"
 #include "plot/subPlots.h"
 
-PLOTLIB_INLINE SubPlots::SubPlots( uint32_t rows, uint32_t columns ) : mPlotCount( 0 )
+PLOTLIB_INLINE SubPlots::SubPlots(uint32_t rows, uint32_t columns) : mPlotCount(0)
 {
     mStream << "fig, axn = plt.subplots(" << rows << "," << columns <<
             ", sharex=True, sharey=True, squeeze=True, subplot_kw={'axisbg': 'w'})\n"
@@ -39,9 +39,9 @@ PLOTLIB_INLINE std::string SubPlots::ToString()
     return mStream.str() + "\n" + mPlots.str() + "\nfig.tight_layout(rect=[0, 0, .85, .9],pad=0.1)\n";
 }
 
-PLOTLIB_INLINE void SubPlots::AddHeatMapPlot( HeatMapPlot &plot )
+PLOTLIB_INLINE void SubPlots::AddHeatMapPlot(HeatMapPlot &plot)
 {
-    if ( mPlotCount == 0 )
+    if (mPlotCount == 0)
     {
         mStream << "cbar_ax = fig.add_axes([.86, .05, .03, .9])\n"
                 << "ax_cycler = itertools.cycle(axn.flat)\n";
@@ -49,7 +49,7 @@ PLOTLIB_INLINE void SubPlots::AddHeatMapPlot( HeatMapPlot &plot )
     }
     else
     {
-        plot.ColourBar( false );
+        plot.ColourBar(false);
     }
 
     plot.mStream << ", ax=next(ax_cycler)";

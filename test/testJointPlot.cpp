@@ -28,31 +28,31 @@
 
 #include "helper.h"
 
-TEST( JointPlot, JointPlot )
+TEST(JointPlot, JointPlot)
 {
-    TestPlot< JointPlot >( "JointPlot", []()
+    TestPlot< JointPlot >("JointPlot", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 1.5 * x + 2 * randn( 100 );
-        JointPlot f( x, y );
-        f.SetSpace( 0 )
-        .SetSize( 300 )
-        .SetColour( "r" );
+        vec x = 2 + randn(100);
+        vec y = 2 + 1.5 * x + 2 * randn(100);
+        JointPlot f(x, y);
+        f.SetSpace(0)
+        .SetSize(300)
+        .SetColour("r");
         return f;
-    } );
+    });
 }
 
-TEST( JointPlot, JointPlot2 )
+TEST(JointPlot, JointPlot2)
 {
-    TestPlot< JointPlot >( "JointPlot2", []()
+    TestPlot< JointPlot >("JointPlot2", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 1.5 * x + 2 * randn( 100 );
-        JointPlot f( x, y );
-        f.SetKind( JointPlot::Kind::KernelDensity )
-        .SetRatio( 2 )
-        .SetYLimit( {0, 12} )
-        .SetXLimit( { -1, 5} );
+        vec x = 2 + randn(100);
+        vec y = 2 + 1.5 * x + 2 * randn(100);
+        JointPlot f(x, y);
+        f.SetKind(JointPlot::Kind::KernelDensity)
+        .SetRatio(2)
+        .SetYLimit({0, 12})
+        .SetXLimit({ -1, 5});
         return f;
-    } );
+    });
 }

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,9 +28,9 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE RegressionPlot::RegressionPlot( const PVec &exogenous, const PVec &endogenous )
+PLOTLIB_INLINE RegressionPlot::RegressionPlot(const PVec &exogenous, const PVec &endogenous)
 {
-    mStream << "sns.regplot(np.array(" << this->ToArray( exogenous ) << "),np.array(" << this->ToArray( endogenous ) << ")";
+    mStream << "sns.regplot(np.array(" << this->ToArray(exogenous) << "),np.array(" << this->ToArray(endogenous) << ")";
 }
 
 PLOTLIB_INLINE std::string RegressionPlot::ToString()
@@ -38,15 +38,15 @@ PLOTLIB_INLINE std::string RegressionPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( const PVec &bins )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins(const PVec &bins)
 {
-    this->AddArgument( "x_bins", this->ToArray( bins ) );
+    this->AddArgument("x_bins", this->ToArray(bins));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins( size_t bins )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXBins(size_t bins)
 {
-    this->AddArgument( "x_bins", bins );
+    this->AddArgument("x_bins", bins);
     return *this;
 }
 
@@ -57,105 +57,105 @@ PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXConfidenceInterval(size_t ci)
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetConfidenceInterval( size_t ci )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetConfidenceInterval(size_t ci)
 {
-    assert( ci <= 100 );
-    this->AddArgument( "ci", ci );
+    assert(ci <= 100);
+    this->AddArgument("ci", ci);
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::Scatter( bool scatter )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Scatter(bool scatter)
 {
-    this->AddArgument( "scatter",  GetBool( scatter ) );
+    this->AddArgument("scatter",  GetBool(scatter));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::FitRegression( bool fit )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::FitRegression(bool fit)
 {
-    this->AddArgument( "fit_reg", GetBool( fit ) );
+    this->AddArgument("fit_reg", GetBool(fit));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetNBoots( size_t nboots )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetNBoots(size_t nboots)
 {
-    this->AddArgument( "n_boots", nboots );
+    this->AddArgument("n_boots", nboots);
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetOrder( size_t order )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetOrder(size_t order)
 {
-    this->AddArgument( "order", order );
+    this->AddArgument("order", order);
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::Logistic( bool logistic )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Logistic(bool logistic)
 {
-    this->AddArgument( "logistic", GetBool( logistic ) );
+    this->AddArgument("logistic", GetBool(logistic));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::Lowess( bool lowess )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Lowess(bool lowess)
 {
-    this->AddArgument( "lowess", GetBool( lowess ) );
+    this->AddArgument("lowess", GetBool(lowess));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::Robust( bool robust )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Robust(bool robust)
 {
-    this->AddArgument( "robust", GetBool( robust ) );
+    this->AddArgument("robust", GetBool(robust));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::LogX( bool logx )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::LogX(bool logx)
 {
-    this->AddArgument( "logx", GetBool( logx ) );
+    this->AddArgument("logx", GetBool(logx));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXPartial( const PMat &mat )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXPartial(const PMat &mat)
 {
-    this->AddArgument( "x_partial", this->ToArray( mat ) );
+    this->AddArgument("x_partial", this->ToArray(mat));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYPartial( const PMat &mat )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYPartial(const PMat &mat)
 {
-    this->AddArgument( "y_partial", this->ToArray( mat ) );
+    this->AddArgument("y_partial", this->ToArray(mat));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::Truncate( bool trunc )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::Truncate(bool trunc)
 {
-    this->AddArgument( "truncate", GetBool( trunc ) );
+    this->AddArgument("truncate", GetBool(trunc));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXJitter( double jitter )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetXJitter(double jitter)
 {
-    this->AddArgument( "x_jitter", jitter );
+    this->AddArgument("x_jitter", jitter);
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYJitter( double jitter )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetYJitter(double jitter)
 {
-    this->AddArgument( "y_jitter", jitter );
+    this->AddArgument("y_jitter", jitter);
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLabel( const std::string &label )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetLabel(const std::string &label)
 {
-    this->AddArgument( "label", this->GetString( label ) );
+    this->AddArgument("label", this->GetString(label));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetColour(const std::string &colour)
 {
-    this->AddArgument( "color", this->GetString( colour ) );
+    this->AddArgument("color", this->GetString(colour));
     return *this;
 }
 
-PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetMarker( const std::string &marker )
+PLOTLIB_INLINE RegressionPlot &RegressionPlot::SetMarker(const std::string &marker)
 {
-    this->AddArgument( "marker", this->GetString( marker ) );
+    this->AddArgument("marker", this->GetString(marker));
     return *this;
 }

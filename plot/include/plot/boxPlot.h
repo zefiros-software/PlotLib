@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,23 +44,23 @@ public:
         Horizontal
     };
 
-    BoxPlot( const PVec &x, const PVec &y );
+    BoxPlot(const PVec &x, const PVec &y);
 
-    BoxPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    BoxPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    BoxPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    BoxPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    BoxPlot &SetOrder( const PVec &order );
+    BoxPlot &SetOrder(const PVec &order);
 
-    BoxPlot &SetHueOrder( const std::vector< std::string > &order );
+    BoxPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    BoxPlot &SetOrientation( Orientation orientation );
+    BoxPlot &SetOrientation(Orientation orientation);
 
-    BoxPlot &SetColour( const std::string &colour );
+    BoxPlot &SetColour(const std::string &colour);
 
-    BoxPlot &SetColourMap( const Palette &pallet );
+    BoxPlot &SetColourMap(const Palette &pallet);
 
     BoxPlot &SetSaturation(double sat);
 
@@ -68,13 +68,13 @@ public:
 
     BoxPlot &SetDodge(bool dodge);
 
-    BoxPlot &SetFlierSize( double fliersize );
+    BoxPlot &SetFlierSize(double fliersize);
 
-    BoxPlot &SetLineWidth( double width );
+    BoxPlot &SetLineWidth(double width);
 
-    BoxPlot &SetWhis( double whis );
+    BoxPlot &SetWhis(double whis);
 
-    BoxPlot &Notch( bool notch );
+    BoxPlot &Notch(bool notch);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

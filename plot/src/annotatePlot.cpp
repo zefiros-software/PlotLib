@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@
 #include "plot/properties/line2dProperties.h"
 #include "plot/annotatePlot.h"
 
-PLOTLIB_INLINE AnnotatePlot::AnnotatePlot( const std::string &label, double x, double y )
+PLOTLIB_INLINE AnnotatePlot::AnnotatePlot(const std::string &label, double x, double y)
 {
     mStream << "plt.annotate( s='" << label << "', xy=(" << x << "," << y << ")";
 }
@@ -37,39 +37,39 @@ PLOTLIB_INLINE std::string AnnotatePlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYText( double x, double y )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYText(double x, double y)
 {
-    this->AddArgument( "xytext", this->ToTuple( x, y ) );
+    this->AddArgument("xytext", this->ToTuple(x, y));
     return *this;
 }
 
-PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYCoordinates( Type type )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetXYCoordinates(Type type)
 {
-    this->AddArgument( "xycoords", GetType( type ) );
+    this->AddArgument("xycoords", GetType(type));
     return *this;
 }
 
-PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetTextCoordinates( Type type )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetTextCoordinates(Type type)
 {
-    this->AddArgument( "textcoords", GetType( type ) );
+    this->AddArgument("textcoords", GetType(type));
     return *this;
 }
 
-PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps( FancyArrow &props )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps(FancyArrow &props)
 {
-    this->AddArgument( "arrowprops", props.ToString() );
+    this->AddArgument("arrowprops", props.ToString());
     return *this;
 }
 
-PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps( YArrow &props )
+PLOTLIB_INLINE AnnotatePlot &AnnotatePlot::SetArrowProps(YArrow &props)
 {
-    this->AddArgument( "arrowprops", props.ToString() );
+    this->AddArgument("arrowprops", props.ToString());
     return *this;
 }
 
-PLOTLIB_INLINE std::string AnnotatePlot::GetType( Type type )
+PLOTLIB_INLINE std::string AnnotatePlot::GetType(Type type)
 {
-    switch ( type )
+    switch (type)
     {
     case Type::FigurePoints:
         return "'figure points'";

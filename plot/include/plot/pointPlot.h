@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -45,43 +45,43 @@ public:
         Horizontal
     };
 
-    PointPlot( const PVec &x, const PVec &y );
+    PointPlot(const PVec &x, const PVec &y);
 
-    PointPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    PointPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    PointPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    PointPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    PointPlot &SetOrder( const PVec &order );
+    PointPlot &SetOrder(const PVec &order);
 
-    PointPlot &SetHueOrder( const std::vector< std::string > &order );
+    PointPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    PointPlot &SetConfidenceInterval( double ci );
+    PointPlot &SetConfidenceInterval(double ci);
 
-    PointPlot &SetNBoot( size_t bootstrap );
+    PointPlot &SetNBoot(size_t bootstrap);
 
-    PointPlot &SetMarkers( const std::vector< std::string > &markers );
+    PointPlot &SetMarkers(const std::vector< std::string > &markers);
 
-    PointPlot &SetLineStyles( const std::vector< std::string > &styles );
+    PointPlot &SetLineStyles(const std::vector< std::string > &styles);
 
-    PointPlot &SetDodge( double dodge );
+    PointPlot &SetDodge(double dodge);
 
-    PointPlot &SetDodge( bool dodge );
+    PointPlot &SetDodge(bool dodge);
 
-    PointPlot &SetJoin( bool join );
+    PointPlot &SetJoin(bool join);
 
-    PointPlot &SetScale( double scale );
+    PointPlot &SetScale(double scale);
 
-    PointPlot &SetOrientation( Orientation orientation );
+    PointPlot &SetOrientation(Orientation orientation);
 
-    PointPlot &SetColour( const std::string &colour );
+    PointPlot &SetColour(const std::string &colour);
 
-    PointPlot &SetColourMap( const Palette &pallet );
+    PointPlot &SetColourMap(const Palette &pallet);
 
-    PointPlot &SetErrorWidth( double width );
+    PointPlot &SetErrorWidth(double width);
 
-    PointPlot &SetCapSize( double size );
+    PointPlot &SetCapSize(double size);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

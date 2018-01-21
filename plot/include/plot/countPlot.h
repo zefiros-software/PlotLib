@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,25 +44,25 @@ public:
         Horizontal
     };
 
-    CountPlot( const PVec &x );
+    CountPlot(const PVec &x);
 
-    CountPlot( const std::vector< PVec > &data );
+    CountPlot(const std::vector< PVec > &data);
 
-    CountPlot( const std::vector< PVec > &data, const std::vector< std::string > &hue );
+    CountPlot(const std::vector< PVec > &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    CountPlot &SetOrder( const PVec &order );
+    CountPlot &SetOrder(const PVec &order);
 
-    CountPlot &SetHueOrder( const std::vector< std::string > &order );
+    CountPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    CountPlot &SetOrientation( Orientation orientation );
+    CountPlot &SetOrientation(Orientation orientation);
 
-    CountPlot &SetColour( const std::string &colour );
+    CountPlot &SetColour(const std::string &colour);
 
-    CountPlot &SetColourMap( const Palette &pallet );
+    CountPlot &SetColourMap(const Palette &pallet);
 
-    CountPlot &SetSaturation( double sat );
+    CountPlot &SetSaturation(double sat);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

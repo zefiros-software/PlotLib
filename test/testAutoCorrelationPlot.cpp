@@ -29,40 +29,40 @@
 #include "helper.h"
 
 
-TEST( AutoCorrelationPlot, AutoCorrelationPlot )
+TEST(AutoCorrelationPlot, AutoCorrelationPlot)
 {
-    TestPlot< AutoCorrelationPlot >( "AutoCorrelationPlot", []()
+    TestPlot< AutoCorrelationPlot >("AutoCorrelationPlot", []()
     {
-        vec randVec = randu( 200 );
-        AutoCorrelationPlot f( randVec );
-        f.SetDetrend( AutoCorrelationPlot::Detrend::Mean );
+        vec randVec = randu(200);
+        AutoCorrelationPlot f(randVec);
+        f.SetDetrend(AutoCorrelationPlot::Detrend::Mean);
         return f;
-    } );
+    });
 }
 
-TEST( AutoCorrelationPlot, AutoCorrelationPlot2 )
+TEST(AutoCorrelationPlot, AutoCorrelationPlot2)
 {
-    TestPlot< AutoCorrelationPlot >( "AutoCorrelationPlot_SetHold", []()
+    TestPlot< AutoCorrelationPlot >("AutoCorrelationPlot_SetHold", []()
     {
-        vec randVec = randu( 200 );
-        AutoCorrelationPlot f( randVec );
-        f.SetLineWidth( 3 )
-        .SetColour( "b" )
-        .Normed( true );
+        vec randVec = randu(200);
+        AutoCorrelationPlot f(randVec);
+        f.SetLineWidth(3)
+        .SetColour("b")
+        .Normed(true);
         return f;
-    } );
+    });
 }
 
-TEST( AutoCorrelationPlot, SetVLines )
+TEST(AutoCorrelationPlot, SetVLines)
 {
-    TestPlot< AutoCorrelationPlot >( "AutoCorrelationPlot_SetVLines", []()
+    TestPlot< AutoCorrelationPlot >("AutoCorrelationPlot_SetVLines", []()
     {
-        vec randVec = randu( 200 );
-        AutoCorrelationPlot f( randVec );
-        f.SetMarker( "." )
-        .VLines( false )
-        .SetMaxLags( 100 )
-        .SetDetrend( AutoCorrelationPlot::Detrend::Linear );
+        vec randVec = randu(200);
+        AutoCorrelationPlot f(randVec);
+        f.SetMarker(".")
+        .VLines(false)
+        .SetMaxLags(100)
+        .SetDetrend(AutoCorrelationPlot::Detrend::Linear);
         return f;
-    } );
+    });
 }

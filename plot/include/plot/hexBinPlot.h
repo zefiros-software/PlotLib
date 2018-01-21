@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -48,44 +48,44 @@ public:
         Logarithmic
     };
 
-    HexBinPlot( const PVec &x, const PVec &y );
+    HexBinPlot(const PVec &x, const PVec &y);
 
     virtual std::string ToString() override;
 
 
-    HexBinPlot &SetGridSize( const std::pair< size_t, size_t > &size );
+    HexBinPlot &SetGridSize(const std::pair< size_t, size_t > &size);
 
-    HexBinPlot &SetGridSize( size_t size );
+    HexBinPlot &SetGridSize(size_t size);
 
-    HexBinPlot &SetBins( size_t bins );
+    HexBinPlot &SetBins(size_t bins);
 
-    HexBinPlot &SetBins( BinType type );
+    HexBinPlot &SetBins(BinType type);
 
-    HexBinPlot &SetBins( const PVec &bins );
+    HexBinPlot &SetBins(const PVec &bins);
 
-    HexBinPlot &SetXScale( Scale scale );
+    HexBinPlot &SetXScale(Scale scale);
 
-    HexBinPlot &SetScale( Scale scale );
+    HexBinPlot &SetScale(Scale scale);
 
-    HexBinPlot &SetMinCount( size_t minCount );
+    HexBinPlot &SetMinCount(size_t minCount);
 
-    HexBinPlot &SetMarginals( bool marginals );
+    HexBinPlot &SetMarginals(bool marginals);
 
-    HexBinPlot &SetExtent( size_t left, size_t right, size_t bottom, size_t top );
+    HexBinPlot &SetExtent(size_t left, size_t right, size_t bottom, size_t top);
 
-    HexBinPlot &SetColourMap( Palette pallet );
+    HexBinPlot &SetColourMap(Palette pallet);
 
-    HexBinPlot &SetMinValue( double value );
+    HexBinPlot &SetMinValue(double value);
 
-    HexBinPlot &SetMaxValue( double value );
+    HexBinPlot &SetMaxValue(double value);
 
-    HexBinPlot &SetLineWidths( double value );
+    HexBinPlot &SetLineWidths(double value);
 
-    HexBinPlot &SetAlpha( double value );
+    HexBinPlot &SetAlpha(double value);
 
 private:
 
-    static std::string GetScale( Scale scale );
+    static std::string GetScale(Scale scale);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

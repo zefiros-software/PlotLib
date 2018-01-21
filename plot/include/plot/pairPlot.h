@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -48,28 +48,28 @@ public:
         KernelDensity
     };
 
-    PairPlot( const PMat &mat, const std::vector< std::string > &names );
+    PairPlot(const PMat &mat, const std::vector< std::string > &names);
 
-    PairPlot( const std::vector< PMat > &mats, const std::vector< std::string > &names,
-              const std::vector< std::string > &hue );
+    PairPlot(const std::vector< PMat > &mats, const std::vector< std::string > &names,
+             const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    PairPlot &SetXVars( const std::vector< std::string > &xvars );
+    PairPlot &SetXVars(const std::vector< std::string > &xvars);
 
-    PairPlot &SetYVars( const std::vector< std::string > &yvars );
+    PairPlot &SetYVars(const std::vector< std::string > &yvars);
 
-    PairPlot &SetType( Type type );
+    PairPlot &SetType(Type type);
 
-    PairPlot &SetDiagonalType( DiagonalType type );
+    PairPlot &SetDiagonalType(DiagonalType type);
 
-    PairPlot &SetMarker( const std::string &marker );
+    PairPlot &SetMarker(const std::string &marker);
 
-    PairPlot &SetMarkers( const std::vector<std::string> &marker );
+    PairPlot &SetMarkers(const std::vector<std::string> &marker);
 
-    PairPlot &SetSize( double size );
+    PairPlot &SetSize(double size);
 
-    PairPlot &SetAspect( double aspect );
+    PairPlot &SetAspect(double aspect);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

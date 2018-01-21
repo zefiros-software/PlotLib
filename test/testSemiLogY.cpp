@@ -28,23 +28,23 @@
 
 #include "helper.h"
 
-TEST( SemiLogYPlot, SemiLogYPlot )
+TEST(SemiLogYPlot, SemiLogYPlot)
 {
-    TestPlot< SemiLogYPlot >( "SemiLogY", []()
+    TestPlot< SemiLogYPlot >("SemiLogY", []()
     {
-        SemiLogYPlot f( ( vec )linspace( 0, 100, 300 ), ( vec )abs( randn( 300 ) ) );
-        f.SetScale( LogScale().SetNonPosY( LogScale::NonPos::Clip ) );
+        SemiLogYPlot f((vec)linspace(0, 100, 300), (vec)abs(randn(300)));
+        f.SetScale(LogScale().SetNonPosY(LogScale::NonPos::Clip));
         return f;
-    } );
+    });
 }
 
-TEST( SemiLogYPlot, SemiLogY2 )
+TEST(SemiLogYPlot, SemiLogY2)
 {
-    TestPlot< SemiLogYPlot >( "SemiLogY2", []()
+    TestPlot< SemiLogYPlot >("SemiLogY2", []()
     {
-        SemiLogYPlot f( ( vec )linspace( 0, 100, 300 ), ( vec )( abs( randn( 300 ) ) + 0.5 ) );
-        f.SetScale( LogScale().SetBaseY( 10 )
-                    .SetSubsY( { 0, 1, 2 } ) );
+        SemiLogYPlot f((vec)linspace(0, 100, 300), (vec)(abs(randn(300)) + 0.5));
+        f.SetScale(LogScale().SetBaseY(10)
+                   .SetSubsY({ 0, 1, 2 }));
         return f;
-    } );
+    });
 }

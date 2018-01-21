@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,38 +26,38 @@
 
 #include "plot/pairPlot.h"
 
-PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< PMat > &mats, const std::vector< std::string > &names,
-                                   const std::vector< std::string > &hue )
+PLOTLIB_INLINE PairPlot::PairPlot(const std::vector< PMat > &mats, const std::vector< std::string > &names,
+                                  const std::vector< std::string > &hue)
 {
-    assert( hue.size() == mats.size() );
+    assert(hue.size() == mats.size());
     mStream << "data = pd.DataFrame()\nhue = []\n";
 
-    for ( size_t k = 0, kEnd = names.size(); k < kEnd; ++k )
+    for (size_t k = 0, kEnd = names.size(); k < kEnd; ++k)
     {
         mStream << "x" << k << " = []\n";
     }
 
     size_t j = 0;
 
-    for ( const auto &mat : mats )
+    for (const auto &mat : mats)
     {
-        assert( names.size() == mat.GetData().size() );
+        assert(names.size() == mat.GetData().size());
 
         size_t i = 0;
 
-        for ( const auto &column : mat.GetData() )
+        for (const auto &column : mat.GetData())
         {
-            mStream << "x" << i << " = x" << i << " + " << this->ToArray( column ) << "\n";
+            mStream << "x" << i << " = x" << i << " + " << this->ToArray(column) << "\n";
             ++i;
         }
 
         mStream << "hue = hue + "
-                << this->ToArray( std::vector< std::string >( mat.GetData()[0].size(), hue[j++] ) ) << "\n";
+                << this->ToArray(std::vector< std::string >(mat.GetData()[0].size(), hue[j++])) << "\n";
     }
 
     size_t l = 0;
 
-    for ( const auto &name : names )
+    for (const auto &name : names)
     {
         mStream << "data['" << name << "']" << " = x" << l << "\n";
         ++l;
@@ -67,15 +67,15 @@ PLOTLIB_INLINE PairPlot::PairPlot( const std::vector< PMat > &mats, const std::v
     mStream << "sns.pairplot( data, hue = 'hue'";
 }
 
-PLOTLIB_INLINE PairPlot::PairPlot( const PMat &mat, const std::vector< std::string > &names )
+PLOTLIB_INLINE PairPlot::PairPlot(const PMat &mat, const std::vector< std::string > &names)
 {
-    assert( names.size() == mat.GetData().size() );
+    assert(names.size() == mat.GetData().size());
     mStream << "data = pd.DataFrame()\n";
     size_t i = 0;
 
-    for ( const auto &column : mat.GetData() )
+    for (const auto &column : mat.GetData())
     {
-        mStream << "data['" << names[i++] << "'] = " << this->ToArray( column ) << "\n";
+        mStream << "data['" << names[i++] << "'] = " << this->ToArray(column) << "\n";
     }
 
     mStream << "sns.pairplot( data";
@@ -86,50 +86,50 @@ PLOTLIB_INLINE std::string PairPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetXVars( const std::vector< std::string > &xvars )
+PLOTLIB_INLINE PairPlot &PairPlot::SetXVars(const std::vector< std::string > &xvars)
 {
-    this->AddArgument( "x_vars", this->ToArray( xvars ) );
+    this->AddArgument("x_vars", this->ToArray(xvars));
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetYVars( const std::vector< std::string > &yvars )
+PLOTLIB_INLINE PairPlot &PairPlot::SetYVars(const std::vector< std::string > &yvars)
 {
-    this->AddArgument( "y_vars", this->ToArray( yvars ) );
+    this->AddArgument("y_vars", this->ToArray(yvars));
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetType( Type type )
+PLOTLIB_INLINE PairPlot &PairPlot::SetType(Type type)
 {
-    this->AddArgument( "kind", this->GetString( type == Type::Scatter ? "scatter" : "reg" ) );
+    this->AddArgument("kind", this->GetString(type == Type::Scatter ? "scatter" : "reg"));
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetDiagonalType( DiagonalType type )
+PLOTLIB_INLINE PairPlot &PairPlot::SetDiagonalType(DiagonalType type)
 {
-    this->AddArgument( "diag_kind", this->GetString( type == DiagonalType::Histogram ? "hist" : "kde" ) );
+    this->AddArgument("diag_kind", this->GetString(type == DiagonalType::Histogram ? "hist" : "kde"));
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetMarker( const std::string &marker )
+PLOTLIB_INLINE PairPlot &PairPlot::SetMarker(const std::string &marker)
 {
-    this->AddArgument( "markers", this->GetString( marker ) );
+    this->AddArgument("markers", this->GetString(marker));
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetMarkers( const std::vector<std::string> &marker )
+PLOTLIB_INLINE PairPlot &PairPlot::SetMarkers(const std::vector<std::string> &marker)
 {
-    this->AddArgument( "markers", this->ToArray( marker ) );
+    this->AddArgument("markers", this->ToArray(marker));
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetSize( double size )
+PLOTLIB_INLINE PairPlot &PairPlot::SetSize(double size)
 {
-    this->AddArgument( "size", size );
+    this->AddArgument("size", size);
     return *this;
 }
 
-PLOTLIB_INLINE PairPlot &PairPlot::SetAspect( double aspect )
+PLOTLIB_INLINE PairPlot &PairPlot::SetAspect(double aspect)
 {
-    this->AddArgument( "aspect", aspect );
+    this->AddArgument("aspect", aspect);
     return *this;
 }

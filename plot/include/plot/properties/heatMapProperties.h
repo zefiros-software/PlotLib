@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,137 +44,137 @@ class HeatMapPlotProperties
 public:
     typedef typename std::conditional < IsDict &&!IsBase, HeatMapPlotProperties< tBase, IsDict >, tBase & >::type tReturn;
 
-    tReturn &SetMinValue( double value )
+    tReturn &SetMinValue(double value)
     {
-        this->AddArgument( "vmin", value );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("vmin", value);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMaxValue( double value )
+    tReturn &SetMaxValue(double value)
     {
-        this->AddArgument( "vmax", value );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("vmax", value);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetCentre( double value )
+    tReturn &SetCentre(double value)
     {
-        this->AddArgument( "center", value );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("center", value);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Robust( bool robust )
+    tReturn &Robust(bool robust)
     {
-        this->AddArgument( "center", GetBool( robust ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("center", GetBool(robust));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Annotate( bool annotate )
+    tReturn &Annotate(bool annotate)
     {
-        this->AddArgument( "annot", GetBool( annotate ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("annot", GetBool(annotate));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetAnnotate( const PMat &annot )
+    tReturn &SetAnnotate(const PMat &annot)
     {
-        this->AddArgument( "annot", "pd.DataFrame(" + this->ToArray( annot ) + ")" );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("annot", "pd.DataFrame(" + this->ToArray(annot) + ")");
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetFormat( const std::string &fmt )
+    tReturn &SetFormat(const std::string &fmt)
     {
-        this->AddArgument( "fmt", this->GetString( fmt ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("fmt", this->GetString(fmt));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetLineWidths( double value )
+    tReturn &SetLineWidths(double value)
     {
-        this->AddArgument( "linewidths", value );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("linewidths", value);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetLineColour( const std::string &colour )
+    tReturn &SetLineColour(const std::string &colour)
     {
-        this->AddArgument( "linecolor", this->GetString( colour ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("linecolor", this->GetString(colour));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetColourMap( Palette pallet )
+    tReturn &SetColourMap(Palette pallet)
     {
-        pallet.SetColourMap( true );
-        this->AddArgument( "color", pallet.ToString() );
-        return static_cast<tBase &>( *this );
+        pallet.SetColourMap(true);
+        this->AddArgument("color", pallet.ToString());
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Square( bool square )
+    tReturn &Square(bool square)
     {
-        this->AddArgument( "square", GetBool( square ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("square", GetBool(square));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &YTickLabel( bool enable )
+    tReturn &YTickLabel(bool enable)
     {
-        mYTickLabels = GetBool( enable );
-        return static_cast<tBase &>( *this );
+        mYTickLabels = GetBool(enable);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetYTickLabels( const PVec &names )
+    tReturn &SetYTickLabels(const PVec &names)
     {
-        mYTickLabels = this->ToArray( names );
-        return static_cast<tBase &>( *this );
+        mYTickLabels = this->ToArray(names);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetYTickLabel( uint32_t offset )
+    tReturn &SetYTickLabel(uint32_t offset)
     {
-        mYTickLabels = std::to_string( offset );
-        return static_cast<tBase &>( *this );
+        mYTickLabels = std::to_string(offset);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &XTickLabel( bool enable )
+    tReturn &XTickLabel(bool enable)
     {
-        mXTickLabels = GetBool( enable );
-        return static_cast<tBase &>( *this );
+        mXTickLabels = GetBool(enable);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetXTickLabels( const PVec &names )
+    tReturn &SetXTickLabels(const PVec &names)
     {
-        mXTickLabels = this->ToArray( names );
-        return static_cast<tBase &>( *this );
+        mXTickLabels = this->ToArray(names);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetXTickLabel( uint32_t offset )
+    tReturn &SetXTickLabel(uint32_t offset)
     {
-        mXTickLabels = std::to_string( offset );
-        return static_cast<tBase &>( *this );
+        mXTickLabels = std::to_string(offset);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMask( const std::vector< bool > &mask )
+    tReturn &SetMask(const std::vector< bool > &mask)
     {
-        this->AddArgument( "mask", this->ToArray( mask ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("mask", this->ToArray(mask));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMask( const PMat &mask )
+    tReturn &SetMask(const PMat &mask)
     {
-        this->AddArgument( "mask", "pd.DataFrame(" + this->ToArray( mask ) + ")" );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("mask", "pd.DataFrame(" + this->ToArray(mask) + ")");
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ColourBar( bool enable )
+    tReturn &ColourBar(bool enable)
     {
-        this->AddArgument( "cbar", GetBool( enable ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("cbar", GetBool(enable));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetColourBar( ColourBarProps &prop )
+    tReturn &SetColourBar(ColourBarProps &prop)
     {
-        this->AddArgument( "cbar_kws", prop.ToString() );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("cbar_kws", prop.ToString());
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetText( Text &prop )
+    tReturn &SetText(Text &prop)
     {
-        this->AddArgument( "annot_kws", prop.ToString() );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("annot_kws", prop.ToString());
+        return static_cast<tBase &>(*this);
     }
 
 protected:

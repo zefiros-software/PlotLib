@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,9 +26,9 @@
 
 #include "plot/angleSpectrumPlot.h"
 
-PLOTLIB_INLINE AngleSpectrumPlot::AngleSpectrumPlot( const PVec &vec )
+PLOTLIB_INLINE AngleSpectrumPlot::AngleSpectrumPlot(const PVec &vec)
 {
-    mStream << "plt.angle_spectrum( " << this->ToArray( vec );
+    mStream << "plt.angle_spectrum( " << this->ToArray(vec);
 }
 
 PLOTLIB_INLINE std::string AngleSpectrumPlot::ToString()
@@ -36,33 +36,33 @@ PLOTLIB_INLINE std::string AngleSpectrumPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSamplingFrequency( double fs )
+PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSamplingFrequency(double fs)
 {
-    this->AddArgument( "Fs", fs );
+    this->AddArgument("Fs", fs);
     return *this;
 }
 
-PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSides( Sides sides )
+PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetSides(Sides sides)
 {
-    this->AddArgument( "sides", GetSides( sides ) );
+    this->AddArgument("sides", GetSides(sides));
     return *this;
 }
 
-PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetCentreFrequency( int32_t fc )
+PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetCentreFrequency(int32_t fc)
 {
-    this->AddArgument( "Fc", fc );
+    this->AddArgument("Fc", fc);
     return *this;
 }
 
-PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetPadTo( int32_t pad )
+PLOTLIB_INLINE AngleSpectrumPlot &AngleSpectrumPlot::SetPadTo(int32_t pad)
 {
-    this->AddArgument( "pad_to", pad );
+    this->AddArgument("pad_to", pad);
     return *this;
 }
 
-PLOTLIB_INLINE std::string AngleSpectrumPlot::GetSides( Sides sides )
+PLOTLIB_INLINE std::string AngleSpectrumPlot::GetSides(Sides sides)
 {
-    switch ( sides )
+    switch (sides)
     {
     case Sides::OneSided:
         return "'onesided'";

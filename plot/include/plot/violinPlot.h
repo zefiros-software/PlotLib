@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -66,53 +66,53 @@ public:
         None
     };
 
-    ViolinPlot( const PVec &x, const PVec &y );
+    ViolinPlot(const PVec &x, const PVec &y);
 
-    ViolinPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    ViolinPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    ViolinPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    ViolinPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    ViolinPlot &SetOrder( const PVec &order );
+    ViolinPlot &SetOrder(const PVec &order);
 
-    ViolinPlot &SetHueOrder( const std::vector< std::string > &order );
+    ViolinPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    ViolinPlot &SetBandwidth( KernelBandwidth bw );
+    ViolinPlot &SetBandwidth(KernelBandwidth bw);
 
-    ViolinPlot &SetBandwidth( double bw );
+    ViolinPlot &SetBandwidth(double bw);
 
-    ViolinPlot &SetCut( double cut );
+    ViolinPlot &SetCut(double cut);
 
-    ViolinPlot &SetScale( Scale scale );
+    ViolinPlot &SetScale(Scale scale);
 
-    ViolinPlot &SetScaleHue( bool scale );
+    ViolinPlot &SetScaleHue(bool scale);
 
-    ViolinPlot &SetGridSize( size_t size );
+    ViolinPlot &SetGridSize(size_t size);
 
-    ViolinPlot &SetWidth( double width );
+    ViolinPlot &SetWidth(double width);
 
-    ViolinPlot &SetInterior( Interior inner );
+    ViolinPlot &SetInterior(Interior inner);
 
-    ViolinPlot &SetSplit( bool split );
+    ViolinPlot &SetSplit(bool split);
 
-    ViolinPlot &SetOrientation( Orientation orientation );
+    ViolinPlot &SetOrientation(Orientation orientation);
 
-    ViolinPlot &SetLineWidth( double width );
+    ViolinPlot &SetLineWidth(double width);
 
     ViolinPlot &SetDodge(bool dodge);
 
     ViolinPlot &SetColour(const std::string &colour);
 
-    ViolinPlot &SetColourMap( const Palette &pallet );
+    ViolinPlot &SetColourMap(const Palette &pallet);
 
-    ViolinPlot &SetSaturation( double sat );
+    ViolinPlot &SetSaturation(double sat);
 
 private:
 
-    std::string GetScale( Scale scale ) const;
+    std::string GetScale(Scale scale) const;
 
-    std::string GetInterior( Interior inner ) const;
+    std::string GetInterior(Interior inner) const;
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

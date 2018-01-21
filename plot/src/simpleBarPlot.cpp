@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,16 +26,16 @@
 
 #include "plot/simpleBarPlot.h"
 
-PLOTLIB_INLINE SimpleBarPlot::SimpleBarPlot( const PVec &x, const PVec &y )
+PLOTLIB_INLINE SimpleBarPlot::SimpleBarPlot(const PVec &x, const PVec &y)
 {
-    mStream << "plt.bar(" << this->ToArray( x ) << "," << this->ToArray( y );
+    mStream << "plt.bar(" << this->ToArray(x) << "," << this->ToArray(y);
 }
 
 PLOTLIB_INLINE std::string SimpleBarPlot::ToString()
 {
-    if ( mIsDictionary )
+    if (mIsDictionary)
     {
-        return AbstractPlot::ToString( mStream.str() );
+        return AbstractPlot::ToString(mStream.str());
     }
 
     return mStream.str() + " )";

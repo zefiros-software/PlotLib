@@ -28,32 +28,32 @@
 
 #include "helper.h"
 
-TEST( ResidualPlot, ResidualPlot )
+TEST(ResidualPlot, ResidualPlot)
 {
-    TestPlot< ResidualPlot >( "ResidualPlot", []()
+    TestPlot< ResidualPlot >("ResidualPlot", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 1.5 * x + 2 * randn( 100 );
-        ResidualPlot f( x, y );
-        f.Lowess( true )
-        .Robust( true )
-        .SetLabel( "Resid" )
-        .SetLine( Line().SetLineWidth( 5 ) );
+        vec x = 2 + randn(100);
+        vec y = 2 + 1.5 * x + 2 * randn(100);
+        ResidualPlot f(x, y);
+        f.Lowess(true)
+        .Robust(true)
+        .SetLabel("Resid")
+        .SetLine(Line().SetLineWidth(5));
         return f;
-    } );
+    });
 }
 
-TEST( ResidualPlot, ResidualPlot2 )
+TEST(ResidualPlot, ResidualPlot2)
 {
-    TestPlot< ResidualPlot >( "ResidualPlot2", []()
+    TestPlot< ResidualPlot >("ResidualPlot2", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 3 * square( x )  + 2 * randn( 100 );
-        ResidualPlot f( x, y );
-        f.SetOrder( 1 )
-        .SetColour( "g" )
-        .SetScatter( Scatter().SetSize( 3.0 ) )
-        .SetLine( Line().SetLineWidth( 5 ) );
+        vec x = 2 + randn(100);
+        vec y = 2 + 3 * square(x)  + 2 * randn(100);
+        ResidualPlot f(x, y);
+        f.SetOrder(1)
+        .SetColour("g")
+        .SetScatter(Scatter().SetSize(3.0))
+        .SetLine(Line().SetLineWidth(5));
         return f;
-    } );
+    });
 }

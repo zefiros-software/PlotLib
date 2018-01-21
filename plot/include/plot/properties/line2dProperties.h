@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -90,252 +90,252 @@ public:
 
     std::string ToString() override
     {
-        return AbstractPlot::ToString( mStream.str() );
+        return AbstractPlot::ToString(mStream.str());
     }
 
-    tReturn &SetAlpha( double alpha )
+    tReturn &SetAlpha(double alpha)
     {
-        this->AddArgument( "alpha", alpha );
+        this->AddArgument("alpha", alpha);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &Animated( bool animated )
+    tReturn &Animated(bool animated)
     {
-        this->AddArgument( "animated", GetBool( animated ) );
+        this->AddArgument("animated", GetBool(animated));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &AntiAliased( bool aa )
+    tReturn &AntiAliased(bool aa)
     {
-        this->AddArgument( "aa", GetBool( aa ) );
+        this->AddArgument("aa", GetBool(aa));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &ClipOn( bool clip )
+    tReturn &ClipOn(bool clip)
     {
-        this->AddArgument( "clipon", GetBool( clip ) );
+        this->AddArgument("clipon", GetBool(clip));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetColour( const std::string &colour )
+    tReturn &SetColour(const std::string &colour)
     {
-        this->AddArgument( "color", this->GetString( colour ) );
+        this->AddArgument("color", this->GetString(colour));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetDashCapStyle( CapStyle style )
+    tReturn &SetDashCapStyle(CapStyle style)
     {
-        this->AddArgument( "dash_capstyle", this->GetString( GetCapStyle( style ) ) );
+        this->AddArgument("dash_capstyle", this->GetString(GetCapStyle(style)));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetDashJoinStyle( JoinStyle style )
+    tReturn &SetDashJoinStyle(JoinStyle style)
     {
-        this->AddArgument( "dash_joinstyle", this->GetString( GetJoinStyle( style ) ) );
+        this->AddArgument("dash_joinstyle", this->GetString(GetJoinStyle(style)));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetSolidCapStyle( CapStyle style )
+    tReturn &SetSolidCapStyle(CapStyle style)
     {
-        this->AddArgument( "solid_capstyle", this->GetString( GetCapStyle( style ) ) );
+        this->AddArgument("solid_capstyle", this->GetString(GetCapStyle(style)));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetSolidJoinStyle( JoinStyle style )
+    tReturn &SetSolidJoinStyle(JoinStyle style)
     {
-        this->AddArgument( "solid_joinstyle", this->GetString( GetJoinStyle( style ) ) );
+        this->AddArgument("solid_joinstyle", this->GetString(GetJoinStyle(style)));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetDashes( const std::vector< uint32_t > &dashes )
+    tReturn &SetDashes(const std::vector< uint32_t > &dashes)
     {
-        this->AddArgument( "dashes", this->ToArray( dashes ) );
+        this->AddArgument("dashes", this->ToArray(dashes));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetDrawStyle( DrawStyle style )
+    tReturn &SetDrawStyle(DrawStyle style)
     {
-        this->AddArgument( "drawstyle", GetDrawStyle( style ) );
+        this->AddArgument("drawstyle", GetDrawStyle(style));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetFillStyle( FillStyle style )
+    tReturn &SetFillStyle(FillStyle style)
     {
-        this->AddArgument( "fillstyle", GetFillStyle( style ) );
+        this->AddArgument("fillstyle", GetFillStyle(style));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLabel( const std::string &label )
+    tReturn &SetLabel(const std::string &label)
     {
-        this->AddArgument( "label", this->GetString( label ) );
+        this->AddArgument("label", this->GetString(label));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineStyle( LineStyle style )
+    tReturn &SetLineStyle(LineStyle style)
     {
-        this->AddArgument( "linestyle", GetLineStyle( style ) );
+        this->AddArgument("linestyle", GetLineStyle(style));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineStyle( uint32_t offset, const std::vector< uint32_t > &dashes )
+    tReturn &SetLineStyle(uint32_t offset, const std::vector< uint32_t > &dashes)
     {
-        this->AddArgument( "linestyle", this->ToTuple( offset, this->ToArray( dashes ) ) );
+        this->AddArgument("linestyle", this->ToTuple(offset, this->ToArray(dashes)));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineWidth( double lineWidth )
+    tReturn &SetLineWidth(double lineWidth)
     {
-        this->AddArgument( "linewidth", lineWidth );
+        this->AddArgument("linewidth", lineWidth);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetMarker( const std::string &marker )
+    tReturn &SetMarker(const std::string &marker)
     {
-        this->AddArgument( "marker", this->GetString( marker ) );
+        this->AddArgument("marker", this->GetString(marker));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetMarkerEdgeColour( const std::string &colour )
+    tReturn &SetMarkerEdgeColour(const std::string &colour)
     {
-        this->AddArgument( "markeredgecolor", this->GetString( colour ) );
+        this->AddArgument("markeredgecolor", this->GetString(colour));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetMarkerFaceColour( const std::string &colour )
+    tReturn &SetMarkerFaceColour(const std::string &colour)
     {
-        this->AddArgument( "markerfacecolor", this->GetString( colour ) );
+        this->AddArgument("markerfacecolor", this->GetString(colour));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetMarkerFaceColourAlt( const std::string &colour )
+    tReturn &SetMarkerFaceColourAlt(const std::string &colour)
     {
-        this->AddArgument( "markerfacecoloralt", this->GetString( colour ) );
+        this->AddArgument("markerfacecoloralt", this->GetString(colour));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetMarkerEdgeWidth( double width )
+    tReturn &SetMarkerEdgeWidth(double width)
     {
-        this->AddArgument( "markeredgewidth", width );
+        this->AddArgument("markeredgewidth", width);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetMarkerSize( double size )
+    tReturn &SetMarkerSize(double size)
     {
-        this->AddArgument( "markersize", size );
+        this->AddArgument("markersize", size);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEvery( uint32_t every )
+    tReturn &SetEvery(uint32_t every)
     {
-        this->AddArgument( "every", every );
+        this->AddArgument("every", every);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEvery( uint32_t start, uint32_t every )
+    tReturn &SetEvery(uint32_t start, uint32_t every)
     {
-        this->AddArgument( "every", this->ToTuple( start, every ) );
+        this->AddArgument("every", this->ToTuple(start, every));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEvery( const std::vector< uint32_t > &every )
+    tReturn &SetEvery(const std::vector< uint32_t > &every)
     {
-        this->AddArgument( "every", this->ToArray( every ) );
+        this->AddArgument("every", this->ToArray(every));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEvery( double every )
+    tReturn &SetEvery(double every)
     {
-        this->AddArgument( "every", every );
+        this->AddArgument("every", every);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetEvery( double mult, double every )
+    tReturn &SetEvery(double mult, double every)
     {
-        this->AddArgument( "every", this->ToTuple( mult, every ) );
+        this->AddArgument("every", this->ToTuple(mult, every));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetPickRadius( double radius )
+    tReturn &SetPickRadius(double radius)
     {
-        this->AddArgument( "pickradius", radius );
+        this->AddArgument("pickradius", radius);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &Rasterised( bool rasterised )
+    tReturn &Rasterised(bool rasterised)
     {
-        this->AddArgument( "rasterized", GetBool( rasterised ) );
+        this->AddArgument("rasterized", GetBool(rasterised));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetUrl( const std::string &url )
+    tReturn &SetUrl(const std::string &url)
     {
-        this->AddArgument( "url", this->GetString( url ) );
+        this->AddArgument("url", this->GetString(url));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &Visible( bool visible )
+    tReturn &Visible(bool visible)
     {
-        this->AddArgument( "visible", GetBool( visible ) );
+        this->AddArgument("visible", GetBool(visible));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetXData( const PVec &xdata )
+    tReturn &SetXData(const PVec &xdata)
     {
-        this->AddArgument( "xdata", this->ToArray( xdata ) );
+        this->AddArgument("xdata", this->ToArray(xdata));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetYData( const PVec &ydata )
+    tReturn &SetYData(const PVec &ydata)
     {
-        this->AddArgument( "ydata", this->ToArray( ydata ) );
+        this->AddArgument("ydata", this->ToArray(ydata));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetZOrder( uint32_t zorder )
+    tReturn &SetZOrder(uint32_t zorder)
     {
-        this->AddArgument( "zorder", zorder );
+        this->AddArgument("zorder", zorder);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
 private:
 
-    std::string GetCapStyle( CapStyle style )
+    std::string GetCapStyle(CapStyle style)
     {
-        switch ( style )
+        switch (style)
         {
         case CapStyle::Butt:
             return "'butt";
@@ -350,9 +350,9 @@ private:
         return "''";
     }
 
-    std::string GetJoinStyle( JoinStyle style )
+    std::string GetJoinStyle(JoinStyle style)
     {
-        switch ( style )
+        switch (style)
         {
         case JoinStyle::Miter:
             return "'miter";
@@ -367,9 +367,9 @@ private:
         return "''";
     }
 
-    std::string GetDrawStyle( DrawStyle style )
+    std::string GetDrawStyle(DrawStyle style)
     {
-        switch ( style )
+        switch (style)
         {
         case DrawStyle::Default:
             return "'default'";
@@ -390,9 +390,9 @@ private:
         return "''";
     }
 
-    std::string GetFillStyle( FillStyle style )
+    std::string GetFillStyle(FillStyle style)
     {
-        switch ( style )
+        switch (style)
         {
         case FillStyle::Full:
             return "'full'";
@@ -413,9 +413,9 @@ private:
         return "''";
     }
 
-    std::string GetLineStyle( LineStyle style )
+    std::string GetLineStyle(LineStyle style)
     {
-        switch ( style )
+        switch (style)
         {
         case LineStyle::Solid:
             return "'solid'";

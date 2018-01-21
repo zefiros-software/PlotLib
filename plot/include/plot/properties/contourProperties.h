@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -123,133 +123,133 @@ public:
 
     std::string ToString() override
     {
-        return AbstractPlot::ToString( mStream.str() );
+        return AbstractPlot::ToString(mStream.str());
     }
 
-    tReturn &SetCornerMask( CornerMask mask )
+    tReturn &SetCornerMask(CornerMask mask)
     {
-        this->AddArgument( "corner_mask", __PlotLibContourPropertiesCornerMask[static_cast<size_t>( mask )] );
+        this->AddArgument("corner_mask", __PlotLibContourPropertiesCornerMask[static_cast<size_t>(mask)]);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetColour( const std::string &colour )
+    tReturn &SetColour(const std::string &colour)
     {
-        this->AddArgument( "color", this->GetString( colour ) );
+        this->AddArgument("color", this->GetString(colour));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetAlpha( double alpha )
+    tReturn &SetAlpha(double alpha)
     {
-        this->AddArgument( "alpha", alpha );
+        this->AddArgument("alpha", alpha);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetColourMap( const ColourMap &pallet )
+    tReturn &SetColourMap(const ColourMap &pallet)
     {
-        this->AddArgument( "cmap", pallet.ToString() );
+        this->AddArgument("cmap", pallet.ToString());
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetNormalise( Normalise norm )
+    tReturn &SetNormalise(Normalise norm)
     {
-        this->AddArgument( "norm", __PlotLibContourPropertiesNormalise[static_cast<size_t>( norm )] );
+        this->AddArgument("norm", __PlotLibContourPropertiesNormalise[static_cast<size_t>(norm)]);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetVMin( double vmin )
+    tReturn &SetVMin(double vmin)
     {
-        this->AddArgument( "vmin", vmin );
+        this->AddArgument("vmin", vmin);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetVMax( double vmax )
+    tReturn &SetVMax(double vmax)
     {
-        this->AddArgument( "vmax", vmax );
+        this->AddArgument("vmax", vmax);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLevels( const PVec &levels )
+    tReturn &SetLevels(const PVec &levels)
     {
-        this->AddArgument( "levels", this->ToArray( levels ) );
+        this->AddArgument("levels", this->ToArray(levels));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetOrigin( Origin origin )
+    tReturn &SetOrigin(Origin origin)
     {
-        this->AddArgument( "origin", __PlotLibContourPropertiesOrigin[static_cast<size_t>( origin )] );
+        this->AddArgument("origin", __PlotLibContourPropertiesOrigin[static_cast<size_t>(origin)]);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetExtent( double x0, double x1, double y0, double y1 )
+    tReturn &SetExtent(double x0, double x1, double y0, double y1)
     {
-        this->AddArgument( "extent", this->ToTuple( x0, x1, y0, y1 ) );
+        this->AddArgument("extent", this->ToTuple(x0, x1, y0, y1));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetExtent( Extent extent )
+    tReturn &SetExtent(Extent extent)
     {
-        this->AddArgument( "extent", __PlotLibContourPropertiesExtent[static_cast<size_t>( extent )] );
+        this->AddArgument("extent", __PlotLibContourPropertiesExtent[static_cast<size_t>(extent)]);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &AntiAliased( bool aa )
+    tReturn &AntiAliased(bool aa)
     {
-        this->AddArgument( "antialiased", GetBool( aa ) );
+        this->AddArgument("antialiased", GetBool(aa));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetNChunk( uint32_t nchunk )
+    tReturn &SetNChunk(uint32_t nchunk)
     {
-        this->AddArgument( "nchunk", nchunk );
+        this->AddArgument("nchunk", nchunk);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineWidths( double width )
+    tReturn &SetLineWidths(double width)
     {
-        this->AddArgument( "linewidths", width );
+        this->AddArgument("linewidths", width);
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineWidths( const PVec &widths )
+    tReturn &SetLineWidths(const PVec &widths)
     {
-        this->AddArgument( "linewidths", this->ToArray( widths ) );
+        this->AddArgument("linewidths", this->ToArray(widths));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetLineStyle( LineStyle style )
+    tReturn &SetLineStyle(LineStyle style)
     {
-        this->AddArgument( "linestyles", GetLineStyle( style ) );
+        this->AddArgument("linestyles", GetLineStyle(style));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
-    tReturn &SetHatches( const PVec &hatches )
+    tReturn &SetHatches(const PVec &hatches)
     {
-        this->AddArgument( "hatches", this->ToArray( hatches ) );
+        this->AddArgument("hatches", this->ToArray(hatches));
 
-        return static_cast<tReturn &>( *this );
+        return static_cast<tReturn &>(*this);
     }
 
 private:
 
-    std::string GetLineStyle( LineStyle style )
+    std::string GetLineStyle(LineStyle style)
     {
-        switch ( style )
+        switch (style)
         {
         case LineStyle::Solid:
             return "'solid'";

@@ -28,42 +28,42 @@
 
 #include "helper.h"
 
-TEST( RegressionPlot, RegressionPlot )
+TEST(RegressionPlot, RegressionPlot)
 {
-    TestPlot< RegressionPlot >( "RegressionPlot", []()
+    TestPlot< RegressionPlot >("RegressionPlot", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 1.5 * x + 2 * randn( 100 );
-        RegressionPlot f( x, y );
-        f.Truncate( true )
-        .Robust( true )
-        .SetXConfidenceInterval( 91 );
+        vec x = 2 + randn(100);
+        vec y = 2 + 1.5 * x + 2 * randn(100);
+        RegressionPlot f(x, y);
+        f.Truncate(true)
+        .Robust(true)
+        .SetXConfidenceInterval(91);
         return f;
-    } );
+    });
 }
 
-TEST( RegressionPlot, RegressionPlot2 )
+TEST(RegressionPlot, RegressionPlot2)
 {
-    TestPlot< RegressionPlot >( "RegressionPlot2", []()
+    TestPlot< RegressionPlot >("RegressionPlot2", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 1.5 * x + 2 * randn( 100 );
-        RegressionPlot f( x, y );
-        f.FitRegression( true )
-        .Lowess( false )
-        .SetConfidenceInterval( 91 );
+        vec x = 2 + randn(100);
+        vec y = 2 + 1.5 * x + 2 * randn(100);
+        RegressionPlot f(x, y);
+        f.FitRegression(true)
+        .Lowess(false)
+        .SetConfidenceInterval(91);
         return f;
-    } );
+    });
 }
 
-TEST( RegressionPlot, RegressionPlot3 )
+TEST(RegressionPlot, RegressionPlot3)
 {
-    TestPlot< RegressionPlot >( "RegressionPlot3", []()
+    TestPlot< RegressionPlot >("RegressionPlot3", []()
     {
-        vec x = 2 + randn( 100 );
-        vec y = 2 + 1.5 * x + 2 * randn( 100 );
-        RegressionPlot f( x, y );
-        f.SetXBins( {0, 2, 3, 10, 15} );
+        vec x = 2 + randn(100);
+        vec y = 2 + 1.5 * x + 2 * randn(100);
+        RegressionPlot f(x, y);
+        f.SetXBins({0, 2, 3, 10, 15});
         return f;
-    } );
+    });
 }

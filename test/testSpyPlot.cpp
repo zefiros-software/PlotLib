@@ -28,26 +28,26 @@
 
 #include "helper.h"
 
-TEST( SpyPlot, SpyPlot )
+TEST(SpyPlot, SpyPlot)
 {
-    TestPlot< SpyPlot >( "SpyPlot", []()
+    TestPlot< SpyPlot >("SpyPlot", []()
     {
-        SpyPlot f( ( mat )randn( 1000, 1000 ) );
-        f.SetMarkerSize( 1 )
-        .SetAspect( 1.0 )
-        .SetPrecision( 3 );
+        SpyPlot f((mat)randn(1000, 1000));
+        f.SetMarkerSize(1)
+        .SetAspect(1.0)
+        .SetPrecision(3);
         return f;
-    } );
+    });
 }
 
-TEST( SpyPlot, SpyPlot_Origin )
+TEST(SpyPlot, SpyPlot_Origin)
 {
-    TestPlot< SpyPlot >( "SpyPlot_Origin", []()
+    TestPlot< SpyPlot >("SpyPlot_Origin", []()
     {
-        SpyPlot f( ( mat )randn( 1000, 1000 ) );
-        f.SetOrigin( SpyPlot::Origin::Lower )
-        .SetAspect( SpyPlot::Aspect::Auto )
-        .SetPrecision( 2 );
+        SpyPlot f((mat)randn(1000, 1000));
+        f.SetOrigin(SpyPlot::Origin::Lower)
+        .SetAspect(SpyPlot::Aspect::Auto)
+        .SetPrecision(2);
         return f;
-    } );
+    });
 }

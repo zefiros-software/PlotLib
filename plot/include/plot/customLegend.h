@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,21 +36,21 @@ class CustomLegend
 {
 public:
 
-    CustomLegend( const Palette &palette, const std::vector<std::string> &labels );
+    CustomLegend(const Palette &palette, const std::vector<std::string> &labels);
 
     template< typename tT, typename tFunc >
-    CustomLegend( const Palette &palette, const std::vector< tT > &hueData, const tFunc &hueFunc )
+    CustomLegend(const Palette &palette, const std::vector< tT > &hueData, const tFunc &hueFunc)
     {
         mStream << "cl_cycler = itertools.cycle( " << palette.ToString() << " )\n";
         mStream << "cl_patches = [";
 
         uint32_t i = 1;
 
-        for ( const tT &hue : hueData )
+        for (const tT &hue : hueData)
         {
-            mStream << "mpatches.Patch(facecolor=next(cl_cycler), label='" << hueFunc( hue ) << "')";
+            mStream << "mpatches.Patch(facecolor=next(cl_cycler), label='" << hueFunc(hue) << "')";
 
-            if ( i++ < hueData.size() )
+            if (i++ < hueData.size())
             {
                 mStream << ",";
             }

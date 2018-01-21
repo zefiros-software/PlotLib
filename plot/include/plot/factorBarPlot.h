@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,31 +44,31 @@ public:
         Horizontal
     };
 
-    FactorBarPlot( const PVec &x, const PVec &y );
+    FactorBarPlot(const PVec &x, const PVec &y);
 
-    FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    FactorBarPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    FactorBarPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    FactorBarPlot &SetOrder( const PVec &order );
+    FactorBarPlot &SetOrder(const PVec &order);
 
-    FactorBarPlot &SetHueOrder( const std::vector< std::string > &order );
+    FactorBarPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    FactorBarPlot &SetConfidenceInterval( double ci );
+    FactorBarPlot &SetConfidenceInterval(double ci);
 
-    FactorBarPlot &SetNBoot( size_t bootstrap );
+    FactorBarPlot &SetNBoot(size_t bootstrap);
 
-    FactorBarPlot &SetOrientation( Orientation orientation );
+    FactorBarPlot &SetOrientation(Orientation orientation);
 
-    FactorBarPlot &SetColour( const std::string &colour );
+    FactorBarPlot &SetColour(const std::string &colour);
 
-    FactorBarPlot &SetColourMap( const Palette &pallet );
+    FactorBarPlot &SetColourMap(const Palette &pallet);
 
-    FactorBarPlot &SetSaturation( double sat );
+    FactorBarPlot &SetSaturation(double sat);
 
-    FactorBarPlot &SetErrorColour( const std::string &colour );
+    FactorBarPlot &SetErrorColour(const std::string &colour);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

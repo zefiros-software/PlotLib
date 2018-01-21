@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,43 +33,43 @@ static const char *const __PlotLibAutoCorrelationPlotDetrend[] =
     "detrend_linear"
 };
 
-PLOTLIB_INLINE AutoCorrelationPlot::AutoCorrelationPlot( const PVec &vec )
-    : mDefaultDetrend( Detrend::Mean ) // statistics default
+PLOTLIB_INLINE AutoCorrelationPlot::AutoCorrelationPlot(const PVec &vec)
+    : mDefaultDetrend(Detrend::Mean)   // statistics default
 {
-    mStream << "plt.acorr(" << this->ToArray( vec );
+    mStream << "plt.acorr(" << this->ToArray(vec);
 }
 
 PLOTLIB_INLINE std::string AutoCorrelationPlot::ToString()
 {
-    this->AddArgument( "detrend", __PlotLibAutoCorrelationPlotDetrend[static_cast<size_t>( mDefaultDetrend )] );
+    this->AddArgument("detrend", __PlotLibAutoCorrelationPlotDetrend[static_cast<size_t>(mDefaultDetrend)]);
     return mStream.str() + ")";
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::Hold( bool hold )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::Hold(bool hold)
 {
-    this->AddArgument( "hold", GetBool( hold ) );
+    this->AddArgument("hold", GetBool(hold));
     return *this;
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::Normed( bool normed )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::Normed(bool normed)
 {
-    this->AddArgument( "normed", GetBool( normed ) );
+    this->AddArgument("normed", GetBool(normed));
     return *this;
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::VLines( bool vlines )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::VLines(bool vlines)
 {
-    this->AddArgument( "usevlines", GetBool( vlines ) );
+    this->AddArgument("usevlines", GetBool(vlines));
     return *this;
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetMaxLags( size_t maxlags )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetMaxLags(size_t maxlags)
 {
-    this->AddArgument( "maxlags", maxlags );
+    this->AddArgument("maxlags", maxlags);
     return *this;
 }
 
-PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetDetrend( Detrend detrend )
+PLOTLIB_INLINE AutoCorrelationPlot &AutoCorrelationPlot::SetDetrend(Detrend detrend)
 {
     mDefaultDetrend = detrend;
     return *this;

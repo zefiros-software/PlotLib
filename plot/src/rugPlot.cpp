@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,30 +31,30 @@ PLOTLIB_INLINE std::string RUGPlot::ToString()
     return mStream.str() + ")";
 }
 
-PLOTLIB_INLINE RUGPlot::RUGPlot( const PVec &a )
+PLOTLIB_INLINE RUGPlot::RUGPlot(const PVec &a)
 {
-    AbstractPlot::mStream << "sns.rugplot(" << this->ToArray( a );
+    AbstractPlot::mStream << "sns.rugplot(" << this->ToArray(a);
 }
 
-PLOTLIB_INLINE RUGPlot &RUGPlot::SetHeight( double height )
+PLOTLIB_INLINE RUGPlot &RUGPlot::SetHeight(double height)
 {
-    this->AddArgument( "height", height );
+    this->AddArgument("height", height);
     return *this;
 }
 
-PLOTLIB_INLINE RUGPlot &RUGPlot::SetAxis( Axis axis )
+PLOTLIB_INLINE RUGPlot &RUGPlot::SetAxis(Axis axis)
 {
-    this->AddArgument( "axis", this->GetString( axis == Axis::X ? "X" : "Y" ) );
+    this->AddArgument("axis", this->GetString(axis == Axis::X ? "X" : "Y"));
     return *this;
 }
 
-PLOTLIB_INLINE RUGPlot &RUGPlot::SetLine( VLine &vline )
+PLOTLIB_INLINE RUGPlot &RUGPlot::SetLine(VLine &vline)
 {
     mStream << ",**" << vline.ToString();
     return *this;
 }
 
-PLOTLIB_INLINE RUGPlot &RUGPlot::SetLine( HLine &hline )
+PLOTLIB_INLINE RUGPlot &RUGPlot::SetLine(HLine &hline)
 {
     mStream << ",**" << hline.ToString();
     return *this;

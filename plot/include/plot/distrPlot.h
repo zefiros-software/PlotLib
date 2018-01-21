@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,29 +37,29 @@ class DistrPlot
 {
 public:
 
-    DistrPlot( const PVec &a );
+    DistrPlot(const PVec &a);
 
     virtual std::string ToString() override;
 
-    DistrPlot &SetBins( const PVec &bins );
+    DistrPlot &SetBins(const PVec &bins);
 
-    DistrPlot &SetBins( size_t value );
+    DistrPlot &SetBins(size_t value);
 
-    DistrPlot &Hist( bool hist );
+    DistrPlot &Hist(bool hist);
 
-    DistrPlot &KDE( bool kde );
+    DistrPlot &KDE(bool kde);
 
-    DistrPlot &RUG( bool rug );
+    DistrPlot &RUG(bool rug);
 
-    DistrPlot &Vertical( bool vertical );
+    DistrPlot &Vertical(bool vertical);
 
-    DistrPlot &NormHist( bool normHist );
+    DistrPlot &NormHist(bool normHist);
 
-    DistrPlot &SetLabel( const std::string &label );
+    DistrPlot &SetLabel(const std::string &label);
 
-    DistrPlot &SetAxisLabel( const std::string &label );
+    DistrPlot &SetAxisLabel(const std::string &label);
 
-    DistrPlot &SetColour( const std::string &colour );
+    DistrPlot &SetColour(const std::string &colour);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

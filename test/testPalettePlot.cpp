@@ -28,12 +28,12 @@
 
 #include "helper.h"
 
-TEST( PalettePlot, PalettePlot )
+TEST(PalettePlot, PalettePlot)
 {
-    TestPlot< PalettePlot >( "PalettePlot", []()
+    TestPlot< PalettePlot >("PalettePlot", []()
     {
-        PalettePlot f( Palette::Sequential2::Autumn );
-        f.SetSize( 5 );
+        PalettePlot f(Palette::Sequential2::Autumn);
+        f.SetSize(5);
         return f;
-    } );
+    });
 }

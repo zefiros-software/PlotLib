@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,58 +29,58 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const PVec &x, const PVec &y )
+PLOTLIB_INLINE FactorBarPlot::FactorBarPlot(const PVec &x, const PVec &y)
 {
-    mStream << "y = np.array(" << this->ToArray( y ) << ")\n";
-    mStream << "sns.barplot(" << this->ToArray( x ) << ", y / y.min()";
+    mStream << "y = np.array(" << this->ToArray(y) << ")\n";
+    mStream << "sns.barplot(" << this->ToArray(x) << ", y / y.min()";
 }
 
-PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data,
-                                             const std::vector< std::string > &hue )
+PLOTLIB_INLINE FactorBarPlot::FactorBarPlot(const std::vector< std::pair< PVec, PVec >> &data,
+                                            const std::vector< std::string > &hue)
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        assert( tup.first.GetSize() == tup.second.GetSize() );
-        mStream << "+ " << this->ToArray( tup.first );
+        assert(tup.first.GetSize() == tup.second.GetSize());
+        mStream << "+ " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.second );
+        mStream << "+ " << this->ToArray(tup.second);
     }
 
     size_t i = 0;
 
     mStream << "\nh = h ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
+        mStream << "+ " << this->ToArray(std::vector< std::string >(tup.first.GetSize(), hue[i++]));
     }
 
     mStream << "\nsns.barplot( x, y, h";
 }
 
-PLOTLIB_INLINE FactorBarPlot::FactorBarPlot( const std::vector< std::pair< PVec, PVec > > &data )
+PLOTLIB_INLINE FactorBarPlot::FactorBarPlot(const std::vector< std::pair< PVec, PVec >> &data)
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.first );
+        mStream << "+ " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.second );
+        mStream << "+ " << this->ToArray(tup.second);
     }
 
     mStream << "\nsns.barplot( x, y";
@@ -91,55 +91,55 @@ PLOTLIB_INLINE std::string FactorBarPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrder( const PVec &order )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrder(const PVec &order)
 {
-    mStream << ", order = " << this->ToArray( order );
+    mStream << ", order = " << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetHueOrder( const std::vector< std::string > &order )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetHueOrder(const std::vector< std::string > &order)
 {
-    mStream << ", hue_order = " << this->ToArray( order );
+    mStream << ", hue_order = " << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetConfidenceInterval( double ci )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetConfidenceInterval(double ci)
 {
     mStream << ", ci = " << ci;
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetNBoot( size_t bootstrap )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetNBoot(size_t bootstrap)
 {
     mStream << ", n_boot = " << bootstrap;
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrientation( Orientation orientation )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetOrientation(Orientation orientation)
 {
-    mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
+    mStream << ", orient = " << (orientation == Orientation::Horizontal ? "'h'" : "'v'");
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetColour(const std::string &colour)
 {
     mStream << ", color = '" << colour << "'";
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetColourMap( const Palette &pallet )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetColourMap(const Palette &pallet)
 {
     mStream << ", palette = " << pallet.ToString();
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetSaturation( double sat )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetSaturation(double sat)
 {
     mStream << ", saturation = " << sat;
     return *this;
 }
 
-PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetErrorColour( const std::string &colour )
+PLOTLIB_INLINE FactorBarPlot &FactorBarPlot::SetErrorColour(const std::string &colour)
 {
     mStream << ", errcolor = '" << colour << "'";
     return *this;

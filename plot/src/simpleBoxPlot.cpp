@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,16 +26,16 @@
 
 #include "plot/simpleBoxPlot.h"
 
-PLOTLIB_INLINE SimpleBoxPlot::SimpleBoxPlot( const ::PMat &x )
+PLOTLIB_INLINE SimpleBoxPlot::SimpleBoxPlot(const ::PMat &x)
 {
-    mStream << "plt.boxplot(" << this->ToArray( x );
+    mStream << "plt.boxplot(" << this->ToArray(x);
 }
 
 PLOTLIB_INLINE std::string SimpleBoxPlot::ToString()
 {
-    if ( mIsDictionary )
+    if (mIsDictionary)
     {
-        return AbstractPlot::ToString( mStream.str() );
+        return AbstractPlot::ToString(mStream.str());
     }
 
     return mStream.str() + " )";

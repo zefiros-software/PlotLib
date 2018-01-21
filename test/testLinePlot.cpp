@@ -28,11 +28,11 @@
 
 #include "helper.h"
 
-TEST( LinePlot, LinePlot )
+TEST(LinePlot, LinePlot)
 {
-    TestPlot< LinePlot >( "LinePlot", []()
+    TestPlot< LinePlot >("LinePlot", []()
     {
-        LinePlot f( ( vec )abs( randn( 300 ) ) );
+        LinePlot f((vec)abs(randn(300)));
         return f;
-    } );
+    });
 }

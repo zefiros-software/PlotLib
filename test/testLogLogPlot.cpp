@@ -28,28 +28,28 @@
 
 #include "helper.h"
 
-TEST( LogLogPlot, LogLogPlot )
+TEST(LogLogPlot, LogLogPlot)
 {
-    TestPlot< LogLogPlot >( "LogLogPlot", []()
+    TestPlot< LogLogPlot >("LogLogPlot", []()
     {
-        LogLogPlot f( ( vec )linspace( 0, 100, 300 ), ( vec )abs( randn( 300 ) ) );
-        f.SetScale( LogScale()
-                    .SetNonPosY( LogScale::NonPos::Clip )
-                    .SetNonPosX( LogScale::NonPos::Clip ) );
+        LogLogPlot f((vec)linspace(0, 100, 300), (vec)abs(randn(300)));
+        f.SetScale(LogScale()
+                   .SetNonPosY(LogScale::NonPos::Clip)
+                   .SetNonPosX(LogScale::NonPos::Clip));
         return f;
-    } );
+    });
 }
 
-TEST( LogLogPlot, LogLogPlot2 )
+TEST(LogLogPlot, LogLogPlot2)
 {
-    TestPlot< LogLogPlot >( "LogLogPlot2", []()
+    TestPlot< LogLogPlot >("LogLogPlot2", []()
     {
-        LogLogPlot f( ( vec )linspace( 0, 100, 300 ), ( vec )( abs( randn( 300 ) ) + 0.5 ) );
-        f.SetScale( LogScale()
-                    .SetBaseY( 10 )
-                    .SetSubsY( { 0, 1, 2 } )
-                    .SetBaseX( 10 )
-                    .SetSubsX( { 0, 1, 2 } ) );
+        LogLogPlot f((vec)linspace(0, 100, 300), (vec)(abs(randn(300)) + 0.5));
+        f.SetScale(LogScale()
+                   .SetBaseY(10)
+                   .SetSubsY({ 0, 1, 2 })
+                   .SetBaseX(10)
+                   .SetSubsX({ 0, 1, 2 }));
         return f;
-    } );
+    });
 }

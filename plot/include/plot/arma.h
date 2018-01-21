@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,38 +36,38 @@
 #include <armadillo>
 
 template<>
-inline PVec::PVec( const ::arma::vec &data )
-    : mData( data.cbegin(), data.cend() )
+inline PVec::PVec(const ::arma::vec &data)
+    : mData(data.cbegin(), data.cend())
 {
 }
 
 
 template<>
-inline PMat::PMat( const ::arma::umat &data )
-    : mData( data.n_rows )
+inline PMat::PMat(const ::arma::umat &data)
+    : mData(data.n_rows)
 {
     size_t i = 0;
 
-    data.each_row( [&]( const ::arma::urowvec & v )
+    data.each_row([&](const ::arma::urowvec & v)
     {
-        mData[i++] = ::arma::conv_to< std::vector<double> >::from( v );
-    } );
+        mData[i++] = ::arma::conv_to< std::vector<double>>::from(v);
+    });
 
-    mDimension = CheckDimensions( mData );
+    mDimension = CheckDimensions(mData);
 }
 
 template<>
-inline PMat::PMat( const ::arma::mat &data )
-    : mData( data.n_rows )
+inline PMat::PMat(const ::arma::mat &data)
+    : mData(data.n_rows)
 {
     size_t i = 0;
 
-    data.each_row( [&]( const ::arma::rowvec & v )
+    data.each_row([&](const ::arma::rowvec & v)
     {
-        mData[i++] = arma::conv_to< std::vector<double> >::from( v );
-    } );
+        mData[i++] = arma::conv_to< std::vector<double>>::from(v);
+    });
 
-    mDimension = CheckDimensions( mData );
+    mDimension = CheckDimensions(mData);
 }
 
 #endif

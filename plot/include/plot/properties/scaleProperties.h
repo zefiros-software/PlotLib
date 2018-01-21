@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -62,12 +62,12 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( PlotLib::Identity( IsBase ) )
+        if (PlotLib::Identity(IsBase))
         {
-            this->AddArgument( "value", this->GetString( "linear" ) );
+            this->AddArgument("value", this->GetString("linear"));
         }
 
-        return AbstractPlot::ToString( this->mStream.str() );
+        return AbstractPlot::ToString(this->mStream.str());
     }
 };
 
@@ -87,56 +87,56 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( PlotLib::Identity( IsBase ) )
+        if (PlotLib::Identity(IsBase))
         {
-            this->AddArgument( "value", this->GetString( "log" ) );
+            this->AddArgument("value", this->GetString("log"));
         }
 
-        return AbstractPlot::ToString( this->mStream.str() );
+        return AbstractPlot::ToString(this->mStream.str());
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseY( double base )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseY(double base)
     {
-        assert( base > 1 );
-        this->AddArgument( "basey", base );
+        assert(base > 1);
+        this->AddArgument("basey", base);
 
-        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const PVec &subsy )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY(const PVec &subsy)
     {
-        this->AddArgument( "subsy", this->ToArray( subsy ) );
+        this->AddArgument("subsy", this->ToArray(subsy));
 
-        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPosY( NonPos nonpos )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPosY(NonPos nonpos)
     {
-        this->AddArgument( "nonposy", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument("nonposy", this->GetString(nonpos == NonPos::Clip ? "clip" : "mask"));
 
-        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseX( double base )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseX(double base)
     {
-        assert( base > 1 );
-        this->AddArgument( "basex", base );
+        assert(base > 1);
+        this->AddArgument("basex", base);
 
-        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const PVec &subsy )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX(const PVec &subsy)
     {
-        this->AddArgument( "subsx", this->ToArray( subsy ) );
+        this->AddArgument("subsx", this->ToArray(subsy));
 
-        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPosX( NonPos nonpos )
+    typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPosX(NonPos nonpos)
     {
-        this->AddArgument( "nonposx", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument("nonposx", this->GetString(nonpos == NonPos::Clip ? "clip" : "mask"));
 
-        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 };
 
@@ -156,19 +156,19 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( PlotLib::Identity( IsBase ) )
+        if (PlotLib::Identity(IsBase))
         {
-            this->AddArgument( "value", this->GetString( "logit" ) );
+            this->AddArgument("value", this->GetString("logit"));
         }
 
-        return AbstractPlot::ToString( this->mStream.str() );
+        return AbstractPlot::ToString(this->mStream.str());
     }
 
-    typename ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPos( NonPos nonpos )
+    typename ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetNonPos(NonPos nonpos)
     {
-        this->AddArgument( "nonpos", this->GetString( nonpos == NonPos::Clip ? "clip" : "mask" ) );
+        this->AddArgument("nonpos", this->GetString(nonpos == NonPos::Clip ? "clip" : "mask"));
 
-        return static_cast<typename ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<LogitScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
 };
@@ -183,74 +183,74 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( PlotLib::Identity( IsBase ) )
+        if (PlotLib::Identity(IsBase))
         {
-            this->AddArgument( "value", this->GetString( "symlog" ) );
+            this->AddArgument("value", this->GetString("symlog"));
         }
 
-        return AbstractPlot::ToString( this->mStream.str() );
+        return AbstractPlot::ToString(this->mStream.str());
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseY( double base )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseY(double base)
     {
-        assert( base > 1 );
-        this->AddArgument( "basey", base );
+        assert(base > 1);
+        this->AddArgument("basey", base);
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY( const PVec &subsy )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsY(const PVec &subsy)
     {
-        this->AddArgument( "subsy", this->ToArray( subsy ) );
+        this->AddArgument("subsy", this->ToArray(subsy));
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseX( double base )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetBaseX(double base)
     {
-        assert( base > 1 );
-        this->AddArgument( "basex", base );
+        assert(base > 1);
+        this->AddArgument("basex", base);
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX( const PVec &subsy )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetSubsX(const PVec &subsy)
     {
-        this->AddArgument( "subsx", this->ToArray( subsy ) );
+        this->AddArgument("subsx", this->ToArray(subsy));
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdX( double min,
-                                                                                                             double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdX(double min,
+                                                                                                            double max)
     {
-        this->AddArgument( "linthreshx", this->ToTuple( min, max ) );
+        this->AddArgument("linthreshx", this->ToTuple(min, max));
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdY( double min,
-                                                                                                             double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinThresholdY(double min,
+                                                                                                            double max)
     {
-        this->AddArgument( "linthreshy", this->ToTuple( min, max ) );
+        this->AddArgument("linthreshy", this->ToTuple(min, max));
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleX( double min,
-                                                                                                         double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleX(double min,
+                                                                                                        double max)
     {
-        this->AddArgument( "linscalex", this->ToTuple( min, max ) );
+        this->AddArgument("linscalex", this->ToTuple(min, max));
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleY( double min,
-                                                                                                         double max )
+    typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLinScaleY(double min,
+                                                                                                        double max)
     {
-        this->AddArgument( "linscaley", this->ToTuple( min, max ) );
+        this->AddArgument("linscaley", this->ToTuple(min, max));
 
-        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename ScaleProperties<SymLogScaleProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 };
 

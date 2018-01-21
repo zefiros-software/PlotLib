@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,60 +29,60 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE ViolinPlot::ViolinPlot( const std::vector< std::pair< PVec, PVec > > &data,
-                                       const std::vector< std::string > &hue )
+PLOTLIB_INLINE ViolinPlot::ViolinPlot(const std::vector< std::pair< PVec, PVec >> &data,
+                                      const std::vector< std::string > &hue)
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        assert( tup.first.GetSize() == tup.second.GetSize() );
-        mStream << "+ " << this->ToArray( tup.first );
+        assert(tup.first.GetSize() == tup.second.GetSize());
+        mStream << "+ " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.second );
+        mStream << "+ " << this->ToArray(tup.second);
     }
 
     size_t i = 0;
 
     mStream << "\nh = h ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
+        mStream << "+ " << this->ToArray(std::vector< std::string >(tup.first.GetSize(), hue[i++]));
     }
 
     mStream << "\nsns.violinplot( x, y, h";
 }
 
-PLOTLIB_INLINE ViolinPlot::ViolinPlot( const std::vector< std::pair< PVec, PVec > > &data )
+PLOTLIB_INLINE ViolinPlot::ViolinPlot(const std::vector< std::pair< PVec, PVec >> &data)
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.first );
+        mStream << "+ " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.second );
+        mStream << "+ " << this->ToArray(tup.second);
     }
 
     mStream << "\nsns.violinplot( x, y";
 }
 
-PLOTLIB_INLINE ViolinPlot::ViolinPlot( const PVec &x, const PVec &y )
+PLOTLIB_INLINE ViolinPlot::ViolinPlot(const PVec &x, const PVec &y)
 {
-    mStream << "sns.violinplot(" << this->ToArray( x ) << "," << this->ToArray( y );
+    mStream << "sns.violinplot(" << this->ToArray(x) << "," << this->ToArray(y);
 }
 
 PLOTLIB_INLINE std::string ViolinPlot::ToString()
@@ -90,79 +90,79 @@ PLOTLIB_INLINE std::string ViolinPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetOrder( const PVec &order )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetOrder(const PVec &order)
 {
-    mStream << ", order=" << this->ToArray( order );
+    mStream << ", order=" << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetHueOrder( const std::vector< std::string > &order )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetHueOrder(const std::vector< std::string > &order)
 {
-    mStream << ", hue_order=" << this->ToArray( order );
+    mStream << ", hue_order=" << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetBandwidth( double bw )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetBandwidth(double bw)
 {
     mStream << ", bw=" << bw;
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetBandwidth( KernelBandwidth bw )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetBandwidth(KernelBandwidth bw)
 {
-    mStream << ", bw= " << ( bw == KernelBandwidth::Scott ? "'scott'" : "'silverman'" );
+    mStream << ", bw= " << (bw == KernelBandwidth::Scott ? "'scott'" : "'silverman'");
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetCut( double cut )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetCut(double cut)
 {
     mStream << ", cut=" << cut;
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetScale( Scale scale )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetScale(Scale scale)
 {
-    mStream << ", scale=" << GetScale( scale );
+    mStream << ", scale=" << GetScale(scale);
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetScaleHue( bool scale )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetScaleHue(bool scale)
 {
-    mStream << ", scale_hue=" << GetBool( scale );
+    mStream << ", scale_hue=" << GetBool(scale);
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetGridSize( size_t size )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetGridSize(size_t size)
 {
     mStream << ", gridsize= " << size;
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetWidth( double width )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetWidth(double width)
 {
     mStream << ", width= " << width;
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetInterior( Interior inner )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetInterior(Interior inner)
 {
-    mStream << ", inner= " << GetInterior( inner );
+    mStream << ", inner= " << GetInterior(inner);
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetSplit( bool split )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetSplit(bool split)
 {
-    mStream << ", split=" << GetBool( split );
+    mStream << ", split=" << GetBool(split);
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetOrientation( Orientation orientation )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetOrientation(Orientation orientation)
 {
-    mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
+    mStream << ", orient = " << (orientation == Orientation::Horizontal ? "'h'" : "'v'");
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetLineWidth( double width )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetLineWidth(double width)
 {
     mStream << ", linewidth=" << width;
     return *this;
@@ -174,27 +174,27 @@ PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetDodge(bool dodge)
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetColour(const std::string &colour)
 {
     mStream << ", color = '" << colour << "'";
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetColourMap( const Palette &pallet )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetColourMap(const Palette &pallet)
 {
     mStream << ", palette = " << pallet.ToString();
     return *this;
 }
 
-PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetSaturation( double sat )
+PLOTLIB_INLINE ViolinPlot &ViolinPlot::SetSaturation(double sat)
 {
     mStream << ", saturation = " << sat;
     return *this;
 }
 
-PLOTLIB_INLINE std::string ViolinPlot::GetScale( Scale scale ) const
+PLOTLIB_INLINE std::string ViolinPlot::GetScale(Scale scale) const
 {
-    switch ( scale )
+    switch (scale)
     {
     case Scale::Area:
         return "'area'";
@@ -209,9 +209,9 @@ PLOTLIB_INLINE std::string ViolinPlot::GetScale( Scale scale ) const
     return "";
 }
 
-PLOTLIB_INLINE std::string ViolinPlot::GetInterior( Interior inner ) const
+PLOTLIB_INLINE std::string ViolinPlot::GetInterior(Interior inner) const
 {
-    switch ( inner )
+    switch (inner)
     {
     case Interior::Box:
         return "'box'";

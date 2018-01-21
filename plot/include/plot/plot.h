@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -75,66 +75,66 @@ public:
 
     Plot();
 
-    Plot( Context context );
+    Plot(Context context);
 
-    Plot( const AbstractPlot &plot );
+    Plot(const AbstractPlot &plot);
 
-    Plot &AxisStyle( Style style, const std::vector< std::pair< std::string, std::string >> &params = {} );
+    Plot &AxisStyle(Style style, const std::vector< std::pair< std::string, std::string >> &params = {});
 
-    Plot &Set( Context context, const std::vector< std::pair< std::string, std::string >> &params = {} );
+    Plot &Set(Context context, const std::vector< std::pair< std::string, std::string >> &params = {});
 
-    Plot &Set( Context context, double fontScale, const std::vector< std::pair< std::string, std::string >> &params = {} );
+    Plot &Set(Context context, double fontScale, const std::vector< std::pair< std::string, std::string >> &params = {});
 
     Plot &SetColourCodes();
 
-    Plot &SetColourCodes( Palette::Seaborn seaborn );
+    Plot &SetColourCodes(Palette::Seaborn seaborn);
 
-    Plot &SetXLabel( const std::string &xlabel, size_t fontSize );
+    Plot &SetXLabel(const std::string &xlabel, size_t fontSize);
 
-    Plot &SetYLabel( const std::string &ylabel, size_t fontSize );
+    Plot &SetYLabel(const std::string &ylabel, size_t fontSize);
 
-    Plot &SetZLabel( const std::string &zlabel, size_t fontSize );
+    Plot &SetZLabel(const std::string &zlabel, size_t fontSize);
 
-    Plot &SetXLimit( double xmin, double xmax );
+    Plot &SetXLimit(double xmin, double xmax);
 
-    Plot &SetYLimit( double ymin, double ymax );
+    Plot &SetYLimit(double ymin, double ymax);
 
-    Plot &SetTitle( const std::string &title, size_t fontSize );
+    Plot &SetTitle(const std::string &title, size_t fontSize);
 
-    Plot &SetSupTitle( const std::string &title, size_t fontSize );
+    Plot &SetSupTitle(const std::string &title, size_t fontSize);
 
-    Plot &SetLegend( const std::vector<std::string> &titles, size_t fontSize );
+    Plot &SetLegend(const std::vector<std::string> &titles, size_t fontSize);
 
-    Plot &SetXLabel( const std::string &xlabel );
+    Plot &SetXLabel(const std::string &xlabel);
 
-    Plot &SetYLabel( const std::string &ylabel );
+    Plot &SetYLabel(const std::string &ylabel);
 
-    Plot &SetZLabel( const std::string &zlabel );
+    Plot &SetZLabel(const std::string &zlabel);
 
-    Plot &SetTitle( const std::string &title );
+    Plot &SetTitle(const std::string &title);
 
-    Plot &SetSupTitle( const std::string &title );
+    Plot &SetSupTitle(const std::string &title);
 
-    Plot &SetLegend( const std::vector<std::string> &titles );
+    Plot &SetLegend(const std::vector<std::string> &titles);
 
     template< typename tT, typename tFunc >
-    Plot &SetLegend( const std::vector<tT> &titleData, const tFunc &titleFunc )
+    Plot &SetLegend(const std::vector<tT> &titleData, const tFunc &titleFunc)
     {
         std::vector<std::string> titles;
 
-        for ( const tT &title : titleData )
+        for (const tT &title : titleData)
         {
-            titles.push_back( titleFunc( title ) );
+            titles.push_back(titleFunc(title));
         }
 
-        SetLegend( titles, Location::Best );
+        SetLegend(titles, Location::Best);
 
         return *this;
     }
 
-    Plot &SetLegend( const std::vector<std::string> &titles, Location location );
+    Plot &SetLegend(const std::vector<std::string> &titles, Location location);
 
-    Plot &SetLegend( Location location );
+    Plot &SetLegend(Location location);
 
     Plot &SetXKCD();
 
@@ -142,31 +142,31 @@ public:
 
     Plot &ResetOrig();
 
-    Plot &AxisLabels( const std::string &xlabel, const std::string &ylabel );
+    Plot &AxisLabels(const std::string &xlabel, const std::string &ylabel);
 
-    Plot &SetPalette( const Palette &palette );
+    Plot &SetPalette(const Palette &palette);
 
     template< typename tScale >
-    Plot &SetYScale( const tScale &scale )
+    Plot &SetYScale(const tScale &scale)
     {
-        mStream << const_cast< tScale & >( scale ).ToString() << "\n";
+        mStream << const_cast< tScale & >(scale).ToString() << "\n";
 
         return *this;
     }
 
-    Plot &AddPlot( AbstractPlot &plot );
+    Plot &AddPlot(AbstractPlot &plot);
 
-    Plot &AddPlot( const AbstractPlot &plot );
+    Plot &AddPlot(const AbstractPlot &plot);
 
-    Plot &AddColourCycler( const Palette &palette );
+    Plot &AddColourCycler(const Palette &palette);
 
     std::string GetColourCycler() const;
 
-    Plot &AddCustomLegend( CustomLegend &legend );
+    Plot &AddCustomLegend(CustomLegend &legend);
 
-    Plot &AddCustomLegend( const CustomLegend &legend );
+    Plot &AddCustomLegend(const CustomLegend &legend);
 
-    Plot &SetSize( size_t width, size_t height );
+    Plot &SetSize(size_t width, size_t height);
 
     Plot &Despine();
 
@@ -176,23 +176,23 @@ public:
 
     Plot &EnableLaTeX();
 
-    Plot &Save( const std::string &fname );
+    Plot &Save(const std::string &fname);
 
-    Plot &Figure( size_t n );
+    Plot &Figure(size_t n);
 
     Plot &Figure();
 
-    Plot &SubPlot( size_t y, size_t x, size_t n );
+    Plot &SubPlot(size_t y, size_t x, size_t n);
 
     template< typename tT >
-    Plot &operator<<( const tT &t )
+    Plot &operator<<(const tT &t)
     {
         mStream << t;
 
         return *this;
     }
 
-    Plot &AddCustomPython( const std::string &str );
+    Plot &AddCustomPython(const std::string &str);
 
 protected:
 
@@ -204,13 +204,13 @@ protected:
 
     void SetPythonPath();
 
-    static std::string GetContext( Context context );
+    static std::string GetContext(Context context);
 
-    static std::string GetLocation( Location location );
+    static std::string GetLocation(Location location);
 
-    static std::string GetStyle( Style style );
+    static std::string GetStyle(Style style);
 
-    static std::string GetDictionary( const std::vector< std::pair< std::string, std::string >> &params );
+    static std::string GetDictionary(const std::vector< std::pair< std::string, std::string >> &params);
 
 };
 

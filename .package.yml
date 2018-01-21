@@ -22,8 +22,8 @@ modules:
     version: '@head'
 development:
   modules:
-    - name: Zefiros-Software/Zefiros-Defaults
-      version: '^2.0.0'
+    - name: Zefiros-Software/Defaults
+      version: '@head'
   public:
     libraries:
       - name: Zefiros-Software/Armadillo

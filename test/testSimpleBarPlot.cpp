@@ -28,13 +28,13 @@
 
 #include "helper.h"
 
-TEST( SimpleBarPlot, SimpleBarPlot )
+TEST(SimpleBarPlot, SimpleBarPlot)
 {
-    TestPlot< SimpleBarPlot >( "SimpleBarPlot", []()
+    TestPlot< SimpleBarPlot >("SimpleBarPlot", []()
     {
-        vec randX = linspace( 0, 10, 10 );
-        vec randY = randu( 10 ) * 100;
-        SimpleBarPlot f( randX, randY );
+        vec randX = linspace(0, 10, 10);
+        vec randY = randu(10) * 100;
+        SimpleBarPlot f(randX, randY);
         return f;
-    } );
+    });
 }

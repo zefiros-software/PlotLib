@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,19 +42,19 @@ public:
         Linear
     };
 
-    AutoCorrelationPlot( const PVec &vec );
+    AutoCorrelationPlot(const PVec &vec);
 
     virtual std::string ToString() override;
 
-    AutoCorrelationPlot &Hold( bool hold );
+    AutoCorrelationPlot &Hold(bool hold);
 
-    AutoCorrelationPlot &Normed( bool normed );
+    AutoCorrelationPlot &Normed(bool normed);
 
-    AutoCorrelationPlot &VLines( bool vlines );
+    AutoCorrelationPlot &VLines(bool vlines);
 
-    AutoCorrelationPlot &SetMaxLags( size_t maxlags );
+    AutoCorrelationPlot &SetMaxLags(size_t maxlags);
 
-    AutoCorrelationPlot &SetDetrend( Detrend detrend );
+    AutoCorrelationPlot &SetDetrend(Detrend detrend);
 
 private:
 

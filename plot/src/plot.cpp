@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,14 +31,14 @@
 #include <assert.h>
 #include <iostream>
 
-PLOTLIB_INLINE Plot::Plot( const AbstractPlot &plot )
+PLOTLIB_INLINE Plot::Plot(const AbstractPlot &plot)
     : Plot()
 {
-    AddPlot( plot );
+    AddPlot(plot);
 }
 
-PLOTLIB_INLINE Plot::Plot( Context context )
-    : mHasColourCycler( false )
+PLOTLIB_INLINE Plot::Plot(Context context)
+    : mHasColourCycler(false)
 {
 #ifdef PLOTLIB_HEADLESS
     mInitStream << "import matplotlib\n"
@@ -56,7 +56,7 @@ PLOTLIB_INLINE Plot::Plot( Context context )
                 "from statsmodels.graphics.tsaplots import *\n"
                 "from matplotlib.mlab import *\n";
 
-    Set( context, 1.2 );
+    Set(context, 1.2);
     SetColourCodes();
     AxisStyle(Plot::Style::WhiteGrid);
 
@@ -64,19 +64,19 @@ PLOTLIB_INLINE Plot::Plot( Context context )
 }
 
 PLOTLIB_INLINE Plot::Plot()
-    : Plot( Context::Notebook )
+    : Plot(Context::Notebook)
 {
 
 }
 
-PLOTLIB_INLINE Plot &Plot::SetYLabel( const std::string &ylabel )
+PLOTLIB_INLINE Plot &Plot::SetYLabel(const std::string &ylabel)
 {
     mStream << "plt.ylabel('" << ylabel << "')\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetYLabel( const std::string &ylabel, size_t fontSize )
+PLOTLIB_INLINE Plot &Plot::SetYLabel(const std::string &ylabel, size_t fontSize)
 {
     mStream << "plt.ylabel('" << ylabel << "',fontsize=" << fontSize << ")\n";
 
@@ -84,7 +84,7 @@ PLOTLIB_INLINE Plot &Plot::SetYLabel( const std::string &ylabel, size_t fontSize
 }
 
 
-PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel )
+PLOTLIB_INLINE Plot &Plot::SetZLabel(const std::string &zlabel)
 {
     mStream << "ax.set_zlabel('" << zlabel << "')\n";
 
@@ -92,105 +92,105 @@ PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel )
 }
 
 
-PLOTLIB_INLINE Plot &Plot::SetZLabel( const std::string &zlabel, size_t fontSize )
+PLOTLIB_INLINE Plot &Plot::SetZLabel(const std::string &zlabel, size_t fontSize)
 {
     mStream << "ax.set_zlabel('" << zlabel << "',fontsize=" << fontSize << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetXLimit( double xmin, double xmax )
+PLOTLIB_INLINE Plot &Plot::SetXLimit(double xmin, double xmax)
 {
     mStream << "plt.xlim(" << xmin << "," << xmax << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetYLimit( double ymin, double ymax )
+PLOTLIB_INLINE Plot &Plot::SetYLimit(double ymin, double ymax)
 {
     mStream << "plt.ylim(" << ymin << "," << ymax << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetTitle( const std::string &title )
+PLOTLIB_INLINE Plot &Plot::SetTitle(const std::string &title)
 {
     mStream << "plt.title('" << title << "')\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetTitle( const std::string &title, size_t fontSize )
+PLOTLIB_INLINE Plot &Plot::SetTitle(const std::string &title, size_t fontSize)
 {
     mStream << "plt.title('" << title << "',fontsize=" << fontSize << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetSupTitle( const std::string &title )
+PLOTLIB_INLINE Plot &Plot::SetSupTitle(const std::string &title)
 {
     mStream << "plt.suptitle('" << title << "')\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetSupTitle( const std::string &title, size_t fontSize )
+PLOTLIB_INLINE Plot &Plot::SetSupTitle(const std::string &title, size_t fontSize)
 {
     mStream << "plt.suptitle('" << title << "',fontsize=" << fontSize << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetLegend( Location location )
+PLOTLIB_INLINE Plot &Plot::SetLegend(Location location)
 {
-    mStream << "plt.legend( loc='" << GetLocation( location ) << "')\n";
+    mStream << "plt.legend( loc='" << GetLocation(location) << "')\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetLegend( const std::vector<std::string> &titles, Location location )
+PLOTLIB_INLINE Plot &Plot::SetLegend(const std::vector<std::string> &titles, Location location)
 {
-    mStream << "plt.legend(" << AbstractPlot::ToArray( titles ) << ", loc='" << GetLocation( location ) << "')\n";
+    mStream << "plt.legend(" << AbstractPlot::ToArray(titles) << ", loc='" << GetLocation(location) << "')\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetLegend( const std::vector<std::string> &titles )
+PLOTLIB_INLINE Plot &Plot::SetLegend(const std::vector<std::string> &titles)
 {
-    SetLegend( titles, Location::Best );
+    SetLegend(titles, Location::Best);
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetLegend( const std::vector<std::string> &titles, size_t fontSize )
+PLOTLIB_INLINE Plot &Plot::SetLegend(const std::vector<std::string> &titles, size_t fontSize)
 {
-    mStream << "plt.legend(" << AbstractPlot::ToArray( titles ) << ", fontsize=" << fontSize << ")\n";
+    mStream << "plt.legend(" << AbstractPlot::ToArray(titles) << ", fontsize=" << fontSize << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AxisStyle( Style style,
-                                      const std::vector< std::pair< std::string, std::string >> &params /*= {} */ )
+PLOTLIB_INLINE Plot &Plot::AxisStyle(Style style,
+                                     const std::vector< std::pair< std::string, std::string >> &params /*= {} */)
 {
-    mStream << "sns.set_style('" << GetStyle( style ) << "'," << GetDictionary( params ) << ")\n";
+    mStream << "sns.set_style('" << GetStyle(style) << "'," << GetDictionary(params) << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::Set( Context context, double fontScale,
-                                const std::vector< std::pair< std::string, std::string >> &params /*= {} */ )
+PLOTLIB_INLINE Plot &Plot::Set(Context context, double fontScale,
+                               const std::vector< std::pair< std::string, std::string >> &params /*= {} */)
 {
-    mStream << "sns.set('" << GetContext( context )
+    mStream << "sns.set('" << GetContext(context)
             << "', font_scale=" << fontScale
-            << ", rc=" << GetDictionary( params ) << ")\n";
+            << ", rc=" << GetDictionary(params) << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::Set( Context context,
-                                const std::vector< std::pair< std::string, std::string >> &params /*= {} */ )
+PLOTLIB_INLINE Plot &Plot::Set(Context context,
+                               const std::vector< std::pair< std::string, std::string >> &params /*= {} */)
 {
-    mStream << "sns.set('" << GetContext( context ) << "', rc=" << GetDictionary( params ) << ")\n";
+    mStream << "sns.set('" << GetContext(context) << "', rc=" << GetDictionary(params) << ")\n";
 
     return *this;
 }
@@ -202,21 +202,21 @@ PLOTLIB_INLINE Plot &Plot::SetColourCodes()
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetColourCodes( Palette::Seaborn seaborn )
+PLOTLIB_INLINE Plot &Plot::SetColourCodes(Palette::Seaborn seaborn)
 {
-    mStream << "sns.set_color_codes(" << AbstractPlot::GetString( Palette::GetColour( seaborn ) ) << ")\n";
+    mStream << "sns.set_color_codes(" << AbstractPlot::GetString(Palette::GetColour(seaborn)) << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetXLabel( const std::string &xlabel )
+PLOTLIB_INLINE Plot &Plot::SetXLabel(const std::string &xlabel)
 {
     mStream << "plt.xlabel('" << xlabel << "')\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetXLabel( const std::string &xlabel, size_t fontSize )
+PLOTLIB_INLINE Plot &Plot::SetXLabel(const std::string &xlabel, size_t fontSize)
 {
     mStream << "plt.xlabel('" << xlabel << "',fontsize=" << fontSize << ")\n";
 
@@ -244,35 +244,35 @@ PLOTLIB_INLINE Plot &Plot::ResetOrig()
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AxisLabels( const std::string &xlabel, const std::string &ylabel )
+PLOTLIB_INLINE Plot &Plot::AxisLabels(const std::string &xlabel, const std::string &ylabel)
 {
     mStream << "sns.axlabel(" << xlabel << "," << ylabel << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetPalette( const Palette &palette )
+PLOTLIB_INLINE Plot &Plot::SetPalette(const Palette &palette)
 {
     mStream << "sns.set_palette(" << palette.ToString() << ")\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AddPlot( AbstractPlot &plot )
+PLOTLIB_INLINE Plot &Plot::AddPlot(AbstractPlot &plot)
 {
     mStream << "\n" << plot.ToString() << "\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AddPlot( const AbstractPlot &plot )
+PLOTLIB_INLINE Plot &Plot::AddPlot(const AbstractPlot &plot)
 {
-    mStream << "\n" << const_cast< AbstractPlot & >( plot ).ToString() << "\n";
+    mStream << "\n" << const_cast< AbstractPlot & >(plot).ToString() << "\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AddColourCycler( const Palette &palette )
+PLOTLIB_INLINE Plot &Plot::AddColourCycler(const Palette &palette)
 {
     mHasColourCycler = true;
     mStream << "colour_cycler = itertools.cycle( " << palette.ToString() << " )\n";
@@ -281,23 +281,23 @@ PLOTLIB_INLINE Plot &Plot::AddColourCycler( const Palette &palette )
 
 PLOTLIB_INLINE std::string Plot::GetColourCycler() const
 {
-    assert( mHasColourCycler );
+    assert(mHasColourCycler);
     return "colour_cycler";
 }
 
-PLOTLIB_INLINE Plot &Plot::AddCustomLegend( CustomLegend &legend )
+PLOTLIB_INLINE Plot &Plot::AddCustomLegend(CustomLegend &legend)
 {
     mStream << "\n" << legend.ToString() << "\n";
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::AddCustomLegend( const CustomLegend &legend )
+PLOTLIB_INLINE Plot &Plot::AddCustomLegend(const CustomLegend &legend)
 {
-    mStream << "\n" << const_cast< CustomLegend & >( legend ).ToString() << "\n";
+    mStream << "\n" << const_cast< CustomLegend & >(legend).ToString() << "\n";
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SetSize( size_t width, size_t height )
+PLOTLIB_INLINE Plot &Plot::SetSize(size_t width, size_t height)
 {
     mStream << "\nfig = plt.gcf()\ndpi = fig.get_dpi()\nfig.set_size_inches("
             << width << "/float(dpi)," << height << "/float(dpi), forward=True)\n";
@@ -314,14 +314,14 @@ PLOTLIB_INLINE Plot &Plot::Despine()
 
 PLOTLIB_INLINE Plot &Plot::Show()
 {
-    std::ofstream ss( "plot.in" );
+    std::ofstream ss("plot.in");
 
     ss << mInitStream.str() << mStream.str() << "\nplt.show()";
 
     ss.close();
 
-    int32_t result = system( ( mPython + "plot.in" ).c_str() );
-    assert( result == 0 );
+    int32_t result = system((mPython + "plot.in").c_str());
+    assert(result == 0);
 
     return *this;
 }
@@ -341,15 +341,15 @@ PLOTLIB_INLINE Plot &Plot::EnableLaTeX()
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::Save( const std::string &fname )
+PLOTLIB_INLINE Plot &Plot::Save(const std::string &fname)
 {
-    std::ofstream ss( "plot.in" );
+    std::ofstream ss("plot.in");
 
     ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=120 )";
 
     ss.close();
 
-    int32_t result = system( ( mPython + "plot.in" ).c_str() );
+    int32_t result = system((mPython + "plot.in").c_str());
     //assert( result == 0 );
 
     return *this;
@@ -362,14 +362,14 @@ PLOTLIB_INLINE Plot &Plot::Figure()
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::Figure( size_t n )
+PLOTLIB_INLINE Plot &Plot::Figure(size_t n)
 {
     mStream << "\nplt.figure( " << n << " )\n";
 
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
+PLOTLIB_INLINE Plot &Plot::SubPlot(size_t y, size_t x, size_t n)
 {
     mStream << "\nplt.subplot( " << y << ", " << x << ", " << n << " )\n";
 
@@ -377,9 +377,9 @@ PLOTLIB_INLINE Plot &Plot::SubPlot( size_t y, size_t x, size_t n )
 }
 
 
-PLOTLIB_INLINE Plot &Plot::AddCustomPython( const std::string &str )
+PLOTLIB_INLINE Plot &Plot::AddCustomPython(const std::string &str)
 {
-    return ( *this << "\n" << str << "\n" );
+    return (*this << "\n" << str << "\n");
 }
 
 PLOTLIB_INLINE void Plot::SetPythonPath()
@@ -400,9 +400,9 @@ PLOTLIB_INLINE void Plot::SetPythonPath()
 #endif
 }
 
-PLOTLIB_INLINE std::string Plot::GetContext( Context context )
+PLOTLIB_INLINE std::string Plot::GetContext(Context context)
 {
-    switch ( context )
+    switch (context)
     {
     case Context::Paper:
         return "paper";
@@ -420,9 +420,9 @@ PLOTLIB_INLINE std::string Plot::GetContext( Context context )
     return "";
 }
 
-PLOTLIB_INLINE std::string Plot::GetLocation( Location location )
+PLOTLIB_INLINE std::string Plot::GetLocation(Location location)
 {
-    switch ( location )
+    switch (location)
     {
     case Location::Best:
         return "best";
@@ -461,9 +461,9 @@ PLOTLIB_INLINE std::string Plot::GetLocation( Location location )
     return "";
 }
 
-PLOTLIB_INLINE std::string Plot::GetStyle( Style style )
+PLOTLIB_INLINE std::string Plot::GetStyle(Style style)
 {
-    switch ( style )
+    switch (style)
     {
     case Style::DarkGrid:
         return "darkgrid";
@@ -484,20 +484,20 @@ PLOTLIB_INLINE std::string Plot::GetStyle( Style style )
     return "";
 }
 
-PLOTLIB_INLINE std::string Plot::GetDictionary( const std::vector< std::pair< std::string, std::string >> &params )
+PLOTLIB_INLINE std::string Plot::GetDictionary(const std::vector< std::pair< std::string, std::string >> &params)
 {
     std::stringstream ss;
     bool first = true;
     ss << " {";
 
-    for ( auto it = params.begin(), end = params.end(); it != end; ++it )
+    for (auto it = params.begin(), end = params.end(); it != end; ++it)
     {
-        if ( !first )
+        if (!first)
         {
             ss << ", ";
         }
 
-        ss << "'" << ( *it ).first << "': " << ( *it ).second;
+        ss << "'" << (*it).first << "': " << (*it).second;
         first = false;
     }
 

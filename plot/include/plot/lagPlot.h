@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,11 +35,11 @@ class LagPlot
 {
 public:
 
-    LagPlot( const PVec &vec );
+    LagPlot(const PVec &vec);
 
     virtual std::string ToString() override;
 
-    LagPlot &SetLag( int32_t lag );
+    LagPlot &SetLag(int32_t lag);
 
 };
 

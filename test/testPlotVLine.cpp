@@ -28,24 +28,24 @@
 
 #include "helper.h"
 
-TEST( PlotVLine, PlotVLine )
+TEST(PlotVLine, PlotVLine)
 {
-    TestPlot< PlotVLine >( "PlotVLine", []()
+    TestPlot< PlotVLine >("PlotVLine", []()
     {
-        PlotVLine f( 0.8 );
-        f.SetColour( "g" );
+        PlotVLine f(0.8);
+        f.SetColour("g");
         return f;
-    } );
+    });
 }
 
 
-TEST( PlotVLine, PlotVLine_Colour )
+TEST(PlotVLine, PlotVLine_Colour)
 {
-    TestPlot< PlotVLine >( "PlotVLine_Colour", []()
+    TestPlot< PlotVLine >("PlotVLine_Colour", []()
     {
-        PlotVLine f( 0.5 );
-        f.SetYMin( 0.1 )
-        .SetYMax( 0.9 );
+        PlotVLine f(0.5);
+        f.SetYMin(0.1)
+        .SetYMax(0.9);
         return f;
-    } );
+    });
 }

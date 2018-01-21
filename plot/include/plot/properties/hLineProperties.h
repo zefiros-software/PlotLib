@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -43,29 +43,29 @@ public:
 
     virtual std::string ToString() override
     {
-        if ( !mColour.empty() )
+        if (!mColour.empty())
         {
-            this->AddArgument( "color", mColour );
+            this->AddArgument("color", mColour);
         }
 
         return Line2DProperties< HLineProperties< tBase, IsDict >, IsDict, true >::ToString();
     }
 
-    PLOTLIB_INLINE HLineProperties &SetXMin( double ymin )
+    PLOTLIB_INLINE HLineProperties &SetXMin(double ymin)
     {
-        this->AddArgument( "xmin", ymin );
+        this->AddArgument("xmin", ymin);
         return *this;
     }
 
-    PLOTLIB_INLINE HLineProperties &SetXMax( double ymax )
+    PLOTLIB_INLINE HLineProperties &SetXMax(double ymax)
     {
-        this->AddArgument( "xmax", ymax );
+        this->AddArgument("xmax", ymax);
         return *this;
     }
 
-    PLOTLIB_INLINE HLineProperties &SetColour( const std::string &colour )
+    PLOTLIB_INLINE HLineProperties &SetColour(const std::string &colour)
     {
-        mColour = this->GetString( colour );
+        mColour = this->GetString(colour);
         return *this;
     }
 

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,17 +40,17 @@ public:
 
     friend class SubPlots;
 
-    HeatMapPlot( const PMat &map );
+    HeatMapPlot(const PMat &map);
 
-    HeatMapPlot( const PVec &x, const PVec &y, size_t bins = 10 );
+    HeatMapPlot(const PVec &x, const PVec &y, size_t bins = 10);
 
-    HeatMapPlot( const PVec &x, const PVec &y, std::pair< size_t, size_t > bins );
+    HeatMapPlot(const PVec &x, const PVec &y, std::pair< size_t, size_t > bins);
 
-    HeatMapPlot( const PVec &x, const PVec &y, size_t bins, std::pair< double, double > xextent,
-                 std::pair<double, double> yextent );
+    HeatMapPlot(const PVec &x, const PVec &y, size_t bins, std::pair< double, double > xextent,
+                std::pair<double, double> yextent);
 
-    HeatMapPlot( const PVec &x, const PVec &y, std::pair< size_t, size_t > bins, std::pair< double, double > xextent,
-                 std::pair<double, double> yextent );
+    HeatMapPlot(const PVec &x, const PVec &y, std::pair< size_t, size_t > bins, std::pair< double, double > xextent,
+                std::pair<double, double> yextent);
 
     std::string ToString() override;
 

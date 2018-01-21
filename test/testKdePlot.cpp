@@ -28,50 +28,50 @@
 
 #include "helper.h"
 
-TEST( KDEPlot, KDEPlot )
+TEST(KDEPlot, KDEPlot)
 {
-    TestPlot< KDEPlot >( "KDEPlot", []()
+    TestPlot< KDEPlot >("KDEPlot", []()
     {
-        KDEPlot f( ( vec )randn( 100 ) );
-        f.Vertical( true )
-        .SetKernel( KDEPlot::Kernel::Gauss )
-        .Cumulative( true )
-        .SetClip( { -8, 8} );
+        KDEPlot f((vec)randn(100));
+        f.Vertical(true)
+        .SetKernel(KDEPlot::Kernel::Gauss)
+        .Cumulative(true)
+        .SetClip({ -8, 8});
         return f;
-    } );
+    });
 }
 
-TEST( KDEPlot, KDEPlot2 )
+TEST(KDEPlot, KDEPlot2)
 {
-    TestPlot< KDEPlot >( "KDEPlot2", []()
+    TestPlot< KDEPlot >("KDEPlot2", []()
     {
-        KDEPlot f( ( vec )randn( 100 ), ( vec )randn( 100 ) );
-        f.SetBW( KDEPlot::BW::Silverman )
-        .SetGridSize( 100 )
-        .SetCut( 5 )
-        .SetClip( { -8, 8 }, { -8, 8 } )
-        .Legend( true )
-        .ShadeLowest( true );
+        KDEPlot f((vec)randn(100), (vec)randn(100));
+        f.SetBW(KDEPlot::BW::Silverman)
+        .SetGridSize(100)
+        .SetCut(5)
+        .SetClip({ -8, 8 }, { -8, 8 })
+        .Legend(true)
+        .ShadeLowest(true);
         return f;
-    } );
+    });
 }
 
-TEST( KDEPlot, KDEPlot3 )
+TEST(KDEPlot, KDEPlot3)
 {
-    TestPlot< KDEPlot >( "KDEPlot3", []()
+    TestPlot< KDEPlot >("KDEPlot3", []()
     {
-        KDEPlot f( ( vec )randn( 100 ), ( vec )randn( 100 ) );
-        f.SetBW( 0.5 );
+        KDEPlot f((vec)randn(100), (vec)randn(100));
+        f.SetBW(0.5);
         return f;
-    } );
+    });
 }
 
-TEST( KDEPlot, KDEPlot4 )
+TEST(KDEPlot, KDEPlot4)
 {
-    TestPlot< KDEPlot >( "KDEPlot4", []()
+    TestPlot< KDEPlot >("KDEPlot4", []()
     {
-        KDEPlot f( ( vec )randn( 100 ), ( vec )randn( 100 ) );
-        f.SetBW( { 0.5, 1 } );
+        KDEPlot f((vec)randn(100), (vec)randn(100));
+        f.SetBW({ 0.5, 1 });
         return f;
-    } );
+    });
 }

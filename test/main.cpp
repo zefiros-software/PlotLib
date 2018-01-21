@@ -30,19 +30,19 @@
 #include <cstdio>
 #include <stdint.h>
 
-int main( int argc, char **argv )
+int main(int argc, char **argv)
 {
 
 #ifdef _WIN32
-    _CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF );
-    _CrtSetReportMode( _CRT_ASSERT, _CRTDBG_MODE_FILE );
-    _CrtSetReportFile( _CRT_ASSERT, _CRTDBG_FILE_STDERR );
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    _CrtSetReportMode(_CRT_ASSERT, _CRTDBG_MODE_FILE);
+    _CrtSetReportFile(_CRT_ASSERT, _CRTDBG_FILE_STDERR);
     //_crtBreakAlloc =  0;
 #endif
 
-    arma::arma_rng::set_seed( 0 );
+    arma::arma_rng::set_seed(0);
 
-    testing::InitGoogleTest( &argc, argv );
+    testing::InitGoogleTest(&argc, argv);
 
     uint32_t result = RUN_ALL_TESTS();
 

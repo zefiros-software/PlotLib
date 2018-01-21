@@ -1,55 +1,94 @@
 sudo: required
 language: generic
 matrix:
-    include:
-        # Use generic language for osx
-        - os: osx
-          osx_image: xcode8
-          language: generic    
-          env: TYPE=release ARCH=x86   
-        - os: osx
-          osx_image: xcode8
-          language: generic   
-          env: TYPE=debug ARCH=x86
-        - os: osx
-          osx_image: xcode8
-          language: generic   
-          env: TYPE=release ARCH=x86_64
-        - os: osx
-          osx_image: xcode8
-          language: generic   
-          env: TYPE=debug ARCH=x86_64
-        # Use the built in venv for linux builds
-        - os: linux
-          dist: trusty
-          env: TYPE=release ARCH=x86 GCC_VERSION=6
-        - os: linux
-          dist: trusty
-          env: TYPE=debug ARCH=x86 GCC_VERSION=6
-        - os: linux
-          dist: trusty
-          env: TYPE=release ARCH=x86_64 GCC_VERSION=6
-        - os: linux
-          dist: trusty
-          env: TYPE=coverage ARCH=x86_64 GCC_VERSION=6
-        - os: linux
-          dist: trusty
-          env: TYPE=debug ARCH=x86_64 GCC_VERSION=6
-        - os: linux
-          dist: trusty
-          env: TYPE=release GCC_VERSION=5 ARCH=x86_64
-        - os: linux
-          dist: trusty
-          env: TYPE=release GCC_VERSION=6 ARCH=x86_64
-        - os: linux
-          dist: trusty
-          env: TYPE=zpm GCC_VERSION=6
+  include:
+  - os: osx
+    osx_image: xcode8.3
+    language: generic
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86
+  - os: osx
+    osx_image: xcode8.3
+    language: generic
+    env:
+    - BUILD_CONFIG=debug
+    - BUILD_ARCHITECTURE=x86
+  - os: osx
+    osx_image: xcode8.3
+    language: generic
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86_64
+  - os: osx
+    osx_image: xcode8.3
+    language: generic
+    env:
+    - BUILD_CONFIG=debug
+    - BUILD_ARCHITECTURE=x86_64
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=coverage
+    - BUILD_ARCHITECTURE=x86_64
+    - GCC_VERSION=7
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86_64
+    - GCC_VERSION=7
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=debug
+    - BUILD_ARCHITECTURE=x86_64
+    - GCC_VERSION=7
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86
+    - GCC_VERSION=7
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86_64
+    - GCC_VERSION=6
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=debug
+    - BUILD_ARCHITECTURE=x86_64
+    - GCC_VERSION=5
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86_64
+    - GCC_VERSION=5
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=release
+    - BUILD_ARCHITECTURE=x86
+    - GCC_VERSION=5
+  - os: linux
+    dist: trusty
+    env:
+    - BUILD_CONFIG=zpm
+    - GCC_VERSION=5
+global:
+  env:
+  - PROJECT=PlotLib
+  - PROJECT_DIRECTORY=plot
 install:
-    - source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
+- source /dev/stdin <<< "$(curl -s https://raw.githubusercontent.com/Zefiros-Software/ZPM/features/refactor/script/install-zpm.sh)"
 script:
-    - zpm run build-ci-library PlotLib plot
+- zpm run build-ci-library
 after_success:
-    - if [[ "$TRAVIS_OS_NAME" == "linux" && "$TYPE" = "coverage" ]]; then codecov; fi    
+- zpm run deploy-ci-library
 notifications:
-    slack:
-        secure: "C8qOVBHq8wCKjQx0fY333ZsGhvBuZLe9qWtWVss87jb97UUAEws/K5Wz9xfKy6E6M8mAHZziKrUzXSx9HbiUUcqBp6tykRROOJF/s/be/YUxf0RX0ckGj+b7zsw+hqQd+k2pSWdpyBMcD9Rshj1ENrRLRzQFg7Jz5GZVakvnJAxzuJTZrQGlSnAm37lWkgPSqRkMNeUtN78nvbldU+EpRpatAtfq9PSpj32xU+wbFZp0un80Gcwebhd0RmfMcYXpRAqrlM2kjKlPdAl0prizn68IZi+CSQ6Exn+2Y6+wySpjtmSXSgnBiNVDxgtTmXNZjXY19HTB0XSIKSlekWLlEE0vaUsoh5ojCwoXcawVoSTQWBgjftLp5SCezOVwzuy9vyr2JY6e01gQ7w3964UNrLtRo1xLxO5yT5LP7zSkzak7gAcAEIheAfHSEswfQw9i2cQw0GsLw6rAMP2MvtkBrY68Zv3cmV63t/dnTgOj6Zi61AzcEajGCt5ZaBGTR/umdoFXZE8h3QfL62fKodf2dufAAtTcsNjBWxru3bEtOeKeioLIM9tT0sKTv4uf0A70Frkqdly9y1oFJz+L+pNh4kgIjOgXBvmkNQ6WyC1xq8qFS3NxeQhmu+jTF60LUiOYhgabIOBQ/d7SBebh8mDz+fEDkV500c3HYG7HIcQ0mjU="
+  slack:
+    secure: kcdByGlSbWzOF6Zau8wuxihfVf8q3GTOE4zDRueQlFZXkwNXyr06cX3pl9dGA6d79eWrjP3+DgZR7L+OHne6rXchPXXIzpWZeMadN53PJrUgnImQvVSO7fj9rgWp0MZaNYzE2Z1sSCfGZhaDGvI6Ier41jC4yRrPQB43ld/D5HK6cSFNTsyi6mMjYabxZqIcYjwl+IaZ1Rl972bTPAYC3QoxEhryO2NQkNy+AS91vZHHzkWH9UQSprgbByFx3XZGHybEgcNwKTjVZG2Ig3VjPQSX5ESVQyfCrlWK/y3TcshA5pfGjzDWnvKrWWhe42V7t1kmsS6fOYJjFinTuhkxoeoPnu/FlIKA0o4m1wCYF2YEcwTehix6TuipUQ5y/+CZRTbFSdk6tVFkVl5v8+56MMon8Wt4dO4+KqJalJTQlRbh18RYGZCZhTaiPIXgbOEQh0E9mfsEc2SmfqGFqNN/vbA2t/27ZmaDLx7wbUxxa/KGprIohae26nfYbRUOAEZEmMdYmZuSuEazW2kMHStSK9yFNPf96fkC0aivjqz1AhZGB3YNZ8J5gTOUyEQeg9UCR1FA1hZ4Y+oJ7Bqir2EQoogZGpQidupjI81ADQlhz8iVIXPU4LxNzwFFek/eJj3AEDcDABQpucipLZ4Q6goX94Ey5a8tPuU7uEsTKrRjGfM=

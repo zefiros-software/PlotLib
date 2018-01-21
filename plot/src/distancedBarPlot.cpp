@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,30 +28,30 @@
 
 
 
-PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const std::vector< std::pair< PVec, PVec > > &data,
-                                                   const PVec &widths )
+PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot(const std::vector< std::pair< PVec, PVec >> &data,
+                                                  const PVec &widths)
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.first );
+        mStream << "+ " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup.second );
+        mStream << "+ " << this->ToArray(tup.second);
     }
 
-    mStream << "\nplt.bar( x, y" << ",width=" << this->ToArray( widths );
+    mStream << "\nplt.bar( x, y" << ",width=" << this->ToArray(widths);
 }
 
-PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot( const PVec &x, const PVec &y, const PVec &widths )
+PLOTLIB_INLINE DistancedBarPlot::DistancedBarPlot(const PVec &x, const PVec &y, const PVec &widths)
 {
-    mStream << "plt.bar(" << this->ToArray( x ) << "," << this->ToArray( y ) << ",width=" << this->ToArray( widths );
+    mStream << "plt.bar(" << this->ToArray(x) << "," << this->ToArray(y) << ",width=" << this->ToArray(widths);
 }
 
 PLOTLIB_INLINE std::string DistancedBarPlot::ToString()
@@ -59,20 +59,20 @@ PLOTLIB_INLINE std::string DistancedBarPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetZOrder( double order )
+PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::SetZOrder(double order)
 {
-    this->AddArgument( "zorder", order );
+    this->AddArgument("zorder", order);
     return *this;
 }
 
-PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::UseColourCycler( const std::string &colourCycler )
+PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::UseColourCycler(const std::string &colourCycler)
 {
-    this->AddArgument( "color", "next( " + colourCycler + " )" );
+    this->AddArgument("color", "next( " + colourCycler + " )");
     return *this;
 }
 
 PLOTLIB_INLINE DistancedBarPlot &DistancedBarPlot::CycleColour()
 {
-    this->AddArgument( "color", "next( colour_cycler )" );
+    this->AddArgument("color", "next( colour_cycler )");
     return *this;
 }

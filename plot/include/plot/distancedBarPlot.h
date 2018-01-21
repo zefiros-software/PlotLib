@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,15 +36,15 @@ class DistancedBarPlot
 {
 public:
 
-    DistancedBarPlot( const PVec &x, const PVec &y, const PVec &widths );
+    DistancedBarPlot(const PVec &x, const PVec &y, const PVec &widths);
 
-    DistancedBarPlot( const std::vector< std::pair< PVec, PVec > > &data, const PVec &widths );
+    DistancedBarPlot(const std::vector< std::pair< PVec, PVec >> &data, const PVec &widths);
 
     virtual std::string ToString() override;
 
-    DistancedBarPlot &SetZOrder( double order );
+    DistancedBarPlot &SetZOrder(double order);
 
-    DistancedBarPlot &UseColourCycler( const std::string &colourCycler );
+    DistancedBarPlot &UseColourCycler(const std::string &colourCycler);
 
     DistancedBarPlot &CycleColour();
 };

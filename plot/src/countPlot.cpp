@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,44 +28,44 @@
 #include "plot/palette.h"
 
 
-PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< PVec > &data, const std::vector< std::string > &hue )
+PLOTLIB_INLINE CountPlot::CountPlot(const std::vector< PVec > &data, const std::vector< std::string > &hue)
 {
     mStream << "x = []\nh = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup );
+        mStream << "+ " << this->ToArray(tup);
     }
 
     size_t i = 0;
 
     mStream << "\nh = h ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( std::vector< std::string >( tup.GetSize(), hue[i++] ) );
+        mStream << "+ " << this->ToArray(std::vector< std::string >(tup.GetSize(), hue[i++]));
     }
 
     mStream << "\nsns.countplot( x=x, hue=h";
 }
 
-PLOTLIB_INLINE CountPlot::CountPlot( const std::vector< PVec > &data )
+PLOTLIB_INLINE CountPlot::CountPlot(const std::vector< PVec > &data)
 {
     mStream << "x = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << "+ " << this->ToArray( tup );
+        mStream << "+ " << this->ToArray(tup);
     }
 
     mStream << "\nsns.countplot( x=x";
 }
 
-PLOTLIB_INLINE CountPlot::CountPlot( const PVec &x )
+PLOTLIB_INLINE CountPlot::CountPlot(const PVec &x)
 {
-    mStream << "sns.countplot(x=" << this->ToArray( x );
+    mStream << "sns.countplot(x=" << this->ToArray(x);
 }
 
 PLOTLIB_INLINE std::string CountPlot::ToString()
@@ -73,37 +73,37 @@ PLOTLIB_INLINE std::string CountPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetOrder( const PVec &order )
+PLOTLIB_INLINE CountPlot &CountPlot::SetOrder(const PVec &order)
 {
-    mStream << ", order=" << this->ToArray( order );
+    mStream << ", order=" << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetHueOrder( const std::vector< std::string > &order )
+PLOTLIB_INLINE CountPlot &CountPlot::SetHueOrder(const std::vector< std::string > &order)
 {
-    mStream << ", hue_order=" << this->ToArray( order );
+    mStream << ", hue_order=" << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetOrientation( Orientation orientation )
+PLOTLIB_INLINE CountPlot &CountPlot::SetOrientation(Orientation orientation)
 {
-    mStream << ", orient=" << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
+    mStream << ", orient=" << (orientation == Orientation::Horizontal ? "'h'" : "'v'");
     return *this;
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE CountPlot &CountPlot::SetColour(const std::string &colour)
 {
     mStream << ", color='" << colour << "'";
     return *this;
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetColourMap( const Palette &pallet )
+PLOTLIB_INLINE CountPlot &CountPlot::SetColourMap(const Palette &pallet)
 {
     mStream << ", palette =" << pallet.ToString();
     return *this;
 }
 
-PLOTLIB_INLINE CountPlot &CountPlot::SetSaturation( double sat )
+PLOTLIB_INLINE CountPlot &CountPlot::SetSaturation(double sat)
 {
     mStream << ", saturation=" << sat;
     return *this;

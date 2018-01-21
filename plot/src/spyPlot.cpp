@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -34,9 +34,9 @@ static const char *const __PlotLibSpyPlotAspect[] =
 };
 
 
-PLOTLIB_INLINE SpyPlot::SpyPlot( const PMat &mat )
+PLOTLIB_INLINE SpyPlot::SpyPlot(const PMat &mat)
 {
-    mStream << "plt.spy(" << this->ToArray( mat );
+    mStream << "plt.spy(" << this->ToArray(mat);
 }
 
 PLOTLIB_INLINE std::string SpyPlot::ToString()
@@ -44,26 +44,26 @@ PLOTLIB_INLINE std::string SpyPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE SpyPlot &SpyPlot::SetPrecision( double precision )
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetPrecision(double precision)
 {
-    this->AddArgument( "precision", precision );
+    this->AddArgument("precision", precision);
     return *this;
 }
 
-PLOTLIB_INLINE SpyPlot &SpyPlot::SetOrigin( Origin origin )
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetOrigin(Origin origin)
 {
-    this->AddArgument( "origin", this->GetString( origin == Origin::Lower ? "lower" : "upper" ) );
+    this->AddArgument("origin", this->GetString(origin == Origin::Lower ? "lower" : "upper"));
     return *this;
 }
 
-PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect( double aspect )
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect(double aspect)
 {
-    this->AddArgument( "aspect", aspect );
+    this->AddArgument("aspect", aspect);
     return *this;
 }
 
-PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect( Aspect aspect )
+PLOTLIB_INLINE SpyPlot &SpyPlot::SetAspect(Aspect aspect)
 {
-    this->AddArgument( "aspect", __PlotLibSpyPlotAspect[static_cast<size_t>( aspect )] );
+    this->AddArgument("aspect", __PlotLibSpyPlotAspect[static_cast<size_t>(aspect)]);
     return *this;
 }

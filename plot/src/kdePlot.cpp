@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,14 +28,14 @@
 
 
 
-PLOTLIB_INLINE KDEPlot::KDEPlot( const PVec &data, const PVec &data2 )
+PLOTLIB_INLINE KDEPlot::KDEPlot(const PVec &data, const PVec &data2)
 {
-    mStream << "sns.kdeplot( np.array(" << this->ToArray( data ) << "), np.array(" << this->ToArray( data2 ) << ")";
+    mStream << "sns.kdeplot( np.array(" << this->ToArray(data) << "), np.array(" << this->ToArray(data2) << ")";
 }
 
-PLOTLIB_INLINE KDEPlot::KDEPlot( const PVec &data )
+PLOTLIB_INLINE KDEPlot::KDEPlot(const PVec &data)
 {
-    mStream << "sns.kdeplot(np.array(" << this->ToArray( data ) << ")";
+    mStream << "sns.kdeplot(np.array(" << this->ToArray(data) << ")";
 }
 
 PLOTLIB_INLINE std::string KDEPlot::ToString()
@@ -43,77 +43,77 @@ PLOTLIB_INLINE std::string KDEPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::Vertical( bool vertical )
+PLOTLIB_INLINE KDEPlot &KDEPlot::Vertical(bool vertical)
 {
-    this->AddArgument( "vertical", GetBool( vertical ) );
+    this->AddArgument("vertical", GetBool(vertical));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetKernel( Kernel kernel )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetKernel(Kernel kernel)
 {
-    this->AddArgument( "kernel", this->GetString( GetKernel( kernel ) ) );
+    this->AddArgument("kernel", this->GetString(GetKernel(kernel)));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( const std::pair<double, double> &scalars )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW(const std::pair<double, double> &scalars)
 {
-    this->AddArgument( "bw", this->ToTuple( scalars.first, scalars.second ) );
+    this->AddArgument("bw", this->ToTuple(scalars.first, scalars.second));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( double scalar )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW(double scalar)
 {
-    this->AddArgument( "bw", scalar );
+    this->AddArgument("bw", scalar);
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW( BW bw )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetBW(BW bw)
 {
-    this->AddArgument( "bw", this->GetString( GetBW( bw ) ) );
+    this->AddArgument("bw", this->GetString(GetBW(bw)));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetGridSize( size_t size )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetGridSize(size_t size)
 {
-    this->AddArgument( "gridsize", size );
+    this->AddArgument("gridsize", size);
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetCut( double cut )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetCut(double cut)
 {
-    this->AddArgument( "cut", cut );
+    this->AddArgument("cut", cut);
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clipx,
-                                          const std::pair<double, double> &clipy )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip(const std::pair<double, double> &clipx,
+                                         const std::pair<double, double> &clipy)
 {
-    this->AddArgument( "clip", this->ToTuple( this->ToTuple( clipx.first, clipx.second ), this->ToTuple( clipy.first,
-                                                                                                         clipy.second ) ) );
+    this->AddArgument("clip", this->ToTuple(this->ToTuple(clipx.first, clipx.second), this->ToTuple(clipy.first,
+                                                                                                    clipy.second)));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip( const std::pair<double, double> &clip )
+PLOTLIB_INLINE KDEPlot &KDEPlot::SetClip(const std::pair<double, double> &clip)
 {
-    this->AddArgument( "clip", this->ToTuple( clip.first, clip.second ) );
+    this->AddArgument("clip", this->ToTuple(clip.first, clip.second));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::Legend( bool legend )
+PLOTLIB_INLINE KDEPlot &KDEPlot::Legend(bool legend)
 {
-    this->AddArgument( "legend", GetBool( legend ) );
+    this->AddArgument("legend", GetBool(legend));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::Cumulative( bool cumulative )
+PLOTLIB_INLINE KDEPlot &KDEPlot::Cumulative(bool cumulative)
 {
-    this->AddArgument( "cumulative", GetBool( cumulative ) );
+    this->AddArgument("cumulative", GetBool(cumulative));
     return *this;
 }
 
-PLOTLIB_INLINE KDEPlot &KDEPlot::ShadeLowest( bool shadeLowest )
+PLOTLIB_INLINE KDEPlot &KDEPlot::ShadeLowest(bool shadeLowest)
 {
-    this->AddArgument( "shade_lowest", GetBool( shadeLowest ) );
+    this->AddArgument("shade_lowest", GetBool(shadeLowest));
     return *this;
 }
 
@@ -123,9 +123,9 @@ PLOTLIB_INLINE KDEPlot &KDEPlot::ColourBar(bool bar)
     return *this;
 }
 
-PLOTLIB_INLINE std::string KDEPlot::GetBW( BW bw )
+PLOTLIB_INLINE std::string KDEPlot::GetBW(BW bw)
 {
-    switch ( bw )
+    switch (bw)
     {
     case BW::Scott:
         return "scott";
@@ -137,9 +137,9 @@ PLOTLIB_INLINE std::string KDEPlot::GetBW( BW bw )
     return "";
 }
 
-PLOTLIB_INLINE std::string KDEPlot::GetKernel( Kernel kernel )
+PLOTLIB_INLINE std::string KDEPlot::GetKernel(Kernel kernel)
 {
-    switch ( kernel )
+    switch (kernel)
     {
     case Kernel::Gauss:
         return "gau";

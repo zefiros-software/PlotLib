@@ -28,89 +28,89 @@
 
 #include "helper.h"
 
-TEST( AngleSpectrumPlot, AngleSpectrumPlot )
+TEST(AngleSpectrumPlot, AngleSpectrumPlot)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot", []()
     {
-        vec randVec = randu( 20 ) ;
-        AngleSpectrumPlot f( randVec );
+        vec randVec = randu(20) ;
+        AngleSpectrumPlot f(randVec);
         return f;
-    } );
+    });
 }
 
-TEST( AngleSpectrumPlot, Construct )
+TEST(AngleSpectrumPlot, Construct)
 {
-    AngleSpectrumPlot( PVec( { 0 } ) );
+    AngleSpectrumPlot(PVec({ 0 }));
 }
 
-TEST( AngleSpectrumPlot, ToString )
+TEST(AngleSpectrumPlot, ToString)
 {
-    EXPECT_EQ( "plt.angle_spectrum( [0] )", AngleSpectrumPlot( PVec( { 0 } ) ).ToString() );
+    EXPECT_EQ("plt.angle_spectrum( [0] )", AngleSpectrumPlot(PVec({ 0 })).ToString());
 }
 
-TEST( AngleSpectrumPlot, SetSamplingFrequency )
+TEST(AngleSpectrumPlot, SetSamplingFrequency)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SamplingFrequency", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot_SamplingFrequency", []()
     {
-        vec randVec = randu( 20 );
-        AngleSpectrumPlot f( randVec );
-        f.SetSamplingFrequency( 10 );
+        vec randVec = randu(20);
+        AngleSpectrumPlot f(randVec);
+        f.SetSamplingFrequency(10);
         return f;
-    } );
+    });
 }
 
-TEST( AngleSpectrumPlot, SetSides )
+TEST(AngleSpectrumPlot, SetSides)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetSides", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot_SetSides", []()
     {
-        vec randVec = randu( 20 );
-        AngleSpectrumPlot f( randVec );
-        f.SetSides( AngleSpectrumPlot::Sides::Default );
+        vec randVec = randu(20);
+        AngleSpectrumPlot f(randVec);
+        f.SetSides(AngleSpectrumPlot::Sides::Default);
         return f;
-    } );
+    });
 }
 
-TEST( AngleSpectrumPlot, SetSides_OneSided )
+TEST(AngleSpectrumPlot, SetSides_OneSided)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetSides_OneSided", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot_SetSides_OneSided", []()
     {
-        vec randVec = randu( 20 );
-        AngleSpectrumPlot f( randVec );
-        f.SetSides( AngleSpectrumPlot::Sides::OneSided );
+        vec randVec = randu(20);
+        AngleSpectrumPlot f(randVec);
+        f.SetSides(AngleSpectrumPlot::Sides::OneSided);
         return f;
-    } );
+    });
 }
 
-TEST( AngleSpectrumPlot, SetSides_TwoSided )
+TEST(AngleSpectrumPlot, SetSides_TwoSided)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetSides_TwoSided", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot_SetSides_TwoSided", []()
     {
-        vec randVec = randu( 20 );
-        AngleSpectrumPlot f( randVec );
-        f.SetSides( AngleSpectrumPlot::Sides::TwoSided );
+        vec randVec = randu(20);
+        AngleSpectrumPlot f(randVec);
+        f.SetSides(AngleSpectrumPlot::Sides::TwoSided);
         return f;
-    } );
+    });
 }
 
-TEST( AngleSpectrumPlot, SetCentreFrequency )
+TEST(AngleSpectrumPlot, SetCentreFrequency)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetCentreFrequency", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot_SetCentreFrequency", []()
     {
-        vec randVec = randu( 20 );
-        AngleSpectrumPlot f( randVec );
-        f.SetCentreFrequency( 5 );
+        vec randVec = randu(20);
+        AngleSpectrumPlot f(randVec);
+        f.SetCentreFrequency(5);
         return f;
-    } );
+    });
 }
 
 
-TEST( AngleSpectrumPlot, SetPadTo )
+TEST(AngleSpectrumPlot, SetPadTo)
 {
-    TestPlot< AngleSpectrumPlot >( "AngleSpectrumPlot_SetPadTo", []()
+    TestPlot< AngleSpectrumPlot >("AngleSpectrumPlot_SetPadTo", []()
     {
-        vec randVec = randu( 20 );
-        AngleSpectrumPlot f( randVec );
-        f.SetPadTo( 2 );
+        vec randVec = randu(20);
+        AngleSpectrumPlot f(randVec);
+        f.SetPadTo(2);
         return f;
-    } );
+    });
 }

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,9 +28,9 @@
 
 
 
-PLOTLIB_INLINE ClusterMapPlot::ClusterMapPlot( const PMat &map )
+PLOTLIB_INLINE ClusterMapPlot::ClusterMapPlot(const PMat &map)
 {
-    mStream << "sns.clustermap(" << this->ToArray( map );
+    mStream << "sns.clustermap(" << this->ToArray(map);
 }
 
 PLOTLIB_INLINE std::string ClusterMapPlot::ToString()
@@ -38,69 +38,69 @@ PLOTLIB_INLINE std::string ClusterMapPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMethod( Linkage linkage )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMethod(Linkage linkage)
 {
-    mStream << ", method=" << GetLinkage( linkage );
+    mStream << ", method=" << GetLinkage(linkage);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMetric( Metric metric )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMetric(Metric metric)
 {
-    mStream << ", metric=" << GetMetric( metric );
+    mStream << ", metric=" << GetMetric(metric);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ZScoreColumns( bool rows )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ZScoreColumns(bool rows)
 {
-    mStream << ", z_score=" << ( rows ? 0 : 1 );
+    mStream << ", z_score=" << (rows ? 0 : 1);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::StandardScale( bool rows )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::StandardScale(bool rows)
 {
-    mStream << ", standard_scale=" << ( rows ? 0 : 1 );
+    mStream << ", standard_scale=" << (rows ? 0 : 1);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetFigSize( const std::pair< size_t, size_t > &size )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetFigSize(const std::pair< size_t, size_t > &size)
 {
     mStream << ", figsize=(" << size.first << "," << size.second << ")";
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::RowCluster( bool cluster )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::RowCluster(bool cluster)
 {
-    mStream << ", row_cluster=" << GetBool( cluster );
+    mStream << ", row_cluster=" << GetBool(cluster);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ColumnCluster( bool cluster )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::ColumnCluster(bool cluster)
 {
-    mStream << ", col_cluster=" << GetBool( cluster );
+    mStream << ", col_cluster=" << GetBool(cluster);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetRowLinkage( const PVec &linkage )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetRowLinkage(const PVec &linkage)
 {
-    mStream << ", row_linkage=" << this->ToArray( linkage );
+    mStream << ", row_linkage=" << this->ToArray(linkage);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetColumnLinkage( const PVec &linkage )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetColumnLinkage(const PVec &linkage)
 {
-    mStream << ", col_linkage=" << this->ToArray( linkage );
+    mStream << ", col_linkage=" << this->ToArray(linkage);
     return *this;
 }
 
-PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMask( const std::vector< bool > &mask )
+PLOTLIB_INLINE ClusterMapPlot &ClusterMapPlot::SetMask(const std::vector< bool > &mask)
 {
-    mStream << ", mask=" << this->ToArray( mask );
+    mStream << ", mask=" << this->ToArray(mask);
     return *this;
 }
 
-PLOTLIB_INLINE std::string ClusterMapPlot::GetLinkage( Linkage linkage )
+PLOTLIB_INLINE std::string ClusterMapPlot::GetLinkage(Linkage linkage)
 {
-    switch ( linkage )
+    switch (linkage)
     {
     case Linkage::Single:
         return "'single'";
@@ -131,9 +131,9 @@ PLOTLIB_INLINE std::string ClusterMapPlot::GetLinkage( Linkage linkage )
     return "";
 }
 
-PLOTLIB_INLINE std::string ClusterMapPlot::GetMetric( Metric metric )
+PLOTLIB_INLINE std::string ClusterMapPlot::GetMetric(Metric metric)
 {
-    switch ( metric )
+    switch (metric)
     {
     case Metric::Euclidian:
         return "'euclidean'";

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,25 +42,25 @@ class PlotProperties
 public:
 
     inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &UseColourCycler(
-        const std::string &colourCycler )
+        const std::string &colourCycler)
     {
-        this->AddArgument( "color", "next(" + colourCycler + ")" );
+        this->AddArgument("color", "next(" + colourCycler + ")");
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth( double width )
+    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth(double width)
     {
-        this->AddArgument( "linewidth", width );
+        this->AddArgument("linewidth", width);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLineStyle( const std::string &style )
+    inline typename Line2DProperties<PlotProperties<tBase, IsDict>, IsDict, true>::tReturn &SetLineStyle(const std::string &style)
     {
-        this->AddArgument( "linestyle", this->GetString( style ) );
+        this->AddArgument("linestyle", this->GetString(style));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
 };

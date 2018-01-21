@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,60 +29,60 @@
 
 #include <assert.h>
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< PVec, PVec > > &data,
-                                 const std::vector< std::string > &hue )
+PLOTLIB_INLINE BoxPlot::BoxPlot(const std::vector< std::pair< PVec, PVec >> &data,
+                                const std::vector< std::string > &hue)
 {
     mStream << "x = []\ny = []\nh = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        assert( tup.first.GetSize() == tup.second.GetSize() );
-        mStream << " + " << this->ToArray( tup.first );
+        assert(tup.first.GetSize() == tup.second.GetSize());
+        mStream << " + " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << " + " << this->ToArray( tup.second );
+        mStream << " + " << this->ToArray(tup.second);
     }
 
     size_t i = 0;
 
     mStream << "\nh = h ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << " + " << this->ToArray( std::vector< std::string >( tup.first.GetSize(), hue[i++] ) );
+        mStream << " + " << this->ToArray(std::vector< std::string >(tup.first.GetSize(), hue[i++]));
     }
 
     mStream << "\nsns.boxplot( x, y, h";
 }
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const std::vector< std::pair< PVec, PVec > > &data )
+PLOTLIB_INLINE BoxPlot::BoxPlot(const std::vector< std::pair< PVec, PVec >> &data)
 {
     mStream << "x = []\ny = []\n";
     mStream << "x = x ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << " + " << this->ToArray( tup.first );
+        mStream << " + " << this->ToArray(tup.first);
     }
 
     mStream << "\ny = y ";
 
-    for ( auto &tup : data )
+    for (auto &tup : data)
     {
-        mStream << " + " << this->ToArray( tup.second );
+        mStream << " + " << this->ToArray(tup.second);
     }
 
     mStream << "\nsns.boxplot( x, y";
 }
 
-PLOTLIB_INLINE BoxPlot::BoxPlot( const PVec &x, const PVec &y )
+PLOTLIB_INLINE BoxPlot::BoxPlot(const PVec &x, const PVec &y)
 {
-    mStream << "sns.boxplot( " << this->ToArray( x ) << ", " << this->ToArray( y );
+    mStream << "sns.boxplot( " << this->ToArray(x) << ", " << this->ToArray(y);
 }
 
 PLOTLIB_INLINE std::string BoxPlot::ToString()
@@ -90,43 +90,43 @@ PLOTLIB_INLINE std::string BoxPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetOrder( const PVec &order )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetOrder(const PVec &order)
 {
-    mStream << ", order = " << this->ToArray( order );
+    mStream << ", order = " << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetHueOrder( const std::vector< std::string > &order )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetHueOrder(const std::vector< std::string > &order)
 {
-    mStream << ", hue_order = " << this->ToArray( order );
+    mStream << ", hue_order = " << this->ToArray(order);
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetOrientation( Orientation orientation )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetOrientation(Orientation orientation)
 {
-    mStream << ", orient = " << ( orientation == Orientation::Horizontal ? "'h'" : "'v'" );
+    mStream << ", orient = " << (orientation == Orientation::Horizontal ? "'h'" : "'v'");
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetColour(const std::string &colour)
 {
     mStream << ", color = '" << colour << "'";
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetColourMap( const Palette &pallet )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetColourMap(const Palette &pallet)
 {
     mStream << ", palette = " << pallet.ToString();
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetSaturation( double sat )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetSaturation(double sat)
 {
     mStream << ", saturation = " << sat;
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetWidth( double width )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetWidth(double width)
 {
     mStream << ", width = " << width;
     return *this;
@@ -138,26 +138,26 @@ PLOTLIB_INLINE BoxPlot &BoxPlot::SetDodge(bool dodge)
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetFlierSize( double fliersize )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetFlierSize(double fliersize)
 {
     mStream << ", fliersize = " << fliersize;
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetLineWidth( double width )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetLineWidth(double width)
 {
     mStream << ", linewidth = " << width;
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::SetWhis( double whis )
+PLOTLIB_INLINE BoxPlot &BoxPlot::SetWhis(double whis)
 {
     mStream << ", whis = " << whis;
     return *this;
 }
 
-PLOTLIB_INLINE BoxPlot &BoxPlot::Notch( bool notch )
+PLOTLIB_INLINE BoxPlot &BoxPlot::Notch(bool notch)
 {
-    mStream << ", notch = " << GetBool( notch );
+    mStream << ", notch = " << GetBool(notch);
     return *this;
 }

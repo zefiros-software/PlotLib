@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,35 +44,35 @@ public:
         Horizontal
     };
 
-    StripPlot( const PVec &x, const PVec &y );
+    StripPlot(const PVec &x, const PVec &y);
 
-    StripPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    StripPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    StripPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    StripPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    StripPlot &SetOrder( const PVec &order );
+    StripPlot &SetOrder(const PVec &order);
 
-    StripPlot &SetHueOrder( const std::vector< std::string > &order );
+    StripPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    StripPlot &SetJitter( double jitter );
+    StripPlot &SetJitter(double jitter);
 
-    StripPlot &SetJitter( bool jitter );
+    StripPlot &SetJitter(bool jitter);
 
-    StripPlot &SetDodge( bool dodge);
+    StripPlot &SetDodge(bool dodge);
 
-    StripPlot &SetOrientation( Orientation orientation );
+    StripPlot &SetOrientation(Orientation orientation);
 
-    StripPlot &SetColour( const std::string &colour );
+    StripPlot &SetColour(const std::string &colour);
 
-    StripPlot &SetColourMap( const Palette &pallet );
+    StripPlot &SetColourMap(const Palette &pallet);
 
-    StripPlot &SetScale( double scale );
+    StripPlot &SetScale(double scale);
 
-    StripPlot &SetEdgdeColour( const std::string &colour );
+    StripPlot &SetEdgdeColour(const std::string &colour);
 
-    StripPlot &SetLineWidth( double width );
+    StripPlot &SetLineWidth(double width);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

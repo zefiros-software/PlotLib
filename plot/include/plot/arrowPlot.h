@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,27 +42,27 @@ public:
         Right
     };
 
-    ArrowPlot( double x, double y, double dx, double dy );
+    ArrowPlot(double x, double y, double dx, double dy);
 
     virtual std::string ToString() override;
 
-    ArrowPlot &SetWidth( double width );
+    ArrowPlot &SetWidth(double width);
 
-    ArrowPlot &LengthIncludesHead( bool includes );
+    ArrowPlot &LengthIncludesHead(bool includes);
 
-    ArrowPlot &SetHeadWidth( double width );
+    ArrowPlot &SetHeadWidth(double width);
 
-    ArrowPlot &SetHeadLength( double length );
+    ArrowPlot &SetHeadLength(double length);
 
-    ArrowPlot &SetShape( Shape shape );
+    ArrowPlot &SetShape(Shape shape);
 
-    ArrowPlot &SetOverhang( double overhang );
+    ArrowPlot &SetOverhang(double overhang);
 
-    ArrowPlot &HeadStartsAtZero( bool starts );
+    ArrowPlot &HeadStartsAtZero(bool starts);
 
 private:
 
-    static std::string GetShape( Shape shape );
+    static std::string GetShape(Shape shape);
 
 };
 

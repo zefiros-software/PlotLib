@@ -28,11 +28,11 @@
 
 #include "helper.h"
 
-TEST( FancyAutoCorrelationPlot, FancyAutoCorrelationPlot )
+TEST(FancyAutoCorrelationPlot, FancyAutoCorrelationPlot)
 {
-    TestPlot< FancyAutoCorrelationPlot >( "FancyAutoCorrelationPlot", []()
+    TestPlot< FancyAutoCorrelationPlot >("FancyAutoCorrelationPlot", []()
     {
-        FancyAutoCorrelationPlot f( ( vec )( randu( 200 ) + 0.2 * sin( linspace( -99, 99, 200 ) ) ) );
+        FancyAutoCorrelationPlot f((vec)(randu(200) + 0.2 * sin(linspace(-99, 99, 200))));
         return f;
-    } );
+    });
 }

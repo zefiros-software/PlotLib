@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,9 +28,9 @@
 
 #include <cassert>
 
-PLOTLIB_INLINE LogLogPlot::LogLogPlot( const PVec &exogenous, const PVec &endogenous )
+PLOTLIB_INLINE LogLogPlot::LogLogPlot(const PVec &exogenous, const PVec &endogenous)
 {
-    mStream << "plt.loglog(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
+    mStream << "plt.loglog(" << this->ToArray(exogenous) << "," << this->ToArray(endogenous);
 }
 
 PLOTLIB_INLINE std::string LogLogPlot::ToString()
@@ -38,7 +38,7 @@ PLOTLIB_INLINE std::string LogLogPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE LogLogPlot &LogLogPlot::SetScale( LogScale &scale )
+PLOTLIB_INLINE LogLogPlot &LogLogPlot::SetScale(LogScale &scale)
 {
     mStream << scale.ToString();
     return *this;

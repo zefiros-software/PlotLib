@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -47,17 +47,17 @@ public:
         None
     };
 
-    SpyPlot( const PMat &mat );
+    SpyPlot(const PMat &mat);
 
     virtual std::string ToString() override;
 
-    SpyPlot &SetPrecision( double precision );
+    SpyPlot &SetPrecision(double precision);
 
-    SpyPlot &SetOrigin( Origin origin );
+    SpyPlot &SetOrigin(Origin origin);
 
-    SpyPlot &SetAspect( Aspect aspect );
+    SpyPlot &SetAspect(Aspect aspect);
 
-    SpyPlot &SetAspect( double aspect );
+    SpyPlot &SetAspect(double aspect);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

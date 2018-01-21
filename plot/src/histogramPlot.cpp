@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,9 +26,9 @@
 
 #include "plot/histogramPlot.h"
 
-PLOTLIB_INLINE HistogramPlot::HistogramPlot( const PVec &vec )
+PLOTLIB_INLINE HistogramPlot::HistogramPlot(const PVec &vec)
 {
-    mStream << "plt.hist(" << this->ToArray( vec );
+    mStream << "plt.hist(" << this->ToArray(vec);
 }
 
 PLOTLIB_INLINE std::string HistogramPlot::ToString()
@@ -36,105 +36,105 @@ PLOTLIB_INLINE std::string HistogramPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBins( const PVec &bins )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBins(const PVec &bins)
 {
-    mStream << ", bins=" << this->ToArray( bins );
+    mStream << ", bins=" << this->ToArray(bins);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBins( size_t value )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBins(size_t value)
 {
     mStream << ", bins=" << value;
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetRange( double min, double max )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetRange(double min, double max)
 {
     mStream << ", range=(" << min << "," << max << ")";
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetNormed( bool normed )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetNormed(bool normed)
 {
-    mStream << ", normed=" << GetBool( normed );
+    mStream << ", normed=" << GetBool(normed);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetWeights( const PVec &weights )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetWeights(const PVec &weights)
 {
-    mStream << ", weights=" << this->ToArray( weights );
+    mStream << ", weights=" << this->ToArray(weights);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetCumulative( bool cumulative )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetCumulative(bool cumulative)
 {
-    mStream << ", normed=" << GetBool( cumulative );
+    mStream << ", normed=" << GetBool(cumulative);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBottom( const PVec &bottom )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBottom(const PVec &bottom)
 {
-    mStream << ", bottom=" << this->ToArray( bottom );
+    mStream << ", bottom=" << this->ToArray(bottom);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBottom( double bottom )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetBottom(double bottom)
 {
     mStream << ", bottom=" << bottom;
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetType( Type type )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetType(Type type)
 {
-    mStream << ", histtype =" << GetType( type );
+    mStream << ", histtype =" << GetType(type);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetAllignment( Alignment align )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetAllignment(Alignment align)
 {
-    mStream << ", histtype =" << GetAlignment( align );
+    mStream << ", histtype =" << GetAlignment(align);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetOrientation( Orientation orientation )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetOrientation(Orientation orientation)
 {
-    mStream << ", orientation  = " << ( orientation == Orientation::Horizontal ? "'horizontal'" : "'vertical'" );
+    mStream << ", orientation  = " << (orientation == Orientation::Horizontal ? "'horizontal'" : "'vertical'");
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetRelativeWidth( double rwidth )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetRelativeWidth(double rwidth)
 {
     mStream << ", rwidth=" << rwidth;
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetLogarithmic( bool log )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetLogarithmic(bool log)
 {
-    mStream << ", log=" << GetBool( log );
+    mStream << ", log=" << GetBool(log);
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetColour(const std::string &colour)
 {
     mStream << ", color = '" << colour << "'";
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetLabel( const std::string &label )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetLabel(const std::string &label)
 {
     mStream << ", label='" << label << "'";
     return *this;
 }
 
-PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetStacked( bool stacked )
+PLOTLIB_INLINE HistogramPlot &HistogramPlot::SetStacked(bool stacked)
 {
-    mStream << ", stacked=" << GetBool( stacked );
+    mStream << ", stacked=" << GetBool(stacked);
     return *this;
 }
 
-PLOTLIB_INLINE std::string HistogramPlot::GetType( Type type )
+PLOTLIB_INLINE std::string HistogramPlot::GetType(Type type)
 {
-    switch ( type )
+    switch (type)
     {
     case Type::Bar:
         return "'bar'";
@@ -152,9 +152,9 @@ PLOTLIB_INLINE std::string HistogramPlot::GetType( Type type )
     return "''";
 }
 
-PLOTLIB_INLINE std::string HistogramPlot::GetAlignment( Alignment align )
+PLOTLIB_INLINE std::string HistogramPlot::GetAlignment(Alignment align)
 {
-    switch ( align )
+    switch (align)
     {
     case Alignment::Left:
         return "'left'";

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,10 +26,10 @@
 
 #include "plot/jointPlot.h"
 
-PLOTLIB_INLINE JointPlot::JointPlot( const PVec &exogenous, const PVec &endogenous )
+PLOTLIB_INLINE JointPlot::JointPlot(const PVec &exogenous, const PVec &endogenous)
 {
-    mStream << "xl=" << this->ToArray( exogenous ) << "\n"
-            << "yl=" << this->ToArray( endogenous ) << "\n";
+    mStream << "xl=" << this->ToArray(exogenous) << "\n"
+            << "yl=" << this->ToArray(endogenous) << "\n";
     mStream << "sns.jointplot(x='x',y='y',data=pd.DataFrame.from_dict({'x': xl,'y': yl})";
 }
 
@@ -38,58 +38,58 @@ PLOTLIB_INLINE std::string JointPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetKind( Kind kind )
+PLOTLIB_INLINE JointPlot &JointPlot::SetKind(Kind kind)
 {
-    this->AddArgument( "kind", this->GetString( GetKind( kind ) ) );
+    this->AddArgument("kind", this->GetString(GetKind(kind)));
     return *this;
 }
 
 #ifndef PLOTLIB_HEADLESS
-PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t size )
+PLOTLIB_INLINE JointPlot &JointPlot::SetSize(size_t size)
 {
-    this->AddArgument( "size", size );
+    this->AddArgument("size", size);
     return *this;
 }
 #else
-PLOTLIB_INLINE JointPlot &JointPlot::SetSize( size_t )
+PLOTLIB_INLINE JointPlot &JointPlot::SetSize(size_t)
 {
     return *this;
 }
 #endif
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetRatio( size_t ratio )
+PLOTLIB_INLINE JointPlot &JointPlot::SetRatio(size_t ratio)
 {
-    this->AddArgument( "ratio", ratio );
+    this->AddArgument("ratio", ratio);
     return *this;
 }
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetSpace( double space )
+PLOTLIB_INLINE JointPlot &JointPlot::SetSpace(double space)
 {
-    this->AddArgument( "space", space );
+    this->AddArgument("space", space);
     return *this;
 }
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetXLimit( const std::pair<double, double> &x )
+PLOTLIB_INLINE JointPlot &JointPlot::SetXLimit(const std::pair<double, double> &x)
 {
-    this->AddArgument( "xlim", this->ToTuple( x.first, x.second ) );
+    this->AddArgument("xlim", this->ToTuple(x.first, x.second));
     return *this;
 }
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetYLimit( const std::pair<double, double> &y )
+PLOTLIB_INLINE JointPlot &JointPlot::SetYLimit(const std::pair<double, double> &y)
 {
-    this->AddArgument( "ylim", this->ToTuple( y.first, y.second ) );
+    this->AddArgument("ylim", this->ToTuple(y.first, y.second));
     return *this;
 }
 
-PLOTLIB_INLINE JointPlot &JointPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE JointPlot &JointPlot::SetColour(const std::string &colour)
 {
-    this->AddArgument( "color", this->GetString( colour ) );
+    this->AddArgument("color", this->GetString(colour));
     return *this;
 }
 
-PLOTLIB_INLINE std::string JointPlot::GetKind( Kind kind )
+PLOTLIB_INLINE std::string JointPlot::GetKind(Kind kind)
 {
-    switch ( kind )
+    switch (kind)
     {
     case Kind::Scatter:
         return "scatter";

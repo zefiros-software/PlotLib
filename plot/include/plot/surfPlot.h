@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,15 +37,15 @@ class SurfPlot : public PlotProperties< SurfPlot >
 {
 public:
 
-    SurfPlot( const PVec &x, const std::vector<PVec> &y, const std::vector<PVec> &z );
+    SurfPlot(const PVec &x, const std::vector<PVec> &y, const std::vector<PVec> &z);
 
-    SurfPlot( const PVec &x, const PVec &y, const std::vector<PVec> &z );
+    SurfPlot(const PVec &x, const PVec &y, const std::vector<PVec> &z);
 
-    SurfPlot( const PMat &x, const PMat &y, const PMat &z );
+    SurfPlot(const PMat &x, const PMat &y, const PMat &z);
 
-    SurfPlot &SetColourMap( const ColourMap &pallet );
+    SurfPlot &SetColourMap(const ColourMap &pallet);
 
-    SurfPlot &ColourBar( bool bar );
+    SurfPlot &ColourBar(bool bar);
 
     virtual std::string ToString() override;
 

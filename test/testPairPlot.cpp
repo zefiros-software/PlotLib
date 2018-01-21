@@ -28,41 +28,41 @@
 
 #include "helper.h"
 
-TEST( PairPlot, PairPlot )
+TEST(PairPlot, PairPlot)
 {
-    TestPlot< PairPlot >( "PairPlot", []()
+    TestPlot< PairPlot >("PairPlot", []()
     {
-        PairPlot f( ( mat )randn( 3, 300 ), { "first", "second", "third" } );
-        f.SetDiagonalType( PairPlot::DiagonalType::KernelDensity )
-        .SetMarker( "*" );
+        PairPlot f((mat)randn(3, 300), { "first", "second", "third" });
+        f.SetDiagonalType(PairPlot::DiagonalType::KernelDensity)
+        .SetMarker("*");
         return f;
-    } );
+    });
 }
 
-TEST( PairPlot, PairPlot2 )
+TEST(PairPlot, PairPlot2)
 {
-    TestPlot< PairPlot >( "PairPlot2", []()
+    TestPlot< PairPlot >("PairPlot2", []()
     {
-        PairPlot f( { ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ) },
+        PairPlot f({ (mat)randn(3, 50), (mat)randn(3, 50), (mat)randn(3, 50) },
         { "x", "y", "z" },
-        { "First", "Second", "Third" } );
-        f.SetMarkers( { "*", "o", "D" } )
-        .SetSize( 3 );
+        { "First", "Second", "Third" });
+        f.SetMarkers({ "*", "o", "D" })
+        .SetSize(3);
         return f;
-    } );
+    });
 }
 
-TEST( PairPlot, PairPlot3 )
+TEST(PairPlot, PairPlot3)
 {
-    TestPlot< PairPlot >( "PairPlot3", []()
+    TestPlot< PairPlot >("PairPlot3", []()
     {
-        PairPlot f( { ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ), ( mat )randn( 3, 50 ) },
+        PairPlot f({ (mat)randn(3, 50), (mat)randn(3, 50), (mat)randn(3, 50) },
         { "x", "y", "z" },
-        { "First", "Second", "Third" } );
-        f.SetYVars( { "x", "y" } )
-        .SetXVars( { "x", "z" } )
-        .SetType( PairPlot::Type::Regression )
-        .SetAspect( 2 );
+        { "First", "Second", "Third" });
+        f.SetYVars({ "x", "y" })
+        .SetXVars({ "x", "z" })
+        .SetType(PairPlot::Type::Regression)
+        .SetAspect(2);
         return f;
-    } );
+    });
 }

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,9 +26,9 @@
 
 #include "plot/lagPlot.h"
 
-PLOTLIB_INLINE LagPlot::LagPlot( const PVec &vec )
+PLOTLIB_INLINE LagPlot::LagPlot(const PVec &vec)
 {
-    mStream << "lag_plot(pd.Series(" << this->ToArray( vec ) << ")";
+    mStream << "lag_plot(pd.Series(" << this->ToArray(vec) << ")";
 }
 
 PLOTLIB_INLINE std::string LagPlot::ToString()
@@ -36,8 +36,8 @@ PLOTLIB_INLINE std::string LagPlot::ToString()
     return mStream.str() + ")";
 }
 
-PLOTLIB_INLINE LagPlot &LagPlot::SetLag( int32_t lag )
+PLOTLIB_INLINE LagPlot &LagPlot::SetLag(int32_t lag)
 {
-    this->AddArgument( "lag", lag );
+    this->AddArgument("lag", lag);
     return *this;
 }

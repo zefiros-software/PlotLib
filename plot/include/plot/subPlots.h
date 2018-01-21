@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -37,11 +37,11 @@ class SubPlots
 {
 public:
 
-    SubPlots( uint32_t rows, uint32_t columns );
+    SubPlots(uint32_t rows, uint32_t columns);
 
     virtual std::string ToString() override;
 
-    void AddHeatMapPlot( HeatMapPlot &plot );
+    void AddHeatMapPlot(HeatMapPlot &plot);
 
 private:
 

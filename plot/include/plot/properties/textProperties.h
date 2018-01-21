@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -68,123 +68,123 @@ public:
         Horizontal
     };
 
-    tReturn &SetAlpha( double alpha )
+    tReturn &SetAlpha(double alpha)
     {
-        this->AddArgument( "alpha", alpha );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("alpha", alpha);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Animated( bool animated )
+    tReturn &Animated(bool animated)
     {
-        this->AddArgument( "antialiased", GetBool( animated ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("antialiased", GetBool(animated));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetBackgroundColour( const std::string &colour )
+    tReturn &SetBackgroundColour(const std::string &colour)
     {
-        this->AddArgument( "backgroundcolor", this->GetString( colour ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("backgroundcolor", this->GetString(colour));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ClipOn( bool clip )
+    tReturn &ClipOn(bool clip)
     {
-        this->AddArgument( "clipon", GetBool( clip ) );
+        this->AddArgument("clipon", GetBool(clip));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetColour( const std::string &colour )
+    tReturn &SetColour(const std::string &colour)
     {
-        this->AddArgument( "color", this->GetString( colour ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("color", this->GetString(colour));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetFamily( const std::string &family )
+    tReturn &SetFamily(const std::string &family)
     {
-        this->AddArgument( "family", this->GetString( family ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("family", this->GetString(family));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetFont( Font &font )
+    tReturn &SetFont(Font &font)
     {
-        this->AddArgument( "fontproperties", font.ToString() );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("fontproperties", font.ToString());
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetHorizontalAlignment( Alignment alignment )
+    tReturn &SetHorizontalAlignment(Alignment alignment)
     {
-        this->AddArgument( "horizontalalignment",
-                     this->GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("horizontalalignment",
+                          this->GetString(__PlotLibTextPropertiesAlignment[static_cast<size_t>(alignment)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetLabel( const std::string &label )
+    tReturn &SetLabel(const std::string &label)
     {
-        this->AddArgument( "label", this->GetString( label ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("label", this->GetString(label));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetText( const std::string &text )
+    tReturn &SetText(const std::string &text)
     {
-        this->AddArgument( "text", this->GetString( text ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("text", this->GetString(text));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetUrl( const std::string &url )
+    tReturn &SetUrl(const std::string &url)
     {
-        this->AddArgument( "url", this->GetString( url ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("url", this->GetString(url));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Visible( bool visible )
+    tReturn &Visible(bool visible)
     {
-        this->AddArgument( "visible", GetBool( visible ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("visible", GetBool(visible));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetLineSpacing( double spacing )
+    tReturn &SetLineSpacing(double spacing)
     {
-        this->AddArgument( "linespacing", spacing );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("linespacing", spacing);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMultiAlignment( Alignment alignment )
+    tReturn &SetMultiAlignment(Alignment alignment)
     {
-        this->AddArgument( "multialignment",
-                     this->GetString( __PlotLibTextPropertiesAlignment[static_cast<size_t>( alignment )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("multialignment",
+                          this->GetString(__PlotLibTextPropertiesAlignment[static_cast<size_t>(alignment)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetPosition( double x, double y )
+    tReturn &SetPosition(double x, double y)
     {
-        this->AddArgument( "position", this->ToTuple( x, y ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("position", this->ToTuple(x, y));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Rasterised( bool rasterised )
+    tReturn &Rasterised(bool rasterised)
     {
-        this->AddArgument( "rasterized", GetBool( rasterised ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("rasterized", GetBool(rasterised));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetRotation( double rotation )
+    tReturn &SetRotation(double rotation)
     {
-        this->AddArgument( "rotation", rotation );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("rotation", rotation);
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetRotation( Rotation rotation )
+    tReturn &SetRotation(Rotation rotation)
     {
-        this->AddArgument( "rotation",
-                     this->GetString( __PlotLibTextPropertiesRotation[static_cast<size_t>( rotation )] ) );
-        return static_cast<tBase &>( *this );
+        this->AddArgument("rotation",
+                          this->GetString(__PlotLibTextPropertiesRotation[static_cast<size_t>(rotation)]));
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetZOrder( uint32_t zorder )
+    tReturn &SetZOrder(uint32_t zorder)
     {
-        this->AddArgument( "zorder", zorder );
+        this->AddArgument("zorder", zorder);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 };
 

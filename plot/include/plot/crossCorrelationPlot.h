@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,19 +42,19 @@ public:
         Linear
     };
 
-    CrossCorrelationPlot( const PVec &x, const PVec &y );
+    CrossCorrelationPlot(const PVec &x, const PVec &y);
 
     virtual std::string ToString() override;
 
-    CrossCorrelationPlot &Hold( bool hold );
+    CrossCorrelationPlot &Hold(bool hold);
 
-    CrossCorrelationPlot &Normed( bool normed );
+    CrossCorrelationPlot &Normed(bool normed);
 
-    CrossCorrelationPlot &VLines( bool vlines );
+    CrossCorrelationPlot &VLines(bool vlines);
 
-    CrossCorrelationPlot &SetMaxLags( size_t maxlags );
+    CrossCorrelationPlot &SetMaxLags(size_t maxlags);
 
-    CrossCorrelationPlot &SetDetrend( Detrend detrend );
+    CrossCorrelationPlot &SetDetrend(Detrend detrend);
 
 private:
 

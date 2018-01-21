@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,9 +27,9 @@
 #include "plot/distrPlot.h"
 #include "plot/pvec.h"
 
-PLOTLIB_INLINE DistrPlot::DistrPlot( const PVec &a )
+PLOTLIB_INLINE DistrPlot::DistrPlot(const PVec &a)
 {
-    mStream << "sns.distplot(" << this->ToArray( a );
+    mStream << "sns.distplot(" << this->ToArray(a);
 }
 
 PLOTLIB_INLINE std::string DistrPlot::ToString()
@@ -37,63 +37,63 @@ PLOTLIB_INLINE std::string DistrPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( const PVec &bins )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins(const PVec &bins)
 {
-    this->AddArgument( "bins", this->ToArray( bins ) );
+    this->AddArgument("bins", this->ToArray(bins));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins( size_t value )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetBins(size_t value)
 {
-    this->AddArgument( "bins", value );
+    this->AddArgument("bins", value);
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::Hist( bool hist )
+PLOTLIB_INLINE DistrPlot &DistrPlot::Hist(bool hist)
 {
-    this->AddArgument( "hist", GetBool( hist ) );
+    this->AddArgument("hist", GetBool(hist));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::KDE( bool kde )
+PLOTLIB_INLINE DistrPlot &DistrPlot::KDE(bool kde)
 {
-    this->AddArgument( "kde", GetBool( kde ) );
+    this->AddArgument("kde", GetBool(kde));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::RUG( bool rug )
+PLOTLIB_INLINE DistrPlot &DistrPlot::RUG(bool rug)
 {
-    this->AddArgument( "rug", GetBool( rug ) );
+    this->AddArgument("rug", GetBool(rug));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::Vertical( bool vertical )
+PLOTLIB_INLINE DistrPlot &DistrPlot::Vertical(bool vertical)
 {
-    this->AddArgument( "vertical", GetBool( vertical ) );
+    this->AddArgument("vertical", GetBool(vertical));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::NormHist( bool normHist )
+PLOTLIB_INLINE DistrPlot &DistrPlot::NormHist(bool normHist)
 {
-    this->AddArgument( "norm_hist", GetBool( normHist ) );
+    this->AddArgument("norm_hist", GetBool(normHist));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetLabel( const std::string &label )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetLabel(const std::string &label)
 {
-    this->AddArgument( "label", this->GetString( label ) );
+    this->AddArgument("label", this->GetString(label));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxisLabel( const std::string &label )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetAxisLabel(const std::string &label)
 {
-    this->AddArgument( "axlabel", this->GetString( label ) );
+    this->AddArgument("axlabel", this->GetString(label));
     return *this;
 }
 
-PLOTLIB_INLINE DistrPlot &DistrPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE DistrPlot &DistrPlot::SetColour(const std::string &colour)
 {
-    this->AddArgument( "color", this->GetString( colour ) );
+    this->AddArgument("color", this->GetString(colour));
 
     return *this;
 }

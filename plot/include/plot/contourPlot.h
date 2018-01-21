@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,17 +36,17 @@ class ContourPlot
 {
 public:
 
-    ContourPlot( const PMat &z );
+    ContourPlot(const PMat &z);
 
-    ContourPlot( const PMat &z, uint32_t levels );
+    ContourPlot(const PMat &z, uint32_t levels);
 
-    ContourPlot( const PMat &z, const PVec &levels );
+    ContourPlot(const PMat &z, const PVec &levels);
 
-    ContourPlot( const PVec &x, const PVec &y, const PMat &z );
+    ContourPlot(const PVec &x, const PVec &y, const PMat &z);
 
-    ContourPlot( const PVec &x, const PVec &y, const PMat &z, int32_t levels );
+    ContourPlot(const PVec &x, const PVec &y, const PMat &z, int32_t levels);
 
-    ContourPlot( const PVec &x, const PVec &y, const PMat &z, const PVec &levels );
+    ContourPlot(const PVec &x, const PVec &y, const PMat &z, const PVec &levels);
 
     std::string ToString() override;
 

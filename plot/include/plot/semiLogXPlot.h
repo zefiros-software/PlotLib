@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,11 +42,11 @@ public:
         Clip
     };
 
-    SemiLogXPlot( const PVec &exogenous, const PVec &endogenous );
+    SemiLogXPlot(const PVec &exogenous, const PVec &endogenous);
 
     virtual std::string ToString() override;
 
-    SemiLogXPlot &SetScale( LogScale &scale );
+    SemiLogXPlot &SetScale(LogScale &scale);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

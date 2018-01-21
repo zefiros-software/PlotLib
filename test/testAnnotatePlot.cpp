@@ -29,48 +29,48 @@
 #include "helper.h"
 
 
-TEST( AnnotatePlot, AnnotatePlot )
+TEST(AnnotatePlot, AnnotatePlot)
 {
-    TestPlot< AnnotatePlot >( "AnnotatePlot", []()
+    TestPlot< AnnotatePlot >("AnnotatePlot", []()
     {
-        AnnotatePlot f( "Hello World!", 0.5, 0.5 );
+        AnnotatePlot f("Hello World!", 0.5, 0.5);
         return f;
-    } );
+    });
 }
 
 
-TEST( AnnotatePlot, Construct )
+TEST(AnnotatePlot, Construct)
 {
-    AnnotatePlot( "", 0, 0 );
+    AnnotatePlot("", 0, 0);
 }
 
-TEST( AnnotatePlot, ToString )
+TEST(AnnotatePlot, ToString)
 {
-    EXPECT_EQ( "plt.annotate( s='Hello World', xy=(0.5,0.5) )", AnnotatePlot( "Hello World", 0.5, 0.5 ).ToString() );
+    EXPECT_EQ("plt.annotate( s='Hello World', xy=(0.5,0.5) )", AnnotatePlot("Hello World", 0.5, 0.5).ToString());
 }
 
 
-TEST( AnnotatePlot, SetXYText )
+TEST(AnnotatePlot, SetXYText)
 {
-    TestPlot< AnnotatePlot >( "AnnotatePlot_SetXYText", []()
+    TestPlot< AnnotatePlot >("AnnotatePlot_SetXYText", []()
     {
-        AnnotatePlot f( "Hello World!", 0.0, 0.0 );
-        f.SetXYText( 0.4, 0.4 )
-        .SetArrowProps( FancyArrow().SetArrowStyle( "<|-|>" ).SetLineWidth( 2 ) );
+        AnnotatePlot f("Hello World!", 0.0, 0.0);
+        f.SetXYText(0.4, 0.4)
+        .SetArrowProps(FancyArrow().SetArrowStyle("<|-|>").SetLineWidth(2));
         return f;
-    } );
+    });
 }
 
 
-TEST( AnnotatePlot, SetType )
+TEST(AnnotatePlot, SetType)
 {
-    TestPlot< AnnotatePlot >( "AnnotatePlot_SetType", []()
+    TestPlot< AnnotatePlot >("AnnotatePlot_SetType", []()
     {
-        AnnotatePlot f( "Hello World!", 0.0, 0.0 );
-        f.SetXYText( 200, 50 )
-        .SetArrowProps( YArrow().SetWidth( 10 ) )
-        .SetXYCoordinates( AnnotatePlot::Type::AxesPixels )
-        .SetTextCoordinates( AnnotatePlot::Type::AxesPixels );
+        AnnotatePlot f("Hello World!", 0.0, 0.0);
+        f.SetXYText(200, 50)
+        .SetArrowProps(YArrow().SetWidth(10))
+        .SetXYCoordinates(AnnotatePlot::Type::AxesPixels)
+        .SetTextCoordinates(AnnotatePlot::Type::AxesPixels);
         return f;
-    } );
+    });
 }

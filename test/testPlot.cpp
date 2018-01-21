@@ -28,11 +28,11 @@
 
 #include "helper.h"
 
-TEST( Plot, CustomPython )
+TEST(Plot, CustomPython)
 {
     Plot plot;
 
-    plot.SubPlot( 1, 1, 1 ).AddPlot( LinePlot( ( vec )abs( randn( 300 ) ) ) ).SetTitle( "Some Title", 20 )
-    .SetSupTitle( "Some Suptitle", 24 ).SetTightLayout().AddCustomPython( "plt.subplots_adjust(top=0.85)" )
-    .Save( "CustomPython" );
+    plot.SubPlot(1, 1, 1).AddPlot(LinePlot((vec)abs(randn(300)))).SetTitle("Some Title", 20)
+    .SetSupTitle("Some Suptitle", 24).SetTightLayout().AddCustomPython("plt.subplots_adjust(top=0.85)")
+    .Save("CustomPython");
 }

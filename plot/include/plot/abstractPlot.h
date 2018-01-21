@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -48,7 +48,7 @@ public:
 
     AbstractPlot();
 
-    AbstractPlot( const AbstractPlot &other );
+    AbstractPlot(const AbstractPlot &other);
 
     virtual ~AbstractPlot();
 
@@ -60,9 +60,9 @@ public:
 
     virtual std::string ToString() = 0;
 
-    std::string ToString( const std::string &body ) const;
+    std::string ToString(const std::string &body) const;
 
-    static std::string GetString( const std::string &str );
+    static std::string GetString(const std::string &str);
 
     /**
      * Gets a boolean python representation.
@@ -72,10 +72,10 @@ public:
      * @return The bool.
      */
 
-    static std::string GetBool( bool boolean );
+    static std::string GetBool(bool boolean);
 
     template< typename tT, typename tU >
-    static std::string ToTuple( const tT &x, const tU &y )
+    static std::string ToTuple(const tT &x, const tU &y)
     {
         std::stringstream ss;
         ss << "(" << x << "," << y << ")";
@@ -83,7 +83,7 @@ public:
     }
 
     template< typename tT, typename tU, typename tV, typename tZ >
-    static std::string ToTuple( const tT &x, const tU &y, const tV &z, const tZ &w )
+    static std::string ToTuple(const tT &x, const tU &y, const tV &z, const tZ &w)
     {
         std::stringstream ss;
         ss << "(" << x << "," << y << "," << z << "," << w << ")";
@@ -98,7 +98,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const PVec &vec );
+    static std::string ToArray(const PVec &vec);
 
     /**
      * Convert this matrix into python representation.
@@ -108,7 +108,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const ::PMat &mat );
+    static std::string ToArray(const ::PMat &mat);
 
     /**
      * Convert this vector into python representation.
@@ -118,7 +118,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const std::vector< std::vector< double > > &mat );
+    static std::string ToArray(const std::vector< std::vector< double >> &mat);
 
     /**
      * Convert this vector into python representation.
@@ -128,7 +128,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const std::vector< double > &vec );
+    static std::string ToArray(const std::vector< double > &vec);
 
     /**
      * Convert this vector into python representation.
@@ -138,7 +138,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const std::vector< uint32_t > &vec );
+    static std::string ToArray(const std::vector< uint32_t > &vec);
 
     /**
      * Convert this vector into python representation.
@@ -148,7 +148,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const std::vector<std::string> &vec );
+    static std::string ToArray(const std::vector<std::string> &vec);
 
     /**
      * Convert this vector into python representation.
@@ -158,7 +158,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const std::vector<bool> &vec );
+    static std::string ToArray(const std::vector<bool> &vec);
 
     /**
      * Convert this vector into python representation.
@@ -168,7 +168,7 @@ public:
      * @return An array that represents the data in this object.
      */
 
-    static std::string ToArray( const std::vector< std::vector< std::string > > &mat );
+    static std::string ToArray(const std::vector< std::vector< std::string >> &mat);
 
 protected:
 
@@ -178,13 +178,13 @@ protected:
     bool mIsDictionary;
 
     template< typename tT >
-    void AddArgument( const std::string &name, const tT &value )
+    void AddArgument(const std::string &name, const tT &value)
     {
         std::stringstream ss;
 
-        if ( mIsDictionary )
+        if (mIsDictionary)
         {
-            if ( mCount++ != 0 )
+            if (mCount++ != 0)
             {
                 ss << ", ";
             }
@@ -211,14 +211,14 @@ protected:
      */
 
     template<typename tT>
-    static std::string ToString( tT begin, tT end, const std::string &delimiter = "" )
+    static std::string ToString(tT begin, tT end, const std::string &delimiter = "")
     {
         std::stringstream ss;
         bool first = true;
 
-        for ( ; begin != end; ++begin )
+        for (; begin != end; ++begin)
         {
-            if ( !first )
+            if (!first)
             {
                 ss << ", ";
             }

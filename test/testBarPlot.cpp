@@ -28,131 +28,131 @@
 
 #include "helper.h"
 
-TEST( BarPlot, BarPlot )
+TEST(BarPlot, BarPlot)
 {
-    TestPlot< BarPlot >( "BarPlot", []()
+    TestPlot< BarPlot >("BarPlot", []()
     {
-        vec randX = round( randu( 10 ) * 100 );
-        vec randY = randu( 10 ) * 100;
-        BarPlot f( randX, randY );
+        vec randX = round(randu(10) * 100);
+        vec randY = randu(10) * 100;
+        BarPlot f(randX, randY);
         return f;
-    } );
+    });
 }
 
-TEST( BarPlot, Constr2 )
+TEST(BarPlot, Constr2)
 {
-    TestPlot< BarPlot >( "BarPlot_Constr2", []()
+    TestPlot< BarPlot >("BarPlot_Constr2", []()
     {
-        PVec x = ( vec )( round( randu( 10 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< PVec, PVec > >
+        PVec x = (vec)(round(randu(10) * 100));
+        BarPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { x, ( vec )( randu( 10 ) * 100 )},
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) }
-        } );
-        f.SetErrorWidth( 1.2 )
-        .SetCapSize( 0.3 )
-        .SetNBoot( 5000 );
+            { x, (vec)(randu(10) * 100)},
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) }
+        });
+        f.SetErrorWidth(1.2)
+        .SetCapSize(0.3)
+        .SetNBoot(5000);
         return f;
-    } );
+    });
 }
 
-TEST( BarPlot, Constr3 )
+TEST(BarPlot, Constr3)
 {
-    TestPlot< BarPlot >( "BarPlot_Constr3", []()
+    TestPlot< BarPlot >("BarPlot_Constr3", []()
     {
-        PVec x = ( vec )( round( randu( 8 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< PVec, PVec > >
+        PVec x = (vec)(round(randu(8) * 100));
+        BarPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { x, ( vec )( randu( 8 ) * 100 )},
-            { x, ( vec )( randu( 8 ) * 100 ) },
-        }, { "First", "Second" } );
-        f.SetHatch( "//" );
+            { x, (vec)(randu(8) * 100)},
+            { x, (vec)(randu(8) * 100) },
+        }, { "First", "Second" });
+        f.SetHatch("//");
         return f;
-    } );
+    });
 }
 
-TEST( BarPlot, Constr4 )
+TEST(BarPlot, Constr4)
 {
-    TestPlot< BarPlot >( "BarPlot_Constr4", []()
+    TestPlot< BarPlot >("BarPlot_Constr4", []()
     {
-        PVec x = ( vec )( round( randu( 8 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< PVec, PVec > >
+        PVec x = (vec)(round(randu(8) * 100));
+        BarPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { x, ( vec )( randu( 8 ) * 100 )},
-            { x, ( vec )( randu( 8 ) * 100 ) },
+            { x, (vec)(randu(8) * 100)},
+            { x, (vec)(randu(8) * 100) },
         },
         std::vector< uint32_t > { 1, 2 },
-        []( uint32_t d )
+        [](uint32_t d)
         {
-            return std::to_string( d ) + "@@";
-        } );
-        f.SetConfidenceInterval( 0.0 );
+            return std::to_string(d) + "@@";
+        });
+        f.SetConfidenceInterval(0.0);
         return f;
-    } );
+    });
 }
 
-TEST( BarPlot, ColourCycler )
+TEST(BarPlot, ColourCycler)
 {
-    TestPlotArg< BarPlot >( "BarPlot_ColourCycler", []( Plot & plot )
+    TestPlotArg< BarPlot >("BarPlot_ColourCycler", [](Plot & plot)
     {
 
-        plot.AddColourCycler( Palette::Diverging::RdYlBu );
-        PVec x = ( vec )( round( randu( 10 ) * 100 ) );
-        BarPlot f( std::vector< std::pair< PVec, PVec > >
+        plot.AddColourCycler(Palette::Diverging::RdYlBu);
+        PVec x = (vec)(round(randu(10) * 100));
+        BarPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { x, ( vec )( randu( 10 ) * 100 )},
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) }
-        }, { "1", "2", "3", "4", "5" } );
-        f.UseColourCycler( plot.GetColourCycler() );
+            { x, (vec)(randu(10) * 100)},
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) }
+        }, { "1", "2", "3", "4", "5" });
+        f.UseColourCycler(plot.GetColourCycler());
 
         return f;
-    } );
+    });
 }
 
-TEST( BarPlot, SetColourMap )
+TEST(BarPlot, SetColourMap)
 {
-    TestPlot< BarPlot >( "BarPlot_SetColourMap", []()
-    {
-        vec x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        BarPlot f( std::vector< std::pair< PVec, PVec > >
-        {
-            { x, ( vec )( randu( 10 ) * 100 )},
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) },
-            { x, ( vec )( randu( 10 ) * 100 ) }
-        }, { "1", "2", "3", "4", "5" } );
-        f.SetColourMap( Palette::Diverging::Coolwarm )
-        .SetSaturation( 1.0 )
-        .SetOrder( ( vec )shuffle<vec>( x ) )
-        .SetHueOrder( { "5", "4", "3", "2", "1" } )
-        .SetOrientation( BarPlot::Orientation::Vertical );
-
-        return f;
-    } );
-}
-
-TEST( BarPlot, Orientation )
-{
-    TestPlot< BarPlot >( "BarPlot_Orientation", []()
+    TestPlot< BarPlot >("BarPlot_SetColourMap", []()
     {
         vec x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        BarPlot f( std::vector< std::pair< PVec, PVec > >
+        BarPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { ( vec )( randu( 10 ) * 100 ), x },
-            { ( vec )( randu( 10 ) * 100 ), x },
-            { ( vec )( randu( 10 ) * 100 ), x },
-            { ( vec )( randu( 10 ) * 100 ), x },
-            { ( vec )( randu( 10 ) * 100 ), x }
-        } );
-        f.SetOrientation( BarPlot::Orientation::Horizontal )
-        .SetColour( "b" )
-        .SetErrorColour( "r" );
+            { x, (vec)(randu(10) * 100)},
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) },
+            { x, (vec)(randu(10) * 100) }
+        }, { "1", "2", "3", "4", "5" });
+        f.SetColourMap(Palette::Diverging::Coolwarm)
+        .SetSaturation(1.0)
+        .SetOrder((vec)shuffle<vec>(x))
+        .SetHueOrder({ "5", "4", "3", "2", "1" })
+        .SetOrientation(BarPlot::Orientation::Vertical);
 
         return f;
-    } );
+    });
+}
+
+TEST(BarPlot, Orientation)
+{
+    TestPlot< BarPlot >("BarPlot_Orientation", []()
+    {
+        vec x = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        BarPlot f(std::vector< std::pair< PVec, PVec >>
+        {
+            { (vec)(randu(10) * 100), x },
+            { (vec)(randu(10) * 100), x },
+            { (vec)(randu(10) * 100), x },
+            { (vec)(randu(10) * 100), x },
+            { (vec)(randu(10) * 100), x }
+        });
+        f.SetOrientation(BarPlot::Orientation::Horizontal)
+        .SetColour("b")
+        .SetErrorColour("r");
+
+        return f;
+    });
 }

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,65 +27,65 @@
 #include "plot/define.h"
 #include "plot/mat.h"
 
-PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< int64_t > > &data,
-                           const std::map< int64_t, std::string > &map )
+PLOTLIB_INLINE PMat::PMat(const std::vector< std::vector< int64_t >> &data,
+                          const std::map< int64_t, std::string > &map)
 {
-    mStrData.resize( data.size() );
+    mStrData.resize(data.size());
     size_t i = 0;
 
-    for ( auto &vec : data )
+    for (auto &vec : data)
     {
-        for ( auto &val : vec )
+        for (auto &val : vec)
         {
-            mStrData[i].push_back( map.at( val ) );
+            mStrData[i].push_back(map.at(val));
         }
 
         ++i;
     }
 
-    mDimension = CheckDimensions( mStrData );
+    mDimension = CheckDimensions(mStrData);
 }
 
-PLOTLIB_INLINE PMat::PMat( const std::initializer_list< std::initializer_list< std::string > > &data )
-    : mStrData( data.begin(), data.end() )
+PLOTLIB_INLINE PMat::PMat(const std::initializer_list< std::initializer_list< std::string >> &data)
+    : mStrData(data.begin(), data.end())
 {
-    mDimension = CheckDimensions( mStrData );
+    mDimension = CheckDimensions(mStrData);
 }
 
-PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< std::string > > &data )
-    : mStrData( data )
+PLOTLIB_INLINE PMat::PMat(const std::vector< std::vector< std::string >> &data)
+    : mStrData(data)
 {
-    mDimension = CheckDimensions( mStrData );
+    mDimension = CheckDimensions(mStrData);
 }
 
-PLOTLIB_INLINE PMat::PMat( const std::initializer_list< std::initializer_list< double > > &data )
-    : mData( data.begin(), data.end() )
+PLOTLIB_INLINE PMat::PMat(const std::initializer_list< std::initializer_list< double >> &data)
+    : mData(data.begin(), data.end())
 {
-    mDimension = CheckDimensions( mData );
+    mDimension = CheckDimensions(mData);
 }
 
-PLOTLIB_INLINE PMat::PMat( const std::vector< std::vector< double > > &data )
-    : mData( data )
+PLOTLIB_INLINE PMat::PMat(const std::vector< std::vector< double >> &data)
+    : mData(data)
 {
-    mDimension = CheckDimensions( mData );
+    mDimension = CheckDimensions(mData);
 }
 
-PLOTLIB_INLINE PMat::PMat( const std::vector< PVec > &data )
+PLOTLIB_INLINE PMat::PMat(const std::vector< PVec > &data)
 {
-    for ( auto &v : data )
+    for (auto &v : data)
     {
-        mData.push_back( v.GetData() );
+        mData.push_back(v.GetData());
     }
 
-    mDimension = CheckDimensions( mData );
+    mDimension = CheckDimensions(mData);
 }
 
-PLOTLIB_INLINE const std::vector< std::vector< double > > &PMat::GetData() const
+PLOTLIB_INLINE const std::vector< std::vector< double >> &PMat::GetData() const
 {
     return mData;
 }
 
-PLOTLIB_INLINE const std::vector< std::vector< std::string > > &PMat::GetStrings() const
+PLOTLIB_INLINE const std::vector< std::vector< std::string >> &PMat::GetStrings() const
 {
     return mStrData;
 }

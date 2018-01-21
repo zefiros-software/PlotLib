@@ -28,128 +28,128 @@
 
 #include "helper.h"
 
-TEST( ContourfPlot, ContourfPlot )
+TEST(ContourfPlot, ContourfPlot)
 {
-    TestPlot< ContourfPlot >( "ContourfPlot", []()
+    TestPlot< ContourfPlot >("ContourfPlot", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourfPlot f( m );
-        f.SetColourMap( ColourMap::Sequential::YlGnBu );
+        ContourfPlot f(m);
+        f.SetColourMap(ColourMap::Sequential::YlGnBu);
         return f;
-    } );
+    });
 }
 
 
-TEST( ContourfPlot, ContourfPlot2 )
+TEST(ContourfPlot, ContourfPlot2)
 {
-    TestPlot< ContourfPlot >( "ContourfPlot2", []()
+    TestPlot< ContourfPlot >("ContourfPlot2", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourfPlot f( m, 10 );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourfPlot f(m, 10);
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }
 
-TEST( ContourfPlot, ContourfPlot3 )
+TEST(ContourfPlot, ContourfPlot3)
 {
-    TestPlot< ContourfPlot >( "ContourfPlot3", []()
+    TestPlot< ContourfPlot >("ContourfPlot3", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourfPlot f( m, { 0, 1, 4 } );
-        f.SetColourMap( ColourMap::Sequential::Oranges );
+        ContourfPlot f(m, { 0, 1, 4 });
+        f.SetColourMap(ColourMap::Sequential::Oranges);
         return f;
-    } );
+    });
 }
 
-TEST( ContourfPlot, ContourfPlot4 )
+TEST(ContourfPlot, ContourfPlot4)
 {
-    TestPlot< ContourfPlot >( "ContourfPlot4", []()
+    TestPlot< ContourfPlot >("ContourfPlot4", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourfPlot f( ( vec )( linspace( -15, 15, 300 ) ),
-                        ( vec )( linspace( -15, 15, 300 ) ),
-                        m, 3 );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourfPlot f((vec)(linspace(-15, 15, 300)),
+                       (vec)(linspace(-15, 15, 300)),
+                       m, 3);
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }
 
-TEST( ContourfPlot, ContourfPlot5 )
+TEST(ContourfPlot, ContourfPlot5)
 {
-    TestPlot< ContourfPlot >( "ContourfPlot5", []()
+    TestPlot< ContourfPlot >("ContourfPlot5", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourfPlot f( ( vec )( linspace( -15, 15, 300 ) ),
-                        ( vec )( linspace( -15, 15, 300 ) ),
-                        m, { 0, 0.5, 1 } );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourfPlot f((vec)(linspace(-15, 15, 300)),
+                       (vec)(linspace(-15, 15, 300)),
+                       m, { 0, 0.5, 1 });
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }
 
-TEST( ContourfPlot, ContourfPlot6 )
+TEST(ContourfPlot, ContourfPlot6)
 {
-    TestPlot< ContourfPlot >( "ContourfPlot6", []()
+    TestPlot< ContourfPlot >("ContourfPlot6", []()
     {
-        mat m = zeros( 300, 300 );
+        mat m = zeros(300, 300);
 
-        for ( uint32_t i = 0; i < 300; ++i )
+        for (uint32_t i = 0; i < 300; ++i)
         {
-            for ( uint32_t j = 0; j < 300; ++j )
+            for (uint32_t j = 0; j < 300; ++j)
             {
-                m( i, j ) = cos( ( i / 300.0 ) * 4 * datum::pi ) + cos( ( j / 300.0 ) * 4 * datum::pi );
+                m(i, j) = cos((i / 300.0) * 4 * datum::pi) + cos((j / 300.0) * 4 * datum::pi);
             }
         }
 
-        ContourfPlot f( ( vec )( linspace( 0, 15, 300 ) ),
-                        ( vec )( linspace( 0, 15, 300 ) ), m );
-        f.SetColourMap( ColourMap::Uniform::Viridis );
+        ContourfPlot f((vec)(linspace(0, 15, 300)),
+                       (vec)(linspace(0, 15, 300)), m);
+        f.SetColourMap(ColourMap::Uniform::Viridis);
         return f;
-    } );
+    });
 }

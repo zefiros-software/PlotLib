@@ -29,56 +29,56 @@
 #include "helper.h"
 
 
-TEST( ArrowPlot, ArrowPlot )
+TEST(ArrowPlot, ArrowPlot)
 {
-    TestPlot< ArrowPlot >( "ArrowPlot", []()
+    TestPlot< ArrowPlot >("ArrowPlot", []()
     {
-        ArrowPlot f( 0, 0.1, 1, 0.5 );
+        ArrowPlot f(0, 0.1, 1, 0.5);
         return f;
-    } );
+    });
 }
 
 
-TEST( ArrowPlot, SetWidth )
+TEST(ArrowPlot, SetWidth)
 {
-    TestPlot< ArrowPlot >( "ArrowPlot_SetWidth", []()
+    TestPlot< ArrowPlot >("ArrowPlot_SetWidth", []()
     {
-        ArrowPlot f( 0, 0.1, 0.7, 0.5 );
-        f.SetWidth( 0.009 );
+        ArrowPlot f(0, 0.1, 0.7, 0.5);
+        f.SetWidth(0.009);
         return f;
-    } );
+    });
 }
 
-TEST( ArrowPlot, LengthIncludesHead )
+TEST(ArrowPlot, LengthIncludesHead)
 {
-    TestPlot< ArrowPlot >( "ArrowPlot_LengthIncludesHead", []()
+    TestPlot< ArrowPlot >("ArrowPlot_LengthIncludesHead", []()
     {
-        ArrowPlot f( 0, 0.1, 1, 0.5 );
-        f.LengthIncludesHead( true );
+        ArrowPlot f(0, 0.1, 1, 0.5);
+        f.LengthIncludesHead(true);
         return f;
-    } );
+    });
 }
 
-TEST( ArrowPlot, SetHead )
+TEST(ArrowPlot, SetHead)
 {
-    TestPlot< ArrowPlot >( "ArrowPlot_SetHead", []()
+    TestPlot< ArrowPlot >("ArrowPlot_SetHead", []()
     {
-        ArrowPlot f( 0, 0.1, 0.8, 0.5 );
-        f.LengthIncludesHead( true )
-        .SetHeadWidth( 0.05 )
-        .SetHeadLength( 0.05 )
-        .SetOverhang( -1 );
+        ArrowPlot f(0, 0.1, 0.8, 0.5);
+        f.LengthIncludesHead(true)
+        .SetHeadWidth(0.05)
+        .SetHeadLength(0.05)
+        .SetOverhang(-1);
         return f;
-    } );
+    });
 }
-TEST( ArrowPlot, HeadStartsAtZero )
+TEST(ArrowPlot, HeadStartsAtZero)
 {
-    TestPlot< ArrowPlot >( "ArrowPlot_HeadStartsAtZero", []()
+    TestPlot< ArrowPlot >("ArrowPlot_HeadStartsAtZero", []()
     {
-        ArrowPlot f( 0, 0.1, 0.8, 0.5 );
-        f.SetShape( ArrowPlot::Shape::Left )
-        .SetHeadWidth( 0.08 )
-        .HeadStartsAtZero( true );
+        ArrowPlot f(0, 0.1, 0.8, 0.5);
+        f.SetShape(ArrowPlot::Shape::Left)
+        .SetHeadWidth(0.08)
+        .HeadStartsAtZero(true);
         return f;
-    } );
+    });
 }

@@ -28,26 +28,26 @@
 
 #include "helper.h"
 
-TEST( RUGPlot, RUGPlot )
+TEST(RUGPlot, RUGPlot)
 {
-    TestPlot< RUGPlot >( "RUGPlot", []()
+    TestPlot< RUGPlot >("RUGPlot", []()
     {
-        RUGPlot f( ( vec )randn( 300 ) );
-        f.SetHeight( 5 )
-        .SetLine( VLine().SetColour( "g" ) );
+        RUGPlot f((vec)randn(300));
+        f.SetHeight(5)
+        .SetLine(VLine().SetColour("g"));
         return f;
-    } );
+    });
 }
 
 
-TEST( RUGPlot, RUGPlot2 )
+TEST(RUGPlot, RUGPlot2)
 {
-    TestPlot< RUGPlot >( "RUGPlot2", []()
+    TestPlot< RUGPlot >("RUGPlot2", []()
     {
-        RUGPlot f( ( vec )randn( 300 ) );
-        f.SetAxis( RUGPlot::Axis::Y )
-        .SetLine( HLine().SetColour( "r" ) );
+        RUGPlot f((vec)randn(300));
+        f.SetAxis(RUGPlot::Axis::Y)
+        .SetLine(HLine().SetColour("r"));
         return f;
-    } );
+    });
 }
 

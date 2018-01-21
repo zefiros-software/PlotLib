@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,29 +35,29 @@ class ScatterPlot
 {
 public:
 
-    ScatterPlot( const PVec &exogenous, const PVec &endogenous );
+    ScatterPlot(const PVec &exogenous, const PVec &endogenous);
 
     virtual std::string ToString() override;
 
-    ScatterPlot &SetAlpha( double alpha );
+    ScatterPlot &SetAlpha(double alpha);
 
-    ScatterPlot &SetScalar( double scalar );
+    ScatterPlot &SetScalar(double scalar);
 
-    ScatterPlot &SetScalar( const PVec &scalar );
+    ScatterPlot &SetScalar(const PVec &scalar);
 
-    ScatterPlot &SetColour( const std::string &colour );
+    ScatterPlot &SetColour(const std::string &colour);
 
-    ScatterPlot &SetEdgeColour( const std::string &colour );
+    ScatterPlot &SetEdgeColour(const std::string &colour);
 
-    ScatterPlot &SetMarker( const std::string &marker );
+    ScatterPlot &SetMarker(const std::string &marker);
 
-    ScatterPlot &SetVMin( double vmin );
+    ScatterPlot &SetVMin(double vmin);
 
-    ScatterPlot &SetVMax( double vmax );
+    ScatterPlot &SetVMax(double vmax);
 
-    ScatterPlot &SetLineWidth( double lineWidth );
+    ScatterPlot &SetLineWidth(double lineWidth);
 
-    ScatterPlot &SetLineWidth( const PVec &widths );
+    ScatterPlot &SetLineWidth(const PVec &widths);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

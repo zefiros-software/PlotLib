@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,33 +44,33 @@ public:
         Horizontal
     };
 
-    SwarmPlot( const PVec &x, const PVec &y );
+    SwarmPlot(const PVec &x, const PVec &y);
 
-    SwarmPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    SwarmPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    SwarmPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    SwarmPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     virtual std::string ToString() override;
 
-    SwarmPlot &SetOrder( const PVec &order );
+    SwarmPlot &SetOrder(const PVec &order);
 
-    SwarmPlot &SetHueOrder( const std::vector< std::string > &order );
+    SwarmPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    SwarmPlot &SetDodge( bool dodge);
+    SwarmPlot &SetDodge(bool dodge);
 
-    SwarmPlot &SetOrientation( Orientation orientation );
+    SwarmPlot &SetOrientation(Orientation orientation);
 
-    SwarmPlot &SetColour( const std::string &colour );
+    SwarmPlot &SetColour(const std::string &colour);
 
-    SwarmPlot &SetColourMap( const Palette &pallet );
+    SwarmPlot &SetColourMap(const Palette &pallet);
 
-    SwarmPlot &SetSize( double size );
+    SwarmPlot &SetSize(double size);
 
-    SwarmPlot &SetEdgdeColour( const std::string &colour );
+    SwarmPlot &SetEdgdeColour(const std::string &colour);
 
-    SwarmPlot &SetEdgeColour( const std::string &colour );
+    SwarmPlot &SetEdgeColour(const std::string &colour);
 
-    SwarmPlot &SetLineWidth( double width );
+    SwarmPlot &SetLineWidth(double width);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

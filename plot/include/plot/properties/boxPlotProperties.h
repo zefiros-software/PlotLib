@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -42,158 +42,158 @@ class BoxPlotProperties
 public:
     typedef typename std::conditional < IsDict &&!IsBase, BoxPlotProperties< tBase, IsDict >, tBase & >::type tReturn;
 
-    tReturn &SetX( const PVec &x )
+    tReturn &SetX(const PVec &x)
     {
-        this->AddArgument( "x", this->ToArray( x ) );
+        this->AddArgument("x", this->ToArray(x));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &Notch( bool notch )
+    tReturn &Notch(bool notch)
     {
-        this->AddArgument( "notch", GetBool( notch ) );
+        this->AddArgument("notch", GetBool(notch));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMarkerSymbol( const std::string &symbol )
+    tReturn &SetMarkerSymbol(const std::string &symbol)
     {
-        this->AddArgument( "sym", this->GetString( symbol ) );
+        this->AddArgument("sym", this->GetString(symbol));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetWhis( double whis )
+    tReturn &SetWhis(double whis)
     {
-        this->AddArgument( "whis", whis );
+        this->AddArgument("whis", whis);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetBootstrap( uint32_t bootstrap )
+    tReturn &SetBootstrap(uint32_t bootstrap)
     {
-        this->AddArgument( "bootstrap", bootstrap );
+        this->AddArgument("bootstrap", bootstrap);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMedians( const PVec &medians )
+    tReturn &SetMedians(const PVec &medians)
     {
-        this->AddArgument( "usermedians", this->ToArray( medians ) );
+        this->AddArgument("usermedians", this->ToArray(medians));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetConfidenceIntervals( const PMat &intervals )
+    tReturn &SetConfidenceIntervals(const PMat &intervals)
     {
-        this->AddArgument( "conf_intervals", this->ToArray( intervals ) );
+        this->AddArgument("conf_intervals", this->ToArray(intervals));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetPositions( const std::vector< uint32_t > &positions )
+    tReturn &SetPositions(const std::vector< uint32_t > &positions)
     {
-        this->AddArgument( "positions", this->ToArray( positions ) );
+        this->AddArgument("positions", this->ToArray(positions));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetWidths( double widths )
+    tReturn &SetWidths(double widths)
     {
-        this->AddArgument( "widths", widths );
+        this->AddArgument("widths", widths);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetWidths( const PVec &widths )
+    tReturn &SetWidths(const PVec &widths)
     {
-        this->AddArgument( "widths", this->ToArray( widths ) );
+        this->AddArgument("widths", this->ToArray(widths));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetLabels( const std::vector< std::string > &labels )
+    tReturn &SetLabels(const std::vector< std::string > &labels)
     {
-        this->AddArgument( "labels", this->ToArray( labels ) );
+        this->AddArgument("labels", this->ToArray(labels));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ShowMeans( bool showmeans )
+    tReturn &ShowMeans(bool showmeans)
     {
-        this->AddArgument( "showmeans", GetBool( showmeans ) );
+        this->AddArgument("showmeans", GetBool(showmeans));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ShowBox( bool showbox )
+    tReturn &ShowBox(bool showbox)
     {
-        this->AddArgument( "showbox", GetBool( showbox ) );
+        this->AddArgument("showbox", GetBool(showbox));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ShowFliers( bool showfliers )
+    tReturn &ShowFliers(bool showfliers)
     {
-        this->AddArgument( "showfliers", GetBool( showfliers ) );
+        this->AddArgument("showfliers", GetBool(showfliers));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &MeanLine( bool meanline )
+    tReturn &MeanLine(bool meanline)
     {
-        this->AddArgument( "meanline", GetBool( meanline ) );
+        this->AddArgument("meanline", GetBool(meanline));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ManageXTicks( bool manage )
+    tReturn &ManageXTicks(bool manage)
     {
-        this->AddArgument( "manage_xticks", GetBool( manage ) );
+        this->AddArgument("manage_xticks", GetBool(manage));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetBox( Line2D &properties )
+    tReturn &SetBox(Line2D &properties)
     {
-        this->AddArgument( "boxprops", properties.ToString() );
+        this->AddArgument("boxprops", properties.ToString());
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetWhisker( Line2D &properties )
+    tReturn &SetWhisker(Line2D &properties)
     {
-        this->AddArgument( "whiskerprops", properties.ToString() );
+        this->AddArgument("whiskerprops", properties.ToString());
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetCap( Line2D &properties )
+    tReturn &SetCap(Line2D &properties)
     {
-        this->AddArgument( "capprops", properties.ToString() );
+        this->AddArgument("capprops", properties.ToString());
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetFlier( Line2D &properties )
+    tReturn &SetFlier(Line2D &properties)
     {
-        this->AddArgument( "flierprops", properties.ToString() );
+        this->AddArgument("flierprops", properties.ToString());
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMedian( Line2D &properties )
+    tReturn &SetMedian(Line2D &properties)
     {
-        this->AddArgument( "medianprops", properties.ToString() );
+        this->AddArgument("medianprops", properties.ToString());
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetMean( Line2D &properties )
+    tReturn &SetMean(Line2D &properties)
     {
-        this->AddArgument( "meanprops", properties.ToString() );
+        this->AddArgument("meanprops", properties.ToString());
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 };
 

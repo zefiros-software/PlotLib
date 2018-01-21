@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,27 +44,27 @@ public:
         Hexbin
     };
 
-    JointPlot( const PVec &exogenous, const PVec &endogenous );
+    JointPlot(const PVec &exogenous, const PVec &endogenous);
 
     virtual std::string ToString() override;
 
-    JointPlot &SetKind( Kind kind );
+    JointPlot &SetKind(Kind kind);
 
-    JointPlot &SetSize( size_t size );
+    JointPlot &SetSize(size_t size);
 
-    JointPlot &SetRatio( size_t ratio );
+    JointPlot &SetRatio(size_t ratio);
 
-    JointPlot &SetSpace( double space );
+    JointPlot &SetSpace(double space);
 
-    JointPlot &SetXLimit( const std::pair<double, double> &x );
+    JointPlot &SetXLimit(const std::pair<double, double> &x);
 
-    JointPlot &SetYLimit( const std::pair<double, double> &y );
+    JointPlot &SetYLimit(const std::pair<double, double> &y);
 
-    JointPlot &SetColour( const std::string &colour );
+    JointPlot &SetColour(const std::string &colour);
 
 private:
 
-    static std::string GetKind( Kind kind );
+    static std::string GetKind(Kind kind);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

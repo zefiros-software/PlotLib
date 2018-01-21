@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -71,35 +71,35 @@ public:
         WMinkowski
     };
 
-    ClusterMapPlot( const ::PMat &map );
+    ClusterMapPlot(const ::PMat &map);
 
     virtual std::string ToString() override;
 
-    ClusterMapPlot &SetMethod( Linkage linkage );
+    ClusterMapPlot &SetMethod(Linkage linkage);
 
-    ClusterMapPlot &SetMetric( Metric metric );
+    ClusterMapPlot &SetMetric(Metric metric);
 
-    ClusterMapPlot &ZScoreColumns( bool rows );
+    ClusterMapPlot &ZScoreColumns(bool rows);
 
-    ClusterMapPlot &StandardScale( bool rows );
+    ClusterMapPlot &StandardScale(bool rows);
 
-    ClusterMapPlot &SetFigSize( const std::pair< size_t, size_t > &size );
+    ClusterMapPlot &SetFigSize(const std::pair< size_t, size_t > &size);
 
-    ClusterMapPlot &RowCluster( bool cluster );
+    ClusterMapPlot &RowCluster(bool cluster);
 
-    ClusterMapPlot &ColumnCluster( bool cluster );
+    ClusterMapPlot &ColumnCluster(bool cluster);
 
-    ClusterMapPlot &SetRowLinkage( const PVec &linkage );
+    ClusterMapPlot &SetRowLinkage(const PVec &linkage);
 
-    ClusterMapPlot &SetColumnLinkage( const PVec &linkage );
+    ClusterMapPlot &SetColumnLinkage(const PVec &linkage);
 
-    ClusterMapPlot &SetMask( const std::vector< bool > &mask );
+    ClusterMapPlot &SetMask(const std::vector< bool > &mask);
 
 private:
 
-    static std::string GetLinkage( Linkage linkage );
+    static std::string GetLinkage(Linkage linkage);
 
-    static std::string GetMetric( Metric metric );
+    static std::string GetMetric(Metric metric);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

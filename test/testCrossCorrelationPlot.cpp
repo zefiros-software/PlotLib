@@ -28,42 +28,42 @@
 
 #include "helper.h"
 
-TEST( CrossCorrelationPlot, CrossCorrelationPlot )
+TEST(CrossCorrelationPlot, CrossCorrelationPlot)
 {
-    TestPlot< CrossCorrelationPlot >( "CrossCorrelationPlot", []()
+    TestPlot< CrossCorrelationPlot >("CrossCorrelationPlot", []()
     {
-        vec xVec = randu( 200 );
-        vec yVec = randu( 200 );
-        CrossCorrelationPlot f( xVec, yVec );
+        vec xVec = randu(200);
+        vec yVec = randu(200);
+        CrossCorrelationPlot f(xVec, yVec);
         return f;
-    } );
+    });
 }
 
-TEST( CrossCorrelationPlot, CrossCorrelationPlot2 )
+TEST(CrossCorrelationPlot, CrossCorrelationPlot2)
 {
-    TestPlot< CrossCorrelationPlot >( "CrossCorrelationPlot_SetHold", []()
+    TestPlot< CrossCorrelationPlot >("CrossCorrelationPlot_SetHold", []()
     {
-        vec xVec = randu( 200 );
-        vec yVec = randu( 200 );
-        CrossCorrelationPlot f( xVec, yVec );
-        f.SetLineWidth( 3 )
-        .SetColour( "b" )
-        .Normed( true );
+        vec xVec = randu(200);
+        vec yVec = randu(200);
+        CrossCorrelationPlot f(xVec, yVec);
+        f.SetLineWidth(3)
+        .SetColour("b")
+        .Normed(true);
         return f;
-    } );
+    });
 }
 
-TEST( CrossCorrelationPlot, SetVLines )
+TEST(CrossCorrelationPlot, SetVLines)
 {
-    TestPlot< CrossCorrelationPlot >( "CrossCorrelationPlot_SetVLines", []()
+    TestPlot< CrossCorrelationPlot >("CrossCorrelationPlot_SetVLines", []()
     {
-        vec xVec = randu( 200 );
-        vec yVec = randu( 200 );
-        CrossCorrelationPlot f( xVec, yVec );
-        f.SetMarker( "." )
-        .VLines( false )
-        .SetMaxLags( 100 )
-        .SetDetrend( CrossCorrelationPlot::Detrend::Linear );
+        vec xVec = randu(200);
+        vec yVec = randu(200);
+        CrossCorrelationPlot f(xVec, yVec);
+        f.SetMarker(".")
+        .VLines(false)
+        .SetMaxLags(100)
+        .SetDetrend(CrossCorrelationPlot::Detrend::Linear);
         return f;
-    } );
+    });
 }

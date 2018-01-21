@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -70,96 +70,96 @@ public:
         Proportional
     };
 
-    tReturn &SetOrientation( Orientation orientation )
+    tReturn &SetOrientation(Orientation orientation)
     {
-        this->AddArgument( "orientation", this->GetString( orientation == Orientation::Horizontal ? "horizontal" :
-                                                           "vertical" ) );
+        this->AddArgument("orientation", this->GetString(orientation == Orientation::Horizontal ? "horizontal" :
+                                                         "vertical"));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetFraction( double fraction )
+    tReturn &SetFraction(double fraction)
     {
-        this->AddArgument( "fraction", fraction );
+        this->AddArgument("fraction", fraction);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetPad( double pad )
+    tReturn &SetPad(double pad)
     {
-        this->AddArgument( "pad", pad );
+        this->AddArgument("pad", pad);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetShrink( double shrink )
+    tReturn &SetShrink(double shrink)
     {
-        this->AddArgument( "shrink", shrink );
+        this->AddArgument("shrink", shrink);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetAspect( double aspect )
+    tReturn &SetAspect(double aspect)
     {
-        this->AddArgument( "aspect", aspect );
+        this->AddArgument("aspect", aspect);
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetAnchor( std::pair<double, double> anchor )
+    tReturn &SetAnchor(std::pair<double, double> anchor)
     {
-        this->AddArgument( "anchor", this->ToTuple( anchor.first, anchor.second ) );
+        this->AddArgument("anchor", this->ToTuple(anchor.first, anchor.second));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetParentAnchor( std::pair<double, double> panchor )
+    tReturn &SetParentAnchor(std::pair<double, double> panchor)
     {
-        this->AddArgument( "panchor", this->ToTuple( panchor.first, panchor.second ) );
+        this->AddArgument("panchor", this->ToTuple(panchor.first, panchor.second));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetExtend( Extend extend )
+    tReturn &SetExtend(Extend extend)
     {
-        this->AddArgument( "extend", this->GetString( __PlotLibColourBarPropertiesExtend[static_cast<size_t>( extend )] ) );
+        this->AddArgument("extend", this->GetString(__PlotLibColourBarPropertiesExtend[static_cast<size_t>(extend)]));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &ExtendRect( bool extend )
+    tReturn &ExtendRect(bool extend)
     {
-        this->AddArgument( "extendrect", GetBool( extend ) );
+        this->AddArgument("extendrect", GetBool(extend));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetSpacing( Spacing spacing )
+    tReturn &SetSpacing(Spacing spacing)
     {
-        this->AddArgument( "spacing", this->GetString( spacing == Spacing::Proportional ? "proportional" : "uniform" ) );
+        this->AddArgument("spacing", this->GetString(spacing == Spacing::Proportional ? "proportional" : "uniform"));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetTicks( const PVec &ticks )
+    tReturn &SetTicks(const PVec &ticks)
     {
-        this->AddArgument( "ticks", this->ToArray( ticks ) );
+        this->AddArgument("ticks", this->ToArray(ticks));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &SetFormat( const std::string &fmt )
+    tReturn &SetFormat(const std::string &fmt)
     {
-        this->AddArgument( "fmt", this->GetString( fmt ) );
+        this->AddArgument("fmt", this->GetString(fmt));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 
-    tReturn &DrawEdges( bool draw )
+    tReturn &DrawEdges(bool draw)
     {
-        this->AddArgument( "drawedges", GetBool( draw ) );
+        this->AddArgument("drawedges", GetBool(draw));
 
-        return static_cast<tBase &>( *this );
+        return static_cast<tBase &>(*this);
     }
 };
 

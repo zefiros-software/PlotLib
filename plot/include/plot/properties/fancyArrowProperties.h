@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -58,57 +58,57 @@ public:
         Bar
     };
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetPos( std::pair< double, double > a,
-                                                                                                  std::pair< double, double> b )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetPos(std::pair< double, double > a,
+                                                                                                 std::pair< double, double> b)
     {
-        this->AddArgument( "posA", this->ToTuple( a.first, a.second ) );
-        this->AddArgument( "posB", this->ToTuple( b.first, b.second ) );
+        this->AddArgument("posA", this->ToTuple(a.first, a.second));
+        this->AddArgument("posB", this->ToTuple(b.first, b.second));
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetShrink( double a, double b )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetShrink(double a, double b)
     {
-        this->AddArgument( "shrinkA", a );
-        this->AddArgument( "shrinkB", b );
+        this->AddArgument("shrinkA", a);
+        this->AddArgument("shrinkB", b);
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetMutationScale( double scale )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetMutationScale(double scale)
     {
-        this->AddArgument( "mutation_scale", scale );
+        this->AddArgument("mutation_scale", scale);
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetMutationAspect( double aspect )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetMutationAspect(double aspect)
     {
-        this->AddArgument( "mutation_aspect", aspect );
+        this->AddArgument("mutation_aspect", aspect);
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetConnectionStyle( ConnectionStyle style )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetConnectionStyle(ConnectionStyle style)
     {
-        this->AddArgument( "connectionstyle"
-                           , this->GetString( __PlotLibFancyArrowPropertiesConnectionStyle[static_cast<size_t>( style )] ) );
+        this->AddArgument("connectionstyle"
+                          , this->GetString(__PlotLibFancyArrowPropertiesConnectionStyle[static_cast<size_t>(style)]));
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetArrowStyle( const std::string &style )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetArrowStyle(const std::string &style)
     {
-        this->AddArgument( "arrowstyle", this->GetString( style ) );
+        this->AddArgument("arrowstyle", this->GetString(style));
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetDpiCorrection( double dpi )
+    typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetDpiCorrection(double dpi)
     {
-        this->AddArgument( "dpi_cor", dpi );
+        this->AddArgument("dpi_cor", dpi);
 
-        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<FancyArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 };
 

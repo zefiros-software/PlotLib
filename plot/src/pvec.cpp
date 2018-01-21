@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,48 +29,48 @@
 
 #include <algorithm>
 
-PLOTLIB_INLINE PVec::PVec( const std::initializer_list< std::string > &data )
-    : mStrData( data )
+PLOTLIB_INLINE PVec::PVec(const std::initializer_list< std::string > &data)
+    : mStrData(data)
 {
 
 }
 
-PLOTLIB_INLINE PVec::PVec( const std::initializer_list< double > &data )
-    : mData( data )
+PLOTLIB_INLINE PVec::PVec(const std::initializer_list< double > &data)
+    : mData(data)
 {
 
 }
 
-PLOTLIB_INLINE PVec::PVec( const PVec &x, std::function< double( double ) > function )
+PLOTLIB_INLINE PVec::PVec(const PVec &x, std::function< double(double) > function)
 {
-    for ( const auto &val : x.GetData() )
+    for (const auto &val : x.GetData())
     {
-        mData.push_back( function( val ) );
+        mData.push_back(function(val));
     }
 }
 
-PLOTLIB_INLINE PVec::PVec( double min, double max, size_t n, std::function< double( double ) > function )
-    : PVec( LinSpace( min, max, n ), function )
+PLOTLIB_INLINE PVec::PVec(double min, double max, size_t n, std::function< double(double) > function)
+    : PVec(LinSpace(min, max, n), function)
 {
 
 }
 
-PLOTLIB_INLINE PVec::PVec( double min, double max, size_t n )
-    : PVec( LinSpace( min, max, n ) )
+PLOTLIB_INLINE PVec::PVec(double min, double max, size_t n)
+    : PVec(LinSpace(min, max, n))
 {
 
 }
 
-PLOTLIB_INLINE PVec::PVec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map )
+PLOTLIB_INLINE PVec::PVec(const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map)
 {
-    for ( auto &val : data )
+    for (auto &val : data)
     {
-        mStrData.push_back( map.at( val ) );
+        mStrData.push_back(map.at(val));
     }
 }
 
-PLOTLIB_INLINE PVec::PVec( const std::vector< std::string > &data )
-    : mStrData( data )
+PLOTLIB_INLINE PVec::PVec(const std::vector< std::string > &data)
+    : mStrData(data)
 {
 
 }
@@ -92,24 +92,24 @@ PLOTLIB_INLINE size_t PVec::GetSize() const
 
 PLOTLIB_INLINE double PVec::Min() const
 {
-    return *std::min_element( mData.begin(), mData.end() );
+    return *std::min_element(mData.begin(), mData.end());
 }
 
 PLOTLIB_INLINE double PVec::Max() const
 {
-    return *std::max_element( mData.begin(), mData.end() );
+    return *std::max_element(mData.begin(), mData.end());
 }
 
-PLOTLIB_INLINE std::vector<double> PVec::LinSpace( double start, double end, size_t num )
+PLOTLIB_INLINE std::vector<double> PVec::LinSpace(double start, double end, size_t num)
 {
-    double delta = ( end - start ) / ( num - 1 );
+    double delta = (end - start) / (num - 1);
 
-    std::vector<double> linspaced( num );
+    std::vector<double> linspaced(num);
     linspaced[0] = start;
 
-    for ( size_t i = 1; i < num; ++i )
+    for (size_t i = 1; i < num; ++i)
     {
-        linspaced[i] = start + delta * static_cast<int>( i );
+        linspaced[i] = start + delta * static_cast<int>(i);
     }
 
     return linspaced;

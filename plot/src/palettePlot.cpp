@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@
 #include "plot/palettePlot.h"
 #include "plot/palette.h"
 
-PLOTLIB_INLINE PalettePlot::PalettePlot( const Palette &palette )
+PLOTLIB_INLINE PalettePlot::PalettePlot(const Palette &palette)
 {
     mStream << "sns.palplot(" << palette.ToString();
 }
@@ -37,8 +37,8 @@ PLOTLIB_INLINE std::string PalettePlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE PalettePlot &PalettePlot::SetSize( double size )
+PLOTLIB_INLINE PalettePlot &PalettePlot::SetSize(double size)
 {
-    this->AddArgument( "size", size );
+    this->AddArgument("size", size);
     return *this;
 }

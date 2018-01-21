@@ -28,82 +28,82 @@
 
 #include "helper.h"
 
-TEST( SurfPlot, SurfPlot )
+TEST(SurfPlot, SurfPlot)
 {
-    TestPlot< SurfPlot >( "SurfPlot", []()
+    TestPlot< SurfPlot >("SurfPlot", []()
     {
-        vec X = linspace( -5.0, 5.0, 40 );
-        vec Y = linspace( -5.0, 5.0, 40 );
+        vec X = linspace(-5.0, 5.0, 40);
+        vec Y = linspace(-5.0, 5.0, 40);
 
         std::vector<PVec> y;
         std::vector<PVec> z;
 
 
-        for ( size_t i = 0, size = X.size(); i < size; ++i )
+        for (size_t i = 0, size = X.size(); i < size; ++i)
         {
-            vec yRow( size, fill::ones );
+            vec yRow(size, fill::ones);
             yRow *= Y[i];
             double ySq = Y[i] * Y[i];
-            y.push_back( yRow );
-            z.push_back( ( vec )arma::sin( arma::sqrt( X % X + ySq ) ) );
+            y.push_back(yRow);
+            z.push_back((vec)arma::sin(arma::sqrt(X % X + ySq)));
         }
 
-        SurfPlot f( X, y, z );
+        SurfPlot f(X, y, z);
 
-        return f.ColourBar( true );
-    } );
+        return f.ColourBar(true);
+    });
 }
 
-TEST( SurfPlot, SurfPlot2 )
+TEST(SurfPlot, SurfPlot2)
 {
-    TestPlot< SurfPlot >( "SurfPlot2", []()
+    TestPlot< SurfPlot >("SurfPlot2", []()
     {
-        vec X = linspace( -5.0, 5.0, 40 );
-        vec Y = linspace( -5.0, 5.0, 40 );
+        vec X = linspace(-5.0, 5.0, 40);
+        vec Y = linspace(-5.0, 5.0, 40);
 
         std::vector<PVec> z;
 
 
-        for ( size_t i = 0, size = X.size(); i < size; ++i )
+        for (size_t i = 0, size = X.size(); i < size; ++i)
         {
             double ySq = Y[i] * Y[i];
-            z.push_back( ( vec )arma::sin( arma::sqrt( X % X + ySq ) ) );
+            z.push_back((vec)arma::sin(arma::sqrt(X % X + ySq)));
         }
 
-        SurfPlot f( X, Y, z );
+        SurfPlot f(X, Y, z);
 
         return f;
-    } );
+    });
 }
 
-TEST( SurfPlot, SurfPlot3 )
+TEST(SurfPlot, SurfPlot3)
 {
-    TestPlot< SurfPlot >( "SurfPlot3", []()
+    TestPlot< SurfPlot >("SurfPlot3", []()
     {
-        vec X = linspace( -5.0, 5.0, 40 );
-        vec Y = linspace( -5.0, 5.0, 40 );
+        vec X = linspace(-5.0, 5.0, 40);
+        vec Y = linspace(-5.0, 5.0, 40);
 
         std::vector<PVec> x;
         std::vector<PVec> y;
         std::vector<PVec> z;
 
 
-        for ( size_t i = 0, size = X.size(); i < size; ++i )
+        for (size_t i = 0, size = X.size(); i < size; ++i)
         {
-            vec yRow( size, fill::ones );
+            vec yRow(size, fill::ones);
             yRow *= Y[i];
             double ySq = Y[i] * Y[i];
-            x.push_back( X );
-            y.push_back( yRow );
-            z.push_back( ( vec )arma::sin( arma::sqrt( X % X + ySq ) ) );
+            x.push_back(X);
+            y.push_back(yRow);
+            z.push_back((vec)arma::sin(arma::sqrt(X % X + ySq)));
         }
 
-        PMat xMat( x );
-        PMat yMat( y );
-        PMat zMat( z );
+        PMat xMat(x);
+        PMat yMat(y);
+        PMat zMat(z);
 
-        SurfPlot f( xMat, yMat, zMat );
+        SurfPlot f(xMat, yMat, zMat);
 
-        return f.ColourBar( true );
-    } );
+        return f.ColourBar(true);
+    });
 }

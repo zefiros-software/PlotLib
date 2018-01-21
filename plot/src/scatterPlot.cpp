@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,9 +26,9 @@
 
 #include "plot/scatterPlot.h"
 
-PLOTLIB_INLINE ScatterPlot::ScatterPlot( const PVec &exogenous, const PVec &endogenous )
+PLOTLIB_INLINE ScatterPlot::ScatterPlot(const PVec &exogenous, const PVec &endogenous)
 {
-    mStream << "plt.scatter(" << this->ToArray( exogenous ) << "," << this->ToArray( endogenous );
+    mStream << "plt.scatter(" << this->ToArray(exogenous) << "," << this->ToArray(endogenous);
 }
 
 PLOTLIB_INLINE std::string ScatterPlot::ToString()
@@ -36,62 +36,62 @@ PLOTLIB_INLINE std::string ScatterPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetAlpha( double alpha )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetAlpha(double alpha)
 {
-    this->AddArgument( "alpha", alpha );
+    this->AddArgument("alpha", alpha);
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( double scalar )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar(double scalar)
 {
-    this->AddArgument( "s", scalar );
+    this->AddArgument("s", scalar);
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar( const PVec &scalar )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetScalar(const PVec &scalar)
 {
-    this->AddArgument( "s", this->ToArray( scalar ) );
+    this->AddArgument("s", this->ToArray(scalar));
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetColour( const std::string &colour )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetColour(const std::string &colour)
 {
-    this->AddArgument( "cmap", this->GetString( colour ) );
+    this->AddArgument("cmap", this->GetString(colour));
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetEdgeColour( const std::string &colour )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetEdgeColour(const std::string &colour)
 {
-    this->AddArgument( "edgecolors", this->GetString( colour ) );
+    this->AddArgument("edgecolors", this->GetString(colour));
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetMarker( const std::string &marker )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetMarker(const std::string &marker)
 {
-    this->AddArgument( "marker", this->GetString( marker ) );
+    this->AddArgument("marker", this->GetString(marker));
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMin( double vmin )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMin(double vmin)
 {
-    this->AddArgument( "vmin", vmin );
+    this->AddArgument("vmin", vmin);
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMax( double vmax )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetVMax(double vmax)
 {
-    this->AddArgument( "vmax", vmax );
+    this->AddArgument("vmax", vmax);
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( const PVec &widths )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth(const PVec &widths)
 {
-    this->AddArgument( "linewidths", this->ToArray( widths ) );
+    this->AddArgument("linewidths", this->ToArray(widths));
     return *this;
 }
 
-PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth( double lineWidth )
+PLOTLIB_INLINE ScatterPlot &ScatterPlot::SetLineWidth(double lineWidth)
 {
-    this->AddArgument( "linewidths", lineWidth );
+    this->AddArgument("linewidths", lineWidth);
     return *this;
 }

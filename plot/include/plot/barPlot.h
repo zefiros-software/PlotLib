@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -44,60 +44,60 @@ public:
         Horizontal
     };
 
-    BarPlot( const PVec &x, const PVec &y );
+    BarPlot(const PVec &x, const PVec &y);
 
-    BarPlot( const std::vector< std::pair< PVec, PVec > > &data );
+    BarPlot(const std::vector< std::pair< PVec, PVec >> &data);
 
-    BarPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    BarPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     template< typename tT, typename tFunc >
-    BarPlot( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< tT > &hueData, const tFunc &hueFunc )
+    BarPlot(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< tT > &hueData, const tFunc &hueFunc)
     {
         std::vector< std::string > hue;
 
-        for ( const auto &hueValue : hueData )
+        for (const auto &hueValue : hueData)
         {
-            hue.emplace_back( hueFunc( hueValue ) );
+            hue.emplace_back(hueFunc(hueValue));
         }
 
-        InitData( data );
-        InitHue( data, hue );
+        InitData(data);
+        InitHue(data, hue);
         PlotDataHue();
     }
 
     virtual std::string ToString() override;
 
-    BarPlot &SetOrder( const PVec &order );
+    BarPlot &SetOrder(const PVec &order);
 
-    BarPlot &SetHueOrder( const std::vector< std::string > &order );
+    BarPlot &SetHueOrder(const std::vector< std::string > &order);
 
-    BarPlot &SetConfidenceInterval( double ci );
+    BarPlot &SetConfidenceInterval(double ci);
 
-    BarPlot &SetNBoot( size_t bootstrap );
+    BarPlot &SetNBoot(size_t bootstrap);
 
-    BarPlot &SetOrientation( Orientation orientation );
+    BarPlot &SetOrientation(Orientation orientation);
 
     BarPlot &SetDodge(bool dodge);
 
     BarPlot &SetColour(const std::string &colour);
 
-    BarPlot &UseColourCycler( const std::string &colourCycler );
+    BarPlot &UseColourCycler(const std::string &colourCycler);
 
-    BarPlot &SetColourMap( const Palette &pallet );
+    BarPlot &SetColourMap(const Palette &pallet);
 
-    BarPlot &SetSaturation( double sat );
+    BarPlot &SetSaturation(double sat);
 
-    BarPlot &SetErrorColour( const std::string &colour );
+    BarPlot &SetErrorColour(const std::string &colour);
 
-    BarPlot &SetErrorWidth( double width );
+    BarPlot &SetErrorWidth(double width);
 
-    BarPlot &SetCapSize( double size );
+    BarPlot &SetCapSize(double size);
 
 private:
 
-    void InitData( const std::vector< std::pair< PVec, PVec > > &data );
+    void InitData(const std::vector< std::pair< PVec, PVec >> &data);
 
-    void InitHue( const std::vector< std::pair< PVec, PVec > > &data, const std::vector< std::string > &hue );
+    void InitHue(const std::vector< std::pair< PVec, PVec >> &data, const std::vector< std::string > &hue);
 
     void PlotData();
 

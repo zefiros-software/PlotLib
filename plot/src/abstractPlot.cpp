@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,15 +30,15 @@
 #include "plot/mat.h"
 
 PLOTLIB_INLINE AbstractPlot::AbstractPlot()
-    : mCount( 0 ),
-      mIsDictionary( false )
+    : mCount(0),
+      mIsDictionary(false)
 {
 
 }
 
-PLOTLIB_INLINE AbstractPlot::AbstractPlot( const AbstractPlot &other )
-    : mCount( other.mCount ),
-      mIsDictionary( other.mIsDictionary )
+PLOTLIB_INLINE AbstractPlot::AbstractPlot(const AbstractPlot &other)
+    : mCount(other.mCount),
+      mIsDictionary(other.mIsDictionary)
 {
     mStream << other.mStream.str();
 }
@@ -47,9 +47,9 @@ PLOTLIB_INLINE AbstractPlot::~AbstractPlot()
 {
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToString( const std::string &body ) const
+PLOTLIB_INLINE std::string AbstractPlot::ToString(const std::string &body) const
 {
-    if ( mIsDictionary )
+    if (mIsDictionary)
     {
         return "{" + body + "}";
     }
@@ -57,83 +57,83 @@ PLOTLIB_INLINE std::string AbstractPlot::ToString( const std::string &body ) con
     return body;
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::GetString( const std::string &str )
+PLOTLIB_INLINE std::string AbstractPlot::GetString(const std::string &str)
 {
     return "'" + str + "'";
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::GetBool( bool boolean )
+PLOTLIB_INLINE std::string AbstractPlot::GetBool(bool boolean)
 {
     return boolean ? "True" : "False";
 }
 
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const PVec &vec )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const PVec &vec)
 {
     const std::vector< std::string > vecStr = vec.GetStrings();
-    return vecStr.size() ? ToArray( vecStr ) : ToArray( vec.GetData() );
+    return vecStr.size() ? ToArray(vecStr) : ToArray(vec.GetData());
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const PMat &mat )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const PMat &mat)
 {
-    const std::vector<std::vector< std::string > > matStr = mat.GetStrings();
-    return matStr.size() ? ToArray( matStr ) : ToArray( mat.GetData() );
+    const std::vector<std::vector< std::string >> matStr = mat.GetStrings();
+    return matStr.size() ? ToArray(matStr) : ToArray(mat.GetData());
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< std::vector< double > > &mat )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const std::vector< std::vector< double >> &mat)
 {
     std::stringstream stream;
     stream << "[";
     bool first = true;
 
-    for ( auto vec : mat )
+    for (auto vec : mat)
     {
-        if ( !first )
+        if (!first)
         {
             stream << ",";
         }
 
-        stream << "[" + ToString( vec.begin(), vec.end() ) + "]";
+        stream << "[" + ToString(vec.begin(), vec.end()) + "]";
         first = false;
     }
 
     return stream.str() + "]";
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< double > &vec )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const std::vector< double > &vec)
 {
-    return "[" + ToString( vec.begin(), vec.end() ) + "]";
+    return "[" + ToString(vec.begin(), vec.end()) + "]";
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< uint32_t > &vec )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const std::vector< uint32_t > &vec)
 {
-    return "[" + ToString( vec.begin(), vec.end() ) + "]";
+    return "[" + ToString(vec.begin(), vec.end()) + "]";
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector<std::string> &vec )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const std::vector<std::string> &vec)
 {
-    return "[" + ToString( vec.begin(), vec.end(), "'" ) + "]";
+    return "[" + ToString(vec.begin(), vec.end(), "'") + "]";
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector<bool> &vec )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const std::vector<bool> &vec)
 {
-    return "[" + ToString( vec.begin(), vec.end() ) + "]";
+    return "[" + ToString(vec.begin(), vec.end()) + "]";
 }
 
-PLOTLIB_INLINE std::string AbstractPlot::ToArray( const std::vector< std::vector< std::string > > &mat )
+PLOTLIB_INLINE std::string AbstractPlot::ToArray(const std::vector< std::vector< std::string >> &mat)
 {
     std::stringstream stream;
     stream << "[";
     bool first = true;
 
-    for ( auto vec : mat )
+    for (auto vec : mat)
     {
-        if ( !first )
+        if (!first)
         {
             stream << ",";
         }
 
-        stream << "[" + ToString( vec.begin(), vec.end(), "'" ) + "]";
+        stream << "[" + ToString(vec.begin(), vec.end(), "'") + "]";
         first = false;
     }
 

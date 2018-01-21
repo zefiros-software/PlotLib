@@ -28,12 +28,12 @@
 
 #include "helper.h"
 
-TEST( LagPlot, LagPlot )
+TEST(LagPlot, LagPlot)
 {
-    TestPlot< LagPlot >( "LagPlot", []()
+    TestPlot< LagPlot >("LagPlot", []()
     {
-        LagPlot f( ( vec )( randu( 200 ) + 2 * sin( linspace( -99, 99, 200 ) ) ) );
-        f.SetLag( 20 );
+        LagPlot f((vec)(randu(200) + 2 * sin(linspace(-99, 99, 200))));
+        f.SetLag(20);
         return f;
-    } );
+    });
 }

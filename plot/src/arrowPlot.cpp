@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@
 
 
 
-PLOTLIB_INLINE ArrowPlot::ArrowPlot( double x, double y, double dx, double dy )
+PLOTLIB_INLINE ArrowPlot::ArrowPlot(double x, double y, double dx, double dy)
 {
     mStream << "plt.arrow(" << x << "," << y << "," << dx << "," << dy;
 }
@@ -38,51 +38,51 @@ PLOTLIB_INLINE std::string ArrowPlot::ToString()
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetWidth( double width )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetWidth(double width)
 {
-    this->AddArgument( "width", width );
+    this->AddArgument("width", width);
     return *this;
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::LengthIncludesHead( bool includes )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::LengthIncludesHead(bool includes)
 {
-    this->AddArgument( "length_includes_head", GetBool( includes ) );
+    this->AddArgument("length_includes_head", GetBool(includes));
     return *this;
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetHeadWidth( double width )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetHeadWidth(double width)
 {
-    this->AddArgument( "head_width", width );
+    this->AddArgument("head_width", width);
     return *this;
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetHeadLength( double length )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetHeadLength(double length)
 {
-    this->AddArgument( "head_length", length );
+    this->AddArgument("head_length", length);
     return *this;
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetShape( Shape shape )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetShape(Shape shape)
 {
-    this->AddArgument( "shape", GetShape( shape ) );
+    this->AddArgument("shape", GetShape(shape));
     return *this;
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetOverhang( double overhang )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::SetOverhang(double overhang)
 {
-    this->AddArgument( "overhang", overhang );
+    this->AddArgument("overhang", overhang);
     return *this;
 }
 
-PLOTLIB_INLINE ArrowPlot &ArrowPlot::HeadStartsAtZero( bool starts )
+PLOTLIB_INLINE ArrowPlot &ArrowPlot::HeadStartsAtZero(bool starts)
 {
-    this->AddArgument( "head_starts_at_zero", GetBool( starts ) );
+    this->AddArgument("head_starts_at_zero", GetBool(starts));
     return *this;
 }
 
-PLOTLIB_INLINE std::string ArrowPlot::GetShape( Shape shape )
+PLOTLIB_INLINE std::string ArrowPlot::GetShape(Shape shape)
 {
-    switch ( shape )
+    switch (shape)
     {
     case Shape::Full:
         return "'full'";

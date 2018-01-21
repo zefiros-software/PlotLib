@@ -28,12 +28,12 @@
 
 #include "helper.h"
 
-TEST( CustomLegend, CustomLegend )
+TEST(CustomLegend, CustomLegend)
 {
-    TestPlot( "CustomLegend", []( Plot & p )
+    TestPlot("CustomLegend", [](Plot & p)
     {
-        p.AddPlot( LinePlot( linspace( 0, 20, 20 ), ( vec )randn( 20 ) ) );
-        p.AddPlot( LinePlot( linspace( 0, 20, 20 ), ( vec )randn( 20 ) ) );
-        p.AddCustomLegend( {Palette::Seaborn::Deep, { "first", "second"}} );
-    } );
+        p.AddPlot(LinePlot(linspace(0, 20, 20), (vec)randn(20)));
+        p.AddPlot(LinePlot(linspace(0, 20, 20), (vec)randn(20)));
+        p.AddCustomLegend({Palette::Seaborn::Deep, { "first", "second"}});
+    });
 }

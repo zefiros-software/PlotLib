@@ -28,30 +28,30 @@
 
 #include "helper.h"
 
-TEST( ScatterPlot, ScatterPlot )
+TEST(ScatterPlot, ScatterPlot)
 {
-    TestPlot< ScatterPlot >( "ScatterPlot", []()
+    TestPlot< ScatterPlot >("ScatterPlot", []()
     {
-        ScatterPlot f( ( vec )linspace( 0, 10, 100 ), ( vec )randn( 100 ) );
-        f.SetScalar( ( vec )( abs( randn( 100 ) * 30 + 4 ) ) )
-        .SetVMax( 20 )
-        .SetVMin( 0 )
-        .SetColour( "r" )
-        .SetMarker( "*" )
-        .SetLineWidth( 0.5 );
+        ScatterPlot f((vec)linspace(0, 10, 100), (vec)randn(100));
+        f.SetScalar((vec)(abs(randn(100) * 30 + 4)))
+        .SetVMax(20)
+        .SetVMin(0)
+        .SetColour("r")
+        .SetMarker("*")
+        .SetLineWidth(0.5);
         return f;
-    } );
+    });
 }
 
-TEST( ScatterPlot, ScatterPlot2 )
+TEST(ScatterPlot, ScatterPlot2)
 {
-    TestPlot< ScatterPlot >( "ScatterPlot2", []()
+    TestPlot< ScatterPlot >("ScatterPlot2", []()
     {
-        ScatterPlot f( ( vec )linspace( 0, 10, 100 ), ( vec )randn( 100 ) );
-        f.SetScalar( 30 )
-        .SetLineWidth( ( vec )( abs( randn( 100 ) ) ) )
-        .SetEdgeColour( "g" )
-        .SetAlpha( 0.9 );
+        ScatterPlot f((vec)linspace(0, 10, 100), (vec)randn(100));
+        f.SetScalar(30)
+        .SetLineWidth((vec)(abs(randn(100))))
+        .SetEdgeColour("g")
+        .SetAlpha(0.9);
         return f;
-    } );
+    });
 }

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,33 +40,33 @@ class PMat
 {
 public:
 
-    PMat( const std::vector< std::vector< double > > &data );
+    PMat(const std::vector< std::vector< double >> &data);
 
-    PMat( const std::vector< PVec > &data );
+    PMat(const std::vector< PVec > &data);
 
-    PMat( const std::initializer_list< std::initializer_list< double > > &data );
-
-
-    PMat( const std::vector< std::vector< std::string > > &data );
+    PMat(const std::initializer_list< std::initializer_list< double >> &data);
 
 
-    PMat( const std::initializer_list< std::initializer_list< std::string > > &data );
+    PMat(const std::vector< std::vector< std::string >> &data);
 
-    PMat( const std::vector< std::vector< int64_t > > &data, const std::map< int64_t, std::string > &map );
+
+    PMat(const std::initializer_list< std::initializer_list< std::string >> &data);
+
+    PMat(const std::vector< std::vector< int64_t >> &data, const std::map< int64_t, std::string > &map);
 
 #ifdef PLOTLIB_ARMA
 
     template< typename tT >
-    PMat( const tT &data )
-        : mData( data.n_rows )
+    PMat(const tT &data)
+        : mData(data.n_rows)
     {
     }
 
 #endif
 
-    const std::vector< std::vector< double > > &GetData() const;
+    const std::vector< std::vector< double >> &GetData() const;
 
-    const std::vector< std::vector< std::string > > &GetStrings() const;
+    const std::vector< std::vector< std::string >> &GetStrings() const;
 
     size_t GetSize() const;
 
@@ -74,23 +74,23 @@ public:
 
 private:
 
-    std::vector< std::vector< double > > mData;
-    std::vector< std::vector< std::string > > mStrData;
+    std::vector< std::vector< double >> mData;
+    std::vector< std::vector< std::string >> mStrData;
     std::pair< size_t, size_t > mDimension;
 
     template< typename tT >
-    static std::pair< size_t, size_t > CheckDimensions( const std::vector< std::vector< tT > > &data )
+    static std::pair< size_t, size_t > CheckDimensions(const std::vector< std::vector< tT >> &data)
     {
-        if ( !data.size() )
+        if (!data.size())
         {
             return { 0, 0 };
         }
 
-        const size_t size = ( *data.begin() ).size();
+        const size_t size = (*data.begin()).size();
 
-        for ( auto vec : data )
+        for (auto vec : data)
         {
-            assert( vec.size() == size );
+            assert(vec.size() == size);
         }
 
         return { data.size(), size };

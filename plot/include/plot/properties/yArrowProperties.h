@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,39 +40,39 @@ class YArrowProperties
 {
 public:
 
-    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYTip( double x, double y )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYTip(double x, double y)
     {
-        this->AddArgument( "xytip", this->ToTuple( x, y ) );
+        this->AddArgument("xytip", this->ToTuple(x, y));
 
-        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYBase( double x, double y )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetXYBase(double x, double y)
     {
-        this->AddArgument( "xybase", this->ToTuple( x, y ) );
+        this->AddArgument("xybase", this->ToTuple(x, y));
 
-        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth( double width )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetWidth(double width)
     {
-        this->AddArgument( "width", width );
+        this->AddArgument("width", width);
 
-        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetFraction( double frac )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetFraction(double frac)
     {
-        this->AddArgument( "frac", frac );
+        this->AddArgument("frac", frac);
 
-        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 
-    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetHeadWidth( double headWidth )
+    typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &SetHeadWidth(double headWidth)
     {
-        this->AddArgument( "headwidth", headWidth );
+        this->AddArgument("headwidth", headWidth);
 
-        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>( *this );
+        return static_cast<typename PatchProperties<YArrowProperties<tBase, IsDict>, IsDict, true>::tReturn &>(*this);
     }
 };
 

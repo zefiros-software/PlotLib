@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -56,47 +56,47 @@ public:
         Horizontal
     };
 
-    HistogramPlot( const PVec &vec );
+    HistogramPlot(const PVec &vec);
 
     virtual std::string ToString() override;
 
-    HistogramPlot &SetBins( size_t value );
+    HistogramPlot &SetBins(size_t value);
 
-    HistogramPlot &SetBins( const PVec &bins );
+    HistogramPlot &SetBins(const PVec &bins);
 
-    HistogramPlot &SetRange( double min, double max );
+    HistogramPlot &SetRange(double min, double max);
 
-    HistogramPlot &SetNormed( bool normed );
+    HistogramPlot &SetNormed(bool normed);
 
-    HistogramPlot &SetWeights( const PVec &weights );
+    HistogramPlot &SetWeights(const PVec &weights);
 
-    HistogramPlot &SetCumulative( bool cumulative );
+    HistogramPlot &SetCumulative(bool cumulative);
 
-    HistogramPlot &SetBottom( double bottom );
+    HistogramPlot &SetBottom(double bottom);
 
-    HistogramPlot &SetBottom( const PVec &bottom );
+    HistogramPlot &SetBottom(const PVec &bottom);
 
-    HistogramPlot &SetType( Type type );
+    HistogramPlot &SetType(Type type);
 
-    HistogramPlot &SetAllignment( Alignment align );
+    HistogramPlot &SetAllignment(Alignment align);
 
-    HistogramPlot &SetOrientation( Orientation orientation );
+    HistogramPlot &SetOrientation(Orientation orientation);
 
-    HistogramPlot &SetRelativeWidth( double rwidth );
+    HistogramPlot &SetRelativeWidth(double rwidth);
 
-    HistogramPlot &SetLogarithmic( bool log );
+    HistogramPlot &SetLogarithmic(bool log);
 
-    HistogramPlot &SetColour( const std::string &colour );
+    HistogramPlot &SetColour(const std::string &colour);
 
-    HistogramPlot &SetLabel( const std::string &label );
+    HistogramPlot &SetLabel(const std::string &label);
 
-    HistogramPlot &SetStacked( bool stacked );
+    HistogramPlot &SetStacked(bool stacked);
 
 private:
 
-    std::string GetType( Type type );
+    std::string GetType(Type type);
 
-    std::string GetAlignment( Alignment align );
+    std::string GetAlignment(Alignment align);
 
 };
 

@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,42 +28,42 @@
 
 PLOTLIB_INLINE std::string ContourPlot::ToString()
 {
-    if ( mIsDictionary )
+    if (mIsDictionary)
     {
-        return AbstractPlot::ToString( mStream.str() );
+        return AbstractPlot::ToString(mStream.str());
     }
 
     return mStream.str() + " )";
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const PVec &x, const PVec &y, const PMat &z, const PVec &levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot(const PVec &x, const PVec &y, const PMat &z, const PVec &levels)
 {
-    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray(
-                z ) << "," << this->ToArray( levels );
+    mStream << "plt.contour(" << this->ToArray(x) << "," << this->ToArray(y) << "," << this->ToArray(
+                z) << "," << this->ToArray(levels);
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const PVec &x, const PVec &y, const PMat &z, int32_t levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot(const PVec &x, const PVec &y, const PMat &z, int32_t levels)
 {
-    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray(
-                z ) << "," << levels;
+    mStream << "plt.contour(" << this->ToArray(x) << "," << this->ToArray(y) << "," << this->ToArray(
+                z) << "," << levels;
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const PVec &x, const PVec &y, const PMat &z )
+PLOTLIB_INLINE ContourPlot::ContourPlot(const PVec &x, const PVec &y, const PMat &z)
 {
-    mStream << "plt.contour(" << this->ToArray( x ) << "," << this->ToArray( y ) << "," << this->ToArray( z );
+    mStream << "plt.contour(" << this->ToArray(x) << "," << this->ToArray(y) << "," << this->ToArray(z);
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const PMat &z, const PVec &levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot(const PMat &z, const PVec &levels)
 {
-    mStream << "plt.contour(" << this->ToArray( z ) << "," << this->ToArray( levels );
+    mStream << "plt.contour(" << this->ToArray(z) << "," << this->ToArray(levels);
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const PMat &z, uint32_t levels )
+PLOTLIB_INLINE ContourPlot::ContourPlot(const PMat &z, uint32_t levels)
 {
-    mStream << "plt.contour(" << this->ToArray( z ) << "," << levels;
+    mStream << "plt.contour(" << this->ToArray(z) << "," << levels;
 }
 
-PLOTLIB_INLINE ContourPlot::ContourPlot( const PMat &z )
+PLOTLIB_INLINE ContourPlot::ContourPlot(const PMat &z)
 {
-    mStream << "plt.contour(" << this->ToArray( z );
+    mStream << "plt.contour(" << this->ToArray(z);
 }

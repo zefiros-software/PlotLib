@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,36 +41,36 @@ class PVec
 public:
 
     template< typename tT >
-    PVec( const std::vector< tT > &data )
-        : mData( data.begin(), data.end() )
+    PVec(const std::vector< tT > &data)
+        : mData(data.begin(), data.end())
     {
     }
 
     template< typename tT >
-    PVec( const std::valarray< tT > &data )
-        : mData( std::begin( data ), std::end( data ) )
+    PVec(const std::valarray< tT > &data)
+        : mData(std::begin(data), std::end(data))
     {
     }
 
-    PVec( const std::vector< std::string > &data );
+    PVec(const std::vector< std::string > &data);
 
-    PVec( const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map );
+    PVec(const std::vector< int64_t > &data, const std::map< int64_t, std::string > &map);
 
-    PVec( double min, double max, size_t n );
+    PVec(double min, double max, size_t n);
 
-    PVec( double min, double max, size_t n, std::function< double( double ) > function );
+    PVec(double min, double max, size_t n, std::function< double(double) > function);
 
-    PVec( const PVec &x, std::function< double( double ) > function );
+    PVec(const PVec &x, std::function< double(double) > function);
 
-    PVec( const std::initializer_list< double > &data );
+    PVec(const std::initializer_list< double > &data);
 
-    PVec( const std::initializer_list< std::string > &data );
+    PVec(const std::initializer_list< std::string > &data);
 
 #ifdef PLOTLIB_ARMA
 
     template< typename tT >
-    PVec( const tT &data )
-        : mData( data.cbegin(), data.cend() )
+    PVec(const tT &data)
+        : mData(data.cbegin(), data.cend())
     {
     }
 
@@ -91,7 +91,7 @@ private:
     std::vector< double > mData;
     std::vector< std::string > mStrData;
 
-    std::vector<double> LinSpace( double start, double end, size_t num );
+    std::vector<double> LinSpace(double start, double end, size_t num);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

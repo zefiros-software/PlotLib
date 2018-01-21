@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,9 +28,9 @@
 
 
 
-PLOTLIB_INLINE HexBinPlot::HexBinPlot( const PVec &x, const PVec &y )
+PLOTLIB_INLINE HexBinPlot::HexBinPlot(const PVec &x, const PVec &y)
 {
-    mStream << "plt.hexbin(" << this->ToArray( x ) << ", " << this->ToArray( y );
+    mStream << "plt.hexbin(" << this->ToArray(x) << ", " << this->ToArray(y);
 }
 
 PLOTLIB_INLINE std::string HexBinPlot::ToString()
@@ -38,100 +38,100 @@ PLOTLIB_INLINE std::string HexBinPlot::ToString()
     return mStream.str() + " )\nplt.colorbar()";
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetGridSize( size_t size )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetGridSize(size_t size)
 {
     mStream << ", gridsize=" << size;
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetGridSize( const std::pair< size_t, size_t > &size )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetGridSize(const std::pair< size_t, size_t > &size)
 {
     mStream << ", gridsize=(" << size.first << "," << size.second << ")";
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins( const PVec &bins )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins(const PVec &bins)
 {
-    mStream << ", bins=" << this->ToArray( bins );
+    mStream << ", bins=" << this->ToArray(bins);
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins( BinType type )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins(BinType type)
 {
-    mStream << ", bins=" << ( type == BinType::Logarithmic ? "'log'" : "None" );
+    mStream << ", bins=" << (type == BinType::Logarithmic ? "'log'" : "None");
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins( size_t bins )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetBins(size_t bins)
 {
     mStream << ", bins=" << bins;
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetXScale( Scale scale )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetXScale(Scale scale)
 {
-    mStream << ", xscale=" << GetScale( scale );
+    mStream << ", xscale=" << GetScale(scale);
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetScale( Scale scale )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetScale(Scale scale)
 {
-    mStream << ", scale=" << GetScale( scale );
+    mStream << ", scale=" << GetScale(scale);
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMinCount( size_t minCount )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMinCount(size_t minCount)
 {
     mStream << ", mincnt=" << minCount;
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMarginals( bool marginals )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMarginals(bool marginals)
 {
-    mStream << ", marginals=" << GetBool( marginals );
+    mStream << ", marginals=" << GetBool(marginals);
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetExtent( size_t left, size_t right, size_t bottom, size_t top )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetExtent(size_t left, size_t right, size_t bottom, size_t top)
 {
     mStream << ", extent=(" << left << "," << right << "," << bottom << "," << top << ")";
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetColourMap( Palette pallet )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetColourMap(Palette pallet)
 {
-    pallet.SetColourMap( true );
+    pallet.SetColourMap(true);
     mStream << ", cmap=" << pallet.ToString();
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMinValue( double value )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMinValue(double value)
 {
     mStream << ", vmin=" << value;
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMaxValue( double value )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetMaxValue(double value)
 {
     mStream << ", vmax=" << value;
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetLineWidths( double value )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetLineWidths(double value)
 {
     mStream << ", linewidths=" << value;
     return *this;
 }
 
-PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetAlpha( double value )
+PLOTLIB_INLINE HexBinPlot &HexBinPlot::SetAlpha(double value)
 {
     mStream << ", alpha=" << value;
     return *this;
 }
 
-PLOTLIB_INLINE std::string HexBinPlot::GetScale( Scale scale )
+PLOTLIB_INLINE std::string HexBinPlot::GetScale(Scale scale)
 {
-    switch ( scale )
+    switch (scale)
     {
     case Scale::Linear:
         return "'linear'";

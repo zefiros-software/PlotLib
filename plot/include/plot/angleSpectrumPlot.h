@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,21 +41,21 @@ public:
         TwoSided
     };
 
-    AngleSpectrumPlot( const PVec &vec );
+    AngleSpectrumPlot(const PVec &vec);
 
     virtual std::string ToString() override;
 
-    AngleSpectrumPlot &SetSamplingFrequency( double fs );
+    AngleSpectrumPlot &SetSamplingFrequency(double fs);
 
-    AngleSpectrumPlot &SetSides( Sides sides );
+    AngleSpectrumPlot &SetSides(Sides sides);
 
-    AngleSpectrumPlot &SetCentreFrequency( int32_t fc );
+    AngleSpectrumPlot &SetCentreFrequency(int32_t fc);
 
-    AngleSpectrumPlot &SetPadTo( int32_t pad );
+    AngleSpectrumPlot &SetPadTo(int32_t pad);
 
 private:
 
-    std::string GetSides( Sides sides );
+    std::string GetSides(Sides sides);
 
 };
 

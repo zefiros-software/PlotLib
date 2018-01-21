@@ -28,75 +28,75 @@
 
 #include "helper.h"
 
-TEST( BoxPlot, BoxPlot )
+TEST(BoxPlot, BoxPlot)
 {
-    TestPlot< BoxPlot >( "BoxPlot", []()
+    TestPlot< BoxPlot >("BoxPlot", []()
     {
-        vec randX = round( randu( 100 ) * 10 );
-        vec randY = randu( 100 ) * 100;
-        BoxPlot f( randX, randY );
-        f.Notch( true );
+        vec randX = round(randu(100) * 10);
+        vec randY = randu(100) * 100;
+        BoxPlot f(randX, randY);
+        f.Notch(true);
         return f;
-    } );
+    });
 }
 
-TEST( BoxPlot, Constr2 )
+TEST(BoxPlot, Constr2)
 {
-    TestPlot< BoxPlot >( "BoxPlot_Constr2", []()
+    TestPlot< BoxPlot >("BoxPlot_Constr2", []()
     {
-        PVec x = ( vec )( round( randu( 100 ) * 10 ) );
-        BoxPlot f( std::vector< std::pair< PVec, PVec > >
+        PVec x = (vec)(round(randu(100) * 10));
+        BoxPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { x, ( vec )( randu( 100 ) * 100 )},
-            { x, ( vec )( randu( 100 ) * 100 ) },
-            { x, ( vec )( randn( 100 ) * 100 ) }
-        } );
-        f.SetWhis( 5 )
-        .SetFlierSize( 6 )
-        .SetLineWidth( 0.5 )
-        .ShowMeans( true )
-        .SetMean( Line2D().SetMarker( "*" ).SetMarkerFaceColour( "#3d2929" ) );
+            { x, (vec)(randu(100) * 100)},
+            { x, (vec)(randu(100) * 100) },
+            { x, (vec)(randn(100) * 100) }
+        });
+        f.SetWhis(5)
+        .SetFlierSize(6)
+        .SetLineWidth(0.5)
+        .ShowMeans(true)
+        .SetMean(Line2D().SetMarker("*").SetMarkerFaceColour("#3d2929"));
         return f;
-    } );
+    });
 }
 
-TEST( BoxPlot, Constr3 )
+TEST(BoxPlot, Constr3)
 {
-    TestPlotArg< BoxPlot >( "BoxPlot_Constr3", []( Plot & plot )
+    TestPlotArg< BoxPlot >("BoxPlot_Constr3", [](Plot & plot)
     {
-        plot.SetYLimit( 0, 110 );
+        plot.SetYLimit(0, 110);
 
-        PVec x = ( vec )( round( randu( 100 ) * 10 ) );
-        BoxPlot f( std::vector< std::pair< PVec, PVec > >
+        PVec x = (vec)(round(randu(100) * 10));
+        BoxPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { x, ( vec )( randu( 100 ) * 100 )},
-            { x, ( vec )( randu( 100 ) * 100 ) },
-        }, { "First", "Second" } );
-        f.SetOrientation( BoxPlot::Orientation::Vertical )
-        .SetWidth( 0.5 )
-        .SetColour( "purple" )
-        .SetSaturation( 1.0 )
-        .SetLineWidth( 1.5 );
+            { x, (vec)(randu(100) * 100)},
+            { x, (vec)(randu(100) * 100) },
+        }, { "First", "Second" });
+        f.SetOrientation(BoxPlot::Orientation::Vertical)
+        .SetWidth(0.5)
+        .SetColour("purple")
+        .SetSaturation(1.0)
+        .SetLineWidth(1.5);
         return f;
-    } );
+    });
 }
 
-TEST( BoxPlot, Orientation )
+TEST(BoxPlot, Orientation)
 {
-    TestPlotArg< BoxPlot >( "BoxPlot_Orientation", []( Plot & plot )
+    TestPlotArg< BoxPlot >("BoxPlot_Orientation", [](Plot & plot)
     {
-        plot.SetXLimit( 0, 130 );
+        plot.SetXLimit(0, 130);
 
-        vec x = round( randu( 100 ) * 10 );
-        BoxPlot f( std::vector< std::pair< PVec, PVec > >
+        vec x = round(randu(100) * 10);
+        BoxPlot f(std::vector< std::pair< PVec, PVec >>
         {
-            { ( vec )( randu( 100 ) * 100 ), x },
-            { ( vec )( randu( 100 ) * 100 ), x },
-        }, { "First", "Second" } );
-        f.SetOrientation( BoxPlot::Orientation::Horizontal )
-        .SetColourMap( Palette::Qualitative::Set2 )
-        .SetOrder( ( vec )shuffle<vec>( { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } ) )
-        .SetHueOrder( { "Second", "First" } );
+            { (vec)(randu(100) * 100), x },
+            { (vec)(randu(100) * 100), x },
+        }, { "First", "Second" });
+        f.SetOrientation(BoxPlot::Orientation::Horizontal)
+        .SetColourMap(Palette::Qualitative::Set2)
+        .SetOrder((vec)shuffle<vec>({ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 }))
+        .SetHueOrder({ "Second", "First" });
         return f;
-    } );
+    });
 }

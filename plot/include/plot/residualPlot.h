@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,27 +36,27 @@ class ResidualPlot
 {
 public:
 
-    ResidualPlot( const PVec &exogenous, const PVec &endogenous );
+    ResidualPlot(const PVec &exogenous, const PVec &endogenous);
 
     virtual std::string ToString() override;
 
-    ResidualPlot &Lowess( bool lowess );
+    ResidualPlot &Lowess(bool lowess);
 
-    ResidualPlot &SetXPartial( const PMat &mat );
+    ResidualPlot &SetXPartial(const PMat &mat);
 
-    ResidualPlot &SetYPartial( const PMat &mat );
+    ResidualPlot &SetYPartial(const PMat &mat);
 
-    ResidualPlot &SetOrder( size_t order );
+    ResidualPlot &SetOrder(size_t order);
 
-    ResidualPlot &Robust( bool robust );
+    ResidualPlot &Robust(bool robust);
 
-    ResidualPlot &SetLabel( const std::string &label );
+    ResidualPlot &SetLabel(const std::string &label);
 
-    ResidualPlot &SetColour( const std::string &colour );
+    ResidualPlot &SetColour(const std::string &colour);
 
-    ResidualPlot &SetScatter( Scatter &scatter );
+    ResidualPlot &SetScatter(Scatter &scatter);
 
-    ResidualPlot &SetLine( Line &scatter );
+    ResidualPlot &SetLine(Line &scatter);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

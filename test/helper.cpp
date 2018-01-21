@@ -26,10 +26,10 @@
 
 #include "helper.h"
 
-void TestPlot( const std::string &str, std::function< void( Plot & ) > fn )
+void TestPlot(const std::string &str, std::function< void(Plot &) > fn)
 {
     Plot p;
     //p.Set( Plot::Context::Notebook );
-    fn( p );
-    p.Save( str + ".png" );
+    fn(p);
+    p.Save(str + ".png");
 }

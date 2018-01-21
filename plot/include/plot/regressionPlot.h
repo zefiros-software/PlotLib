@@ -1,7 +1,7 @@
 /**
  * @cond ___LICENSE___
  *
- * Copyright (c) 2017 Zefiros Software.
+ * Copyright (c) 2016-2018 Zefiros Software.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,49 +35,49 @@ class RegressionPlot
 {
 public:
 
-    RegressionPlot( const PVec &exogenous, const PVec &endogenous );
+    RegressionPlot(const PVec &exogenous, const PVec &endogenous);
 
     virtual std::string ToString() override;
 
-    RegressionPlot &SetXBins( size_t bins );
+    RegressionPlot &SetXBins(size_t bins);
 
-    RegressionPlot &SetXBins( const PVec &bins );
+    RegressionPlot &SetXBins(const PVec &bins);
 
-    RegressionPlot &SetXConfidenceInterval( size_t ci );
+    RegressionPlot &SetXConfidenceInterval(size_t ci);
 
-    RegressionPlot &SetConfidenceInterval( size_t ci );
+    RegressionPlot &SetConfidenceInterval(size_t ci);
 
-    RegressionPlot &Scatter( bool scatter );
+    RegressionPlot &Scatter(bool scatter);
 
-    RegressionPlot &FitRegression( bool fit );
+    RegressionPlot &FitRegression(bool fit);
 
-    RegressionPlot &SetNBoots( size_t nboots );
+    RegressionPlot &SetNBoots(size_t nboots);
 
-    RegressionPlot &SetOrder( size_t order );
+    RegressionPlot &SetOrder(size_t order);
 
-    RegressionPlot &Logistic( bool logistic );
+    RegressionPlot &Logistic(bool logistic);
 
-    RegressionPlot &Lowess( bool lowess );
+    RegressionPlot &Lowess(bool lowess);
 
-    RegressionPlot &Robust( bool robust );
+    RegressionPlot &Robust(bool robust);
 
-    RegressionPlot &LogX( bool logx );
+    RegressionPlot &LogX(bool logx);
 
-    RegressionPlot &SetXPartial( const PMat &mat );
+    RegressionPlot &SetXPartial(const PMat &mat);
 
-    RegressionPlot &SetYPartial( const PMat &mat );
+    RegressionPlot &SetYPartial(const PMat &mat);
 
-    RegressionPlot &Truncate( bool trunc );
+    RegressionPlot &Truncate(bool trunc);
 
-    RegressionPlot &SetXJitter( double jitter );
+    RegressionPlot &SetXJitter(double jitter);
 
-    RegressionPlot &SetYJitter( double jitter );
+    RegressionPlot &SetYJitter(double jitter);
 
-    RegressionPlot &SetLabel( const std::string &label );
+    RegressionPlot &SetLabel(const std::string &label);
 
-    RegressionPlot &SetColour( const std::string &colour );
+    RegressionPlot &SetColour(const std::string &colour);
 
-    RegressionPlot &SetMarker( const std::string &marker );
+    RegressionPlot &SetMarker(const std::string &marker);
 };
 
 #ifndef PLOTLIB_NO_HEADER_ONLY

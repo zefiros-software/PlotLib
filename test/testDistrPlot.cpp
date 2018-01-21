@@ -28,30 +28,30 @@
 
 #include "helper.h"
 
-TEST( DistrPlot, DistrPlot )
+TEST(DistrPlot, DistrPlot)
 {
-    TestPlot< DistrPlot >( "DistrPlot", []()
+    TestPlot< DistrPlot >("DistrPlot", []()
     {
-        DistrPlot f( ( vec )randn( 100 ) );
-        f.NormHist( true )
-        .Hist( true )
-        .SetBins( 30 )
-        .SetLabel( "label" )
-        .SetAxisLabel( "axis-label" )
-        .SetColour( "y" );
+        DistrPlot f((vec)randn(100));
+        f.NormHist(true)
+        .Hist(true)
+        .SetBins(30)
+        .SetLabel("label")
+        .SetAxisLabel("axis-label")
+        .SetColour("y");
         return f;
-    } );
+    });
 }
 
-TEST( DistrPlot, DistrPlot2 )
+TEST(DistrPlot, DistrPlot2)
 {
-    TestPlot< DistrPlot >( "DistrPlot2", []()
+    TestPlot< DistrPlot >("DistrPlot2", []()
     {
-        DistrPlot f( ( vec )randn( 100 ) );
-        f.Vertical( true )
-        .RUG( true )
-        .KDE( true )
-        .SetBins( { -5, -3, -2, -1, 0, 1, 2, 3, 4, 5} );
+        DistrPlot f((vec)randn(100));
+        f.Vertical(true)
+        .RUG(true)
+        .KDE(true)
+        .SetBins({ -5, -3, -2, -1, 0, 1, 2, 3, 4, 5});
         return f;
-    } );
+    });
 }

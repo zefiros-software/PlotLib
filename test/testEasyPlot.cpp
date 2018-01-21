@@ -29,80 +29,80 @@
 #include "helper.h"
 
 
-TEST( EasyPlot, ResidualPlot )
+TEST(EasyPlot, ResidualPlot)
 {
-    TestPlot( "EasyPlot_ResidualPlot", []( Plot & p )
+    TestPlot("EasyPlot_ResidualPlot", [](Plot & p)
     {
-        vec x = randn( 20 );
-        vec x2 = x + 0.5 * randn( 20 );
-        EasyPlot::ResidualPlot( p, linspace( 0, 20, 20 ), x, x2 );
-    } );
+        vec x = randn(20);
+        vec x2 = x + 0.5 * randn(20);
+        EasyPlot::ResidualPlot(p, linspace(0, 20, 20), x, x2);
+    });
 }
 
-TEST( EasyPlot, StackedBarPlot )
+TEST(EasyPlot, StackedBarPlot)
 {
-    TestPlot( "EasyPlot_StackedBarPlot", []( Plot & p )
+    TestPlot("EasyPlot_StackedBarPlot", [](Plot & p)
     {
-        vec x = round( randu( 200 ) * 10 );
-        vec x2 = round( randu( 200 ) * 10 );;
-        EasyPlot::StackedBarPlot( p, { x, x2 }, { linspace( 0, 20, 200 ), linspace( 0, 20, 200 ) }, Palette::Diverging::RdYlBu,
-                                  []( size_t v )
+        vec x = round(randu(200) * 10);
+        vec x2 = round(randu(200) * 10);;
+        EasyPlot::StackedBarPlot(p, { x, x2 }, { linspace(0, 20, 200), linspace(0, 20, 200) }, Palette::Diverging::RdYlBu,
+                                 [](size_t v)
         {
-            return std::to_string( v );
-        } );
-    } );
+            return std::to_string(v);
+        });
+    });
 }
 
-TEST( EasyPlot, StackedDistancedBarPlot )
+TEST(EasyPlot, StackedDistancedBarPlot)
 {
-    TestPlot( "EasyPlot_StackedDistancedBarPlot", []( Plot & p )
+    TestPlot("EasyPlot_StackedDistancedBarPlot", [](Plot & p)
     {
-        vec x = round( randu( 20 ) * 10 );
-        vec x2 = round( randu( 20 ) * 10 );;
-        EasyPlot::StackedDistancedBarPlot( p, { x, x2 }, { x, x2 }, { x, x2 },
-                                           Palette::Diverging::RdYlBu,
-                                           []( size_t v )
+        vec x = round(randu(20) * 10);
+        vec x2 = round(randu(20) * 10);;
+        EasyPlot::StackedDistancedBarPlot(p, { x, x2 }, { x, x2 }, { x, x2 },
+                                          Palette::Diverging::RdYlBu,
+                                          [](size_t v)
         {
-            return std::to_string( v );
-        } );
-    } );
+            return std::to_string(v);
+        });
+    });
 }
 
-TEST( EasyPlot, BackgroundForegroundBarPlot )
+TEST(EasyPlot, BackgroundForegroundBarPlot)
 {
-    TestPlot( "EasyPlot_BackgroundForegroundBarPlot", []( Plot & p )
+    TestPlot("EasyPlot_BackgroundForegroundBarPlot", [](Plot & p)
     {
-        vec x = round( randu( 10 ) * 10 );
-        vec x2 = round( randu( 10 ) * 10 );;
-        EasyPlot::BackgroundForegroundBarPlot( p, { x, x2 }, { x, x2 }, { linspace( 0, 20, 10 ), linspace( 0, 20, 10 ) },
-                                               Palette::Diverging::RdYlBu, Palette::Seaborn::Deep,
-                                               []( size_t v )
+        vec x = round(randu(10) * 10);
+        vec x2 = round(randu(10) * 10);;
+        EasyPlot::BackgroundForegroundBarPlot(p, { x, x2 }, { x, x2 }, { linspace(0, 20, 10), linspace(0, 20, 10) },
+                                              Palette::Diverging::RdYlBu, Palette::Seaborn::Deep,
+                                              [](size_t v)
         {
-            return "Background-" + std::to_string( v );
+            return "Background-" + std::to_string(v);
         },
-        []( uint32_t v )
+        [](uint32_t v)
         {
-            return "Foreground-" + std::to_string( v );
-        } );
-    } );
+            return "Foreground-" + std::to_string(v);
+        });
+    });
 }
 
-TEST( EasyPlot, BackgroundForegroundBarPlot2 )
+TEST(EasyPlot, BackgroundForegroundBarPlot2)
 {
-    TestPlot( "EasyPlot_BackgroundForegroundBarPlot", []( Plot & p )
+    TestPlot("EasyPlot_BackgroundForegroundBarPlot", [](Plot & p)
     {
         CubeHelixPalette palette;
-        vec x = round( randu( 10 ) * 10 );
-        vec x2 = round( randu( 10 ) * 10 );;
-        EasyPlot::BackgroundForegroundBarPlot( p, { x, x2 }, { x, x2 }, { linspace( 0, 20, 10 ), linspace( 0, 20, 10 ) },
-                                               palette, Palette::Seaborn::Deep,
-                                               []( size_t v )
+        vec x = round(randu(10) * 10);
+        vec x2 = round(randu(10) * 10);;
+        EasyPlot::BackgroundForegroundBarPlot(p, { x, x2 }, { x, x2 }, { linspace(0, 20, 10), linspace(0, 20, 10) },
+                                              palette, Palette::Seaborn::Deep,
+                                              [](size_t v)
         {
-            return "Background-" + std::to_string( v );
+            return "Background-" + std::to_string(v);
         },
-        []( uint32_t v )
+        [](uint32_t v)
         {
-            return "Foreground-" + std::to_string( v );
-        } );
-    } );
+            return "Foreground-" + std::to_string(v);
+        });
+    });
 }
