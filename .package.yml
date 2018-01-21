@@ -28,7 +28,7 @@ development:
     libraries:
       - name: Zefiros-Software/Armadillo
         optional: false
-        version: '^7.800.0'
+        version: '>=7.800.0'
 settings:
   headerOnly:
     default: false

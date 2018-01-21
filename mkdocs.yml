@@ -1,43 +1,36 @@
 site_name: PlotLib
-site_url: http://plot.zefiros.eu
-repo_url: 
+site_url: 'http://plot.zefiros.eu'
+repo_url: null
 site_description: A C++ plotting library
 theme: united
 copyright: Copyright © 2017 Zefiros Software.
-google_analytics: 
-
+google_analytics: null
 theme_dir: docs/style
-
-pages: 
-    - 'index.md'
-
-    - 'Statistic':
-        - 'Auto Correlation': 'stat/autocorrelation.md'
-        - 'Cross Correlation': 'stat/crosscorrelation.md'
-
-    - 'Misc':
-        - 'misc/misc.md'
-        - 'Angle Spectrum': 'misc/anglespectrum.md'
-        - 'Annotate': 'misc/annotate.md'
-        - 'Arrow': 'misc/arrow.md'
-
-    - 'Properties':
-        - 'Line2d': 'properties/line2d.md'
-        - 'Patch': 'properties/patch.md'
-
+pages:
+  - index.md
+  - Statistic:
+    - Auto Correlation: stat/autocorrelation.md
+    - Cross Correlation: stat/crosscorrelation.md
+  - Misc:
+    - misc/misc.md
+    - Angle Spectrum: misc/anglespectrum.md
+    - Annotate: misc/annotate.md
+    - Arrow: misc/arrow.md
+  - Properties:
+    - Line2d: properties/line2d.md
+    - Patch: properties/patch.md
 extra_css:
-    - 'style/docs.css'
-
+  - style/docs.css
 extra_javascript:
-    - 'style/mathjax-loader.js'
-    - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
-
+  - style/mathjax-loader.js
+  - >-
+    https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 markdown_extensions:
-    - toc:
-        permalink: True
-        separator: "_"
-    - admonition
-    - sane_lists
-    - pymdownx.arithmatex
-    - pymdownx.magiclink
-    - markdown_checklist.extension
+  - toc:
+      permalink: true
+      separator: _
+  - admonition
+  - sane_lists
+  - pymdownx.arithmatex
+  - pymdownx.magiclink
+  - markdown_checklist.extension
