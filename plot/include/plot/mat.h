@@ -60,6 +60,10 @@ public:
     PMat(const tT &data)
         : mData(data.n_rows)
     {
+        for (size_t i = 0; i < data.n_rows; ++i)
+        {
+            mData[i] = arma::conv_to< std::vector<double> >::from(data.row(i));
+        };
     }
 
 #endif
