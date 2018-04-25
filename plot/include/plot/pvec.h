@@ -70,7 +70,7 @@ public:
 
     template< typename tT >
     PVec(const tT &data)
-        : mData(arma::conv_to< std::vector<double>>::from(data.row))
+        : mData(arma::conv_to< std::vector<double>>::from(data))
     {
     }
 
