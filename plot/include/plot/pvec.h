@@ -28,10 +28,6 @@
 #ifndef __VEC_H__
 #define __VEC_H__
 
-#ifdef PLOTLIB_ARMA
-#include <armadillo>
-#endif
-
 #include <initializer_list>
 #include <functional>
 #include <valarray>
