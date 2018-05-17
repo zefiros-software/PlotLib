@@ -341,15 +341,15 @@ PLOTLIB_INLINE Plot &Plot::EnableLaTeX()
     return *this;
 }
 
-PLOTLIB_INLINE Plot &Plot::Save(const std::string &fname)
+PLOTLIB_INLINE Plot &Plot::Save(const std::string &fname, const std::string &pythonName /*="plot.in"*/)
 {
-    std::ofstream ss("plot.in");
+    std::ofstream ss(pythonName);
 
     ss << mInitStream.str() << mStream.str() << "\nplt.savefig( '" << fname << "', dpi=120 )";
 
     ss.close();
 
-    int32_t result = system((mPython + "plot.in").c_str());
+    int32_t result = system((mPython + pythonName).c_str());
     //assert( result == 0 );
 
     return *this;
