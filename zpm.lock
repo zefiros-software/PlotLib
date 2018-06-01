@@ -23,7 +23,7 @@
           "versionRequirement": "@head || ^1.0.0"
         }, {
           "definition": "https://github.com/Zefiros-Software/GoogleBenchmark.git",
-          "hash": "4fbfa2f3368cb8d8a0cba48edda584c7dd9f0a14",
+          "hash": "4c2af0788977d3bd900585528c2d08b875b2cd39",
           "name": "Zefiros-Software/GoogleBenchmark",
           "repository": "https://github.com/google/benchmark.git",
           "tag": "HEAD",
