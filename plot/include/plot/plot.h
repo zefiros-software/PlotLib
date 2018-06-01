@@ -176,7 +176,7 @@ public:
 
     Plot &EnableLaTeX();
 
-    Plot &Save(const std::string &fname,  const std::string &pythonName="plot.in");
+    Plot &Save(const std::string &fname,  const std::string &pythonName = "plot.in");
 
     Plot &Figure(size_t n);
 

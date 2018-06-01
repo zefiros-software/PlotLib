@@ -62,7 +62,7 @@ public:
     {
         for (size_t i = 0; i < data.n_rows; ++i)
         {
-            mData[i] = arma::conv_to< std::vector<double> >::from(data.row(i));
+            mData[i] = arma::conv_to< std::vector<double>>::from(data.row(i));
         };
     }
 
