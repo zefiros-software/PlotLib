@@ -35,6 +35,11 @@
 #include <vector>
 #include <map>
 
+
+#ifdef PLOTLIB_ARMA
+#   include <armadillo>
+#endif
+
 class PVec
 {
     friend class Matrix;
