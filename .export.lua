@@ -44,6 +44,7 @@ project "PlotLib"
     end
 
     if zpm.has("Zefiros-Software/Armadillo") then
+        zpm.uses("Zefiros-Software/Armadillo")
         zpm.export [[
             defines "PLOTLIB_ARMA"
         ]]
